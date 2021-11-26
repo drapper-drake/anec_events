@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  gap: 3em;
+  height: 550px;
+}
+
+button {
+  background: #4c6c73;
+  width: 122px;
+  height: 55px;
+  border-radius: 20px;
+}
+
+.container-text {
+  font-family: Roboto, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-header {
+  margin: 0;
+}
+.description-header {
+  width: 409px;
+  font-weight: normal;
+}
+
+.container-logo {
+  background: #591937;
+  display: flex;
+  justify-content: center;
+  width: 850px;
+  height: 550px;
+}
+
+.square-grey {
+  background: #c4c4c4;
+  width: 550px;
+  height: 550px;
+  justify-content: center;
+}
