@@ -14,6 +14,8 @@ button {
   width: 122px;
   height: 55px;
   border-radius: 20px;
+  border-style: none;
+  cursor: pointer;
 }
 
 .container-text {
@@ -23,14 +25,18 @@ button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .title-header {
   margin: 0;
+  font-size: 48px;
 }
+
 .description-header {
   width: 409px;
   font-weight: normal;
+  font-size: 36px;
 }
 
 .container-logo {
