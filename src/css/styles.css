@@ -20,6 +20,7 @@ header {
   justify-content: space-between;
   width: 100vw;
   height: 620px;
+  margin-bottom: 56px;
 }
 
 button {
@@ -121,6 +122,9 @@ footer {
   body {
     margin: 0;
   }
+  header {
+    justify-content: center;
+  }
   .container {
     width: 100%;
     grid-template-columns: 1fr;
@@ -132,6 +136,9 @@ footer {
     border-radius: 0px;
   }
   body .description {
+    display: none;
+  }
+  .container-logo {
     display: none;
   }
 }
