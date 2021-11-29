@@ -1,16 +1,29 @@
+:root {
+  --bg-color: #f2f2f2;
+  --color-primary: #023e73;
+  --color-secundary: #084da6;
+  --bg-color-dark: #bfa26b;
+  --color-contrast: #a60321;
+}
+
 body {
   margin: 0;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 header {
   display: flex;
-  justify-content: flex-end;
-  gap: 3em;
-  height: 550px;
+  position: relative;
+  justify-content: space-between;
+  width: 100vw;
+  height: 620px;
 }
 
 button {
-  background: #4c6c73;
+  background: var(--bg-color-dark);
   width: 122px;
   height: 55px;
   border-radius: 20px;
@@ -40,16 +53,28 @@ button {
 }
 
 .container-logo {
-  background: #591937;
+  position: relative;
+  background: var(--color-primary);
   display: flex;
   justify-content: center;
-  width: 850px;
-  height: 550px;
+  width: 710px;
+  height: 620px;
+  border-bottom-left-radius: 100px;
 }
 
 .square-grey {
   background: #c4c4c4;
-  width: 550px;
-  height: 550px;
-  justify-content: center;
+  width: 440px;
+  height: 440px;
+}
+
+.container {
+  height: 500px;
+}
+
+footer {
+  background-color: var(--color-primary);
+  height: 200px;
+  color: var(--bg-color);
+  text-align: center;
 }
