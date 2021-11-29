@@ -9,9 +9,6 @@
 body {
   margin: 0;
   background-color: var(--bg-color);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 header {
@@ -20,7 +17,6 @@ header {
   justify-content: space-between;
   width: 100vw;
   height: 620px;
-  margin-bottom: 56px;
 }
 
 button {
@@ -30,6 +26,13 @@ button {
   border-radius: 20px;
   border-style: none;
   cursor: pointer;
+}
+
+footer {
+  background-color: var(--color-primary);
+  height: 200px;
+  color: var(--bg-color);
+  text-align: center;
 }
 
 .container-text {
@@ -73,18 +76,12 @@ button {
   height: 500px;
 }
 
-footer {
-  background-color: var(--color-primary);
-  height: 200px;
-  color: var(--bg-color);
-  text-align: center;
-}
-
 /* Estilos de las tarjetas de eventos */
 
 .container {
   width: 90%;
-  margin: 0 auto;
+  height: min-content;
+  margin: 56px auto;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 39px;
