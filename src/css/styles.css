@@ -53,3 +53,60 @@ button {
   height: 550px;
   justify-content: center;
 }
+
+/* Estilos de las tarjetas de eventos */
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 39px;
+  grid-row-gap: 39px;
+}
+
+.card {
+  background: #b7caf5;
+  text-align: center;
+  border-radius: 25px;
+}
+
+.card > img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 25px 25px 0px 0px;
+}
+
+.description {
+  text-align: initial;
+  padding: 0px 25px 10px;
+}
+
+/* Responsive */
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .container {
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0;
+  }
+  .container {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+  .card {
+    border-radius: 0px;
+  }
+  .card > img {
+    border-radius: 0px;
+  }
+  body .description {
+    display: none;
+  }
+}
