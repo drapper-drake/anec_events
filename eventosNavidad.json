@@ -1,0 +1,110 @@
+[
+    {
+        "nombreEvento": "Feria de Navidad",
+        "precioEvento": "Según la atracción",
+        "lugar": "Recinto de Rabasa",
+        "horarioApertura": "",
+        "horarioCierre": "",
+        "fechaInicio": "Diciembre",
+        "fechaFinal": "",
+        "observaciones": ""
+
+    },
+    {
+        "nombreEvento": "Mercadillo de Artesanía Navideña",
+        "precioEvento": "Según el producto",
+        "lugar": "Paseo de la Avenida de Federico Soto",
+        "horarioApertura": "10:00 a 15:00",
+        "horarioCierre": "17:00 a 23:00",
+        "fechaInicio": "01/12/2021",
+        "fechaFinal": "06/01/2022",
+        "observaciones": ""
+
+    },
+    {
+        "nombreEvento": "Casa de Papá Noel",
+        "precioEvento": "Gratis.",
+        "lugar": "Plaza Séneca",
+        "horarioApertura": "",
+        "horarioCierre": "",
+        "fechaInicio": "02/12/2021",
+        "fechaFinal": "24/12/2021",
+        "observaciones": "Solicitar cita previa"
+
+    },
+    {
+        "nombreEvento": "Atracciones infantiles",
+        "precioEvento": "Según la atracción",
+        "lugar": "Plaza Séneca",
+        "horarioApertura": "",
+        "horarioCierre": "",
+        "fechaInicio": "02/12/2021",
+        "fechaFinal": "20/01/2022",
+        "observaciones": ""
+
+    },
+    {
+        "nombreEvento": "Pista de hielo y atracciones",
+        "precioEvento": "Según la atracción",
+        "lugar": "Plaza de Toros",
+        "horarioApertura": "",
+        "horarioCierre": "",
+        "fechaInicio": "04/12/2021",
+        "fechaFinal": "",
+        "observaciones": ""
+
+    },
+    {
+        "nombreEvento": "Certamen de Villancicos",
+        "precioEvento": "",
+        "lugar": "Federació de Fogueres",
+        "horarioApertura": "sábado de 19:00 a 21:00",
+        "horarioCierre": "domingo de 12:00 a 14:00 y de 18:00 a 21:00",
+        "fechaInicio": "11/12/2021",
+        "fechaFinal": "12/12/2021",
+        "observaciones": ""
+
+    },
+    {
+        "nombreEvento": "Mercadillo Campoamor",
+        "precioEvento": "",
+        "lugar": "Paseo de Campoamor",
+        "horarioApertura": "11:00",
+        "horarioCierre": "21:00",
+        "fechaInicio": "18/12/2021",
+        "fechaFinal": "19/12/2021",
+        "observaciones": ""
+
+    },
+    {
+        "nombreEvento": "Carta a los Reyes Magos",
+        "precioEvento": "Gratis",
+        "lugar": "Plaza de Gabriel Miró",
+        "horarioApertura": "",
+        "horarioCierre": "",
+        "fechaInicio": "26/12/2021",
+        "fechaFinal": "04/01/2022",
+        "observaciones": "Solicitar cita previa"
+
+    },
+    {
+        "nombreEvento": "Fin de año y cotillón infantil",
+        "precioEvento": "Gratis",
+        "lugar": "Plaza del Ayuntamiento",
+        "horarioApertura": "Cotillón infantil de 11:00 a 13:00",
+        "horarioCierre": "Campanadas de Fin de Año de 23:00 a 04:00",
+        "fechaInicio": "31/12/2021",
+        "fechaFinal": "01/01/2022",
+        "observaciones": "La orquesta 'Vendetta Project' tocará en directo"
+    },
+    {
+        "nombreEvento": "Cabalgata de los Reyes Magos",
+        "precioEvento": "Gratis",
+        "lugar": "Desde la Av. de la Estación hasta la Plaza del Ayuntamiento",
+        "horarioApertura": "19:00",
+        "horarioCierre": "",
+        "fechaInicio": "05/01/2022",
+        "fechaFinal": "05/01/2022",
+        "observaciones": "El recorrido puede ampliarse según la evolución de la pandemia"
+    }
+]
