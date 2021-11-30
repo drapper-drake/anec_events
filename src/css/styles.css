@@ -28,13 +28,6 @@ button {
   cursor: pointer;
 }
 
-footer {
-  background-color: var(--color-primary);
-  height: 200px;
-  color: var(--bg-color);
-  text-align: center;
-}
-
 .container-text {
   font-family: Roboto, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue", sans-serif;
@@ -106,6 +99,24 @@ footer {
   padding: 0px 25px 10px;
 }
 
+footer {
+  background-color: var(--color-primary);
+  min-height: 200px;
+  color: var(--bg-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.container-img {
+  width: 100vw;
+  height: 50px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.container-img img {
+  height: 100%;
+}
 /* Responsive */
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
