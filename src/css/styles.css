@@ -113,6 +113,7 @@ footer {
   height: 50px;
   display: flex;
   justify-content: space-evenly;
+  margin-bottom: 10px;
 }
 
 .container-img img {
