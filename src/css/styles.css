@@ -139,6 +139,12 @@ footer {
 }
 /* Responsive */
 
+@media screen and (min-width: 320px) and (max-width: 1250px) {
+  .square-grey {
+    display: none;
+  }
+}
+
 @media screen and (min-width: 769px) and (max-width: 1023px) {
   .container {
     width: 100%;
@@ -152,6 +158,14 @@ footer {
   }
   header {
     justify-content: center;
+  }
+
+  .text-intro {
+    width: 400px;
+    height: 330px;
+  }
+  .logo-pato {
+    display: none;
   }
   .container {
     width: 100%;
