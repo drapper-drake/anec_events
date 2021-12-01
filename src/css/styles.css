@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lobster&display=swap%27");
+
 :root {
   --bg-color: #f2f2f2;
   --color-primary: #023e73;
@@ -35,6 +37,7 @@ header {
   width: min-content;
   position: relative;
 }
+
 .text-intro {
   display: flex;
   flex-direction: column;
@@ -44,18 +47,22 @@ header {
   width: 600px;
   position: relative;
 }
+
 .logo-pato {
   transform: translate(280px, -80px);
   position: absolute;
 }
 
 .title-header {
+  font-family: "Lobster", cursive;
+  color: var(--color-contrast);
   text-align: start;
   margin: 0;
-  font-size: 60px;
+  font-size: 70px;
 }
 
 .description-header {
+  font-family: "Be Vietnam Pro", sans-serif;
   width: 60%;
   font-weight: normal;
   font-size: 36px;
