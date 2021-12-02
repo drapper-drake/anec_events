@@ -77,6 +77,7 @@ header {
 }
 
 .square-grey {
+  display:none;
   background: #c4c4c4;
   width: 440px;
   height: 440px;
@@ -127,11 +128,14 @@ footer {
   flex-direction: column;
 }
 .container-img {
-  width: 100%;
+  width: 80%;
   height: 50px;
+  background: white;
   display: flex;
   justify-content: space-evenly;
+  margin: 0 auto;
   margin-bottom: 10px;
+  border-radius: 15px;
 }
 
 .container-img img {
