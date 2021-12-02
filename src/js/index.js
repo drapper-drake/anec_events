@@ -1,20 +1,28 @@
+// createEvents crea las tarjetas de evento con los datos de eventosNavidad.json
 function createEvents() {
-  const request = fetch("src/js/eventosNavidad.json")
-    .then((response) => response.text())
+  // fetch importa los datos del JSON
+  // response.json los parsea y almacena en data
+  fetch("src/js/eventosNavidad.json")
+    .then((response) => response.json())
     .then((data) => {
-      const json = JSON.parse(data);
+      // data es un array de eventos
       const contenido = document.querySelector(".container");
-      for (let evento = 0; evento < json.length; evento++) {
+      for (let evento = 0; evento < data.length; evento++) {
+        // TARJETA
         let box = document.createElement("div");
         box.className = "card";
+        // IMAGEN
         let image = document.createElement("img");
-        image.src = json[evento].photoEvent;
+        image.src = data[evento].photoEvent;
+        // NOMBRE
         let name = document.createElement("h4");
-        name.innerText = json[evento].nameEvent;
+        name.innerText = data[evento].nameEvent;
+        // LUGAR
         let place = document.createElement("p");
-        place.innerText = json[evento].site;
+        place.innerText = data[evento].site;
+        // FECHA
         let date = document.createElement("p");
-        date.innerText = json[evento].dateStart;
+        date.innerText = data[evento].dateStart;
         contenido.appendChild(box);
         box.appendChild(image);
         box.appendChild(name);
