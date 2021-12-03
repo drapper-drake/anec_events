@@ -119,6 +119,7 @@ header {
 .card >h4 {
   font-family: "Lobster", cursive;
   font-size: 32px;
+  padding: 5px;
 }
 
 .description {
@@ -150,6 +151,11 @@ footer {
 
 .container-img>img {
   max-height: 50px;
+}
+/*Clase estandar para ocultar ciertos elementos temporalmente*/
+
+.hidden{
+  display:none;
 }
 
 /* Responsive */
