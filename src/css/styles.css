@@ -141,6 +141,7 @@ footer {
   width: 80%;
   background: white;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -150,6 +151,7 @@ footer {
 .container-img>img {
   max-height: 50px;
 }
+
 /* Responsive */
 
 @media screen and (min-width: 320px) and (max-width: 1250px) {
