@@ -82,12 +82,29 @@
   },
   {
     "nameEvent": "Cabalgata de los Reyes Magos",
-    "gratis": true,
+    "free": true,
     "site": "Desde la Av. de la Estación hasta la Plaza del Ayuntamiento",
     "hoursOpen": "19:00",
     "dateStart": "05/01/2022",
     "dateFinal": "05/01/2022",
     "comments": "El recorrido puede ampliarse según la evolución de la pandemia",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440952/anac-event/dcqxxhzdbtbr7zyntgjc.jpg"
+  },
+  {
+    "nameEvent": "Talleres en el Aula de Cultura",
+    "free": true,
+    "site": "Aula de Cultura, Chalet del Ingeniero de Tranvías",
+    "dateStart": "3/12/2021",
+    "dateFinal": "18/12/2021",
+    "comments": "Solicitar Inscripción. La Navidad Intergeneracional, para niños de entre 5 y 12 años acompañados de un adulto",
+    "photoEvent": "https://res.cloudinary.com/dcvrhfftg/image/upload/v1638527640/talleres_v3exqb.jpg"
+  },
+  {
+    "nameEvent": "Fuegos artificiales en la Playa del Cocó",
+    "free": true,
+    "site": "Playa del Cocó",
+    "hoursOpen": "A partir de las 20:00",
+    "dateStart": "1/1/2022",
+    "photoEvent": "https://res.cloudinary.com/dcvrhfftg/image/upload/v1638527630/fireworks_elvxc9.jpg"
   }
 ]
