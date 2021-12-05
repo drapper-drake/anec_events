@@ -14,6 +14,9 @@ function createEvents() {
         // IMAGEN
         let image = document.createElement("img");
         image.src = data[evento].photoEvent;
+        // BARRA DE ICONOS
+        let bar = document.createElement("div");
+        bar.className = "icons-bar";
         // NOMBRE
         let name = document.createElement("h4");
         name.innerText = data[evento].nameEvent;
@@ -25,9 +28,20 @@ function createEvents() {
         date.innerText = data[evento].dateStart;
         contenido.appendChild(box);
         box.appendChild(image);
+        box.appendChild(bar);
         box.appendChild(name);
         box.appendChild(place);
         box.appendChild(date);
+        // ICONOS
+        if (data[evento].free) {
+          let freeIconContainer = document.createElement("figure");
+          freeIconContainer.title = "Evento GRATUITO";
+          let freeIcon = document.createElement("img");
+          freeIcon.src = "/src/assets/img/free.png";
+          freeIcon.alt = "Evento GRATUITO";
+          bar.appendChild(freeIconContainer);
+          freeIconContainer.appendChild(freeIcon);
+        }
       }
     });
 }
