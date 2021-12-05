@@ -34,10 +34,13 @@ function createEvents() {
         box.appendChild(date);
         // ICONOS
         if (data[evento].free) {
+          let freeIconContainer = document.createElement("figure");
+          freeIconContainer.title = "Evento GRATUITO";
           let freeIcon = document.createElement("img");
           freeIcon.src = "/src/assets/img/free.png";
           freeIcon.alt = "Evento GRATUITO";
-          bar.appendChild(freeIcon);
+          bar.appendChild(freeIconContainer);
+          freeIconContainer.appendChild(freeIcon);
         }
       }
     });
