@@ -31,3 +31,41 @@ function createEvents() {
       }
     });
 }
+
+/* Función del slider de logos de patrocinadores
+* Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
+* */
+const Sponsors = document.querySelectorAll('.container-img>img');
+
+const SrcImg = ["./src/assets/img/gobesp.png", "./src/assets/img/logoEoi.svg", "./src/assets/img/ue.png", "./src/assets/img/fundonce.png", "./src/assets/img/garjuv.png"];
+const FirstSponsor =  Sponsors[0]
+// IMPROVE Take out the dependencies of all functions and also use parameters
+function hideImg(){
+  //Le añado a todas una clase que las oculta
+  Sponsors.forEach((img) => img.classList.add('hidden'));
+  //Al first child le quito la clase hidden
+  FirstSponsor.classList.remove('hidden');
+}
+let i = 0;
+function changeSrcImg(){
+  FirstSponsor.src = SrcImg[i];
+  i = ( i < SrcImg.length - 1) ? i+1 :0
+}
+function responsiveFooter(){
+  if(window.innerWidth <= 768){
+    hideImg();
+    setInterval(changeSrcImg,3000);
+  }else{
+    i = 0;
+    FirstSponsor.src = SrcImg[i];
+    clearInterval(changeSrcImg);
+    Sponsors.forEach((img) => img.classList.remove('hidden'));
+  }
+}
+
+// La ventana tiene un evento cuando carga y otro por si se redimensiona
+window.addEventListener('resize',responsiveFooter)
+window.addEventListener('DOMContentLoaded', () =>{
+  createEvents();
+  responsiveFooter();
+})
