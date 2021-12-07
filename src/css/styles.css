@@ -1,0 +1,249 @@
+@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lobster&display=swap%27");
+
+:root {
+  --bg-color: #f2f2f2;
+  --color-primary: #023e73;
+  --color-secundary: #084da6;
+  --bg-color-dark: #bfa26b;
+  --color-contrast: #a60321;
+}
+
+body {
+  width: 100%;
+  height: min-content;
+  background-color: var(--bg-color);
+
+  margin: 0;
+}
+
+header {
+  width: 100%;
+  height: 620px;
+  background: linear-gradient(var(--bg-color) 40%, var(--color-primary) 40%);
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.container-title {
+  width: min-content;
+  height: min-content;
+
+  font-family: Roboto, BlinkMacSystemFont, "Segoe UI", Oxygen, Ubuntu, Cantarell,
+    "Open Sans", "Helvetica Neue", sans-serif;
+  text-align: center;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 3;
+  position: relative;
+}
+
+.text-intro {
+  width: 600px;
+  height: 330px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+}
+
+.logo-pato {
+  transform: translate(280px, -80px);
+  position: absolute;
+}
+
+.title-header {
+  color: var(--color-contrast);
+  font-family: "Lobster", cursive;
+  text-align: start;
+  font-size: 70px;
+
+  margin: 0;
+}
+
+.description-header {
+  width: 60%;
+
+  color: var(--bg-color);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: normal;
+  font-size: 36px;
+
+  position: absolute;
+  top: 3em;
+}
+
+.description-header strong {
+  color: var(--bg-color-dark);
+  font-weight: bolder;
+}
+
+.square-grey {
+  height: 440px;
+  width: 440px;
+  background: #c4c4c4;
+
+  display: none;
+  z-index: 5;
+}
+
+.container {
+  height: 500px;
+}
+
+/* Estilos de las tarjetas de eventos */
+
+.container {
+  width: 90%;
+  height: min-content;
+  margin: 56px auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 39px;
+  grid-row-gap: 39px;
+
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 18px;
+}
+
+.card {
+  background: var(--color-primary);
+  border-radius: 25px;
+
+  text-align: center;
+  color: var(--bg-color);
+}
+
+.card > img {
+  width: 100%;
+  height: 260px;
+
+  object-fit: cover;
+  border-radius: 25px 25px 0px 0px;
+}
+
+.card > h4 {
+  font-family: "Lobster", cursive;
+  font-size: 32px;
+
+  margin-top: 10px;
+  padding: 5px;
+}
+
+.icons-bar {
+  width: 90%;
+  height: 48px;
+  background: var(--bg-color);
+  border-radius: 25px;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin: 10px auto;
+}
+
+.icons-bar > figure {
+  width: 48px;
+  height: 48px;
+
+  margin: 0;
+}
+
+figure > img {
+  width: 48px;
+  height: 48px;
+
+  margin-left: 10px;
+}
+
+.description {
+  text-align: initial;
+
+  padding: 0px 25px 10px;
+}
+
+footer {
+  width: 100%;
+  min-height: 200px;
+  background-color: var(--color-primary);
+
+  color: var(--bg-color);
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 18px;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.container-img {
+  width: 80%;
+  background: white;
+  border-radius: 15px;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.container-img > img {
+  max-height: 50px;
+}
+/*Clase estandar para ocultar ciertos elementos temporalmente*/
+
+.hidden {
+  display: none;
+}
+
+/* Responsive */
+
+@media screen and (min-width: 320px) and (max-width: 1250px) {
+  .square-grey {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1023px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0;
+  }
+  header {
+    justify-content: center;
+  }
+
+  .text-intro {
+    width: 400px;
+    height: 330px;
+  }
+  .logo-pato {
+    display: none;
+  }
+  .container {
+    grid-template-columns: 1fr;
+  }
+  body .description {
+    display: none;
+  }
+  .container-logo {
+    display: none;
+  }
+}

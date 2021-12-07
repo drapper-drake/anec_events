@@ -1,0 +1,110 @@
+[
+  {
+    "nameEvent": "Feria de Navidad",
+    "free": false,
+    "site": "Recinto de Rabasa",
+    "dateStart": "Diciembre",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638438727/anac-event/qlxpnbpixt71kj8acpnx.jpg"
+  },
+  {
+    "nameEvent": "Mercadillo de Artesanía Navideña",
+    "free": false,
+    "site": "Paseo de la Avenida de Federico Soto",
+    "hoursOpen": "10:00 a 15:00",
+    "hoursClose": "17:00 a 23:00",
+    "dateStart": "01/12/2021",
+    "dateFinal": "06/01/2022",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638438838/anac-event/vfqbgqgloimyepfdqxqr.jpg"
+  },
+  {
+    "nameEvent": "Casa de Papá Noel",
+    "free": true,
+    "site": "Plaza Séneca",
+    "dateStart": "02/12/2021",
+    "dateFinal": "24/12/2021",
+    "comments": "Solicitar cita previa",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638448917/anac-event/urjrwksbrkwnrjotm6ti.jpg"
+  },
+  {
+    "nameEvent": "Atracciones infantiles",
+    "free": false,
+    "site": "Plaza Séneca",
+    "dateStart": "02/12/2021",
+    "dateFinal": "20/01/2022",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439439/anac-event/hzn7v6vpz8sikals5k9x.jpg"
+  },
+  {
+    "nameEvent": "Pista de hielo y atracciones",
+    "free": false,
+    "site": "Plaza de Toros",
+    "dateStart": "04/12/2021",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439899/anac-event/iduatnkcfredsmyslhl4.jpg"
+  },
+  {
+    "nameEvent": "Certamen de Villancicos",
+    "free": true,
+    "site": "Federació de Fogueres",
+    "hoursOpen": "sábado de 19:00 a 21:00",
+    "hoursClose": "domingo de 12:00 a 14:00 y de 18:00 a 21:00",
+    "dateStart": "11/12/2021",
+    "dateFinal": "12/12/2021",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440083/anac-event/pkrmqldmhgbhcy9hoj25.jpg"
+  },
+  {
+    "nameEvent": "Mercadillo Campoamor",
+    "free": true,
+    "site": "Paseo de Campoamor",
+    "hoursOpen": "11:00",
+    "hoursClose": "21:00",
+    "dateStart": "18/12/2021",
+    "dateFinal": "19/12/2021",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440383/anac-event/akrqgwxvpbkrrebse2v0.jpg"
+  },
+  {
+    "nameEvent": "Carta a los Reyes Magos",
+    "free": true,
+    "site": "Plaza de Gabriel Miró",
+    "dateStart": "26/12/2021",
+    "dateFinal": "04/01/2022",
+    "comments": "Solicitar cita previa",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440602/anac-event/udxahwkusda3hm0df3ls.jpg"
+  },
+  {
+    "nameEvent": "Fin de año y cotillón infantil",
+    "free": true,
+    "site": "Plaza del Ayuntamiento",
+    "hoursOpen": "Cotillón infantil de 11:00 a 13:00",
+    "hoursClose": "Campanadas de Fin de Año de 23:00 a 04:00",
+    "dateStart": "31/12/2021",
+    "dateFinal": "01/01/2022",
+    "comments": "La orquesta 'Vendetta Project' tocará en directo",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440763/anac-event/xfgvgy9vfytn637fshnd.jpg"
+  },
+  {
+    "nameEvent": "Cabalgata de los Reyes Magos",
+    "free": true,
+    "site": "Desde la Av. de la Estación hasta la Plaza del Ayuntamiento",
+    "hoursOpen": "19:00",
+    "dateStart": "05/01/2022",
+    "dateFinal": "05/01/2022",
+    "comments": "El recorrido puede ampliarse según la evolución de la pandemia",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440952/anac-event/dcqxxhzdbtbr7zyntgjc.jpg"
+  },
+  {
+    "nameEvent": "Talleres en el Aula de Cultura",
+    "free": true,
+    "site": "Aula de Cultura, Chalet del Ingeniero de Tranvías",
+    "dateStart": "3/12/2021",
+    "dateFinal": "18/12/2021",
+    "comments": "Solicitar Inscripción. La Navidad Intergeneracional, para niños de entre 5 y 12 años acompañados de un adulto",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638530230/anac-event/je5uo92ikduecprvm5su.jpg"
+  },
+  {
+    "nameEvent": "Fuegos artificiales en la Playa del Cocó",
+    "free": true,
+    "site": "Playa del Cocó",
+    "hoursOpen": "A partir de las 20:00",
+    "dateStart": "1/1/2022",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638530131/anac-event/s3c0xnbtjfobyevxeuqk.jpg"
+  }
+]
