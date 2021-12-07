@@ -41,6 +41,14 @@ function createEvents() {
           freeIcon.alt = "Evento GRATUITO";
           bar.appendChild(freeIconContainer);
           freeIconContainer.appendChild(freeIcon);
+        } else {
+          let payIconContainer = document.createElement("figure");
+          payIconContainer.title = "Evento DE PAGO";
+          let payIcon = document.createElement("img");
+          payIcon.src = "/src/assets/img/pago.svg";
+          payIcon.alt = "Evento GRATUITO";
+          bar.appendChild(payIconContainer);
+          payIconContainer.appendChild(payIcon);
         }
       }
     });
