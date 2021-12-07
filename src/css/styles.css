@@ -202,6 +202,14 @@ footer {
 .container-img > img {
   max-height: 50px;
 }
+
+a {
+  color: var(--bg-color);
+}
+a:visited {
+  color: var(--bg-color-dark);
+}
+
 /*Clase estandar para ocultar ciertos elementos temporalmente*/
 
 .hidden {
