@@ -6,7 +6,7 @@ function createEvents() {
     .then((response) => response.json())
     .then((data) => {
       // data es un array de eventos
-      const contenido = document.querySelector(".container");
+      const content = document.querySelector(".container");
       for (let evento = 0; evento < data.length; evento++) {
         // TARJETA
         let box = document.createElement("div");
@@ -23,7 +23,7 @@ function createEvents() {
         // FECHA
         let date = document.createElement("p");
         date.innerText = data[evento].dateStart;
-        contenido.appendChild(box);
+        content.appendChild(box);
         box.appendChild(image);
         box.appendChild(name);
         box.appendChild(place);
@@ -37,34 +37,33 @@ function createEvents() {
 * */
 const Sponsors = document.querySelectorAll('.container-img>img');
 
-const SrcImg = ["./src/assets/img/gobesp.png", "./src/assets/img/logoEoi.svg", "./src/assets/img/ue.png", "./src/assets/img/fundonce.png", "./src/assets/img/garjuv.png"];
+const SrcImgLogoFooter = ["./src/assets/img/gobesp.png", "./src/assets/img/logoEoi.svg", "./src/assets/img/ue.png", "./src/assets/img/fundonce.png", "./src/assets/img/garjuv.png"];
 const FirstSponsor =  Sponsors[0]
-// IMPROVE Take out the dependencies of all functions and also use parameters
 function hideImg(){
   //Le añado a todas una clase que las oculta
   Sponsors.forEach((img) => img.classList.add('hidden'));
-  //Al first child le quito la clase hidden
+  /* Al primer img le quito la clase hidden porque necesito uno
+  * visible para poder ir cambiando el src */
   FirstSponsor.classList.remove('hidden');
 }
-let i = 0;
-function changeSrcImg(){
-  FirstSponsor.src = SrcImg[i];
-  i = ( i < SrcImg.length - 1) ? i+1 :0
-}
-function responsiveFooter(){
-  if(window.innerWidth <= 768){
-    hideImg();
-    setInterval(changeSrcImg,3000);
+let index = 0;
+function nextSliderImg(imgToChange,listOfSrc){
+  //Aqui se va cambiando el src del primer img según la variable global index
+  imgToChange.src = listOfSrc[index];
+  if (index < listOfSrc.length - 1){
+    index++;
   }else{
-    i = 0;
-    FirstSponsor.src = SrcImg[i];
-    clearInterval(changeSrcImg);
-    Sponsors.forEach((img) => img.classList.remove('hidden'));
+    index = 0;
   }
 }
 
-// La ventana tiene un evento cuando carga y otro por si se redimensiona
-window.addEventListener('resize',responsiveFooter)
+function responsiveFooter(){
+  if(window.innerWidth <= 768){
+    hideImg();
+    setInterval(nextSliderImg(FirstSponsor,SrcImgLogoFooter),3000);
+  }
+}
+
 window.addEventListener('DOMContentLoaded', () =>{
   createEvents();
   responsiveFooter();
