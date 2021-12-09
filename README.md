@@ -13,8 +13,6 @@ creado por Dapper Drake, un equipo formado aleatoriamente en .
 ## Vista General
 ### Escritorio
 ![Vista entera](./src/assets/img/ViewDesktop.png)
-### Movil
-![Vista entera](./src/assets/img/ViewMobile.png)
 
 ### Links
 - Live Site URL : [Anec events](https://anecevents.com)
