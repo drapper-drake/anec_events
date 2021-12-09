@@ -70,8 +70,6 @@ function hideImg(){
 }
 let index = 0;
 function nextSliderImg(){
-  console.log('hola')
-  console.log(index)
   //Aqui se va cambiando el src del primer img según la variable global index
   FirstSponsor.src = SrcImgLogoFooter[index];
   //Index se esta igualando a la condición del ternario
