@@ -6,7 +6,7 @@ function createEvents() {
     .then((response) => response.json())
     .then((data) => {
       // data es un array de eventos
-      const contenido = document.querySelector(".container");
+      const content = document.querySelector(".container");
       for (let evento = 0; evento < data.length; evento++) {
         // TARJETA
         let box = document.createElement("div");
@@ -26,7 +26,7 @@ function createEvents() {
         // FECHA
         let date = document.createElement("p");
         date.innerText = data[evento].dateStart;
-        contenido.appendChild(box);
+        content.appendChild(box);
         box.appendChild(image);
         box.appendChild(bar);
         box.appendChild(name);
@@ -53,3 +53,40 @@ function createEvents() {
       }
     });
 }
+
+/* Función del slider de logos de patrocinadores
+* Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
+* */
+const Sponsors = document.querySelectorAll('.container-img>img');
+
+const SrcImgLogoFooter = ["./src/assets/img/gobesp.png", "./src/assets/img/logoEoi.svg", "./src/assets/img/ue.png", "./src/assets/img/fundonce.png", "./src/assets/img/garjuv.png"];
+const FirstSponsor =  Sponsors[0]
+function hideImg(){
+  //Le añado a todas una clase que las oculta
+  Sponsors.forEach((img) => img.classList.add('hidden'));
+  /* Al primer img le quito la clase hidden porque necesito uno
+  * visible para poder ir cambiando el src */
+  FirstSponsor.classList.remove('hidden');
+}
+let index = 0;
+function nextSliderImg(){
+  console.log('hola')
+  console.log(index)
+  //Aqui se va cambiando el src del primer img según la variable global index
+  FirstSponsor.src = SrcImgLogoFooter[index];
+  //Index se esta igualando a la condición del ternario
+  index = (index < SrcImgLogoFooter.length - 1) ? index + 1 : 0
+
+}
+
+function responsiveFooter(){
+  if(window.innerWidth <= 768){
+    hideImg();
+    setInterval(nextSliderImg,3000);
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () =>{
+  createEvents();
+  responsiveFooter();
+})

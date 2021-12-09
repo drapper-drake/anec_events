@@ -254,4 +254,7 @@ a:visited {
   .container-logo {
     display: none;
   }
+  .container-img {
+    width: 300px;
+  }
 }
