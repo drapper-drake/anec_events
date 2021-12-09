@@ -10,10 +10,7 @@ creado por Dapper Drake, un equipo formado aleatoriamente en .
   - [Desarrollo](#desarrollo)
   - [Maquetado con](#maquetado-con)
 - [Autores](#autores)
-
-
 ## Vista General
-
 ### Escritorio
 ![Vista entera](./src/assets/img/ViewDesktop.png)
 ### Movil
