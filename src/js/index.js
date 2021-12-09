@@ -69,20 +69,20 @@ function hideImg(){
   FirstSponsor.classList.remove('hidden');
 }
 let index = 0;
-function nextSliderImg(imgToChange,listOfSrc){
+function nextSliderImg(){
+  console.log('hola')
+  console.log(index)
   //Aqui se va cambiando el src del primer img según la variable global index
-  imgToChange.src = listOfSrc[index];
-  if (index < listOfSrc.length - 1){
-    index++;
-  }else{
-    index = 0;
-  }
+  FirstSponsor.src = SrcImgLogoFooter[index];
+  //Index se esta igualando a la condición del ternario
+  index = (index < SrcImgLogoFooter.length - 1) ? index + 1 : 0
+
 }
 
 function responsiveFooter(){
   if(window.innerWidth <= 768){
     hideImg();
-    setInterval(nextSliderImg(FirstSponsor,SrcImgLogoFooter),3000);
+    setInterval(nextSliderImg,3000);
   }
 }
 
