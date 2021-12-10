@@ -5,6 +5,7 @@
     "site": "Recinto de Rabasa",
     "dateStart": "2021/12/3",
     "dateFinal": "2022/1/23",
+    "category": "Christmas",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638438727/anac-event/qlxpnbpixt71kj8acpnx.jpg"
   },
   {
@@ -15,6 +16,7 @@
     "hoursClose": "17:00 a 23:00",
     "dateStart": "2021/12/01",
     "dateFinal": "2022/01/06",
+    "category": "Christmas",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638438838/anac-event/vfqbgqgloimyepfdqxqr.jpg"
   },
   {
@@ -24,6 +26,7 @@
     "dateStart": "2021/12/02",
     "dateFinal": "2021/12/24",
     "comments": "Solicitar cita previa",
+    "category": "Christmas",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638448917/anac-event/urjrwksbrkwnrjotm6ti.jpg"
   },
   {
@@ -32,6 +35,7 @@
     "site": "Plaza Séneca",
     "dateStart": "2021/12/02",
     "dateFinal": "2022/01/20",
+    "category": "",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439439/anac-event/hzn7v6vpz8sikals5k9x.jpg"
   },
   {
@@ -39,6 +43,7 @@
     "free": false,
     "site": "Plaza de Toros",
     "dateStart": "2021/12/04",
+    "category": "",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439899/anac-event/iduatnkcfredsmyslhl4.jpg"
   },
   {
@@ -49,6 +54,7 @@
     "hoursClose": "domingo de 12:00 a 14:00 y de 18:00 a 21:00",
     "dateStart": "2021/12/11",
     "dateFinal": "2021/12/12",
+    "category": "Christmas",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440083/anac-event/pkrmqldmhgbhcy9hoj25.jpg"
   },
   {
@@ -59,6 +65,7 @@
     "hoursClose": "21:00",
     "dateStart": "2021/12/18",
     "dateFinal": "2021/12/19",
+    "category": "",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440383/anac-event/akrqgwxvpbkrrebse2v0.jpg"
   },
   {
@@ -68,6 +75,7 @@
     "dateStart": "2021/12/26",
     "dateFinal": "2022/01/04",
     "comments": "Solicitar cita previa",
+    "category": "Three Kings Day",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440602/anac-event/udxahwkusda3hm0df3ls.jpg"
   },
   {
@@ -79,6 +87,7 @@
     "dateStart": "2021/12/31",
     "dateFinal": "2022/01/01",
     "comments": "La orquesta 'Vendetta Project' tocará en directo",
+    "category": "musical",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440763/anac-event/xfgvgy9vfytn637fshnd.jpg"
   },
   {
@@ -89,6 +98,7 @@
     "dateStart": "2022/01/05",
     "dateFinal": "2022/01/05",
     "comments": "El recorrido puede ampliarse según la evolución de la pandemia",
+    "category": "Three Kings Day",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440952/anac-event/dcqxxhzdbtbr7zyntgjc.jpg"
   },
   {
@@ -98,6 +108,7 @@
     "dateStart": "2021/12/03",
     "dateFinal": "2021/12/18",
     "comments": "Solicitar Inscripción. La Navidad Intergeneracional, para niños de entre 5 y 12 años acompañados de un adulto",
+    "category": "",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638530230/anac-event/je5uo92ikduecprvm5su.jpg"
   },
   {
@@ -107,6 +118,43 @@
     "hoursOpen": "A partir de las 20:00",
     "dateStart": "2022/01/01",
     "dateFinal": "2022/01/01",
+    "category": "Fireworks",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638530131/anac-event/s3c0xnbtjfobyevxeuqk.jpg"
+  },
+  {
+    "nameEvent": "Fiesta HEAVY-METAL 1980s (vs) 1990s",
+    "free": true,
+    "site": "Ruta 13 | Alicante, VC",
+    "hoursOpen": "23:30",
+    "hoursClose": "3:00",
+    "dateStart": "2021/12/11",
+    "dateFinal": "2021/12/12",
+    "comments": "Sesión musical a cargo de Perol N Rock DJ",
+    "category": "Musical",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639137537/anac-event/a8rd1tlhdoixecvp18nu.jpg"
+  },
+  {
+    "nameEvent": "Rapunzel el musical",
+    "free": true,
+    "site": "Teatro Castelar",
+    "hoursOpen": "18:00",
+    "hoursClose": "19:30",
+    "dateStart": "2021/12/12",
+    "dateFinal": "2021/12/12",
+    "comments": "Entrada gratuita con invitación. Invitaciones en TICKENTRADAS y en taquilla desde dos horas antes del comienzo del espectáculo.",
+    "category": "Theater",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639138283/anac-event/pxjr5bqlgd4icoacbi8j.jpg"
+  },
+  {
+    "nameEvent": "Ruta de arte urbano",
+    "free": true,
+    "site": "Barrio de Campoamor",
+    "hoursOpen": "00:00",
+    "hoursClose": "00:00",
+    "dateStart": "2022/01/17",
+    "dateFinal": "2022/01/17",
+    "comments": "Se pueden localizar enfrente del parquing del ADDA y las tres manzanas que comprenden desde la calle Primitivo Pérez, calle Capitan Quintanilla e Ingenierio Sanchis Pujalte",
+    "category": "Route",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639139395/anac-event/zgas0lm7aftbh8eqrfyi.jpg"
   }
 ]
