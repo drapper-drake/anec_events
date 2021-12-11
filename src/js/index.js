@@ -46,7 +46,7 @@ function createEvents() {
           payIconContainer.title = "Evento DE PAGO";
           let payIcon = document.createElement("img");
           payIcon.src = "/src/assets/img/pago.svg";
-          payIcon.alt = "Evento GRATUITO";
+          payIcon.alt = "Evento DE PAGO";
           bar.appendChild(payIconContainer);
           payIconContainer.appendChild(payIcon);
         }
@@ -55,36 +55,41 @@ function createEvents() {
 }
 
 /* Función del slider de logos de patrocinadores
-* Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
-* */
-const Sponsors = document.querySelectorAll('.container-img>img');
+ * Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
+ * */
+const Sponsors = document.querySelectorAll(".container-img>img");
 
-const SrcImgLogoFooter = ["./src/assets/img/gobesp.png", "./src/assets/img/logoEoi.svg", "./src/assets/img/ue.png", "./src/assets/img/fundonce.png", "./src/assets/img/garjuv.png"];
-const FirstSponsor =  Sponsors[0]
-function hideImg(){
+const SrcImgLogoFooter = [
+  "./src/assets/img/gobesp.png",
+  "./src/assets/img/logoEoi.svg",
+  "./src/assets/img/ue.png",
+  "./src/assets/img/fundonce.png",
+  "./src/assets/img/garjuv.png",
+];
+const FirstSponsor = Sponsors[0];
+function hideImg() {
   //Le añado a todas una clase que las oculta
-  Sponsors.forEach((img) => img.classList.add('hidden'));
+  Sponsors.forEach((img) => img.classList.add("hidden"));
   /* Al primer img le quito la clase hidden porque necesito uno
-  * visible para poder ir cambiando el src */
-  FirstSponsor.classList.remove('hidden');
+   * visible para poder ir cambiando el src */
+  FirstSponsor.classList.remove("hidden");
 }
 let index = 0;
-function nextSliderImg(){
+function nextSliderImg() {
   //Aqui se va cambiando el src del primer img según la variable global index
   FirstSponsor.src = SrcImgLogoFooter[index];
   //Index se esta igualando a la condición del ternario
-  index = (index < SrcImgLogoFooter.length - 1) ? index + 1 : 0
-
+  index = index < SrcImgLogoFooter.length - 1 ? index + 1 : 0;
 }
 
-function responsiveFooter(){
-  if(window.innerWidth <= 768){
+function responsiveFooter() {
+  if (window.innerWidth <= 768) {
     hideImg();
-    setInterval(nextSliderImg,3000);
+    setInterval(nextSliderImg, 3000);
   }
 }
 
-window.addEventListener('DOMContentLoaded', () =>{
+window.addEventListener("DOMContentLoaded", () => {
   createEvents();
   responsiveFooter();
-})
+});
