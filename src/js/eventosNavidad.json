@@ -131,7 +131,7 @@
     "dateFinal": "2021/12/12",
     "comments": "Sesión musical a cargo de Perol N Rock DJ",
     "category": "Musical",
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639137537/anac-event/a8rd1tlhdoixecvp18nu.jpg"
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639221522/anac-event/a8rd1tlhdoixecvp18nu.jpg"
   },
   {
     "nameEvent": "Rapunzel el musical",
@@ -156,5 +156,26 @@
     "comments": "Se pueden localizar enfrente del parquing del ADDA y las tres manzanas que comprenden desde la calle Primitivo Pérez, calle Capitan Quintanilla e Ingenierio Sanchis Pujalte",
     "category": "Route",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639139395/anac-event/zgas0lm7aftbh8eqrfyi.jpg"
+  },
+  {
+    "nameEvent": "India Martínez",
+    "free": false,
+    "site": "Auditorio de la Diputación de Alicante",
+    "hoursOpen": "21:00",
+    "hoursClose": "00:00",
+    "dateStart": "2021/12/26",
+    "dateFinal": "2021/12/27",
+    "category": "Musical",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639221353/anac-event/leer6xqj51unlfb2djsa.jpg"
+  },
+  {
+    "nameEvent": "Tributo a Cantajuegos",
+    "free": false,
+    "site": "Aula de Cultura de Alicante",
+    "hoursOpen": "12:30",
+    "dateStart": "2021/12/12",
+    "dateFinal": "2021/12/12",
+    "category": "Musical",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639222754/anac-event/fsy2wdqeq0rmczynkpoh.png"
   }
 ]
