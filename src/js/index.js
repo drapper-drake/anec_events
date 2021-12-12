@@ -8,6 +8,15 @@ function createEvents() {
       // data es un array de eventos
       const content = document.querySelector(".container");
       for (let evento = 0; evento < data.length; evento++) {
+        //Convertir string en número (fecha)
+        let convertDateStart = new Date(data[evento].dateStart);
+        let convertDateFinal = new Date(data[evento].dateFinal);
+
+        //Llamar función que imprime la fecha en el orden deseado
+        let dateStart = dateFormat(convertDateStart);
+        let dateFinal = dateFormat(convertDateFinal);
+
+        console.log(dateFinal);
         // TARJETA
         let box = document.createElement("div");
         box.className = "card";
@@ -25,7 +34,7 @@ function createEvents() {
         place.innerText = data[evento].site;
         // FECHA
         let date = document.createElement("p");
-        date.innerText = data[evento].dateStart;
+        date.innerText = dateStart;
         content.appendChild(box);
         box.appendChild(image);
         box.appendChild(bar);
@@ -52,6 +61,32 @@ function createEvents() {
         }
       }
     });
+}
+
+// Función que convierte número del mes en nombre del mes reducido en español
+function dateFormat(month) {
+  const monthShortNames = [
+    "Ene",
+    "Feb",
+    "Mar",
+    "Abr",
+    "May",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dic",
+  ];
+
+  return (
+    month.getDate() +
+    " " +
+    monthShortNames[month.getMonth()] +
+    ", " +
+    month.getFullYear()
+  );
 }
 
 /* Función del slider de logos de patrocinadores
