@@ -35,7 +35,7 @@
     "site": "Plaza Séneca",
     "dateStart": "2021/12/02",
     "dateFinal": "2022/01/20",
-    "category": "",
+    "category": "Kids",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439439/anac-event/hzn7v6vpz8sikals5k9x.jpg"
   },
   {
@@ -43,7 +43,7 @@
     "free": false,
     "site": "Plaza de Toros",
     "dateStart": "2021/12/04",
-    "category": "",
+    "category": "Play",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439899/anac-event/iduatnkcfredsmyslhl4.jpg"
   },
   {
@@ -65,7 +65,7 @@
     "hoursClose": "21:00",
     "dateStart": "2021/12/18",
     "dateFinal": "2021/12/19",
-    "category": "",
+    "category": "Christmas",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440383/anac-event/akrqgwxvpbkrrebse2v0.jpg"
   },
   {
@@ -96,7 +96,6 @@
     "site": "Desde la Av. de la Estación hasta la Plaza del Ayuntamiento",
     "hoursOpen": "19:00",
     "dateStart": "2022/01/05",
-    "dateFinal": "2022/01/05",
     "comments": "El recorrido puede ampliarse según la evolución de la pandemia",
     "category": "Three Kings Day",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440952/anac-event/dcqxxhzdbtbr7zyntgjc.jpg"
@@ -117,7 +116,6 @@
     "site": "Playa del Cocó",
     "hoursOpen": "A partir de las 20:00",
     "dateStart": "2022/01/01",
-    "dateFinal": "2022/01/01",
     "category": "Fireworks",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638530131/anac-event/s3c0xnbtjfobyevxeuqk.jpg"
   },
@@ -140,7 +138,6 @@
     "hoursOpen": "18:00",
     "hoursClose": "19:30",
     "dateStart": "2021/12/12",
-    "dateFinal": "2021/12/12",
     "comments": "Entrada gratuita con invitación. Invitaciones en TICKENTRADAS y en taquilla desde dos horas antes del comienzo del espectáculo.",
     "category": "Theater",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639138283/anac-event/pxjr5bqlgd4icoacbi8j.jpg"
@@ -150,9 +147,7 @@
     "free": true,
     "site": "Barrio de Campoamor",
     "hoursOpen": "00:00",
-    "hoursClose": "00:00",
     "dateStart": "2022/01/17",
-    "dateFinal": "2022/01/17",
     "comments": "Se pueden localizar enfrente del parquing del ADDA y las tres manzanas que comprenden desde la calle Primitivo Pérez, calle Capitan Quintanilla e Ingenierio Sanchis Pujalte",
     "category": "Route",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639139395/anac-event/zgas0lm7aftbh8eqrfyi.jpg"
@@ -174,7 +169,6 @@
     "site": "Aula de Cultura de Alicante",
     "hoursOpen": "12:30",
     "dateStart": "2021/12/12",
-    "dateFinal": "2021/12/12",
     "category": "Musical",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639222754/anac-event/fsy2wdqeq0rmczynkpoh.png"
   }
