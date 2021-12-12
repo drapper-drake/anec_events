@@ -13,6 +13,7 @@ function createEvents() {
         box.className = "card";
         // IMAGEN
         let image = document.createElement("img");
+        image.className = "cta"; // para el modal
         image.src = data[evento].photoEvent;
         // BARRA DE ICONOS
         let bar = document.createElement("div");
@@ -54,6 +55,60 @@ function createEvents() {
     });
 }
 
+/* createModals crea las ventanas modales para cada evento
+e implementa las funciones de apertura/cierre de las ventanas */
+function createModals() {
+  fetch("src/js/eventosNavidad.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const modalWindows = document.querySelector(".modal-parent");
+      for (let evento = 0; evento < data.length; evento++) {
+        // VENTANA MODAL
+        let modalBox = document.createElement("div");
+        modalBox.className = "modal-container";
+        let modal = document.createElement("div");
+        modal.className = "modal";
+        let modalName = document.createElement("h4");
+        modalName.innerText = data[evento].nameEvent;
+        let modalPlace = document.createElement("p");
+        modalPlace.innerText = data[evento].site;
+        let modalDate = document.createElement("p");
+        modalDate.innerText = data[evento].dateStart;
+        let description = document.createElement("p");
+        description.innerText = data[evento].comments;
+        let closeButton = document.createElement("button");
+        closeButton.className = "close";
+        closeButton.innerText = "Cerrar";
+        modalWindows.appendChild(modalBox);
+        modalBox.appendChild(modal);
+        modal.appendChild(modalName);
+        modal.appendChild(modalPlace);
+        modal.appendChild(modalDate);
+        modal.appendChild(description);
+        modal.appendChild(closeButton);
+        // FUNCIONALIDAD DEL MODAL
+        let closeModal = document.querySelectorAll(".close")[evento];
+        let openModal = document.querySelectorAll(".cta")[evento];
+        let modalContainer =
+          document.querySelectorAll(".modal-container")[evento];
+        openModal.addEventListener("click", () => {
+          modalContainer.style.opacity = "1";
+          modalContainer.style.visibility = "visible";
+        });
+        closeModal.addEventListener("click", () => {
+          modalContainer.style.opacity = "0";
+          modalContainer.style.visibility = "hidden";
+        });
+        window.addEventListener("click", (e) => {
+          if (e.target == modalContainer) {
+            modalContainer.style.opacity = "0";
+            modalContainer.style.visibility = "hidden";
+          }
+        });
+      }
+    });
+}
+
 /* Función del slider de logos de patrocinadores
  * Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
  * */
@@ -91,5 +146,6 @@ function responsiveFooter() {
 
 window.addEventListener("DOMContentLoaded", () => {
   createEvents();
+  createModals();
   responsiveFooter();
 });

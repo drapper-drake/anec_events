@@ -166,6 +166,32 @@ figure > img {
   margin-left: 10px;
 }
 
+/* Estilos de las ventanas modales */
+
+.modal-container {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: var(--color-primary);
+  border-radius: 25px;
+  text-align: center;
+  color: var(--bg-color);
+  width: 500px;
+  margin: 0 auto;
+}
+
 .description {
   text-align: initial;
 
