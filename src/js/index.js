@@ -55,6 +55,8 @@ function createEvents() {
     });
 }
 
+/* createModals crea las ventanas modales para cada evento
+e implementa las funciones de apertura/cierre de las ventanas */
 function createModals() {
   fetch("src/js/eventosNavidad.json")
     .then((response) => response.json())
