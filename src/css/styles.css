@@ -185,11 +185,29 @@ figure > img {
 
 .modal {
   background: var(--color-primary);
+  color: var(--bg-color);
   border-radius: 25px;
   text-align: center;
-  color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
   width: 500px;
   margin: 0 auto;
+}
+
+.cta {
+  cursor: pointer;
+}
+
+.close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
 }
 
 .description {

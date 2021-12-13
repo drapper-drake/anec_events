@@ -115,9 +115,10 @@ function createModals() {
         modalDate.innerText = dateStart;
         let description = document.createElement("p");
         description.innerText = data[evento].comments;
-        let closeButton = document.createElement("button");
+        let closeButton = document.createElement("img");
         closeButton.className = "close";
-        closeButton.innerText = "Cerrar";
+        closeButton.src = "src/assets/img/xmark-solid.svg";
+        closeButton.alt = "Cerrar";
         modalWindows.appendChild(modalBox);
         modalBox.appendChild(modal);
         modal.appendChild(modalName);
