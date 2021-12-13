@@ -189,11 +189,22 @@ figure > img {
   border-radius: 25px;
   text-align: center;
   display: flex;
-  flex-direction: column;
   justify-content: space-evenly;
+  align-items: flex-start;
   position: relative;
-  width: 500px;
+  width: 50%;
   margin: 0 auto;
+}
+
+.modal-image {
+  width: 60%;
+  height: 260px;
+  object-fit: cover;
+  padding: 25px;
+}
+
+.modal-text {
+  padding: 25px;
 }
 
 .cta {
@@ -202,8 +213,8 @@ figure > img {
 
 .close {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 10px;
+  right: 10px;
   display: inline-block;
   width: 25px;
   height: 25px;

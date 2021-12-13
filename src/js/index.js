@@ -102,29 +102,44 @@ function createModals() {
         let convertDateFinal = new Date(data[evento].dateFinal);
         let dateStart = dateFormat(convertDateStart);
         let dateFinal = dateFormat(convertDateFinal);
-        // VENTANA MODAL
+        // ZONA OSCURA
         let modalBox = document.createElement("div");
         modalBox.className = "modal-container";
+        // VENTANA
         let modal = document.createElement("div");
         modal.className = "modal";
+        // IMAGEN
+        let modalImage = document.createElement("img");
+        modalImage.className = "modal-image";
+        modalImage.src = data[evento].photoEvent;
+        // ZONA DE TEXTO
+        let modalText = document.createElement("div");
+        modalText.className = "modal-text";
+        // NOMBRE
         let modalName = document.createElement("h4");
         modalName.innerText = data[evento].nameEvent;
+        // LUGAR
         let modalPlace = document.createElement("p");
         modalPlace.innerText = data[evento].site;
+        // FECHA
         let modalDate = document.createElement("p");
         modalDate.innerText = dateStart;
+        // DESCRIPCIÓN
         let description = document.createElement("p");
         description.innerText = data[evento].comments;
+        // BOTÓN DE CIERRE
         let closeButton = document.createElement("img");
         closeButton.className = "close";
         closeButton.src = "src/assets/img/xmark-solid.svg";
         closeButton.alt = "Cerrar";
         modalWindows.appendChild(modalBox);
         modalBox.appendChild(modal);
-        modal.appendChild(modalName);
-        modal.appendChild(modalPlace);
-        modal.appendChild(modalDate);
-        modal.appendChild(description);
+        modal.appendChild(modalImage);
+        modal.appendChild(modalText);
+        modalText.appendChild(modalName);
+        modalText.appendChild(modalPlace);
+        modalText.appendChild(modalDate);
+        modalText.appendChild(description);
         modal.appendChild(closeButton);
         // FUNCIONALIDAD DEL MODAL
         let closeModal = document.querySelectorAll(".close")[evento];
