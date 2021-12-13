@@ -98,6 +98,10 @@ function createModals() {
     .then((data) => {
       const modalWindows = document.querySelector(".modal-parent");
       for (let evento = 0; evento < data.length; evento++) {
+        let convertDateStart = new Date(data[evento].dateStart);
+        let convertDateFinal = new Date(data[evento].dateFinal);
+        let dateStart = dateFormat(convertDateStart);
+        let dateFinal = dateFormat(convertDateFinal);
         // VENTANA MODAL
         let modalBox = document.createElement("div");
         modalBox.className = "modal-container";
@@ -108,7 +112,7 @@ function createModals() {
         let modalPlace = document.createElement("p");
         modalPlace.innerText = data[evento].site;
         let modalDate = document.createElement("p");
-        modalDate.innerText = data[evento].dateStart;
+        modalDate.innerText = dateStart;
         let description = document.createElement("p");
         description.innerText = data[evento].comments;
         let closeButton = document.createElement("button");
@@ -151,12 +155,14 @@ const Sponsors = document.querySelectorAll(".container-img>img");
 
 let indexSlider = 0;
 //Le añado a todas una clase que las oculta
-const hideImg = () =>{ Sponsors.forEach((img) => img.classList.add("hidden")) }
+const hideImg = () => {
+  Sponsors.forEach((img) => img.classList.add("hidden"));
+};
 
 function nextSliderImg() {
-  if(indexSlider === 0 && Sponsors[indexSlider].className === 'hidden'){
+  if (indexSlider === 0 && Sponsors[indexSlider].className === "hidden") {
     return Sponsors[indexSlider].classList.remove("hidden");
-  }else{
+  } else {
     Sponsors[indexSlider].classList.add("hidden");
     //Index se esta igualando a la condición del ternario
     indexSlider = indexSlider < Sponsors.length - 1 ? indexSlider + 1 : 0;
