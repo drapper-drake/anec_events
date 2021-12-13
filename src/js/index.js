@@ -167,6 +167,7 @@ function nextSliderImg() {
 function responsiveFooter() {
   if (window.innerWidth <= 768) {
     hideImg();
+    nextSliderImg();
     setInterval(nextSliderImg, 3000);
   }
 }

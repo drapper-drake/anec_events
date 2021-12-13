@@ -216,6 +216,7 @@ footer {
   width: 80%;
   background: white;
   border-radius: 15px;
+  padding: 0 1em;
 
   display: flex;
   flex-wrap: wrap;
