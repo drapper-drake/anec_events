@@ -149,27 +149,19 @@ function createModals() {
  * */
 const Sponsors = document.querySelectorAll(".container-img>img");
 
-const SrcImgLogoFooter = [
-  "./src/assets/img/gobesp.png",
-  "./src/assets/img/logoEoi.svg",
-  "./src/assets/img/ue.png",
-  "./src/assets/img/fundonce.png",
-  "./src/assets/img/garjuv.png",
-];
-const FirstSponsor = Sponsors[0];
-function hideImg() {
-  //Le añado a todas una clase que las oculta
-  Sponsors.forEach((img) => img.classList.add("hidden"));
-  /* Al primer img le quito la clase hidden porque necesito uno
-   * visible para poder ir cambiando el src */
-  FirstSponsor.classList.remove("hidden");
-}
-let index = 0;
+let indexSlider = 0;
+//Le añado a todas una clase que las oculta
+const hideImg = () =>{ Sponsors.forEach((img) => img.classList.add("hidden")) }
+
 function nextSliderImg() {
-  //Aqui se va cambiando el src del primer img según la variable global index
-  FirstSponsor.src = SrcImgLogoFooter[index];
-  //Index se esta igualando a la condición del ternario
-  index = index < SrcImgLogoFooter.length - 1 ? index + 1 : 0;
+  if(indexSlider === 0 && Sponsors[indexSlider].className === 'hidden'){
+    return Sponsors[indexSlider].classList.remove("hidden");
+  }else{
+    Sponsors[indexSlider].classList.add("hidden");
+    //Index se esta igualando a la condición del ternario
+    indexSlider = indexSlider < Sponsors.length - 1 ? indexSlider + 1 : 0;
+    Sponsors[indexSlider].classList.remove("hidden");
+  }
 }
 
 function responsiveFooter() {
