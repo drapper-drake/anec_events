@@ -10,7 +10,7 @@ fetch("src/js/eventosNavidad.json")
       allEvents.push(data[evento]);
     }
   });
-console.log(allEvents[3]);
+console.log(allEvents[0]);
 */
 
 // createEvents crea las tarjetas de evento con los datos de eventosNavidad.json
