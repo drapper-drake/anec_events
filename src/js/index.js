@@ -1,3 +1,18 @@
+/* SIGUIENDO LA IDEA DE GEMA HE INTENTADO EXTRAER LA FUNCIÓN DE IMPORTAR,
+PERO SOLO CONSIGO CREAR UN ARRAY DE ELEMENTOS UNDEFINED.
+DEJO ESTE EXPERIMENTO COMENTADO COMO MUESTRA DE MI FRACASO ಥ_ಥ
+
+const allEvents = [];
+fetch("src/js/eventosNavidad.json")
+  .then((response) => response.json())
+  .then((data) => {
+    for (let evento = 0; evento < data.length; evento++) {
+      allEvents.push(data[evento]);
+    }
+  });
+console.log(allEvents[3]);
+*/
+
 // createEvents crea las tarjetas de evento con los datos de eventosNavidad.json
 function createEvents() {
   // fetch importa los datos del JSON
