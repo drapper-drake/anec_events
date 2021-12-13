@@ -23,7 +23,7 @@ function createEvents() {
       // data es un array de eventos
       const content = document.querySelector(".container");
 
-      for (let evento = 0; evento < data.length; evento++) {
+      for (let evento in data) {
         //Convertir string en número (fecha)
         let convertDateStart = new Date(data[evento].dateStart);
         let convertDateFinal = new Date(data[evento].dateFinal);
@@ -112,7 +112,7 @@ function createModals() {
     .then((response) => response.json())
     .then((data) => {
       const modalWindows = document.querySelector(".modal-parent");
-      for (let evento = 0; evento < data.length; evento++) {
+      for (let evento in data) {
         let convertDateStart = new Date(data[evento].dateStart);
         let convertDateFinal = new Date(data[evento].dateFinal);
         let dateStart = dateFormat(convertDateStart);
