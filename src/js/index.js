@@ -1,18 +1,3 @@
-/* SIGUIENDO LA IDEA DE GEMA HE INTENTADO EXTRAER LA FUNCIÓN DE IMPORTAR,
-PERO SOLO CONSIGO CREAR UN ARRAY DE ELEMENTOS UNDEFINED.
-DEJO ESTE EXPERIMENTO COMENTADO COMO MUESTRA DE MI FRACASO ಥ_ಥ
-
-const allEvents = [];
-fetch("src/js/eventosNavidad.json")
-  .then((response) => response.json())
-  .then((data) => {
-    for (let evento = 0; evento < data.length; evento++) {
-      allEvents.push(data[evento]);
-    }
-  });
-console.log(allEvents[0]);
-*/
-
 // createEvents crea las tarjetas de evento con los datos de eventosNavidad.json
 function createEvents() {
   // fetch importa los datos del JSON
@@ -22,23 +7,27 @@ function createEvents() {
     .then((data) => {
       // data es un array de eventos
       const content = document.querySelector(".container");
-
-      for (let evento in data) {
+       for (let evento = 0; evento < data.length; evento++) {
         //Convertir string en número (fecha)
         let convertDateStart = new Date(data[evento].dateStart);
         let convertDateFinal = new Date(data[evento].dateFinal);
-
+       
         //Llamar función que imprime la fecha en el orden deseado
         let dateStart = dateFormat(convertDateStart);
         let dateFinal = dateFormat(convertDateFinal);
-
-        // TARJETA
-        let box = document.createElement("div");
-        box.className = "card";
-        // IMAGEN
+        
+        let containerCard = document.createElement("div");
+        containerCard.className = "container-card";
+        //DIV DE LA IMAGEN
+        let photoEvent = document.createElement("div");
+        photoEvent.className = "photoEvent";
+        //IMAGEN
         let image = document.createElement("img");
-        image.className = "cta"; // para el modal
         image.src = data[evento].photoEvent;
+        image.className= "cta";
+        //TARJETA
+        let card = document.createElement("div");
+        card.className = "card";
         // BARRA DE ICONOS
         let bar = document.createElement("div");
         bar.className = "icons-bar";
@@ -51,14 +40,18 @@ function createEvents() {
         // FECHA
         let date = document.createElement("p");
         date.innerText = dateStart;
-        content.appendChild(box);
-        box.appendChild(image);
-        box.appendChild(bar);
-        box.appendChild(name);
-        box.appendChild(place);
-        box.appendChild(date);
-        // ICONOS
-        if (data[evento].free) {
+
+        content.appendChild(containerCard);
+        containerCard.appendChild(photoEvent);
+        photoEvent.appendChild(image);
+        containerCard.appendChild(card);
+        card.appendChild(bar);
+        card.appendChild(name);
+        card.appendChild(place);
+        card.appendChild(date);
+
+         // ICONOS
+         if (data[evento].free) {
           let freeIconContainer = document.createElement("figure");
           freeIconContainer.title = "Evento GRATUITO";
           let freeIcon = document.createElement("img");
@@ -77,7 +70,8 @@ function createEvents() {
         }
       }
     });
-}
+} 
+
 
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month) {
@@ -112,49 +106,33 @@ function createModals() {
     .then((response) => response.json())
     .then((data) => {
       const modalWindows = document.querySelector(".modal-parent");
-      for (let evento in data) {
+      for (let evento = 0; evento < data.length; evento++) {
         let convertDateStart = new Date(data[evento].dateStart);
         let convertDateFinal = new Date(data[evento].dateFinal);
         let dateStart = dateFormat(convertDateStart);
         let dateFinal = dateFormat(convertDateFinal);
-        // ZONA OSCURA
+        // VENTANA MODAL
         let modalBox = document.createElement("div");
         modalBox.className = "modal-container";
-        // VENTANA
         let modal = document.createElement("div");
         modal.className = "modal";
-        // IMAGEN
-        let modalImage = document.createElement("img");
-        modalImage.className = "modal-image";
-        modalImage.src = data[evento].photoEvent;
-        // ZONA DE TEXTO
-        let modalText = document.createElement("div");
-        modalText.className = "modal-text";
-        // NOMBRE
         let modalName = document.createElement("h4");
         modalName.innerText = data[evento].nameEvent;
-        // LUGAR
         let modalPlace = document.createElement("p");
         modalPlace.innerText = data[evento].site;
-        // FECHA
         let modalDate = document.createElement("p");
         modalDate.innerText = dateStart;
-        // DESCRIPCIÓN
         let description = document.createElement("p");
         description.innerText = data[evento].comments;
-        // BOTÓN DE CIERRE
-        let closeButton = document.createElement("img");
+        let closeButton = document.createElement("button");
         closeButton.className = "close";
-        closeButton.src = "src/assets/img/xmark-solid.svg";
-        closeButton.alt = "Cerrar";
+        closeButton.innerText = "Cerrar";
         modalWindows.appendChild(modalBox);
         modalBox.appendChild(modal);
-        modal.appendChild(modalImage);
-        modal.appendChild(modalText);
-        modalText.appendChild(modalName);
-        modalText.appendChild(modalPlace);
-        modalText.appendChild(modalDate);
-        modalText.appendChild(description);
+        modal.appendChild(modalName);
+        modal.appendChild(modalPlace);
+        modal.appendChild(modalDate);
+        modal.appendChild(description);
         modal.appendChild(closeButton);
         // FUNCIONALIDAD DEL MODAL
         let closeModal = document.querySelectorAll(".close")[evento];
@@ -213,4 +191,4 @@ window.addEventListener("DOMContentLoaded", () => {
   createEvents();
   createModals();
   responsiveFooter();
-});
+})
