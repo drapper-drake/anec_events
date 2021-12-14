@@ -43,7 +43,7 @@ function createEvents() {
         let bar = document.createElement("div");
         bar.className = "icons-bar";
         // NOMBRE
-        let name = document.createElement("h4");
+        let name = document.createElement("h3");
         name.innerText = data[evento].nameEvent;
         // LUGAR
         let place = document.createElement("p");
@@ -131,7 +131,7 @@ function createModals() {
         let modalText = document.createElement("div");
         modalText.className = "modal-text";
         // NOMBRE
-        let modalName = document.createElement("h4");
+        let modalName = document.createElement("p");
         modalName.innerText = data[evento].nameEvent;
         // LUGAR
         let modalPlace = document.createElement("p");
