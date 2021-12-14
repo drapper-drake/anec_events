@@ -1,17 +1,26 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lobster&display=swap%27");
 
 :root {
-  --bg-color: #f2f2f2;
+  /* --bg-color: #f2f2f2;
   --color-primary: #023e73;
   --color-secundary: #084da6;
-  --bg-color-dark: #bfa26b;
-  --color-contrast: #a60321;
+  --bg-color-dark: #bfa26b; */
+  --color-contrast: #a60321; /* En el title-header */
+
+  --bg-light: #F2F2F2;
+  --bg-dark: #0B3762;
+  --color-text-bg-light: #342618; /* Aún no usado */
+  --color-text-bg-dark: #FFFFFF;
+  --color-contrast-bg-light: #0B4DA5; /* Aún no usado */
+  --color-contrast-bg-dark: #FFA438;
+  --color-links-cta: #FFA438; /* Aún no usado */
+  --color-links-visited: #8197BA; /* Aún no usado */
 }
 
 body {
   width: 100%;
   height: min-content;
-  background-color: var(--bg-color);
+  background-color: var(--bg-light);
 
   margin: 0;
 }
@@ -19,7 +28,7 @@ body {
 header {
   width: 100%;
   height: 620px;
-  background: linear-gradient(var(--bg-color) 40%, var(--color-primary) 40%);
+  background: linear-gradient(var(--bg-light) 40%, var(--bg-dark) 40%);
 
   display: flex;
   justify-content: space-around;
@@ -72,7 +81,7 @@ header {
 .description-header {
   width: 60%;
 
-  color: var(--bg-color);
+  color: var(--bg-light);
   font-family: "Be Vietnam Pro", sans-serif;
   font-weight: normal;
   font-size: 36px;
@@ -82,7 +91,7 @@ header {
 }
 
 .description-header strong {
-  color: var(--bg-color-dark);
+  color: var(--color-contrast-bg-dark);
   font-weight: bolder;
 }
 
@@ -116,11 +125,11 @@ header {
 }
 
 .card {
-  background: var(--color-primary);
+  background: var(--bg-dark);
   border-radius: 25px;
 
   text-align: center;
-  color: var(--bg-color);
+  color: var(--bg-light);
 }
 
 .card > img {
@@ -142,7 +151,7 @@ header {
 .icons-bar {
   width: 90%;
   height: 48px;
-  background: var(--bg-color);
+  background: var(--bg-light);
   border-radius: 25px;
 
   display: flex;
@@ -184,8 +193,8 @@ figure > img {
 }
 
 .modal {
-  background: var(--color-primary);
-  color: var(--bg-color);
+  background: var(--bg-dark);
+  color: var(--color-text-bg-dark);
   border-radius: 25px;
   text-align: center;
   display: flex;
@@ -230,9 +239,9 @@ figure > img {
 footer {
   width: 100%;
   min-height: 200px;
-  background-color: var(--color-primary);
+  background-color: var(--bg-dark);
 
-  color: var(--bg-color);
+  color: var(--color-text-bg-dark);
   font-family: "Be Vietnam Pro", sans-serif;
   font-size: 18px;
   text-align: center;
@@ -243,7 +252,7 @@ footer {
 
 .container-img {
   width: 80%;
-  background: white;
+  background: var(--bg-light);
   border-radius: 15px;
   padding: 0 1em;
 
@@ -260,10 +269,10 @@ footer {
 }
 
 a {
-  color: var(--bg-color);
+  color: var(--color-text-bg-dark);
 }
 a:visited {
-  color: var(--bg-color-dark);
+  color: var(--color-text-bg-light);
 }
 
 /*Clase estandar para ocultar ciertos elementos temporalmente*/
