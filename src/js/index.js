@@ -1,18 +1,3 @@
-/* SIGUIENDO LA IDEA DE GEMA HE INTENTADO EXTRAER LA FUNCIÓN DE IMPORTAR,
-PERO SOLO CONSIGO CREAR UN ARRAY DE ELEMENTOS UNDEFINED.
-DEJO ESTE EXPERIMENTO COMENTADO COMO MUESTRA DE MI FRACASO ಥ_ಥ
-
-const allEvents = [];
-fetch("src/js/eventosNavidad.json")
-  .then((response) => response.json())
-  .then((data) => {
-    for (let evento = 0; evento < data.length; evento++) {
-      allEvents.push(data[evento]);
-    }
-  });
-console.log(allEvents[0]);
-*/
-
 // createEvents crea las tarjetas de evento con los datos de eventosNavidad.json
 function createEvents() {
   // fetch importa los datos del JSON
@@ -22,8 +7,7 @@ function createEvents() {
     .then((data) => {
       // data es un array de eventos
       const content = document.querySelector(".container");
-
-      for (let evento in data) {
+       for (let evento = 0; evento < data.length; evento++) {
         //Convertir string en número (fecha)
         let convertDateStart = new Date(data[evento].dateStart);
         let convertDateFinal = new Date(data[evento].dateFinal);
@@ -32,13 +16,18 @@ function createEvents() {
         let dateStart = dateFormat(convertDateStart);
         let dateFinal = dateFormat(convertDateFinal);
 
-        // TARJETA
-        let box = document.createElement("div");
-        box.className = "card";
-        // IMAGEN
+        let containerCard = document.createElement("div");
+        containerCard.className = "container-card";
+        //DIV DE LA IMAGEN
+        let photoEvent = document.createElement("div");
+        photoEvent.className = "photoEvent";
+        //IMAGEN
         let image = document.createElement("img");
-        image.className = "cta"; // para el modal
         image.src = data[evento].photoEvent;
+        image.className= "cta";
+        //TARJETA
+        let card = document.createElement("div");
+        card.className = "card";
         // BARRA DE ICONOS
         let bar = document.createElement("div");
         bar.className = "icons-bar";
@@ -51,14 +40,18 @@ function createEvents() {
         // FECHA
         let date = document.createElement("p");
         date.innerText = dateStart;
-        content.appendChild(box);
-        box.appendChild(image);
-        box.appendChild(bar);
-        box.appendChild(name);
-        box.appendChild(place);
-        box.appendChild(date);
-        // ICONOS
-        if (data[evento].free) {
+
+        content.appendChild(containerCard);
+        containerCard.appendChild(photoEvent);
+        photoEvent.appendChild(image);
+        containerCard.appendChild(card);
+        card.appendChild(bar);
+        card.appendChild(name);
+        card.appendChild(place);
+        card.appendChild(date);
+
+         // ICONOS
+         if (data[evento].free) {
           let freeIconContainer = document.createElement("figure");
           freeIconContainer.title = "Evento GRATUITO";
           let freeIcon = document.createElement("img");
@@ -78,6 +71,7 @@ function createEvents() {
       }
     });
 }
+
 
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month) {
@@ -213,4 +207,4 @@ window.addEventListener("DOMContentLoaded", () => {
   createEvents();
   createModals();
   responsiveFooter();
-});
+})
