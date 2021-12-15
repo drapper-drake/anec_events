@@ -102,7 +102,6 @@ h1{
 }
 
 .nav-title span {
-  color: var(--color-links-cta);
 }
 
 .navegation{
@@ -117,8 +116,22 @@ h1{
   display: flex;
   justify-content: space-evenly;
   list-style: none;
-  height: 20px;
+  height: 100%;
   padding-left: 0;  // Para quitar el espacio que tiene por defectos las listas no me deja espaciar bien
+}
+
+.container-nav li{
+  cursor: pointer;
+  height: 100%;
+}
+
+.container-nav li:hover{
+  background: var(--bg-dark);
+  height: 100%;
+  color: var(--bg-light);
+  border-radius: 10px;
+  padding: 5px;
+  transform: translateY(-2em);
 }
 
 
