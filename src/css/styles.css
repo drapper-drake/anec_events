@@ -119,13 +119,9 @@ h1 {
   font-size: 18px;
 }
 
-<<<<<<< HEAD
-.photoEvent {
-  width: 480px;
-=======
+
 .photoEvent{
   width: 90%;
->>>>>>> 0a3e162617d8c02b4dddf22fd6a49f05d5b072fe
   height: 430px;
   background-color: var(--bg-light);
   border-radius: 25px;
@@ -158,14 +154,8 @@ h1 {
   color: var(--color-text-bg-dark);
 }
 
-<<<<<<< HEAD
-.card:hover {
-  bottom: 0;
-=======
-
 .card:hover{
    bottom: 0;
->>>>>>> 0a3e162617d8c02b4dddf22fd6a49f05d5b072fe
 }
 
 .card > h3 {
