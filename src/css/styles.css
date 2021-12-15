@@ -7,16 +7,15 @@
   --bg-color-dark: #bfa26b; */
   --color-contrast: #a60321; /* En el title-header */
 
-  --bg-light: #F2F2F2;
-  --bg-dark: #0B3762;
+  --bg-light: #f2f2f2;
+  --bg-dark: #0b3762;
   --color-text-bg-light: #342618; /* Aún no usado */
-  --color-text-bg-dark: #FFFFFF;
-  --color-contrast-bg-light: #0B4DA5; /* Aún no usado */
-  --color-contrast-bg-dark: #FFA438;
-  --color-links-cta: #FFA438; /* Aún no usado */
-  --color-links-visited: #8197BA; /* Aún no usado */
+  --color-text-bg-dark: #ffffff;
+  --color-contrast-bg-light: #0b4da5; /* Aún no usado */
+  --color-contrast-bg-dark: #ffa438;
+  --color-links-cta: #ffa438; /* Aún no usado */
+  --color-links-visited: #8197ba; /* Aún no usado */
 }
-
 
 body {
   width: 100%;
@@ -68,7 +67,7 @@ header {
   position: absolute;
 }
 
-h1{
+h1 {
   /*Es posible que haya que cambiar esta variable para una especifica para el logo*/
   color: var(--color-links-cta);
   font-family: "Lobster", cursive;
@@ -77,7 +76,6 @@ h1{
 
   margin: 0;
 }
-
 
 .description-header {
   width: 60%;
@@ -121,8 +119,13 @@ h1{
   font-size: 18px;
 }
 
+<<<<<<< HEAD
+.photoEvent {
+  width: 480px;
+=======
 .photoEvent{
   width: 90%;
+>>>>>>> 0a3e162617d8c02b4dddf22fd6a49f05d5b072fe
   height: 430px;
   background-color: var(--bg-light);
   border-radius: 25px;
@@ -151,15 +154,18 @@ h1{
   position: absolute;
   bottom: 3em;
 
-
   text-align: center;
   color: var(--color-text-bg-dark);
-
 }
 
+<<<<<<< HEAD
+.card:hover {
+  bottom: 0;
+=======
 
 .card:hover{
    bottom: 0;
+>>>>>>> 0a3e162617d8c02b4dddf22fd6a49f05d5b072fe
 }
 
 .card > h3 {
@@ -205,23 +211,12 @@ figure > img {
   margin-left: 10px;
 }
 
-
-
-
-
-
-
-
 /* Estilos de las ventanas modales */
 
 .modal-container {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  /*Las dos siguientes propiedades javascript te las inyecta al HTML no al CSS
-  Sería conveniente que si quieres que este oculto usar la clase hidden*/
-  opacity: 0;
-  visibility: hidden;
 
   display: flex;
   justify-content: center;
@@ -246,7 +241,7 @@ figure > img {
   position: relative;
 
   font-family: "Be Vietnam Pro", sans-serif;
-  font-size:1.5em;
+  font-size: 1.5em;
   color: var(--color-text-bg-light);
   text-align: center;
 }
@@ -258,7 +253,7 @@ figure > img {
 .modal-text {
   padding: 25px;
 }
-.modal-text>p:first-of-type{
+.modal-text > p:first-of-type {
   font-family: "Lobster", cursive;
   font-size: 2em;
 }
@@ -298,7 +293,7 @@ footer {
   color: var(--color-text-bg-dark);
   text-align: center;
 }
-.container-developers p strong{
+.container-developers p strong {
   font-weight: bold;
   font-size: 1.25em;
 }
@@ -313,7 +308,6 @@ footer {
   justify-content: space-evenly;
 
   margin: 1em auto;
-
 }
 
 .container-img > img {
@@ -333,15 +327,7 @@ a:visited {
   display: none;
 }
 
-/*Clase estandar para ocultar ciertos elementos temporalmente*/
-
-.hidden {
-  display: none;
-}
-
-
 /* Responsive */
-
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
   .container {
