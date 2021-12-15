@@ -1,8 +1,10 @@
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
+  // se importa el json, se parsea y almacena en data
   fetch("src/js/eventosNavidad.json")
     .then((response) => response.json())
     .then((data) => {
+      // data es un array de eventos
       const content = document.querySelector(".container");
       const modalWindow = document.querySelector(".modal-parent");
       for (let evento in data) {
@@ -80,7 +82,7 @@ function createModal(evento, container, position) {
   let dateFinal = dateFormat(convertDateFinal);
   // ZONA OSCURA
   let modalBox = document.createElement("div");
-  modalBox.className = "modal-container";
+  modalBox.className = "modal-container hidden";
   // VENTANA
   let modal = document.createElement("div");
   modal.className = "modal";
@@ -122,17 +124,14 @@ function createModal(evento, container, position) {
   let openModal = document.querySelectorAll(".cta")[position];
   let modalContainer = document.querySelectorAll(".modal-container")[position];
   openModal.addEventListener("click", () => {
-    modalContainer.style.opacity = "1";
-    modalContainer.style.visibility = "visible";
+    modalContainer.classList.toggle("hidden");
   });
   closeModal.addEventListener("click", () => {
-    modalContainer.style.opacity = "0";
-    modalContainer.style.visibility = "hidden";
+    modalContainer.classList.toggle("hidden");
   });
   window.addEventListener("click", (e) => {
     if (e.target == modalContainer) {
-      modalContainer.style.opacity = "0";
-      modalContainer.style.visibility = "hidden";
+      modalContainer.classList.toggle("hidden");
     }
   });
 }
