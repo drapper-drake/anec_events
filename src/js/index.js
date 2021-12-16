@@ -34,6 +34,9 @@ function createEvent(evento, container) {
   //TARJETA
   let card = document.createElement("div");
   card.className = "card";
+  //DATOS TARJETA
+  let infoCard = document.createElement("div");
+  infoCard.className = "info-card";
   // BARRA DE ICONOS
   let bar = document.createElement("div");
   bar.className = "icons-bar";
@@ -43,17 +46,23 @@ function createEvent(evento, container) {
   // LUGAR
   let place = document.createElement("p");
   place.innerText = evento.site;
+  //DIV FECHA
+  let dateCard = document.createElement("div");
+  dateCard.className = "date-card";
   // FECHA
   let date = document.createElement("p");
   date.innerText = dateStart;
+
   container.appendChild(containerCard);
   containerCard.appendChild(photoEvent);
   photoEvent.appendChild(image);
   containerCard.appendChild(card);
-  card.appendChild(bar);
-  card.appendChild(name);
-  card.appendChild(place);
-  card.appendChild(date);
+  card.appendChild(infoCard)
+  card.appendChild(dateCard)
+  infoCard.appendChild(bar);
+  infoCard.appendChild(name);
+  infoCard.appendChild(place);
+  dateCard.appendChild(date);
   // ICONOS
   if (evento.free) {
     let freeIconContainer = document.createElement("figure");
