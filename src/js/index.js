@@ -6,16 +6,14 @@ function createAll() {
     .then((data) => {
       // data es un array de eventos
       const content = document.querySelector(".container");
-      const modalWindow = document.querySelector(".modal-parent");
       for (let evento in data) {
-        createEvent(data[evento], content);
-        createModal(data[evento], modalWindow, evento);
+        createEvent(data[evento], content, evento);
       }
     });
 }
 
 // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
-function createEvent(evento, container) {
+function createEvent(evento, container, position) {
   //Convertir string en número (fecha)
   let convertDateStart = new Date(evento.dateStart);
   let convertDateFinal = new Date(evento.dateFinal);
@@ -72,17 +70,37 @@ function createEvent(evento, container) {
     bar.appendChild(payIconContainer);
     payIconContainer.appendChild(payIcon);
   }
+  // ABRIR VENTANA MODAL
+  const modalWindow = document.querySelector(".modal-parent");
+  let openModal = document.querySelectorAll(".cta")[position];
+  openModal.addEventListener("click", () => {
+    createModal(
+      dateStart,
+      dateFinal,
+      evento.photoEvent,
+      evento.nameEvent,
+      evento.site,
+      evento.comments,
+      modalWindow,
+      position
+    );
+  });
 }
 
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
-function createModal(evento, container, position) {
-  let convertDateStart = new Date(evento.dateStart);
-  let convertDateFinal = new Date(evento.dateFinal);
-  let dateStart = dateFormat(convertDateStart);
-  let dateFinal = dateFormat(convertDateFinal);
+function createModal(
+  dateStart,
+  dateFinal,
+  photoEvent,
+  nameEvent,
+  site,
+  comments,
+  container,
+  position
+) {
   // ZONA OSCURA
   let modalBox = document.createElement("div");
-  modalBox.className = "modal-container hidden";
+  modalBox.className = "modal-container";
   container.appendChild(modalBox);
   // VENTANA
   let modal = document.createElement("div");
@@ -91,7 +109,7 @@ function createModal(evento, container, position) {
   // IMAGEN
   let modalImage = document.createElement("img");
   modalImage.className = "modal-image";
-  modalImage.src = evento.photoEvent;
+  modalImage.src = photoEvent;
   modal.appendChild(modalImage);
   // ZONA DE TEXTO
   let modalText = document.createElement("div");
@@ -99,20 +117,20 @@ function createModal(evento, container, position) {
   modal.appendChild(modalText);
   // NOMBRE
   let modalName = document.createElement("p");
-  modalName.innerText = evento.nameEvent;
+  modalName.innerText = nameEvent;
   modalText.appendChild(modalName);
   // LUGAR
   let modalPlace = document.createElement("p");
-  modalPlace.innerText = evento.site;
+  modalPlace.innerText = site;
   modalText.appendChild(modalPlace);
   // FECHA
   let modalDate = document.createElement("p");
   modalDate.innerText = dateStart;
   modalText.appendChild(modalDate);
   // DESCRIPCIÓN
-  if (evento.comments) {
+  if (comments) {
     let description = document.createElement("p");
-    description.innerText = evento.comments;
+    description.innerText = comments;
     modalText.appendChild(description);
   }
   // BOTÓN DE CIERRE
@@ -122,18 +140,12 @@ function createModal(evento, container, position) {
   closeButton.alt = "Cerrar";
   modal.appendChild(closeButton);
   // FUNCIONALIDAD DEL MODAL
-  let closeModal = document.querySelectorAll(".close")[position];
-  let openModal = document.querySelectorAll(".cta")[position];
-  let modalContainer = document.querySelectorAll(".modal-container")[position];
-  openModal.addEventListener("click", () => {
-    modalContainer.classList.toggle("hidden");
-  });
-  closeModal.addEventListener("click", () => {
-    modalContainer.classList.toggle("hidden");
+  closeButton.addEventListener("click", () => {
+    modalBox.remove();
   });
   window.addEventListener("click", (e) => {
-    if (e.target == modalContainer) {
-      modalContainer.classList.toggle("hidden");
+    if (e.target == modalBox) {
+      modalBox.remove();
     }
   });
 }
