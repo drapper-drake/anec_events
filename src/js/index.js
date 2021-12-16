@@ -81,8 +81,7 @@ function createEvent(evento, container, position) {
       evento.nameEvent,
       evento.site,
       evento.comments,
-      modalWindow,
-      position
+      modalWindow
     );
   });
 }
@@ -95,8 +94,7 @@ function createModal(
   nameEvent,
   site,
   comments,
-  container,
-  position
+  container
 ) {
   // ZONA OSCURA
   let modalBox = document.createElement("div");
