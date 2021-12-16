@@ -24,35 +24,35 @@ function createEvent(evento, container) {
   let dateFinal = dateFormat(convertDateFinal);
   let containerCard = document.createElement("div");
   containerCard.className = "container-card";
+  container.appendChild(containerCard);
   //DIV DE LA IMAGEN
   let photoEvent = document.createElement("div");
   photoEvent.className = "photoEvent";
+  containerCard.appendChild(photoEvent);
   //IMAGEN
   let image = document.createElement("img");
   image.src = evento.photoEvent;
   image.className = "cta";
+  photoEvent.appendChild(image);
   //TARJETA
   let card = document.createElement("div");
   card.className = "card";
+  containerCard.appendChild(card);
   // BARRA DE ICONOS
   let bar = document.createElement("div");
   bar.className = "icons-bar";
+  card.appendChild(bar);
   // NOMBRE
   let name = document.createElement("h3");
   name.innerText = evento.nameEvent;
+  card.appendChild(name);
   // LUGAR
   let place = document.createElement("p");
   place.innerText = evento.site;
+  card.appendChild(place);
   // FECHA
   let date = document.createElement("p");
   date.innerText = dateStart;
-  container.appendChild(containerCard);
-  containerCard.appendChild(photoEvent);
-  photoEvent.appendChild(image);
-  containerCard.appendChild(card);
-  card.appendChild(bar);
-  card.appendChild(name);
-  card.appendChild(place);
   card.appendChild(date);
   // ICONOS
   if (evento.free) {
@@ -83,41 +83,43 @@ function createModal(evento, container, position) {
   // ZONA OSCURA
   let modalBox = document.createElement("div");
   modalBox.className = "modal-container hidden";
+  container.appendChild(modalBox);
   // VENTANA
   let modal = document.createElement("div");
   modal.className = "modal";
+  modalBox.appendChild(modal);
   // IMAGEN
   let modalImage = document.createElement("img");
   modalImage.className = "modal-image";
   modalImage.src = evento.photoEvent;
+  modal.appendChild(modalImage);
   // ZONA DE TEXTO
   let modalText = document.createElement("div");
   modalText.className = "modal-text";
+  modal.appendChild(modalText);
   // NOMBRE
   let modalName = document.createElement("p");
   modalName.innerText = evento.nameEvent;
+  modalText.appendChild(modalName);
   // LUGAR
   let modalPlace = document.createElement("p");
   modalPlace.innerText = evento.site;
+  modalText.appendChild(modalPlace);
   // FECHA
   let modalDate = document.createElement("p");
   modalDate.innerText = dateStart;
+  modalText.appendChild(modalDate);
   // DESCRIPCIÓN
-  let description = document.createElement("p");
-  description.innerText = evento.comments;
+  if (evento.comments) {
+    let description = document.createElement("p");
+    description.innerText = evento.comments;
+    modalText.appendChild(description);
+  }
   // BOTÓN DE CIERRE
   let closeButton = document.createElement("img");
   closeButton.className = "close";
   closeButton.src = "src/assets/img/xmark-solid.svg";
   closeButton.alt = "Cerrar";
-  container.appendChild(modalBox);
-  modalBox.appendChild(modal);
-  modal.appendChild(modalImage);
-  modal.appendChild(modalText);
-  modalText.appendChild(modalName);
-  modalText.appendChild(modalPlace);
-  modalText.appendChild(modalDate);
-  modalText.appendChild(description);
   modal.appendChild(closeButton);
   // FUNCIONALIDAD DEL MODAL
   let closeModal = document.querySelectorAll(".close")[position];
