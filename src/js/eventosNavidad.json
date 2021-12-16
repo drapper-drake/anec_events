@@ -47,28 +47,6 @@
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439899/anac-event/iduatnkcfredsmyslhl4.jpg"
   },
   {
-    "nameEvent": "Certamen de Villancicos",
-    "free": true,
-    "site": "Federació de Fogueres",
-    "hoursOpen": "sábado de 19:00 a 21:00",
-    "hoursClose": "domingo de 12:00 a 14:00 y de 18:00 a 21:00",
-    "dateStart": "2021/12/11",
-    "dateFinal": "2021/12/12",
-    "category": "Christmas",
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440083/anac-event/pkrmqldmhgbhcy9hoj25.jpg"
-  },
-  {
-    "nameEvent": "Mercadillo Campoamor",
-    "free": true,
-    "site": "Paseo de Campoamor",
-    "hoursOpen": "11:00",
-    "hoursClose": "21:00",
-    "dateStart": "2021/12/18",
-    "dateFinal": "2021/12/19",
-    "category": "Christmas",
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440383/anac-event/akrqgwxvpbkrrebse2v0.jpg"
-  },
-  {
     "nameEvent": "Carta a los Reyes Magos",
     "free": true,
     "site": "Plaza de Gabriel Miró",
@@ -101,16 +79,6 @@
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638440952/anac-event/dcqxxhzdbtbr7zyntgjc.jpg"
   },
   {
-    "nameEvent": "Talleres en el Aula de Cultura",
-    "free": true,
-    "site": "Aula de Cultura, Chalet del Ingeniero de Tranvías",
-    "dateStart": "2021/12/03",
-    "dateFinal": "2021/12/18",
-    "comments": "Solicitar Inscripción. La Navidad Intergeneracional, para niños de entre 5 y 12 años acompañados de un adulto",
-    "category": "",
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638530230/anac-event/je5uo92ikduecprvm5su.jpg"
-  },
-  {
     "nameEvent": "Fuegos artificiales en la Playa del Cocó",
     "free": true,
     "site": "Playa del Cocó",
@@ -118,39 +86,6 @@
     "dateStart": "2022/01/01",
     "category": "Fireworks",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638530131/anac-event/s3c0xnbtjfobyevxeuqk.jpg"
-  },
-  {
-    "nameEvent": "Fiesta HEAVY-METAL 1980s (vs) 1990s",
-    "free": true,
-    "site": "Ruta 13 | Alicante, VC",
-    "hoursOpen": "23:30",
-    "hoursClose": "3:00",
-    "dateStart": "2021/12/11",
-    "dateFinal": "2021/12/12",
-    "comments": "Sesión musical a cargo de Perol N Rock DJ",
-    "category": "Musical",
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639221522/anac-event/a8rd1tlhdoixecvp18nu.jpg"
-  },
-  {
-    "nameEvent": "Rapunzel el musical",
-    "free": true,
-    "site": "Teatro Castelar",
-    "hoursOpen": "18:00",
-    "hoursClose": "19:30",
-    "dateStart": "2021/12/12",
-    "comments": "Entrada gratuita con invitación. Invitaciones en TICKENTRADAS y en taquilla desde dos horas antes del comienzo del espectáculo.",
-    "category": "Theater",
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639138283/anac-event/pxjr5bqlgd4icoacbi8j.jpg"
-  },
-  {
-    "nameEvent": "Ruta de arte urbano",
-    "free": true,
-    "site": "Barrio de Campoamor",
-    "hoursOpen": "00:00",
-    "dateStart": "2022/01/17",
-    "comments": "Se pueden localizar enfrente del parquing del ADDA y las tres manzanas que comprenden desde la calle Primitivo Pérez, calle Capitan Quintanilla e Ingenierio Sanchis Pujalte",
-    "category": "Route",
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639139395/anac-event/zgas0lm7aftbh8eqrfyi.jpg"
   },
   {
     "nameEvent": "India Martínez",
@@ -162,24 +97,6 @@
     "dateFinal": "2021/12/27",
     "category": "Musical",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639221353/anac-event/leer6xqj51unlfb2djsa.jpg"
-  },
-  {
-    "nameEvent": "Tributo a Cantajuegos",
-    "free": false,
-    "site": "Aula de Cultura de Alicante",
-    "hoursOpen": "12:30",
-    "dateStart": "2021/12/12",
-    "category": "Musical",
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639222754/anac-event/fsy2wdqeq0rmczynkpoh.png"
-  },
-    {
-    "nameEvent": "X Media Maratón Alcoy. Unión Alcoyana Seguros",
-    "free": false,
-    "site": "Av. Juan Gil Albert 5, Alcoy",
-    "hoursOpen": "09:00",
-    "dateStart": "2021/12/19",
-    "category": "Deporte",
-    "photoEvent": "https://www.mychip.es/uploads/EventImage/image/b/W/bW1KJuHFNFYAhyGdiTe7Kcsij6OYAQ7yU7kX51GibGZliwqYvDGi/250/360/bW1KJuHFNFYAhyGdiTe7Kcsij6OYAQ7yU7kX51GibGZliwqYvDGi.png"
   },
   {
     "nameEvent": "Subida al Belén",
@@ -265,5 +182,70 @@
     "dateFinal": "2023/07/31",
     "category": "Deporte",
     "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/6/4847/1253650/vertic_372_270.jpg"
-  }
+  },
+  {
+    "nameEvent": "Gran Concierto de Año Nuevo",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "hoursOpen": "19:00",
+    "dateStart": "2022/01/01",
+    "category": "Teatro",
+    "comments": "Gran Concierto de Año Nuevo con European Sinfonica Orquesta",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639656531/anac-event/asli18u6co8sqnvqzkja.jpg",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=966"
+  },
+  {
+  "nameEvent": "El lago de los cisnes",
+  "free": false,
+  "site": "Teatro Principal de Alicante",
+  "hoursOpen": "20:30",
+  "dateStart": "2022/01/12",
+  "category": "Teatro",
+  "comments": "El lago de los cisnes de Ballet nacional ruso Sergey Radchenko",
+  "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639656716/anac-event/ucvff5yw5snaiac0xa3v.jpg",
+  "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=975"
+},
+{
+  "nameEvent": "Carlos Núñez en Concierto",
+  "free": false,
+  "site": "Teatro Principal de Alicante",
+  "hoursOpen": "20:30",
+  "dateStart": "2022/01/13",
+  "category": "Teatro",
+  "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639656304/anac-event/qrk5o6a9tynezjhher52.jpg",
+  "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=972"
+},
+{
+  "nameEvent": "Imbécil (Midiendo las palabras)",
+  "free": false,
+  "site": "Teatro Principal de Alicante",
+  "hoursOpen": "20:30",
+  "dateStart": "2022/01/14",
+  "category": "Teatro",
+  "comments": "El espectáculo de Alex O’Dogherty.",
+  "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639656257/anac-event/oldtvlj6ai4w1ro081sr.jpg",
+  "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=952"
+},
+{
+  "nameEvent": "DIVA de Albert Boadella",
+  "free": false,
+  "site": "Teatro Principal de Alicante",
+  "hoursOpen": "20:00",
+  "dateStart": "2022/01/15",
+  "category": "Teatro",
+  "comments": "María Callas se halla en el ocaso de su vida.  Reside en París alejada de todo.  La crítica se cebó con ella en sus últimas apariciones y no ha vuelto a cantar en público.  Desdeña el presente mientras fuerza a su repetidor a que le acompañe en un imaginario repertorio que ya no podrá realizar.  Le obliga a interpretar sus momentos más apasionados y estelares. Es el inicio del camino hacia su propio y misterioso final.",
+  "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639656792/anac-event/lnem7wokrhxtcrixa1cs.jpg",
+  "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=962"
+},
+{
+  "nameEvent": "El Hombre Almohada",
+  "free": false,
+  "site": "Teatro Principal de Alicante",
+  "hoursOpen": "18:00",
+  "dateStart": "2022/01/16",
+  "category": "Teatro",
+  "comments": "Katurian, una escritora de relatos cortos en los que se describen malos tratos hacia menores, es arrestada por la policía de un estado totalitario. Su crimen no es la subversión política como sospechamos al principio.  Sino que sus historias se parecen sospechosamente a una serie de crímenes que se han sucedido en los últimos tiempos.  Aunque Katurian jura que es inocente, se entera de que su hermano Michal, ha cometido los crímenes.",
+  "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639657053/anac-event/egrcdnqgttpksbhhuf7p.jpg",
+  "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=958"
+}
 ]
