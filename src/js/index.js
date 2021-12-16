@@ -48,7 +48,7 @@ function createEvent(evento, container, position) {
   card.appendChild(name);
   // LUGAR
   let place = document.createElement("p");
-  place.innerText = evento.site;
+  place.innerText = evento.cityLocation;
   //DIV FECHA
   let dateCard = document.createElement("div");
   dateCard.className = "date-card";
