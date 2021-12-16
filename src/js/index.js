@@ -191,24 +191,19 @@ function responsiveFooter() {
   }
 }
 
-  const listEvent = document.querySelectorAll('.liEvent')
 
-  listEvent.forEach(li => {
-    console.log(li.classList)
-
-
+function selectNavBar (){
+  const listEvent = document.querySelectorAll(".navegation ul li");
+  listEvent.forEach( li => {
     li.addEventListener("click", () => {
-      listEvent.forEach(li => {
-        li.classList.remove("nav-select")
-
-      })
-      li.classList.add('nav-select')
+      listEvent.forEach(li => li.classList.remove("nav-select"));
+      li.classList.add("nav-select");
     })
-
   })
+}
 
 
-
+selectNavBar();
 window.addEventListener("DOMContentLoaded", () => {
   createAll();
   responsiveFooter();

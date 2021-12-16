@@ -125,7 +125,7 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   list-style: none;
-  padding-left: 0;  // Para quitar el espacio que tiene por defectos las listas no me deja espaciar bien
+  padding-left: 0;  /*Para quitar el espacio que tiene por defectos las listas no me deja espaciar bien*/
 }
 
 .container-nav li{
@@ -133,7 +133,6 @@ h1 {
 }
 
 .navegation li:hover {
-  /* text-decoration: underline var(--color-contrast-bg-dark);  si pongo esta es fina */
   border-bottom: 3px solid var(--color-contrast-bg-dark);
 }
 
