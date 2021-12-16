@@ -92,7 +92,7 @@ h1 {
   height: 500px;
 }
 
-/* Estilos de barra de navegación */
+/* Estilos de BARRA NAVEGACION*/
 .container-nav{
   display: flex;
   flex-direction: column;
@@ -108,33 +108,39 @@ h1 {
 }
 
 .nav-title span {
+  color: var(--color-contrast-bg-dark);
 }
 
 .navegation{
-  color: var(--bg-dark);
+  color: var(--color-text-bg-light);
   width: 550px;
+  height: 50px;
   background-color: var(--color-text-bg-dark);
   border-radius: 15px;
   border: 3px solid var(--bg-dark);
+  position: relative;
 }
 
 .navegation ul{
   display: flex;
   justify-content: space-evenly;
   list-style: none;
-  height: 100%;
   padding-left: 0;  // Para quitar el espacio que tiene por defectos las listas no me deja espaciar bien
 }
 
 .container-nav li{
   cursor: pointer;
-  height: 100%;
 }
 
-.container-nav li:hover{
+.navegation li:hover {
+  /* text-decoration: underline var(--color-contrast-bg-dark);  si pongo esta es fina */
+  border-bottom: 3px solid var(--color-contrast-bg-dark);
+}
+
+.nav-select{
   background: var(--bg-dark);
   height: 100%;
-  color: var(--bg-light);
+  color: white;
   border-radius: 10px;
   padding: 5px;
   transform: translateY(-2em);

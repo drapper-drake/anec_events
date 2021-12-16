@@ -191,7 +191,26 @@ function responsiveFooter() {
   }
 }
 
+  const listEvent = document.querySelectorAll('.liEvent')
+
+  listEvent.forEach(li => {
+    console.log(li.classList)
+
+
+    li.addEventListener("click", () => {
+      listEvent.forEach(li => {
+        li.classList.remove("nav-select")
+
+      })
+      li.classList.add('nav-select')
+    })
+
+  })
+
+
+
 window.addEventListener("DOMContentLoaded", () => {
   createAll();
   responsiveFooter();
 });
+
