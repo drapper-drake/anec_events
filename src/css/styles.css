@@ -1,14 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lobster&display=swap%27");
 
 :root {
-  --bg-light: #F2F2F2;
-  --bg-dark: #0B3762;
-  --color-text-bg-light: #342618;
-  --color-text-bg-dark: #FFFFFF;
-  --color-contrast-bg-light: #0B4DA5;
-  --color-contrast-bg-dark: #FFA438;
-  --color-links-cta: #FFA438;
-  --color-links-visited: #8197BA;
+  /* --bg-color: #f2f2f2;
+  --color-primary: #023e73;
+  --color-secundary: #084da6;
+  --bg-color-dark: #bfa26b; */
+  --color-contrast: #a60321; /* En el title-header */
+
+  --bg-light: #f2f2f2;
+  --bg-dark: #0b3762;
+  --color-text-bg-light: #342618; /* Aún no usado */
+  --color-text-bg-dark: #ffffff;
+  --color-contrast-bg-light: #0b4da5; /* Aún no usado */
+  --color-contrast-bg-dark: #ffa438;
+  --color-links-cta: #ffa438; /* Aún no usado */
+  --color-links-visited: #8197ba; /* Aún no usado */
 }
 
 body {
@@ -61,7 +67,7 @@ header {
   position: absolute;
 }
 
-h1{
+h1 {
   /*Es posible que haya que cambiar esta variable para una especifica para el logo*/
   color: var(--color-links-cta);
   font-family: "Lobster", cursive;
@@ -140,9 +146,9 @@ h1{
 
 .container {
   width: 90%;
+  height: 500px;
   height: min-content;
   margin: 56px auto;
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-column-gap: 39px;
@@ -152,28 +158,75 @@ h1{
   font-size: 18px;
 }
 
+/* Estilos de las tarjetas de eventos */
+
+.container-card {
+  width: 90%;
+  padding-bottom: 15em;
+  margin: 2em auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-size: 16px;
+}
+
+
+.photoEvent{
+  width: 100%;
+  height: 340px;
+  background-color: var(--bg-light);
+  border-radius: 25px;
+  left: 200px;
+}
+
+.photoEvent > img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  border-radius: 25px;
+}
+
 .card {
+  width: 100%;
+  height: 280px;
   background: var(--bg-dark);
   border-radius: 25px;
+
+  box-shadow: 4px 10px 6px #00000050;
+  transition: 2s;
+
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 7em;
 
   text-align: center;
   color: var(--color-text-bg-dark);
 }
 
-.card > img {
-  width: 100%;
-  height: 260px;
-  border-radius: 25px 25px 0px 0px;
-
-  object-fit: cover;
+.card:hover{
+   bottom: 5em;
 }
 
 .card > h3 {
   padding: 5px;
-  margin-top: 10px;
+  margin: 0;
 
   font-family: "Lobster", cursive;
   font-size: 2em;
+}
+
+.card > p {
+  padding: 10px;
+  margin: 0;
+
+  font-size: 1.5em;
 }
 
 .icons-bar {
@@ -182,14 +235,15 @@ h1{
   background: var(--bg-light);
   border-radius: 25px;
 
+  margin: 10px auto;
+
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
-  margin: 10px auto;
+  flex-direction: row;
 }
 
-.icons-bar > figure {
+figure {
   width: 48px;
   height: 48px;
 
@@ -213,10 +267,6 @@ figure > img {
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  /*Las dos siguientes propiedades javascript te las inyecta al HTML no al CSS
-  Sería conveniente que si quieres que este oculto usar la clase hidden*/
-  opacity: 0;
-  visibility: hidden;
 
   display: flex;
   justify-content: center;
@@ -241,7 +291,7 @@ figure > img {
   position: relative;
 
   font-family: "Be Vietnam Pro", sans-serif;
-  font-size:1.5em;
+  font-size: 1.5em;
   color: var(--color-text-bg-light);
   text-align: center;
 }
@@ -253,7 +303,7 @@ figure > img {
 .modal-text {
   padding: 25px;
 }
-.modal-text>p:first-of-type{
+.modal-text > p:first-of-type {
   font-family: "Lobster", cursive;
   font-size: 2em;
 }
@@ -300,7 +350,7 @@ footer {
 }
 .container-img {
   width: 80%;
-  background: white;
+  background: var(--color-text-bg-dark);
   border-radius: 15px;
   padding: 0 1em;
 
@@ -309,7 +359,6 @@ footer {
   justify-content: space-evenly;
 
   margin: 1em auto;
-
 }
 
 .container-img > img {
@@ -330,7 +379,6 @@ a:visited {
 }
 
 /* Responsive */
-
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
   .container {
@@ -356,9 +404,15 @@ a:visited {
   .container {
     grid-template-columns: 1fr;
   }
+  /* Hemos añadido esto porque el hover dejaba mucho espacio entre tarjetas */
+  .card{
+    bottom: 1em;
+  }
+
   body .description {
     display: none;
   }
+
   .container-logo {
     display: none;
   }
