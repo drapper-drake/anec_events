@@ -60,23 +60,23 @@ function createEvent(evento, container, position) {
   let date = document.createElement("p");
   date.innerText = dateStart;
   dateCard.appendChild(date);
+
   // ICONOS
+  let IconContainer = document.createElement("figure");
+  let Icon = document.createElement("img");
+  bar.appendChild(IconContainer);
+  IconContainer.appendChild(Icon);
+
   if (evento.free) {
-    let freeIconContainer = document.createElement("figure");
-    freeIconContainer.title = "Evento GRATUITO";
-    let freeIcon = document.createElement("img");
-    freeIcon.src = "/src/assets/img/free.png";
-    freeIcon.alt = "Evento GRATUITO";
-    bar.appendChild(freeIconContainer);
-    freeIconContainer.appendChild(freeIcon);
+    IconContainer.title = "Evento GRATUITO";
+    Icon.src = "/src/assets/img/free.png";
+    Icon.alt = "Evento GRATUITO";
   } else {
-    let payIconContainer = document.createElement("figure");
-    payIconContainer.title = "Evento DE PAGO";
-    let payIcon = document.createElement("img");
-    payIcon.src = "/src/assets/img/pago.svg";
-    payIcon.alt = "Evento DE PAGO";
-    bar.appendChild(payIconContainer);
-    payIconContainer.appendChild(payIcon);
+    IconContainer.title = "Evento DE PAGO";
+    Icon.src = "/src/assets/img/pago.svg";
+    Icon.alt = "Evento DE PAGO";
+    bar.appendChild(IconContainer);
+    IconContainer.appendChild(Icon);
   }
   // ABRIR VENTANA MODAL
   const modalWindow = document.querySelector(".modal-parent");
