@@ -26,12 +26,10 @@ function createEvent(evento, container, position) {
   //DIV DE LA IMAGEN
   let photoEvent = document.createElement("div");
   photoEvent.className = "photoEvent";
-  containerCard.appendChild(photoEvent);
   //IMAGEN
   let image = document.createElement("img");
   image.src = evento.photoEvent;
   image.className = "cta";
-  photoEvent.appendChild(image);
   //TARJETA
   let card = document.createElement("div");
   card.className = "card";
@@ -41,14 +39,12 @@ function createEvent(evento, container, position) {
   // NOMBRE
   let name = document.createElement("h3");
   name.innerText = evento.nameEvent;
-  card.appendChild(name);
   // LUGAR
   let place = document.createElement("p");
   place.innerText = evento.cityLocation;
   // BARRA DE ICONOS
   let bar = document.createElement("div");
   bar.className = "icons-bar";
-  card.appendChild(bar);
   //DIV FECHA
   let dateCard = document.createElement("div");
   dateCard.className = "date-card";
@@ -164,27 +160,9 @@ function createModal(
 
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month) {
-  const monthShortNames = [
-    "ENE",
-    "FEB",
-    "MAR",
-    "ABR",
-    "MAY",
-    "JUN",
-    "JUL",
-    "AGO",
-    "SEP",
-    "OCT",
-    "NOV",
-    "DIC",
-  ];
-  return (
-    month.getDate() +
-    " " +
-    monthShortNames[month.getMonth()]
-    //", "
-    //month.getFullYear()
-  );
+  const monthShortNames = ["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"];
+  return `${month.getDate()} ${monthShortNames[month.getMonth()]}`
+ ;
 }
 
 /* Función del slider de logos de patrocinadores
