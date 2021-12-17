@@ -277,5 +277,24 @@
     "category": "Teatro",
     "comments": "CIRCO DE NAVIDAD es en definitiva, la perfecta combinación entre la emoción y elegancia de los mejores números circenses y la diversión y locura de los más importantes clowns de la escena internacional.",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639663822/anac-event/zmem6f5aqkvidn1n32hz.jpg"
+  },
+  {
+    "nameEvent": "Hellvetics",
+    "free": false,
+    "site": "Contrapunto Música y Copas",
+    "dateStart": "2022/01/15",
+    "hoursOpen": "19:00",
+    "category": "Musical",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639741053/anac-event/hb1bqdldhqwt1kq0m20g.jpg"
+  },
+  {
+    "nameEvent": "Manuel Carrasco",
+    "free": false,
+    "site": "Universidad Miguel Hernández",
+    "dateStart": "2022/06/03",
+    "hoursOpen": "22:30",
+    "category": "Musical",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639741285/anac-event/budgpcoatxwdtowytbj1.jpg"
   }
+
 ]
