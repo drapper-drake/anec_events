@@ -139,7 +139,7 @@
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639650098/anac-event/puwdqstusgcnudygswv0.jpg"
   },
   {
-    "nameEvent": "Alicante a través de sus museos con un aperitivo",
+    "nameEvent": "Ruta de museos con aperitivo",
     "free": false,
     "site": "Plaza Portal de Elche",
     "cityLocation": "Alicante",
@@ -171,7 +171,7 @@
     "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/4/9796/1139274/vertic_372_270.jpg"
   },
   {
-    "nameEvent": "Parasailing en Alicante",
+    "nameEvent": "Parasailing",
     "free": false,
     "site": "Marmarela Mediterranean Cocktail Club",
     "cityLocation": "Alicante",
@@ -181,10 +181,10 @@
     "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/4/6426/1116324/vertic_372_270.jpg"
   },
   {
-    "nameEvent": "Recorrido en bicicleta por Benidorm",
+    "nameEvent": "Recorrido en bicicleta",
     "free": false,
     "site": "Hoteles y apartamentos en Benidorm, Albir, La Nucia, Cala de Finestrat y Villajoiosa, Sella u Orxeta.",
-    "cityLocation": "Benidorm,Marina Alta",
+    "cityLocation": "Marina Alta",
     "hoursOpen": "10:00",
     "hoursClose": "16:00",
     "dateStart": "2021/12/17",
@@ -193,7 +193,7 @@
     "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/6/1262/1217700/vertic_372_270.jpg"
   },
   {
-    "nameEvent": "Volar en parapente biplaza en Santa Pola",
+    "nameEvent": "Parapente biplaza",
     "free": false,
     "site": "Parapente Aventura",
     "cityLocation": "Santa Pola",

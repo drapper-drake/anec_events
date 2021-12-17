@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lobster&display=swap%27");
-
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 :root {
   /* --bg-color: #f2f2f2;
   --color-primary: #023e73;
@@ -70,9 +69,10 @@ header {
 h1 {
   /*Es posible que haya que cambiar esta variable para una especifica para el logo*/
   color: var(--color-links-cta);
-  font-family: "Lobster", cursive;
+  font-family: "Lobster Two", cursive;
   text-align: start;
   font-size: 70px;
+  font-weight: bold;
 
   margin: 0;
 }
@@ -142,12 +142,14 @@ h1 {
   background: var(--bg-dark);
   border-radius: 25px;
 
-  box-shadow: 4px 10px 6px #00000050;
+  display:flex;
+  flex-direction: row;
+  box-shadow: 0px 10px 12px 4px #00000050;
   transition: 2s;
 
   position: absolute;
   bottom: 7em;
-  text-align: center;
+  /*text-align: center;*/
   color: var(--color-text-bg-dark);
 }
 .card:hover{
@@ -156,22 +158,40 @@ h1 {
 .info-card{
   display: flex;
   flex-direction: column;
+  width: 75%;
+  padding: 0px 15px;
 }
 .info-card > h3 {
-  padding: 5px;
   margin: 0;
-
-  font-family: "Lobster", cursive;
+  height: 50%;
+  font-family: "Lobster two", cursive;
   font-size: 2em;
 }
 
 .info-card > p {
-  padding: 10px;
   margin: 0;
 
   font-size: 1.5em;
 }
+.date-card{
+  width: 25%;
+  color: var(--color-text-bg-light);
+  background: var(--bg-light);
+  border-radius: 0 25px 25px 0;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: bold;
+  text-align: center;
+}
+hr{
+  width:75%;
+  border: none;
+  border-top: 1px solid var(--color-text-bg-light)
+}
 .icons-bar {
   width: 90%;
   height: 48px;
@@ -186,8 +206,8 @@ h1 {
 }
 
 figure {
-  width: 48px;
-  height: 48px;
+  width: 50px;
+  height: 50px;
 
   margin: 0;
 }
@@ -242,7 +262,7 @@ figure > img {
   padding: 25px;
 }
 .modal-text > p:first-of-type {
-  font-family: "Lobster", cursive;
+  font-family: "Lobster Two", cursive;
   font-size: 2em;
 }
 

@@ -38,10 +38,6 @@ function createEvent(evento, container, position) {
   //DATOS TARJETA
   let infoCard = document.createElement("div");
   infoCard.className = "info-card";
-  // BARRA DE ICONOS
-  let bar = document.createElement("div");
-  bar.className = "icons-bar";
-  card.appendChild(bar);
   // NOMBRE
   let name = document.createElement("h3");
   name.innerText = evento.nameEvent;
@@ -49,6 +45,10 @@ function createEvent(evento, container, position) {
   // LUGAR
   let place = document.createElement("p");
   place.innerText = evento.cityLocation;
+  // BARRA DE ICONOS
+  let bar = document.createElement("div");
+  bar.className = "icons-bar";
+  card.appendChild(bar);
   //DIV FECHA
   let dateCard = document.createElement("div");
   dateCard.className = "date-card";
@@ -165,25 +165,25 @@ function createModal(
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month) {
   const monthShortNames = [
-    "Ene",
-    "Feb",
-    "Mar",
-    "Abr",
-    "May",
-    "Jun",
-    "Jul",
-    "Ago",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dic",
+    "ENE",
+    "FEB",
+    "MAR",
+    "ABR",
+    "MAY",
+    "JUN",
+    "JUL",
+    "AGO",
+    "SEP",
+    "OCT",
+    "NOV",
+    "DIC",
   ];
   return (
     month.getDate() +
     " " +
-    monthShortNames[month.getMonth()] +
-    ", " +
-    month.getFullYear()
+    monthShortNames[month.getMonth()]
+    //", "
+    //month.getFullYear()
   );
 }
 
