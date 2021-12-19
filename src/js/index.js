@@ -9,7 +9,11 @@ function createAll() {
       // data es un array de eventos
       const content = document.querySelector(".container");
       for (let evento in data) {
-        allArray.push(data[evento])
+        //Es un generador de Id basados en el nombre del evento
+        let idEvent = data[evento].nameEvent;
+        idEvent = idEvent.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+        data[evento].id = idEvent;
+        allArray.push(data[evento]);
       }
       changeformatDateJSON(data);
       allArray.sort((a,b) => a.dateStart - b.dateStart)
@@ -29,8 +33,6 @@ function changeformatDateJSON (){
     for(let position in allArray ){
       //Llamar función que imprime la fecha en el orden deseado
       let dateStart = dateFormat(allArray[position].dateStart, true);
-
-
       let containerCard = document.createElement("div");
       containerCard.className = "container-card";
       container.appendChild(containerCard);
@@ -44,8 +46,9 @@ function changeformatDateJSON (){
       //TARJETA
       let card = document.createElement("div");
       card.className = "card";
+      card.id = allArray[position].id
       // AÑADE EL EVENTO A LA TARJETA
-      card.addEventListener("click", createModal);
+      card.addEventListener("click", dataModal);
 
       //DATOS TARJETA
       let infoCard = document.createElement("div");
@@ -106,9 +109,13 @@ function changeformatDateJSON (){
   }
 
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
-function createModal(e) {
-  const titleOfEvent = e.currentTarget.firstElementChild.firstElementChild.nextSibling.textContent;
-  let dataEvent = allArray.filter((el) => el.nameEvent === titleOfEvent);
+function dataModal(e){
+  //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
+  const idOfEvent = e.currentTarget.id;
+  createModal(idOfEvent)
+}
+function createModal(id) {
+  let dataEvent = allArray.filter((el) => el.id === id);
   dataEvent= dataEvent[0];
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
@@ -162,6 +169,7 @@ function createModal(e) {
   // FUNCIONALIDAD DEL MODAL
   closeButton.addEventListener("click", () => {
     modalBox.remove();
+
   });
   window.addEventListener("click", (e) => {
     if (e.target == modalBox) {
@@ -169,7 +177,9 @@ function createModal(e) {
     }
   });
 }
-
+function removeModalBox(){
+  modalBox.remove();
+}
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
   const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
