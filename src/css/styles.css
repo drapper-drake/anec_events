@@ -151,6 +151,7 @@ h1 {
   bottom: 7em;
   /*text-align: center;*/
   color: var(--color-text-bg-dark);
+  cursor:pointer;
 }
 .card:hover{
    bottom: 5em;
@@ -264,10 +265,6 @@ figure > img {
 .modal-text > p:first-of-type {
   font-family: "Lobster Two", cursive;
   font-size: 2em;
-}
-
-.cta {
-  cursor: pointer;
 }
 
 .close {

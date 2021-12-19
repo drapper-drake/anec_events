@@ -27,110 +27,94 @@ function changeformatDateJSON (){
   // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
   function createEvent( container ) {
     for(let position in allArray ){
-      console.log(allArray[position].hasOwnProperty("dateFinal"));
       //Llamar función que imprime la fecha en el orden deseado
-    let dateStart = dateFormat(allArray[position].dateStart, true);
-    let dateStartModal = dateFormat(allArray[position].dateStart);
+      let dateStart = dateFormat(allArray[position].dateStart, true);
 
-    let containerCard = document.createElement("div");
-    containerCard.className = "container-card";
-    container.appendChild(containerCard);
 
-    //DIV DE LA IMAGEN
-    let photoEvent = document.createElement("div");
-    photoEvent.className = "photoEvent";
-    //IMAGEN
-    let image = document.createElement("img");
-    image.src = allArray[position].photoEvent;
-    image.className = "cta";
-    //TARJETA
-    let card = document.createElement("div");
-    card.className = "card";
-    //DATOS TARJETA
-    let infoCard = document.createElement("div");
-    infoCard.className = "info-card";
-    // NOMBRE
-    let name = document.createElement("h3");
-    name.innerText = allArray[position].nameEvent;
-    // LUGAR
-    let place = document.createElement("p");
-    place.innerText = allArray[position].cityLocation;
-    // BARRA DE ICONOS
-    let bar = document.createElement("div");
-    bar.className = "icons-bar";
-    //DIV FECHA
-    let dateCard = document.createElement("div");
-    dateCard.className = "date-card";
-    // FECHA
-    let date = document.createElement("p");
-    date.innerText = dateStart;
+      let containerCard = document.createElement("div");
+      containerCard.className = "container-card";
+      container.appendChild(containerCard);
 
-    container.appendChild(containerCard);
-    containerCard.appendChild(photoEvent);
-    photoEvent.appendChild(image);
-    containerCard.appendChild(card);
-    card.appendChild(infoCard)
-    card.appendChild(dateCard)
-    infoCard.appendChild(bar);
-    infoCard.appendChild(name);
-    infoCard.appendChild(place);
-    dateCard.appendChild(date);
+      //DIV DE LA IMAGEN
+      let photoEvent = document.createElement("div");
+      photoEvent.className = "photoEvent";
+      //IMAGEN
+      let image = document.createElement("img");
+      image.src = allArray[position].photoEvent;
+      //TARJETA
+      let card = document.createElement("div");
+      card.className = "card";
+      // AÑADE EL EVENTO A LA TARJETA
+      card.addEventListener("click", createModal);
 
-    if(allArray[position].hasOwnProperty("dateFinal")){
-      let dateF = dateFormat(allArray[position].dateFinal,true );
-      let dateEnd = document.createElement("p");
-      dateEnd.innerText = dateF;
-      let divider = document.createElement("hr");
-      dateCard.appendChild(divider);
-      dateCard.appendChild(dateEnd);
-    }
-    // ICONOS
-    let IconContainer = document.createElement("figure");
-    let Icon = document.createElement("img");
-    bar.appendChild(IconContainer);
-    IconContainer.appendChild(Icon);
+      //DATOS TARJETA
+      let infoCard = document.createElement("div");
+      infoCard.className = "info-card";
+      // NOMBRE
+      let name = document.createElement("h3");
+      name.innerText = allArray[position].nameEvent;
+      // LUGAR
+      let place = document.createElement("p");
+      place.innerText = allArray[position].cityLocation;
+      // BARRA DE ICONOS
+      let bar = document.createElement("div");
+      bar.className = "icons-bar";
+      //DIV FECHA
+      let dateCard = document.createElement("div");
+      dateCard.className = "date-card";
+      // FECHA
+      let date = document.createElement("p");
+      date.innerText = dateStart;
 
-    if (allArray[position].free) {
-      IconContainer.title = "Evento GRATUITO";
-      Icon.src = "/src/assets/img/free.png";
-      Icon.alt = "Evento GRATUITO";
-    } else {
-      IconContainer.title = "Evento DE PAGO";
-      Icon.src = "/src/assets/img/pago.svg";
-      Icon.alt = "Evento DE PAGO";
+      container.appendChild(containerCard);
+      containerCard.appendChild(photoEvent);
+      photoEvent.appendChild(image);
+      containerCard.appendChild(card);
+      card.appendChild(infoCard)
+      card.appendChild(dateCard)
+      infoCard.appendChild(bar);
+      infoCard.appendChild(name);
+      infoCard.appendChild(place);
+      dateCard.appendChild(date);
+
+      if(allArray[position].hasOwnProperty("dateFinal")){
+        let dateF = dateFormat(allArray[position].dateFinal,true );
+        let dateEnd = document.createElement("p");
+        dateEnd.innerText = dateF;
+        let divider = document.createElement("hr");
+        dateCard.appendChild(divider);
+        dateCard.appendChild(dateEnd);
+      }
+      // ICONOS
+      let IconContainer = document.createElement("figure");
+      let Icon = document.createElement("img");
       bar.appendChild(IconContainer);
       IconContainer.appendChild(Icon);
-    }
 
-    // ABRIR VENTANA MODAL
-    const modalWindow = document.querySelector(".modal-parent");
-    let openModal = document.querySelectorAll(".cta")[position];
-    openModal.addEventListener("click", () => {
-      createModal(
-        dateStartModal,
-        allArray[position].photoEvent,
-        allArray[position].nameEvent,
-        allArray[position].site,
-        allArray[position].comments,
-        modalWindow
-        );
-      });
+      if (allArray[position].free) {
+        IconContainer.title = "Evento GRATUITO";
+        Icon.src = "/src/assets/img/free.png";
+        Icon.alt = "Evento GRATUITO";
+      } else {
+        IconContainer.title = "Evento DE PAGO";
+        Icon.src = "/src/assets/img/pago.svg";
+        Icon.alt = "Evento DE PAGO";
+        bar.appendChild(IconContainer);
+        IconContainer.appendChild(Icon);
+      }
     }
   }
 
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
-function createModal(
-  dateStart,
-  photoEvent,
-  nameEvent,
-  site,
-  comments,
-  container
-) {
+function createModal(e) {
+  const titleOfEvent = e.currentTarget.firstElementChild.firstElementChild.nextSibling.textContent;
+  let dataEvent = allArray.filter((el) => el.nameEvent === titleOfEvent);
+  dataEvent= dataEvent[0];
+  const modalWindow = document.querySelector("main");
   // ZONA OSCURA
   let modalBox = document.createElement("div");
   modalBox.className = "modal-container";
-  container.appendChild(modalBox);
+  modalWindow.appendChild(modalBox);
   // VENTANA
   let modal = document.createElement("div");
   modal.className = "modal";
@@ -138,7 +122,7 @@ function createModal(
   // IMAGEN
   let modalImage = document.createElement("img");
   modalImage.className = "modal-image";
-  modalImage.src = photoEvent;
+  modalImage.src = dataEvent.photoEvent;
   modal.appendChild(modalImage);
   // ZONA DE TEXTO
   let modalText = document.createElement("div");
@@ -146,21 +130,27 @@ function createModal(
   modal.appendChild(modalText);
   // NOMBRE
   let modalName = document.createElement("p");
-  modalName.innerText = nameEvent;
+  modalName.innerText = dataEvent.nameEvent;
   modalText.appendChild(modalName);
   // LUGAR
   let modalPlace = document.createElement("p");
-  modalPlace.innerText = site;
+  modalPlace.innerText = dataEvent.site;
   modalText.appendChild(modalPlace);
   // FECHA
   let modalDate = document.createElement("p");
-  modalDate.innerText = dateStart;
-  modalText.appendChild(modalDate);
+  let dateStartModal = dateFormat(dataEvent.dateStart);
+  modalDate.innerText = dateStartModal;
 
+  // FECHA FINAL
+  if (dataEvent.hasOwnProperty("dateFinal")) {
+    let dateFinalModal = dateFormat(dataEvent.dateFinal);
+    modalDate.innerText = `Del ${dateStartModal} al ${dateFinalModal}`;
+  }
+  modalText.appendChild(modalDate);
   // DESCRIPCIÓN
-  if (comments) {
+  if (dataEvent.hasOwnProperty("comments")) {
     let description = document.createElement("p");
-    description.innerText = comments;
+    description.innerText = dataEvent.comments;
     modalText.appendChild(description);
   }
   // BOTÓN DE CIERRE
