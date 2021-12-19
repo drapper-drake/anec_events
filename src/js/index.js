@@ -26,7 +26,8 @@ function changeformatDateJSON (){
   function createEvent( container ) {
     for(let position in allArray ){
       //Llamar función que imprime la fecha en el orden deseado
-    let dateStart = dateFormat(allArray[position].dateStart);
+    let dateStart = dateFormat(allArray[position].dateStart, true);
+    let dateStartModal = dateFormat(allArray[position].dateStart);
     let dateFinal = dateFormat(allArray[position].dateFinal);
     let containerCard = document.createElement("div");
     containerCard.className = "container-card";
@@ -94,7 +95,7 @@ function changeformatDateJSON (){
     let openModal = document.querySelectorAll(".cta")[position];
     openModal.addEventListener("click", () => {
       createModal(
-        dateStart,
+        dateStartModal,
         dateFinal,
         allArray[position].photoEvent,
         allArray[position].nameEvent,
@@ -169,8 +170,12 @@ function createModal(
 }
 
 // Función que convierte número del mes en nombre del mes reducido en español
-function dateFormat(month) {
-  const monthShortNames = ["ENE","FEB","MAR","ABR","MAY","JUN","JUL","AGO","SEP","OCT","NOV","DIC"];
+function dateFormat(month, dateShort = false) {
+  const monthShortNames = ["ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"];
+  if(dateShort){
+    return `${month.getDate()} ${monthShortNames[month.getMonth()].slice(0,3)}`
+
+  }
   return `${month.getDate()} ${monthShortNames[month.getMonth()]}`
  ;
 }
