@@ -10,23 +10,21 @@ function createAll() {
       const content = document.querySelector(".container");
       for (let evento in data) {
         allArray.push(data[evento])
-        const sortEvent = allArray.sort((a,b) => a.dateStart - b.dateStart)
-        //Convertir string en número (fecha)
-
-        allArray[evento].dateStart = new Date(data[evento].dateStart);
-        allArray[evento].dateFinal = new Date(data[evento].dateFinal);
-
       }
+      changeformatDateJSON(data);
+      allArray.sort((a,b) => a.dateStart - b.dateStart)
       createEvent( content, allArray);
-      console.log(allArray)
     });
   }
-
+function changeformatDateJSON (){
+  for (let index in allArray) {
+    allArray[index].dateStart = new Date(allArray[index].dateStart);
+    allArray[index].dateFinal = new Date(allArray[index].dateFinal);
+  }
+}
   // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
   function createEvent( container ) {
     for(let position in allArray ){
-
-
       //Llamar función que imprime la fecha en el orden deseado
     let dateStart = dateFormat(allArray[position].dateStart);
     let dateFinal = dateFormat(allArray[position].dateFinal);
