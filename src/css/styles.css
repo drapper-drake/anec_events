@@ -341,6 +341,16 @@ a:visited {
   .container {
     grid-template-columns: 1fr 1fr;
   }
+  .card{
+    border-radius: 0 0 25px 25px;
+    bottom: 0;
+  }
+  .card:hover {
+    bottom: 0;
+  }
+  .date-card {
+    border-radius: 0 0 25px 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -349,6 +359,17 @@ a:visited {
   }
   header {
     justify-content: center;
+  }
+
+  body .description {
+    display: none;
+  }
+
+  .container-logo {
+    display: none;
+  }
+  .container-img {
+    width: 300px;
   }
 
   .text-intro {
@@ -361,19 +382,14 @@ a:visited {
   .container {
     grid-template-columns: 1fr;
   }
-  /* Hemos añadido esto porque el hover dejaba mucho espacio entre tarjetas */
   .card{
-    bottom: 1em;
+    border-radius: 0 0 25px 25px;
+    bottom: 0;
   }
-
-  body .description {
-    display: none;
+  .card:hover {
+    bottom: 0;
   }
-
-  .container-logo {
-    display: none;
-  }
-  .container-img {
-    width: 300px;
+  .date-card {
+    border-radius: 0 0 25px 0;
   }
 }
