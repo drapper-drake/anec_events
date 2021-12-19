@@ -19,19 +19,23 @@ function createAll() {
 function changeformatDateJSON (){
   for (let index in allArray) {
     allArray[index].dateStart = new Date(allArray[index].dateStart);
+    if(allArray[index].hasOwnProperty("dateFinal")){
     allArray[index].dateFinal = new Date(allArray[index].dateFinal);
+    }
   }
 }
   // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
   function createEvent( container ) {
     for(let position in allArray ){
+      console.log(allArray[position].hasOwnProperty("dateFinal"));
       //Llamar función que imprime la fecha en el orden deseado
     let dateStart = dateFormat(allArray[position].dateStart, true);
     let dateStartModal = dateFormat(allArray[position].dateStart);
-    let dateFinal = dateFormat(allArray[position].dateFinal);
+
     let containerCard = document.createElement("div");
     containerCard.className = "container-card";
     container.appendChild(containerCard);
+
     //DIV DE LA IMAGEN
     let photoEvent = document.createElement("div");
     photoEvent.className = "photoEvent";
@@ -72,6 +76,14 @@ function changeformatDateJSON (){
     infoCard.appendChild(place);
     dateCard.appendChild(date);
 
+    if(allArray[position].hasOwnProperty("dateFinal")){
+      let dateF = dateFormat(allArray[position].dateFinal,true );
+      let dateEnd = document.createElement("p");
+      dateEnd.innerText = dateF;
+      let divider = document.createElement("hr");
+      dateCard.appendChild(divider);
+      dateCard.appendChild(dateEnd);
+    }
     // ICONOS
     let IconContainer = document.createElement("figure");
     let Icon = document.createElement("img");
@@ -174,7 +186,7 @@ function dateFormat(month, dateShort = false) {
   const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
   let monthFormat = monthNames[month.getMonth()]
   if(dateShort){
-    monthFormat= monthFormat.toUpperCase().slice(0,3)
+    monthFormat= monthFormat.toUpperCase().substring(0,3)
   }
   return `${month.getDate()} ${monthFormat}`
  ;
