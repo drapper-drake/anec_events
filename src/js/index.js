@@ -171,12 +171,12 @@ function createModal(
 
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
-  const monthShortNames = ["ENERO","FEBRERO","MARZO","ABRIL","MAYO","JUNIO","JULIO","AGOSTO","SEPTIEMBRE","OCTUBRE","NOVIEMBRE","DICIEMBRE"];
+  const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+  let monthFormat = monthNames[month.getMonth()]
   if(dateShort){
-    return `${month.getDate()} ${monthShortNames[month.getMonth()].slice(0,3)}`
-
+    monthFormat= monthFormat.toUpperCase().slice(0,3)
   }
-  return `${month.getDate()} ${monthShortNames[month.getMonth()]}`
+  return `${month.getDate()} ${monthFormat}`
  ;
 }
 
