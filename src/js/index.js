@@ -108,7 +108,6 @@ function changeformatDateJSON (){
     openModal.addEventListener("click", () => {
       createModal(
         dateStartModal,
-        dateFinal,
         allArray[position].photoEvent,
         allArray[position].nameEvent,
         allArray[position].site,
@@ -122,7 +121,6 @@ function changeformatDateJSON (){
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
 function createModal(
   dateStart,
-  dateFinal,
   photoEvent,
   nameEvent,
   site,
@@ -158,6 +156,7 @@ function createModal(
   let modalDate = document.createElement("p");
   modalDate.innerText = dateStart;
   modalText.appendChild(modalDate);
+
   // DESCRIPCIÓN
   if (comments) {
     let description = document.createElement("p");
