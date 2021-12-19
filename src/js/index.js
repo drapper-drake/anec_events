@@ -1,3 +1,5 @@
+const allArray = [];
+
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
@@ -7,94 +9,104 @@ function createAll() {
       // data es un array de eventos
       const content = document.querySelector(".container");
       for (let evento in data) {
-        createEvent(data[evento], content, evento);
+        allArray.push(data[evento])
+        const sortEvent = allArray.sort((a,b) => a.dateStart - b.dateStart)
+        //Convertir string en número (fecha)
+
+        allArray[evento].dateStart = new Date(data[evento].dateStart);
+        allArray[evento].dateFinal = new Date(data[evento].dateFinal);
+
       }
+      createEvent( content, allArray);
+      console.log(allArray)
     });
-}
+  }
 
-// ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
-function createEvent(evento, container, position) {
-  //Convertir string en número (fecha)
-  let convertDateStart = new Date(evento.dateStart);
-  let convertDateFinal = new Date(evento.dateFinal);
-  //Llamar función que imprime la fecha en el orden deseado
-  let dateStart = dateFormat(convertDateStart);
-  let dateFinal = dateFormat(convertDateFinal);
-  let containerCard = document.createElement("div");
-  containerCard.className = "container-card";
-  container.appendChild(containerCard);
-  //DIV DE LA IMAGEN
-  let photoEvent = document.createElement("div");
-  photoEvent.className = "photoEvent";
-  //IMAGEN
-  let image = document.createElement("img");
-  image.src = evento.photoEvent;
-  image.className = "cta";
-  //TARJETA
-  let card = document.createElement("div");
-  card.className = "card";
-  //DATOS TARJETA
-  let infoCard = document.createElement("div");
-  infoCard.className = "info-card";
-  // NOMBRE
-  let name = document.createElement("h3");
-  name.innerText = evento.nameEvent;
-  // LUGAR
-  let place = document.createElement("p");
-  place.innerText = evento.cityLocation;
-  // BARRA DE ICONOS
-  let bar = document.createElement("div");
-  bar.className = "icons-bar";
-  //DIV FECHA
-  let dateCard = document.createElement("div");
-  dateCard.className = "date-card";
-  // FECHA
-  let date = document.createElement("p");
-  date.innerText = dateStart;
+  // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
+  function createEvent( container ) {
+    for(let position in allArray ){
 
-  container.appendChild(containerCard);
-  containerCard.appendChild(photoEvent);
-  photoEvent.appendChild(image);
-  containerCard.appendChild(card);
-  card.appendChild(infoCard)
-  card.appendChild(dateCard)
-  infoCard.appendChild(bar);
-  infoCard.appendChild(name);
-  infoCard.appendChild(place);
-  dateCard.appendChild(date);
 
-  // ICONOS
-  let IconContainer = document.createElement("figure");
-  let Icon = document.createElement("img");
-  bar.appendChild(IconContainer);
-  IconContainer.appendChild(Icon);
+      //Llamar función que imprime la fecha en el orden deseado
+    let dateStart = dateFormat(allArray[position].dateStart);
+    let dateFinal = dateFormat(allArray[position].dateFinal);
+    let containerCard = document.createElement("div");
+    containerCard.className = "container-card";
+    container.appendChild(containerCard);
+    //DIV DE LA IMAGEN
+    let photoEvent = document.createElement("div");
+    photoEvent.className = "photoEvent";
+    //IMAGEN
+    let image = document.createElement("img");
+    image.src = allArray[position].photoEvent;
+    image.className = "cta";
+    //TARJETA
+    let card = document.createElement("div");
+    card.className = "card";
+    //DATOS TARJETA
+    let infoCard = document.createElement("div");
+    infoCard.className = "info-card";
+    // NOMBRE
+    let name = document.createElement("h3");
+    name.innerText = allArray[position].nameEvent;
+    // LUGAR
+    let place = document.createElement("p");
+    place.innerText = allArray[position].cityLocation;
+    // BARRA DE ICONOS
+    let bar = document.createElement("div");
+    bar.className = "icons-bar";
+    //DIV FECHA
+    let dateCard = document.createElement("div");
+    dateCard.className = "date-card";
+    // FECHA
+    let date = document.createElement("p");
+    date.innerText = dateStart;
 
-  if (evento.free) {
-    IconContainer.title = "Evento GRATUITO";
-    Icon.src = "/src/assets/img/free.png";
-    Icon.alt = "Evento GRATUITO";
-  } else {
-    IconContainer.title = "Evento DE PAGO";
-    Icon.src = "/src/assets/img/pago.svg";
-    Icon.alt = "Evento DE PAGO";
+    container.appendChild(containerCard);
+    containerCard.appendChild(photoEvent);
+    photoEvent.appendChild(image);
+    containerCard.appendChild(card);
+    card.appendChild(infoCard)
+    card.appendChild(dateCard)
+    infoCard.appendChild(bar);
+    infoCard.appendChild(name);
+    infoCard.appendChild(place);
+    dateCard.appendChild(date);
+
+    // ICONOS
+    let IconContainer = document.createElement("figure");
+    let Icon = document.createElement("img");
     bar.appendChild(IconContainer);
     IconContainer.appendChild(Icon);
+
+    if (allArray[position].free) {
+      IconContainer.title = "Evento GRATUITO";
+      Icon.src = "/src/assets/img/free.png";
+      Icon.alt = "Evento GRATUITO";
+    } else {
+      IconContainer.title = "Evento DE PAGO";
+      Icon.src = "/src/assets/img/pago.svg";
+      Icon.alt = "Evento DE PAGO";
+      bar.appendChild(IconContainer);
+      IconContainer.appendChild(Icon);
+    }
+
+    // ABRIR VENTANA MODAL
+    const modalWindow = document.querySelector(".modal-parent");
+    let openModal = document.querySelectorAll(".cta")[position];
+    openModal.addEventListener("click", () => {
+      createModal(
+        dateStart,
+        dateFinal,
+        allArray[position].photoEvent,
+        allArray[position].nameEvent,
+        allArray[position].site,
+        allArray[position].comments,
+        modalWindow
+        );
+      });
+    }
   }
-  // ABRIR VENTANA MODAL
-  const modalWindow = document.querySelector(".modal-parent");
-  let openModal = document.querySelectorAll(".cta")[position];
-  openModal.addEventListener("click", () => {
-    createModal(
-      dateStart,
-      dateFinal,
-      evento.photoEvent,
-      evento.nameEvent,
-      evento.site,
-      evento.comments,
-      modalWindow
-    );
-  });
-}
 
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
 function createModal(
