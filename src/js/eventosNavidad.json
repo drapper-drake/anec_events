@@ -581,7 +581,7 @@
     "hoursOpen": "23:00",
     "dateStart": "2021/12/23",
     "comments": "TÚ, QUE ERES UN CEREBRITO, ¿TE LO VAS A PERDER?",
-    "category": "Musical",
+    "category": "Party",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640001746/anac-event/neyofeyy3tuz9b3mkg1k.jpg",
     "linkTickets": "https://www.enterticket.es/eventos/fiesta-del-cientifico-maranello-club-778179"
   },
@@ -594,7 +594,7 @@
     "hoursOpen": "11:00",
     "dateStart": "2021/12/31",
     "comments": "Evento en TERAZA climatizada, 3 barras, 2 ambientes, snacks salados, degustación de vermuts, cotillón y uvas de la suerte, cava y muchas sorpresas!!",
-    "category": "Musical",
+    "category": "Party",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640002170/anac-event/nmir9m45ll2lhepumwrl.jpg",
     "linkTickets": "https://www.enterticket.es/eventos/noche-vieja-australiana-american-rock-684869"
   },
@@ -614,7 +614,7 @@
   {
     "nameEvent": "IGNATIUS: La comedia salvó mi vida",
     "free": false,
-    "site": "Gran Teatro del Elche",
+    "site": "Gran Teatro de Elche",
     "cityLocation": "Elche",
     "village": true,
     "hoursOpen": "20:00",
@@ -623,5 +623,19 @@
     "category": "Teatro",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640003379/anac-event/wsyzl6phk7aqjth125id.jpg",
     "linkTickets": "https://www.instanticket.es/ignatius-la-comedia-salvo-mi-vida/?id=IGNATIUS2021"
+  },
+  {
+    "nameEvent": "LES LUTHIERS: Viejos Hazmerreíres",
+    "free": false,
+    "site": "ADDA: Auditorio de la diputación de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/09",
+    "dateFinal": "2022/02/10",
+    "comments": "Les Luthiers regresan a Alicante tras 18 años para presentar su espectáculo 'Viejos Hazmerreíres', un divertido recopilatorio que reúne algunas de las obras más celebradas del conjunto argentino.",
+    "category": "Teatro",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640004286/anac-event/hjhjawjlvchekahhgwau.jpg",
+    "linkTickets": "https://www.instanticket.es/les-luthiers-viejos-hazmerreires/?id=LUTHIERS20"
   }
 ]
