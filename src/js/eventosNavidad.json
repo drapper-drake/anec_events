@@ -584,5 +584,40 @@
   "dateFinal": "2022/01/30",
   "category": "Museum",
   "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639935581/anac-event/agzpvvgt3u2j4vksifce.jpg"
+},
+{
+  "nameEvent": "La sirenita",
+  "free": false,
+  "site": "Parroquia Virgen de las Nieves",
+  "cityLocation": "Dénia",
+  "village": true,
+  "hoursOpen": "18:00",
+  "hoursFinal": "20:00",
+  "dateStart": "2022/01/23",
+  "category": "Musical",
+  "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640003736/anac-event/svrrj6vl6kn7eqjfecff.jpg"
+},
+{
+  "nameEvent": "Simfónica & Abraham Cupeiro",
+  "free": false,
+  "site": "Auditorio de la Diputación de Alicante",
+  "cityLocation": "Alicante",
+  "village": false,
+  "hoursOpen": "20:00",
+  "dateStart": "2022/04/06",
+  "category": "Musical",
+  "comments": "Director Daniel Abad 'pangea'",
+  "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640004615/anac-event/cmi5yxqrppqcclrwgqc5.jpg"
+},
+{
+  "nameEvent": "Café Quijano",
+  "free": false,
+  "site": "Gran Teatro de Elche",
+  "cityLocation": "Elche",
+  "village": true,
+  "hoursOpen": "20:30",
+  "dateStart": "2022/03/12",
+  "category": "Musical",
+  "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640006641/anac-event/eazkwuegnlxrrscmlptj.jpg"
 }
 ]
