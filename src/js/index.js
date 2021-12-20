@@ -115,8 +115,7 @@ function dataModal(e){
   createModal(idOfEvent)
 }
 function createModal(id) {
-  let dataEvent = allArray.filter((el) => el.id === id);
-  dataEvent= dataEvent[0];
+  let dataEvent = allArray.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
   let modalBox = document.createElement("div");
