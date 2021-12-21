@@ -326,3 +326,29 @@ window.addEventListener("DOMContentLoaded", () => {
   createAll();
   responsiveFooter();
 });
+
+// BOTÓN PARA SUBIR AL INICIO DE LA WEB
+
+document.getElementById("btn-up").addEventListener("click", scrollUp);
+
+// Funcion que cuando hay scroll hace una animacion para subir al top
+function scrollUp(){
+  let currentScroll = document.documentElement.scrollTop;
+  if (currentScroll > 0){
+    window.requestAnimationFrame(scrollUp);
+    window.scrollTo(0, currentScroll - (currentScroll / 8));
+  }
+}
+
+// Funcion para que el btn-up no aparezca si no se ha hecho scroll
+btnUp = document.getElementById("btn-up");
+
+window.onscroll = function(){
+  let scroll = document.documentElement.scrollTop;
+
+  if (scroll > 500){
+    btnUp.style.transform = "scale(1)";
+  } else if(scroll < 500) {
+    btnUp.style.transform= "scale(0)";
+  }
+}
