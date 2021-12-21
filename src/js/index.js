@@ -35,7 +35,6 @@ function changeformatDateJSON (){
       let dateStart = dateFormat(allArray[position].dateStart, true);
       let containerCard = document.createElement("div");
       containerCard.className = "container-card";
-      container.appendChild(containerCard);
 
       //DIV DE LA IMAGEN
       let photoEvent = document.createElement("div");
@@ -88,22 +87,30 @@ function changeformatDateJSON (){
         dateCard.appendChild(divider);
         dateCard.appendChild(dateEnd);
       }
-      // ICONOS
-      let IconContainer = document.createElement("figure");
-      let Icon = document.createElement("img");
-      bar.appendChild(IconContainer);
-      IconContainer.appendChild(Icon);
+      // ICONO GRATUITO / DE PAGO
+      let freeIconContainer = document.createElement("figure");
+      let freeIcon = document.createElement("img");
+      bar.appendChild(freeIconContainer);
+      freeIconContainer.appendChild(freeIcon);
 
       if (allArray[position].free) {
-        IconContainer.title = "Evento GRATUITO";
-        Icon.src = "/src/assets/img/free.png";
-        Icon.alt = "Evento GRATUITO";
+        freeIconContainer.title = "Evento GRATUITO";
+        freeIcon.src = "/src/assets/img/free.png";
+        freeIcon.alt = "Evento GRATUITO";
       } else {
-        IconContainer.title = "Evento DE PAGO";
-        Icon.src = "/src/assets/img/pago.svg";
-        Icon.alt = "Evento DE PAGO";
-        bar.appendChild(IconContainer);
-        IconContainer.appendChild(Icon);
+        freeIconContainer.title = "Evento DE PAGO";
+        freeIcon.src = "/src/assets/img/pago.svg";
+        freeIcon.alt = "Evento DE PAGO";
+      }
+      // ICONO RURAL
+      if(allArray[position].village) {
+        let ruralIconContainer = document.createElement("figure");
+        let ruralIcon = document.createElement("img");
+        ruralIconContainer.title = "Evento RURAL";
+        ruralIcon.src = "/src/assets/img/patoOriginal.png";
+        ruralIcon.alt = "Evento RURAL";
+        bar.appendChild(ruralIconContainer);
+        ruralIconContainer.appendChild(ruralIcon);
       }
     }
   }
