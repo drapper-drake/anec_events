@@ -235,7 +235,7 @@ function scrollUp(){
   let currentScroll = document.documentElement.scrollTop;
   if (currentScroll > 0){
     window.requestAnimationFrame(scrollUp);
-    window.scrollTo(0, currentScroll - (currentScroll / 10));
+    window.scrollTo(0, currentScroll - (currentScroll / 8));
   }
 }
 
@@ -245,9 +245,9 @@ btnUp = document.getElementById("btn-up");
 window.onscroll = function(){
   let scroll = document.documentElement.scrollTop;
 
-  if (scroll > 300){
+  if (scroll > 500){
     btnUp.style.transform = "scale(1)";
-  } else if(scroll < 300) {
+  } else if(scroll < 500) {
     btnUp.style.transform= "scale(0)";
   }
 }
