@@ -112,6 +112,20 @@ function changeformatDateJSON (){
         bar.appendChild(ruralIconContainer);
         ruralIconContainer.appendChild(ruralIcon);
       }
+      // ICONOS DE CATEGORÍAS
+      for(let cat in allArray[position].category) {
+        switch(allArray[position].category[cat]) {
+          case "Christmas":
+            let xmasIconContainer = document.createElement("figure");
+            let xmasIcon = document.createElement("img");
+            xmasIconContainer.title = "Evento NAVIDEÑO";
+            xmasIcon.src = "/src/assets/img/patoNavidad.png";
+            xmasIcon.alt = "Evento NAVIDEÑO";
+            bar.appendChild(xmasIconContainer);
+            xmasIconContainer.appendChild(xmasIcon);
+            break;
+        }
+      }
     }
   }
 
