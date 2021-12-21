@@ -126,7 +126,7 @@
     "village": true,
     "hoursOpen": "09:00",
     "dateStart": "2021/12/24",
-    "category": ["Sports"],
+    "category": ["Christmas"],
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639649785/anac-event/na7atqcjnnyrkecpgdrt.jpg"
   },
   {
@@ -143,6 +143,7 @@
   {
     "nameEvent": "Torneo Solidario de Fútbol",
     "free": false,
+    "charity":true,
     "site": "Campo Vilaplana Mariel",
     "cityLocation": "Ibi",
     "village": true,
@@ -160,7 +161,7 @@
     "hoursOpen": "17:00",
     "dateStart": "2021/12/17",
     "dateFinal": "2022/02/26",
-    "category": ["Sports"],
+    "category": ["Museum"],
     "comments": "Pasa una tarde memorable explorando Alicante y disfruta de un aperitivo comentando lo aprendido. Visitarás el Museo de Hogueras, el MACA y el MARQ.",
     "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/4/9816/1139472/vertic_372_270.jpg",
     "linkTickets": "https://www.atrapalo.com/actividades/alicante-a-traves-de-sus-museos-con-un-aperitivo-_e4849816/"
