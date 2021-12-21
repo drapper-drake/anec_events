@@ -187,7 +187,7 @@ hr {
 }
 .icons-bar {
   width: 90%;
-  height: 48px;
+  height: 50px;
   background: var(--bg-light);
   border-radius: 25px;
   margin: 10px auto;
