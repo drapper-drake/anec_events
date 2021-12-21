@@ -35,7 +35,6 @@ function changeformatDateJSON (){
       let dateStart = dateFormat(allArray[position].dateStart, true);
       let containerCard = document.createElement("div");
       containerCard.className = "container-card";
-      container.appendChild(containerCard);
 
       //DIV DE LA IMAGEN
       let photoEvent = document.createElement("div");
@@ -88,22 +87,125 @@ function changeformatDateJSON (){
         dateCard.appendChild(divider);
         dateCard.appendChild(dateEnd);
       }
-      // ICONOS
-      let IconContainer = document.createElement("figure");
-      let Icon = document.createElement("img");
-      bar.appendChild(IconContainer);
-      IconContainer.appendChild(Icon);
+      // ICONO GRATUITO / DE PAGO
+      let freeIconContainer = document.createElement("figure");
+      let freeIcon = document.createElement("img");
+      bar.appendChild(freeIconContainer);
+      freeIconContainer.appendChild(freeIcon);
 
       if (allArray[position].free) {
-        IconContainer.title = "Evento GRATUITO";
-        Icon.src = "/src/assets/img/free.png";
-        Icon.alt = "Evento GRATUITO";
+        freeIconContainer.title = "Evento GRATUITO";
+        freeIcon.src = "/src/assets/img/free.png";
+        freeIcon.alt = "Evento GRATUITO";
       } else {
-        IconContainer.title = "Evento DE PAGO";
-        Icon.src = "/src/assets/img/pago.svg";
-        Icon.alt = "Evento DE PAGO";
-        bar.appendChild(IconContainer);
-        IconContainer.appendChild(Icon);
+        freeIconContainer.title = "Evento DE PAGO";
+        freeIcon.src = "/src/assets/img/pago.svg";
+        freeIcon.alt = "Evento DE PAGO";
+      }
+      // ICONO RURAL
+      if(allArray[position].village) {
+        let ruralIconContainer = document.createElement("figure");
+        let ruralIcon = document.createElement("img");
+        ruralIconContainer.title = "Evento RURAL";
+        ruralIcon.src = "/src/assets/img/patoOriginal.png";
+        ruralIcon.alt = "Evento RURAL";
+        bar.appendChild(ruralIconContainer);
+        ruralIconContainer.appendChild(ruralIcon);
+      }
+      // ICONOS DE CATEGORÍAS
+      for(let cat in allArray[position].category) {
+        switch(allArray[position].category[cat]) {
+          case "Christmas":
+            let xmasIconContainer = document.createElement("figure");
+            let xmasIcon = document.createElement("img");
+            xmasIconContainer.title = "Evento NAVIDEÑO";
+            xmasIcon.src = "/src/assets/img/patoNavidad.png";
+            xmasIcon.alt = "Evento NAVIDEÑO";
+            bar.appendChild(xmasIconContainer);
+            xmasIconContainer.appendChild(xmasIcon);
+            break;
+          case "Kids":
+            let kidsIconContainer = document.createElement("figure");
+            let kidsIcon = document.createElement("img");
+            kidsIconContainer.title = "Evento INFANTIL";
+            kidsIcon.src = "/src/assets/img/xmark-solid.svg";
+            kidsIcon.alt = "Evento INFANTIL";
+            bar.appendChild(kidsIconContainer);
+            kidsIconContainer.appendChild(kidsIcon);
+            break;
+          case "Play":
+            let playIconContainer = document.createElement("figure");
+            let playIcon = document.createElement("img");
+            playIconContainer.title = "Evento LÚDICO";
+            playIcon.src = "/src/assets/img/xmark-solid.svg";
+            playIcon.alt = "Evento LÚDICO";
+            bar.appendChild(playIconContainer);
+            playIconContainer.appendChild(playIcon);
+            break;
+          case "Music":
+            let musicIconContainer = document.createElement("figure");
+            let musicIcon = document.createElement("img");
+            musicIconContainer.title = "Evento MUSICAL";
+            musicIcon.src = "/src/assets/img/xmark-solid.svg";
+            musicIcon.alt = "Evento MUSICAL";
+            bar.appendChild(musicIconContainer);
+            musicIconContainer.appendChild(musicIcon);
+            break;
+          case "Sports":
+            let sportIconContainer = document.createElement("figure");
+            let sportIcon = document.createElement("img");
+            sportIconContainer.title = "Evento DEPORTIVO";
+            sportIcon.src = "/src/assets/img/xmark-solid.svg";
+            sportIcon.alt = "Evento DEPORTIVO";
+            bar.appendChild(sportIconContainer);
+            sportIconContainer.appendChild(sportIcon);
+            break;
+          case "Theatre":
+            let theatreIconContainer = document.createElement("figure");
+            let theatreIcon = document.createElement("img");
+            theatreIconContainer.title = "Evento TEATRAL";
+            theatreIcon.src = "/src/assets/img/xmark-solid.svg";
+            theatreIcon.alt = "Evento TEATRAL";
+            bar.appendChild(theatreIconContainer);
+            theatreIconContainer.appendChild(theatreIcon);
+            break;
+          case "Party":
+            let partyIconContainer = document.createElement("figure");
+            let partyIcon = document.createElement("img");
+            partyIconContainer.title = "Evento FESTIVO";
+            partyIcon.src = "/src/assets/img/xmark-solid.svg";
+            partyIcon.alt = "Evento FESTIVO";
+            bar.appendChild(partyIconContainer);
+            partyIconContainer.appendChild(partyIcon);
+            break;
+          case "Food":
+            let foodIconContainer = document.createElement("figure");
+            let foodIcon = document.createElement("img");
+            foodIconContainer.title = "Evento GASTRONÓMICO";
+            foodIcon.src = "/src/assets/img/xmark-solid.svg";
+            foodIcon.alt = "Evento GASTRONÓMICO";
+            bar.appendChild(foodIconContainer);
+            foodIconContainer.appendChild(foodIcon);
+            break;
+          case "Museum":
+            let museumIconContainer = document.createElement("figure");
+            let museumIcon = document.createElement("img");
+            museumIconContainer.title = "Evento de MUSEO";
+            museumIcon.src = "/src/assets/img/xmark-solid.svg";
+            museumIcon.alt = "Evento de MUSEO";
+            bar.appendChild(museumIconContainer);
+            museumIconContainer.appendChild(museumIcon);
+            break;
+          default:
+            let defaultIconContainer = document.createElement("figure");
+            let defaultIcon = document.createElement("img");
+            defaultIconContainer.title = "Evento POR DEFECTO";
+            defaultIcon.src = "/src/assets/img/xmark-solid.svg";
+            defaultIcon.alt = "Evento POR DEFECTO";
+            bar.appendChild(defaultIconContainer);
+            defaultIconContainer.appendChild(defaultIcon);
+            break;
+        }
       }
     }
   }
