@@ -124,6 +124,87 @@ function changeformatDateJSON (){
             bar.appendChild(xmasIconContainer);
             xmasIconContainer.appendChild(xmasIcon);
             break;
+          case "Kids":
+            let kidsIconContainer = document.createElement("figure");
+            let kidsIcon = document.createElement("img");
+            kidsIconContainer.title = "Evento INFANTIL";
+            kidsIcon.src = "/src/assets/img/xmark-solid.svg";
+            kidsIcon.alt = "Evento INFANTIL";
+            bar.appendChild(kidsIconContainer);
+            kidsIconContainer.appendChild(kidsIcon);
+            break;
+          case "Play":
+            let playIconContainer = document.createElement("figure");
+            let playIcon = document.createElement("img");
+            playIconContainer.title = "Evento LÚDICO";
+            playIcon.src = "/src/assets/img/xmark-solid.svg";
+            playIcon.alt = "Evento LÚDICO";
+            bar.appendChild(playIconContainer);
+            playIconContainer.appendChild(playIcon);
+            break;
+          case "Music":
+            let musicIconContainer = document.createElement("figure");
+            let musicIcon = document.createElement("img");
+            musicIconContainer.title = "Evento MUSICAL";
+            musicIcon.src = "/src/assets/img/xmark-solid.svg";
+            musicIcon.alt = "Evento MUSICAL";
+            bar.appendChild(musicIconContainer);
+            musicIconContainer.appendChild(musicIcon);
+            break;
+          case "Sports":
+            let sportIconContainer = document.createElement("figure");
+            let sportIcon = document.createElement("img");
+            sportIconContainer.title = "Evento DEPORTIVO";
+            sportIcon.src = "/src/assets/img/xmark-solid.svg";
+            sportIcon.alt = "Evento DEPORTIVO";
+            bar.appendChild(sportIconContainer);
+            sportIconContainer.appendChild(sportIcon);
+            break;
+          case "Theatre":
+            let theatreIconContainer = document.createElement("figure");
+            let theatreIcon = document.createElement("img");
+            theatreIconContainer.title = "Evento TEATRAL";
+            theatreIcon.src = "/src/assets/img/xmark-solid.svg";
+            theatreIcon.alt = "Evento TEATRAL";
+            bar.appendChild(theatreIconContainer);
+            theatreIconContainer.appendChild(theatreIcon);
+            break;
+          case "Party":
+            let partyIconContainer = document.createElement("figure");
+            let partyIcon = document.createElement("img");
+            partyIconContainer.title = "Evento FESTIVO";
+            partyIcon.src = "/src/assets/img/xmark-solid.svg";
+            partyIcon.alt = "Evento FESTIVO";
+            bar.appendChild(partyIconContainer);
+            partyIconContainer.appendChild(partyIcon);
+            break;
+          case "Food":
+            let foodIconContainer = document.createElement("figure");
+            let foodIcon = document.createElement("img");
+            foodIconContainer.title = "Evento GASTRONÓMICO";
+            foodIcon.src = "/src/assets/img/xmark-solid.svg";
+            foodIcon.alt = "Evento GASTRONÓMICO";
+            bar.appendChild(foodIconContainer);
+            foodIconContainer.appendChild(foodIcon);
+            break;
+          case "Museum":
+            let museumIconContainer = document.createElement("figure");
+            let museumIcon = document.createElement("img");
+            museumIconContainer.title = "Evento de MUSEO";
+            museumIcon.src = "/src/assets/img/xmark-solid.svg";
+            museumIcon.alt = "Evento de MUSEO";
+            bar.appendChild(museumIconContainer);
+            museumIconContainer.appendChild(museumIcon);
+            break;
+          default:
+            let defaultIconContainer = document.createElement("figure");
+            let defaultIcon = document.createElement("img");
+            defaultIconContainer.title = "Evento POR DEFECTO";
+            defaultIcon.src = "/src/assets/img/xmark-solid.svg";
+            defaultIcon.alt = "Evento POR DEFECTO";
+            bar.appendChild(defaultIconContainer);
+            defaultIconContainer.appendChild(defaultIcon);
+            break;
         }
       }
     }
