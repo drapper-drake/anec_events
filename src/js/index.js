@@ -237,10 +237,12 @@ function createModal(id) {
   modal.className = "modal";
   modalBox.appendChild(modal);
   // IMAGEN
+  let fatherModalImagen = document.createElement('div');
+  fatherModalImagen.className = "modal-image";
   let modalImage = document.createElement("img");
-  modalImage.className = "modal-image";
   modalImage.src = dataEvent.photoEvent;
-  modal.appendChild(modalImage);
+  fatherModalImagen.appendChild(modalImage);
+  modal.appendChild(fatherModalImagen);
   // ZONA DE TEXTO
   let modalText = document.createElement("div");
   modalText.className = "modal-text";
@@ -267,7 +269,11 @@ function createModal(id) {
   // DESCRIPCIÓN
   if (dataEvent.hasOwnProperty("comments")) {
     let description = document.createElement("p");
-    description.innerText = dataEvent.comments;
+    if (dataEvent.comments.length > 174) {
+      description.innerText = dataEvent.comments.substring(0, 173) + "...";
+    } else {
+      description.innerText = dataEvent.comments;
+    }
     modalText.appendChild(description);
   }
   // BOTÓN DE CIERRE
