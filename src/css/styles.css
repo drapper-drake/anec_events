@@ -420,6 +420,16 @@ a:visited {
   .card:hover {
     bottom: 0;
   }
+
+  .info-card{
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .info-card h3{
+    height: 58%;
+  }
+
   .date-card {
     border-radius: 0 0 25px 0;
   }
