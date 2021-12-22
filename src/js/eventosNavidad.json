@@ -47,16 +47,6 @@
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439439/anac-event/hzn7v6vpz8sikals5k9x.jpg"
   },
   {
-    "nameEvent": "Pista de hielo y atracciones",
-    "free": false,
-    "site": "Plaza de Toros",
-    "cityLocation": "Alicante",
-    "village": false,
-    "dateStart": "2021/12/04",
-    "category": ["Play"],
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439899/anac-event/iduatnkcfredsmyslhl4.jpg"
-  },
-  {
     "nameEvent": "Carta a los Reyes Magos",
     "free": true,
     "site": "Plaza de Gabriel Miró",
@@ -518,7 +508,7 @@
     "hoursClose": "16:00",
     "dateStart": "2021/12/5",
     "dateFinal": "2021/12/26",
-    "comments": "Domingos desde las 13:00 del mediodía el mejor ambiente de la provincia de Alicante está con nosotros./n Tu entrada anticipada incluye, vermut de bienvenida + snacks + barra libre de cerveza y refrescos (de 13:00 a 16:00) + aperitivo + ensalada + plato de paella + postre + copa./n Y a partir de las 16:00 entrada gratuita y nos ponemos en modo tardeo para seguir hasta la madrugada. ¿Tienes dudas? Llama al +34 623 028 065",
+    "comments": "Tu entrada anticipada incluye, vermut de bienvenida + snacks + barra libre de cerveza y refrescos (de 13:00 a 16:00) + aperitivo + ensalada + plato de paella + postre + copa.",
     "category": ["Food"],
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639930066/anac-event/wmeglyi4jawokzyptoql.jpg",
     "atributionsPhoto": "Imagen por Dorieo, Wikimedia Commons (Licencia CC-BY-SA 4.0).",
