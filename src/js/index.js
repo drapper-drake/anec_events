@@ -241,6 +241,10 @@ function createModal(id) {
   fatherModalImagen.className = "modal-image";
   let modalImage = document.createElement("img");
   modalImage.src = dataEvent.photoEvent;
+  // añadimos la clase 'landscape' al modal de imágenes apaisadas
+  if(modalImage.naturalWidth > modalImage.naturalHeight) {
+    fatherModalImagen.className = "modal-image landscape";
+  }
   fatherModalImagen.appendChild(modalImage);
   modal.appendChild(fatherModalImagen);
   // ZONA DE TEXTO

@@ -439,6 +439,10 @@ a:visited {
     padding: 0;
   }
 
+  .landscape {
+    width: 100%;
+  }
+
   .modal-text{
     width: 80%;
     height: 50%;
