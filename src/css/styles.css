@@ -366,6 +366,9 @@ a:visited {
 /* Responsive */
 
 @media screen and (min-width: 769px) and (max-width: 1023px) {
+  .logo-pato {
+    transform: translate(250px, -80px);
+  }
   .container {
     grid-template-columns: 1fr 1fr;
   }
