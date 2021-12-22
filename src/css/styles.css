@@ -421,30 +421,34 @@ a:visited {
   }
 
   .modal-container{
-    align-items: flex-start;
+    align-items: center;
   }
 
   .modal {
     flex-direction: column;
     border-radius: 0;
     width: 100%;
-    height: min-content;
+    height: 100%;
     overflow-y: scroll;
   }
 
   .modal-image {
-    height: 350px;
+    height: 45%;
     order: 2;
+    padding: 0;
   }
 
   .modal-text{
+    width: 80%;
+    height: 50%;
     order: 3;
   }
 
   .close {
     position: relative;
     order:1;
-    align-self: flex-end;
+    align-self: center;
+    height: 5%;
   }
 
   .modal-text > p:first-of-type {
