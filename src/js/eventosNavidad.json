@@ -47,16 +47,6 @@
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439439/anac-event/hzn7v6vpz8sikals5k9x.jpg"
   },
   {
-    "nameEvent": "Pista de hielo y atracciones",
-    "free": false,
-    "site": "Plaza de Toros",
-    "cityLocation": "Alicante",
-    "village": false,
-    "dateStart": "2021/12/04",
-    "category": ["Play"],
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1638439899/anac-event/iduatnkcfredsmyslhl4.jpg"
-  },
-  {
     "nameEvent": "Carta a los Reyes Magos",
     "free": true,
     "site": "Plaza de Gabriel Miró",
