@@ -20,8 +20,9 @@ body {
 
 header {
   width: 100%;
-  height: 620px;
-  background: linear-gradient(var(--bg-light) 40%, var(--bg-dark) 40%);
+  height: 450px;
+
+  background: url(../assets/img/sitting-4.png) no-repeat center 16px ;
 
   display: flex;
   justify-content: space-around;
@@ -34,12 +35,6 @@ header {
 
   font-family: "Be Vietnam Pro", sans-serif;
   text-align: center;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-
   position: relative;
 }
 
@@ -55,11 +50,6 @@ header {
   position: relative;
 }
 
-.logo-pato {
-  transform: translate(280px, -80px);
-  position: absolute;
-}
-
 h1 {
   color: var(--color-links-cta);
   text-shadow: 4px 0 0 var(--color-contrast-bg-light);
@@ -68,7 +58,8 @@ h1 {
   font-size: 70px;
   font-weight: bold;
 
-  margin: 0;
+  position:absolute;
+  top: -80px;
 }
 
 .description-header {
@@ -79,7 +70,9 @@ h1 {
   font-size: 36px;
 
   position: absolute;
-  top: 3em;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-40%);
 }
 
 .container {
