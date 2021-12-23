@@ -95,12 +95,22 @@ function changeformatDateJSON (){
 
       if (allArray[position].free) {
         freeIconContainer.title = "Evento GRATUITO";
-        freeIcon.src = "/src/assets/img/free.png";
+        freeIcon.src = "/src/assets/img/Gratis.svg";
         freeIcon.alt = "Evento GRATUITO";
       } else {
         freeIconContainer.title = "Evento DE PAGO";
         freeIcon.src = "/src/assets/img/pago.svg";
         freeIcon.alt = "Evento DE PAGO";
+      }
+      // ICONO BENÉFICO
+      if(allArray[position].charity) {
+        let charityIconContainer = document.createElement("figure");
+        let charityIcon = document.createElement("img");
+        charityIconContainer.title = "Evento BENÉFICO";
+        charityIcon.src = "/src/assets/img/Solidario.svg";
+        charityIcon.alt = "Evento BENÉFICO";
+        bar.appendChild(charityIconContainer);
+        charityIconContainer.appendChild(charityIcon);
       }
       // ICONO RURAL / URBANO
       if(allArray[position].village) {
@@ -127,7 +137,7 @@ function changeformatDateJSON (){
             let xmasIconContainer = document.createElement("figure");
             let xmasIcon = document.createElement("img");
             xmasIconContainer.title = "Evento NAVIDEÑO";
-            xmasIcon.src = "/src/assets/img/iconoChristmas.png";
+            xmasIcon.src = "/src/assets/img/Navidad.svg";
             xmasIcon.alt = "Evento NAVIDEÑO";
             bar.appendChild(xmasIconContainer);
             xmasIconContainer.appendChild(xmasIcon);

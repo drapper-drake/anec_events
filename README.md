@@ -1,7 +1,7 @@
 # Anec Events
 
 Anec Events es una web de información para eventos culturales en la provincia de Alicante
-creado por Dapper Drake, un equipo formado aleatoriamente en .
+creado por Dapper Drake, un equipo formado aleatoriamente en la EOI.
 
 ## Tabla de contenidos
 
@@ -15,7 +15,7 @@ creado por Dapper Drake, un equipo formado aleatoriamente en .
 ![Vista entera](./src/assets/img/ViewDesktop.png)
 
 ### Links
-- Live Site URL : [Anec events](https://anecevents.com)
+- Live Site URL : [Anec events](https://app.anecevents.com)
 ## Desarrollo
 ### Maquetado con :
 - Semantic HTML5 markup
