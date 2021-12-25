@@ -236,6 +236,9 @@ function dataModal(e){
   createModal(idOfEvent)
 }
 function createModal(id) {
+  //QUITAR EL SCROLL DEL BODY
+  const body = document.querySelector('body')
+  body.classList.add("overflow-hidden")
   let dataEvent = allArray.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
@@ -299,16 +302,15 @@ function createModal(id) {
   // FUNCIONALIDAD DEL MODAL
   closeButton.addEventListener("click", () => {
     modalBox.remove();
+    body.classList.remove("overflow-hidden")
 
   });
   window.addEventListener("click", (e) => {
     if (e.target == modalBox) {
       modalBox.remove();
+      body.classList.remove("overflow-hidden")
     }
   });
-}
-function removeModalBox(){
-  modalBox.remove();
 }
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
