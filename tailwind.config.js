@@ -1,6 +1,7 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    extend: {},
     //He puesto la primera config de screens
     screens: {
       sm: "480px",
@@ -29,7 +30,7 @@ module.exports = {
       "lg": ".5rem",
       "full": "9999px",
     },
-    extend: {},
   },
+
   plugins: [],
 }
