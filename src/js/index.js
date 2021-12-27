@@ -88,141 +88,190 @@ function changeformatDateJSON (){
         dateCard.appendChild(dateEnd);
       }
       // ICONO GRATUITO / DE PAGO
-      let freeIconContainer = document.createElement("figure");
+      let freeIconContainer = document.createElement("div");
+      freeIconContainer.className = "tooltip";
       let freeIcon = document.createElement("img");
+      let freeIconText = document.createElement("span");
+      freeIconText.className = "tooltip-text";
       bar.appendChild(freeIconContainer);
       freeIconContainer.appendChild(freeIcon);
+      freeIconContainer.appendChild(freeIconText);
 
       if (allEvents[position].free) {
-        freeIconContainer.title = "Evento GRATUITO";
+        freeIconText.textContent = "Evento GRATUITO";
         freeIcon.src = "./img/icons/Gratis.svg";
         freeIcon.alt = "Evento GRATUITO";
       } else {
-        freeIconContainer.title = "Evento DE PAGO";
+        freeIconText.textContent = "Evento DE PAGO";
         freeIcon.src = "./img/icons/pago.svg";
         freeIcon.alt = "Evento DE PAGO";
       }
       // ICONO BENÉFICO
       if(allEvents[position].charity) {
-        let charityIconContainer = document.createElement("figure");
+        let charityIconContainer = document.createElement("div");
+        charityIconContainer.className = "tooltip";
         let charityIcon = document.createElement("img");
-        charityIconContainer.title = "Evento BENÉFICO";
+        let charityIconText = document.createElement("span");
+        charityIconText.className = "tooltip-text";
+        charityIconText.textContent = "Evento BENÉFICO";
         charityIcon.src = "./img/icons/Solidario.svg";
         charityIcon.alt = "Evento BENÉFICO";
         bar.appendChild(charityIconContainer);
         charityIconContainer.appendChild(charityIcon);
+        charityIconContainer.appendChild(charityIconText);
       }
       // ICONO RURAL / URBANO
-      if(allEvents[position].village) {
-        let ruralIconContainer = document.createElement("figure");
-        let ruralIcon = document.createElement("img");
-        ruralIconContainer.title = "Evento RURAL";
+      let ruralIconContainer = document.createElement("div");
+      ruralIconContainer.className = "tooltip";
+      let ruralIcon = document.createElement("img");
+      let ruralIconText = document.createElement("span");
+      ruralIconText.className = "tooltip-text";
+      bar.appendChild(ruralIconContainer);
+      ruralIconContainer.appendChild(ruralIcon);
+      ruralIconContainer.appendChild(ruralIconText);
+
+      if (allEvents[position].village) {
+        ruralIconText.textContent = "Evento RURAL";
         ruralIcon.src = "./img/icons/iconoVillage.png";
         ruralIcon.alt = "Evento RURAL";
-        bar.appendChild(ruralIconContainer);
-        ruralIconContainer.appendChild(ruralIcon);
       } else {
-        let cityIconContainer = document.createElement("figure");
-        let cityIcon = document.createElement("img");
-        cityIconContainer.title = "Evento URBANO";
-        cityIcon.src = "./img/icons/iconoCity.png";
-        cityIcon.alt = "Evento URBANO";
-        bar.appendChild(cityIconContainer);
-        cityIconContainer.appendChild(cityIcon);
+        ruralIconText.textContent = "Evento URBANO";
+        ruralIcon.src = "./img/icons/iconoCity.png";
+        ruralIcon.alt = "Evento URBANO";
       }
       // ICONOS DE CATEGORÍAS
       for(let cat in allEvents[position].category) {
         switch(allEvents[position].category[cat]) {
           case "Christmas":
-            let xmasIconContainer = document.createElement("figure");
+            let xmasIconContainer = document.createElement("div");
+            xmasIconContainer.className = "tooltip";
             let xmasIcon = document.createElement("img");
-            xmasIconContainer.title = "Evento NAVIDEÑO";
+            let xmasIconText = document.createElement("span");
+            xmasIconText.className = "tooltip-text";
+            xmasIconText.textContent = "Evento NAVIDEÑO";
             xmasIcon.src = "./img/icons/Navidad.svg";
             xmasIcon.alt = "Evento NAVIDEÑO";
             bar.appendChild(xmasIconContainer);
             xmasIconContainer.appendChild(xmasIcon);
+            xmasIconContainer.appendChild(xmasIconText);
             break;
           case "Kids":
-            let kidsIconContainer = document.createElement("figure");
+            let kidsIconContainer = document.createElement("div");
+            kidsIconContainer.className = "tooltip";
             let kidsIcon = document.createElement("img");
-            kidsIconContainer.title = "Evento INFANTIL";
+            let kidsIconText = document.createElement("span");
+            kidsIconText.className = "tooltip-text";
+            kidsIconText.textContent = "Evento INFANTIL";
             kidsIcon.src = "./img/icons/iconoKids.svg";
             kidsIcon.alt = "Evento INFANTIL";
             bar.appendChild(kidsIconContainer);
             kidsIconContainer.appendChild(kidsIcon);
+            kidsIconContainer.appendChild(kidsIconText);
             break;
           case "Play":
-            let playIconContainer = document.createElement("figure");
+            let playIconContainer = document.createElement("div");
+            playIconContainer.className = "tooltip";
             let playIcon = document.createElement("img");
-            playIconContainer.title = "Evento LÚDICO";
+            let playIconText = document.createElement("span");
+            playIconText.className = "tooltip-text";
+            playIconText.textContent = "Evento LÚDICO";
             playIcon.src = "./img/icons/iconoPlay.svg";
             playIcon.alt = "Evento LÚDICO";
             bar.appendChild(playIconContainer);
             playIconContainer.appendChild(playIcon);
+            playIconContainer.appendChild(playIconText);
             break;
           case "Music":
-            let musicIconContainer = document.createElement("figure");
+            let musicIconContainer = document.createElement("div");
+            musicIconContainer.className = "tooltip";
             let musicIcon = document.createElement("img");
-            musicIconContainer.title = "Evento MUSICAL";
+            let musicIconText = document.createElement("span");
+            musicIconText.className = "tooltip-text";
+            musicIconText.textContent = "Evento MUSICAL";
             musicIcon.src = "./img/icons/iconoMusic.svg";
             musicIcon.alt = "Evento MUSICAL";
             bar.appendChild(musicIconContainer);
             musicIconContainer.appendChild(musicIcon);
+            musicIconContainer.appendChild(musicIconText);
             break;
           case "Sports":
-            let sportIconContainer = document.createElement("figure");
+            let sportIconContainer = document.createElement("div");
+            sportIconContainer.className = "tooltip";
             let sportIcon = document.createElement("img");
-            sportIconContainer.title = "Evento DEPORTIVO";
+            let sportIconText = document.createElement("span");
+            sportIconText.className = "tooltip-text";
+            sportIconText.textContent = "Evento DEPORTIVO";
             sportIcon.src = "./img/icons/iconoSports.png";
             sportIcon.alt = "Evento DEPORTIVO";
             bar.appendChild(sportIconContainer);
             sportIconContainer.appendChild(sportIcon);
+            sportIconContainer.appendChild(sportIconText);
             break;
           case "Theatre":
-            let theatreIconContainer = document.createElement("figure");
+            let theatreIconContainer = document.createElement("div");
+            theatreIconContainer.className = "tooltip";
             let theatreIcon = document.createElement("img");
-            theatreIconContainer.title = "Evento TEATRAL";
+            let theatreIconText = document.createElement("span");
+            theatreIconText.className = "tooltip-text";
+            theatreIconText.textContent = "Evento TEATRAL";
             theatreIcon.src = "./img/icons/iconoTheatre.svg";
             theatreIcon.alt = "Evento TEATRAL";
             bar.appendChild(theatreIconContainer);
             theatreIconContainer.appendChild(theatreIcon);
+            theatreIconContainer.appendChild(theatreIconText);
             break;
           case "Party":
-            let partyIconContainer = document.createElement("figure");
+            let partyIconContainer = document.createElement("div");
+            partyIconContainer.className = "tooltip";
             let partyIcon = document.createElement("img");
-            partyIconContainer.title = "Evento FESTIVO";
+            let partyIconText = document.createElement("span");
+            partyIconText.className = "tooltip-text";
+            partyIconText.textContent = "Evento FESTIVO";
             partyIcon.src = "./img/icons/iconoParty.svg";
             partyIcon.alt = "Evento FESTIVO";
             bar.appendChild(partyIconContainer);
             partyIconContainer.appendChild(partyIcon);
+            partyIconContainer.appendChild(partyIconText);
             break;
           case "Food":
-            let foodIconContainer = document.createElement("figure");
+            let foodIconContainer = document.createElement("div");
+            foodIconContainer.className = "tooltip";
             let foodIcon = document.createElement("img");
-            foodIconContainer.title = "Evento GASTRONÓMICO";
+            let foodIconText = document.createElement("span");
+            foodIconText.className = "tooltip-text";
+            foodIconText.textContent = "Evento GASTRONÓMICO";
             foodIcon.src = "./img/icons/iconoFood.svg";
             foodIcon.alt = "Evento GASTRONÓMICO";
             bar.appendChild(foodIconContainer);
             foodIconContainer.appendChild(foodIcon);
+            foodIconContainer.appendChild(foodIconText);
             break;
           case "Museum":
-            let museumIconContainer = document.createElement("figure");
+            let museumIconContainer = document.createElement("div");
+            museumIconContainer.className = "tooltip";
             let museumIcon = document.createElement("img");
-            museumIconContainer.title = "Evento de MUSEO";
+            let museumIconText = document.createElement("span");
+            museumIconText.className = "tooltip-text";
+            museumIconText.textContent = "Evento de MUSEO";
             museumIcon.src = "./img/icons/iconoMuseum.svg";
             museumIcon.alt = "Evento de MUSEO";
             bar.appendChild(museumIconContainer);
             museumIconContainer.appendChild(museumIcon);
+            museumIconContainer.appendChild(museumIconText);
             break;
           // Pongo el default por si acaso UwU
           default:
-            let defaultIconContainer = document.createElement("figure");
+            let defaultIconContainer = document.createElement("div");
+            defaultIconContainer.className = "tooltip";
             let defaultIcon = document.createElement("img");
-            defaultIconContainer.title = "Evento POR DEFECTO";
+            let defaultIconText = document.createElement("span");
+            defaultIconText.className = "tooltip-text";
+            defaultIconText.textContent = "Evento POR DEFECTO";
             defaultIcon.src = "./img/icons/xmark-solid.svg";
             defaultIcon.alt = "Evento POR DEFECTO";
             bar.appendChild(defaultIconContainer);
             defaultIconContainer.appendChild(defaultIcon);
+            defaultIconContainer.appendChild(defaultIconText);
             break;
         }
       }
