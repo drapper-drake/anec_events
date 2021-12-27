@@ -3,7 +3,7 @@ const allEvents = [];
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
-  fetch("/public/data/eventosNavidad.json")
+  fetch("/data/eventosNavidad.json")
     .then((response) => response.json())
     .then((data) => {
       // data es un array de eventos
