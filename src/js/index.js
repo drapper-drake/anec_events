@@ -3,7 +3,7 @@ const allEvents = [];
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
-  fetch("src/js/eventosNavidad.json")
+  fetch("./data/eventosNavidad.json")
     .then((response) => response.json())
     .then((data) => {
       // data es un array de eventos
@@ -95,11 +95,11 @@ function changeformatDateJSON (){
 
       if (allEvents[position].free) {
         freeIconContainer.title = "Evento GRATUITO";
-        freeIcon.src = "/src/assets/img/Gratis.svg";
+        freeIcon.src = "./img/icons/Gratis.svg";
         freeIcon.alt = "Evento GRATUITO";
       } else {
         freeIconContainer.title = "Evento DE PAGO";
-        freeIcon.src = "/src/assets/img/pago.svg";
+        freeIcon.src = "./img/icons/pago.svg";
         freeIcon.alt = "Evento DE PAGO";
       }
       // ICONO BENÉFICO
@@ -107,7 +107,7 @@ function changeformatDateJSON (){
         let charityIconContainer = document.createElement("figure");
         let charityIcon = document.createElement("img");
         charityIconContainer.title = "Evento BENÉFICO";
-        charityIcon.src = "/src/assets/img/Solidario.svg";
+        charityIcon.src = "./img/icons/Solidario.svg";
         charityIcon.alt = "Evento BENÉFICO";
         bar.appendChild(charityIconContainer);
         charityIconContainer.appendChild(charityIcon);
@@ -117,7 +117,7 @@ function changeformatDateJSON (){
         let ruralIconContainer = document.createElement("figure");
         let ruralIcon = document.createElement("img");
         ruralIconContainer.title = "Evento RURAL";
-        ruralIcon.src = "/src/assets/img/iconoVillage.png";
+        ruralIcon.src = "./img/icons/iconoVillage.png";
         ruralIcon.alt = "Evento RURAL";
         bar.appendChild(ruralIconContainer);
         ruralIconContainer.appendChild(ruralIcon);
@@ -125,7 +125,7 @@ function changeformatDateJSON (){
         let cityIconContainer = document.createElement("figure");
         let cityIcon = document.createElement("img");
         cityIconContainer.title = "Evento URBANO";
-        cityIcon.src = "/src/assets/img/iconoCity.png";
+        cityIcon.src = "./img/icons/iconoCity.png";
         cityIcon.alt = "Evento URBANO";
         bar.appendChild(cityIconContainer);
         cityIconContainer.appendChild(cityIcon);
@@ -137,7 +137,7 @@ function changeformatDateJSON (){
             let xmasIconContainer = document.createElement("figure");
             let xmasIcon = document.createElement("img");
             xmasIconContainer.title = "Evento NAVIDEÑO";
-            xmasIcon.src = "/src/assets/img/Navidad.svg";
+            xmasIcon.src = "./img/icons/Navidad.svg";
             xmasIcon.alt = "Evento NAVIDEÑO";
             bar.appendChild(xmasIconContainer);
             xmasIconContainer.appendChild(xmasIcon);
@@ -146,7 +146,7 @@ function changeformatDateJSON (){
             let kidsIconContainer = document.createElement("figure");
             let kidsIcon = document.createElement("img");
             kidsIconContainer.title = "Evento INFANTIL";
-            kidsIcon.src = "/src/assets/img/iconoKids.svg";
+            kidsIcon.src = "./img/icons/iconoKids.svg";
             kidsIcon.alt = "Evento INFANTIL";
             bar.appendChild(kidsIconContainer);
             kidsIconContainer.appendChild(kidsIcon);
@@ -155,7 +155,7 @@ function changeformatDateJSON (){
             let playIconContainer = document.createElement("figure");
             let playIcon = document.createElement("img");
             playIconContainer.title = "Evento LÚDICO";
-            playIcon.src = "/src/assets/img/iconoPlay.svg";
+            playIcon.src = "./img/icons/iconoPlay.svg";
             playIcon.alt = "Evento LÚDICO";
             bar.appendChild(playIconContainer);
             playIconContainer.appendChild(playIcon);
@@ -164,7 +164,7 @@ function changeformatDateJSON (){
             let musicIconContainer = document.createElement("figure");
             let musicIcon = document.createElement("img");
             musicIconContainer.title = "Evento MUSICAL";
-            musicIcon.src = "/src/assets/img/iconoMusic.svg";
+            musicIcon.src = "./img/icons/iconoMusic.svg";
             musicIcon.alt = "Evento MUSICAL";
             bar.appendChild(musicIconContainer);
             musicIconContainer.appendChild(musicIcon);
@@ -173,7 +173,7 @@ function changeformatDateJSON (){
             let sportIconContainer = document.createElement("figure");
             let sportIcon = document.createElement("img");
             sportIconContainer.title = "Evento DEPORTIVO";
-            sportIcon.src = "/src/assets/img/iconoSports.png";
+            sportIcon.src = "./img/icons/iconoSports.png";
             sportIcon.alt = "Evento DEPORTIVO";
             bar.appendChild(sportIconContainer);
             sportIconContainer.appendChild(sportIcon);
@@ -182,7 +182,7 @@ function changeformatDateJSON (){
             let theatreIconContainer = document.createElement("figure");
             let theatreIcon = document.createElement("img");
             theatreIconContainer.title = "Evento TEATRAL";
-            theatreIcon.src = "/src/assets/img/iconoTheatre.svg";
+            theatreIcon.src = "./img/icons/iconoTheatre.svg";
             theatreIcon.alt = "Evento TEATRAL";
             bar.appendChild(theatreIconContainer);
             theatreIconContainer.appendChild(theatreIcon);
@@ -191,7 +191,7 @@ function changeformatDateJSON (){
             let partyIconContainer = document.createElement("figure");
             let partyIcon = document.createElement("img");
             partyIconContainer.title = "Evento FESTIVO";
-            partyIcon.src = "/src/assets/img/iconoParty.svg";
+            partyIcon.src = "./img/icons/iconoParty.svg";
             partyIcon.alt = "Evento FESTIVO";
             bar.appendChild(partyIconContainer);
             partyIconContainer.appendChild(partyIcon);
@@ -200,7 +200,7 @@ function changeformatDateJSON (){
             let foodIconContainer = document.createElement("figure");
             let foodIcon = document.createElement("img");
             foodIconContainer.title = "Evento GASTRONÓMICO";
-            foodIcon.src = "/src/assets/img/iconoFood.svg";
+            foodIcon.src = "./img/icons/iconoFood.svg";
             foodIcon.alt = "Evento GASTRONÓMICO";
             bar.appendChild(foodIconContainer);
             foodIconContainer.appendChild(foodIcon);
@@ -209,7 +209,7 @@ function changeformatDateJSON (){
             let museumIconContainer = document.createElement("figure");
             let museumIcon = document.createElement("img");
             museumIconContainer.title = "Evento de MUSEO";
-            museumIcon.src = "/src/assets/img/iconoMuseum.svg";
+            museumIcon.src = "./img/icons/iconoMuseum.svg";
             museumIcon.alt = "Evento de MUSEO";
             bar.appendChild(museumIconContainer);
             museumIconContainer.appendChild(museumIcon);
@@ -219,7 +219,7 @@ function changeformatDateJSON (){
             let defaultIconContainer = document.createElement("figure");
             let defaultIcon = document.createElement("img");
             defaultIconContainer.title = "Evento POR DEFECTO";
-            defaultIcon.src = "/src/assets/img/xmark-solid.svg";
+            defaultIcon.src = "./img/icons/xmark-solid.svg";
             defaultIcon.alt = "Evento POR DEFECTO";
             bar.appendChild(defaultIconContainer);
             defaultIconContainer.appendChild(defaultIcon);
@@ -296,7 +296,7 @@ function createModal(id) {
   // BOTÓN DE CIERRE
   let closeButton = document.createElement("img");
   closeButton.className = "close";
-  closeButton.src = "src/assets/img/xmark-solid.svg";
+  closeButton.src = "./img/icons/xmark-solid.svg";
   closeButton.alt = "Cerrar";
   modal.appendChild(closeButton);
   // FUNCIONALIDAD DEL MODAL
@@ -353,14 +353,10 @@ function responsiveFooter() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  createAll();
-  responsiveFooter();
-});
-
 // BOTÓN PARA SUBIR AL INICIO DE LA WEB
+const BtnUp = document.getElementById("btn-up");
 
-document.getElementById("btn-up").addEventListener("click", scrollUp);
+BtnUp.addEventListener("click", scrollUp);
 
 // Funcion que cuando hay scroll hace una animacion para subir al top
 function scrollUp(){
@@ -372,14 +368,18 @@ function scrollUp(){
 }
 
 // Funcion para que el btn-up no aparezca si no se ha hecho scroll
-btnUp = document.getElementById("btn-up");
 
 window.onscroll = function(){
   let scroll = document.documentElement.scrollTop;
 
   if (scroll > 500){
-    btnUp.style.transform = "scale(1)";
+    BtnUp.style.transform = "scale(1)";
   } else if(scroll < 500) {
-    btnUp.style.transform= "scale(0)";
+    BtnUp.style.transform= "scale(0)";
   }
 }
+
+window.addEventListener("DOMContentLoaded", () => {
+  createAll();
+  responsiveFooter();
+});

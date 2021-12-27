@@ -1,23 +1,34 @@
 {
   "name": "anec_events",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Anec Events es una web de información para eventos culturales en la provincia de Alicante.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "rm -rf dist && vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/drapper-drake/anec_events.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dapper-drake",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/drapper-drake/anec_events/issues"
   },
   "homepage": "https://github.com/drapper-drake/anec_events#readme",
   "devDependencies": {
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "postcss": "^8.4.5",
+    "postcss-cli": "^9.1.0",
+    "postcss-mixins": "^9.0.1",
+    "postcss-nesting": "^10.1.0",
+    "tailwindcss": "^3.0.7"
+  },
+  "dependencies": {
+    "postcss-minify": "^1.1.0",
+    "vite": "^2.7.7"
   }
 }
