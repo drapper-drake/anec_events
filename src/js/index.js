@@ -18,6 +18,9 @@ function createAll() {
       changeformatDateJSON(data);
       allEvents.sort((a,b) => a.dateStart - b.dateStart)
       createEvent( content, allEvents);
+
+      //?quitar ahora
+      // datefilter("2021/12/1", "2022/01/30")
     });
   }
 function changeformatDateJSON (){
@@ -427,6 +430,27 @@ window.onscroll = function(){
     BtnUp.style.transform= "scale(0)";
   }
 }
+
+const btnEvent = document.querySelector('#submit')
+// Función que filtra los eventos desde una fecha de inicio y otra final
+function datefilter(dateStart,dateFinal){
+  const dateFrom = new Date(dateStart)
+  const dateTo = new Date(dateFinal)
+  const filter = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo)
+  console.log(filter)
+
+}
+
+function getFilterDate() {
+  let start = document.querySelector("#start").value
+  let final = document.querySelector("#final").value
+  datefilter(start,final)
+  console.log(start)
+  console.log(final)
+}
+btnEvent.addEventListener("click", getFilterDate)
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
   createAll();
