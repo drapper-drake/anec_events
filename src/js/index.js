@@ -1,4 +1,4 @@
-const allArray = [];
+const allEvents = [];
 
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
@@ -13,26 +13,26 @@ function createAll() {
         let idEvent = data[evento].nameEvent;
         idEvent = idEvent.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
         data[evento].id = idEvent;
-        allArray.push(data[evento]);
+        allEvents.push(data[evento]);
       }
       changeformatDateJSON(data);
-      allArray.sort((a,b) => a.dateStart - b.dateStart)
-      createEvent( content, allArray);
+      allEvents.sort((a,b) => a.dateStart - b.dateStart)
+      createEvent( content, allEvents);
     });
   }
 function changeformatDateJSON (){
-  for (let index in allArray) {
-    allArray[index].dateStart = new Date(allArray[index].dateStart);
-    if(allArray[index].hasOwnProperty("dateFinal")){
-    allArray[index].dateFinal = new Date(allArray[index].dateFinal);
+  for (let index in allEvents) {
+    allEvents[index].dateStart = new Date(allEvents[index].dateStart);
+    if(allEvents[index].hasOwnProperty("dateFinal")){
+    allEvents[index].dateFinal = new Date(allEvents[index].dateFinal);
     }
   }
 }
   // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
   function createEvent( container ) {
-    for(let position in allArray ){
+    for(let position in allEvents ){
       //Llamar función que imprime la fecha en el orden deseado
-      let dateStart = dateFormat(allArray[position].dateStart, true);
+      let dateStart = dateFormat(allEvents[position].dateStart, true);
       let containerCard = document.createElement("div");
       containerCard.className = "container-card";
 
@@ -41,11 +41,11 @@ function changeformatDateJSON (){
       photoEvent.className = "photoEvent";
       //IMAGEN
       let image = document.createElement("img");
-      image.src = allArray[position].photoEvent;
+      image.src = allEvents[position].photoEvent;
       //TARJETA
       let card = document.createElement("div");
       card.className = "card";
-      card.id = allArray[position].id
+      card.id = allEvents[position].id
       // AÑADE EL EVENTO A LA TARJETA
       card.addEventListener("click", dataModal);
 
@@ -54,10 +54,10 @@ function changeformatDateJSON (){
       infoCard.className = "info-card";
       // NOMBRE
       let name = document.createElement("h3");
-      name.innerText = allArray[position].nameEvent;
+      name.innerText = allEvents[position].nameEvent;
       // LUGAR
       let place = document.createElement("p");
-      place.innerText = allArray[position].cityLocation;
+      place.innerText = allEvents[position].cityLocation;
       // BARRA DE ICONOS
       let bar = document.createElement("div");
       bar.className = "icons-bar";
@@ -79,8 +79,8 @@ function changeformatDateJSON (){
       infoCard.appendChild(place);
       dateCard.appendChild(date);
 
-      if(allArray[position].hasOwnProperty("dateFinal")){
-        let dateF = dateFormat(allArray[position].dateFinal,true );
+      if(allEvents[position].hasOwnProperty("dateFinal")){
+        let dateF = dateFormat(allEvents[position].dateFinal,true );
         let dateEnd = document.createElement("p");
         dateEnd.innerText = dateF;
         let divider = document.createElement("hr");
@@ -93,7 +93,7 @@ function changeformatDateJSON (){
       bar.appendChild(freeIconContainer);
       freeIconContainer.appendChild(freeIcon);
 
-      if (allArray[position].free) {
+      if (allEvents[position].free) {
         freeIconContainer.title = "Evento GRATUITO";
         freeIcon.src = "/src/assets/img/Gratis.svg";
         freeIcon.alt = "Evento GRATUITO";
@@ -103,7 +103,7 @@ function changeformatDateJSON (){
         freeIcon.alt = "Evento DE PAGO";
       }
       // ICONO BENÉFICO
-      if(allArray[position].charity) {
+      if(allEvents[position].charity) {
         let charityIconContainer = document.createElement("figure");
         let charityIcon = document.createElement("img");
         charityIconContainer.title = "Evento BENÉFICO";
@@ -113,7 +113,7 @@ function changeformatDateJSON (){
         charityIconContainer.appendChild(charityIcon);
       }
       // ICONO RURAL / URBANO
-      if(allArray[position].village) {
+      if(allEvents[position].village) {
         let ruralIconContainer = document.createElement("figure");
         let ruralIcon = document.createElement("img");
         ruralIconContainer.title = "Evento RURAL";
@@ -131,8 +131,8 @@ function changeformatDateJSON (){
         cityIconContainer.appendChild(cityIcon);
       }
       // ICONOS DE CATEGORÍAS
-      for(let cat in allArray[position].category) {
-        switch(allArray[position].category[cat]) {
+      for(let cat in allEvents[position].category) {
+        switch(allEvents[position].category[cat]) {
           case "Christmas":
             let xmasIconContainer = document.createElement("figure");
             let xmasIcon = document.createElement("img");
@@ -239,7 +239,7 @@ function createModal(id) {
   //QUITAR EL SCROLL DEL BODY
   const body = document.querySelector('body')
   body.classList.add("overflow-hidden")
-  let dataEvent = allArray.find((el) => el.id === id);
+  let dataEvent = allEvents.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
   let modalBox = document.createElement("div");
