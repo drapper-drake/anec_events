@@ -78,21 +78,12 @@ h1 {
   transform: translateX(-40%);
 }
 
-.container {
-  width: 90%;
-  height: min-content;
-  margin: 56px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 39px;
-  grid-row-gap: 39px;
-
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 18px;
-}
 
 /* Estilos de las tarjetas de eventos */
 
+.container-card {
+  font-family: "Be Vietnam Pro", sans-serif;
+}
 .container-card {
   width: 90%;
   padding-bottom: 15em;
@@ -129,7 +120,6 @@ h1 {
   height: 280px;
   background: var(--bg-dark);
   border-radius: 25px;
-
   display: flex;
   flex-direction: row;
   box-shadow: 0px 10px 12px 4px #00000050;
@@ -138,7 +128,6 @@ h1 {
 
   position: absolute;
   bottom: 7em;
-  /*text-align: center;*/
   color: var(--color-text-bg-dark);
   cursor: pointer;
 }
@@ -398,9 +387,7 @@ a:visited {
   .logo-pato {
     transform: translate(250px, -80px);
   }
-  .container {
-    grid-template-columns: 1fr 1fr;
-  }
+
   .card {
     border-radius: 0 0 25px 25px;
     bottom: 0;
@@ -445,9 +432,7 @@ a:visited {
   .logo-pato {
     display: none;
   }
-  .container {
-    grid-template-columns: 1fr;
-  }
+
   .card {
     border-radius: 0 0 25px 25px;
     bottom: 0;
