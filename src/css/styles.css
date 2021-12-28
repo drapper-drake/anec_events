@@ -290,8 +290,6 @@ h1 {
 /* Estilos de las ventanas modales */
 
 .modal-container {
-  opacity: 0;
-  visibility: hidden;
   position: fixed;
   z-index: 3;
   width: 100%;
