@@ -23,13 +23,6 @@ module.exports = {
       sans: ["Be Vietnam Pro", "sans-serif"],
       serif: [ "Lobster Two", "cursive"],
     },
-    borderRadius: {
-      "none": "0",
-      "sm": ".125rem",
-      DEFAULT: "25px", //He puesto los que tenemos como basico
-      "lg": ".5rem",
-      "full": "9999px",
-    },
   },
 
   plugins: [],
