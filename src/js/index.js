@@ -398,7 +398,15 @@ function checkBookMarks (JsonEvent){
     return "bookmark-selected"
   }
 }
-
+/* Testeando borrar los eventos*/
+const btnH1 = document.querySelector("h1")
+function clearContainer(){
+  const content = document.querySelector(".container");
+  while(content.firstChild){
+    content.removeChild(content.firstChild)
+  }
+}
+btnH1.addEventListener("click",clearContainer)
 //Check favoritos, busca cada evento por su id,los que encuentra ,les pone la clase bookmark-selected
 
 /* Función del slider de logos de patrocinadores
