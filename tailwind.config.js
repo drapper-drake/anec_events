@@ -1,6 +1,7 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
+    extend: {},
     //He puesto la primera config de screens
     screens: {
       sm: "480px",
@@ -22,14 +23,7 @@ module.exports = {
       sans: ["Be Vietnam Pro", "sans-serif"],
       serif: [ "Lobster Two", "cursive"],
     },
-    borderRadius: {
-      "none": "0",
-      "sm": ".125rem",
-      DEFAULT: "25px", //He puesto los que tenemos como basico
-      "lg": ".5rem",
-      "full": "9999px",
-    },
-    extend: {},
   },
+
   plugins: [],
 }

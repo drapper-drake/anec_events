@@ -38,20 +38,15 @@ function changeformatDateJSON (){
       let dateStart = dateFormat(allEvents[position].dateStart, true);
       let containerCard = document.createElement("div");
       containerCard.className = "container-card";
-
+      containerCard.dataset.id = allEvents[position].id
+      // AÑADE EL EVENTO A LA TARJETA
+      containerCard.addEventListener("click", dataModal);
       //DIV DE LA IMAGEN
       let photoEvent = document.createElement("div");
       photoEvent.className = "photoEvent";
       //IMAGEN
       let image = document.createElement("img");
       image.src = allEvents[position].photoEvent;
-      //TARJETA
-      let card = document.createElement("div");
-      card.className = "card";
-      card.id = allEvents[position].id
-      // AÑADE EL EVENTO A LA TARJETA
-      card.addEventListener("click", dataModal);
-
       //DATOS TARJETA
       let infoCard = document.createElement("div");
       infoCard.className = "info-card";
@@ -64,217 +59,148 @@ function changeformatDateJSON (){
       // BARRA DE ICONOS
       let bar = document.createElement("div");
       bar.className = "icons-bar";
-      //DIV FECHA
-      let dateCard = document.createElement("div");
-      dateCard.className = "date-card";
       // FECHA
       let date = document.createElement("p");
-      date.innerText = dateStart;
-
+      date.innerText = `Solo el ${dateStart}`;
+      if(allEvents[position].hasOwnProperty("dateFinal")){
+        let dateF = dateFormat(allEvents[position].dateFinal,true );
+        date.innerText = `Desde el ${dateStart}  al ${dateF}`;
+      }
       container.appendChild(containerCard);
       containerCard.appendChild(photoEvent);
       photoEvent.appendChild(image);
-      containerCard.appendChild(card);
-      card.appendChild(infoCard)
-      card.appendChild(dateCard)
-      infoCard.appendChild(bar);
+      containerCard.appendChild(infoCard);
       infoCard.appendChild(name);
       infoCard.appendChild(place);
-      dateCard.appendChild(date);
+      infoCard.appendChild(date);
+      infoCard.appendChild(bar);
 
-      if(allEvents[position].hasOwnProperty("dateFinal")){
-        let dateF = dateFormat(allEvents[position].dateFinal,true );
-        let dateEnd = document.createElement("p");
-        dateEnd.innerText = dateF;
-        let divider = document.createElement("hr");
-        dateCard.appendChild(divider);
-        dateCard.appendChild(dateEnd);
-      }
+
       // ICONO GRATUITO / DE PAGO
       let freeIconContainer = document.createElement("div");
       freeIconContainer.className = "tooltip";
       let freeIcon = document.createElement("img");
       let freeIconText = document.createElement("span");
       freeIconText.className = "tooltip-text";
-      bar.appendChild(freeIconContainer);
+      photoEvent.appendChild(freeIconContainer);
       freeIconContainer.appendChild(freeIcon);
       freeIconContainer.appendChild(freeIconText);
 
       if (allEvents[position].free) {
         freeIconText.textContent = "Evento GRATUITO";
-        freeIcon.src = "./img/icons/Gratis.svg";
+        freeIcon.src = "./img/icons/gratis.svg";
         freeIcon.alt = "Evento GRATUITO";
       } else {
         freeIconText.textContent = "Evento DE PAGO";
-        freeIcon.src = "./img/icons/pago.svg";
+        freeIcon.src = "./img/icons/Pago-euro.svg";
         freeIcon.alt = "Evento DE PAGO";
       }
       // ICONO BENÉFICO
       if(allEvents[position].charity) {
         let charityIconContainer = document.createElement("div");
-        charityIconContainer.className = "tooltip";
         let charityIcon = document.createElement("img");
-        let charityIconText = document.createElement("span");
-        charityIconText.className = "tooltip-text";
-        charityIconText.textContent = "Evento BENÉFICO";
-        charityIcon.src = "./img/icons/Solidario.svg";
-        charityIcon.alt = "Evento BENÉFICO";
+        let charityIconText = document.createElement("p");
+        charityIconText.textContent = "Benéfico";
+        charityIcon.src = "./img/icons/Charity.svg";
         bar.appendChild(charityIconContainer);
         charityIconContainer.appendChild(charityIcon);
         charityIconContainer.appendChild(charityIconText);
-      }
-      // ICONO RURAL / URBANO
-      let ruralIconContainer = document.createElement("div");
-      ruralIconContainer.className = "tooltip";
-      let ruralIcon = document.createElement("img");
-      let ruralIconText = document.createElement("span");
-      ruralIconText.className = "tooltip-text";
-      bar.appendChild(ruralIconContainer);
-      ruralIconContainer.appendChild(ruralIcon);
-      ruralIconContainer.appendChild(ruralIconText);
-
-      if (allEvents[position].village) {
-        ruralIconText.textContent = "Evento RURAL";
-        ruralIcon.src = "./img/icons/iconoVillage.png";
-        ruralIcon.alt = "Evento RURAL";
-      } else {
-        ruralIconText.textContent = "Evento URBANO";
-        ruralIcon.src = "./img/icons/iconoCity.png";
-        ruralIcon.alt = "Evento URBANO";
       }
       // ICONOS DE CATEGORÍAS
       for(let cat in allEvents[position].category) {
         switch(allEvents[position].category[cat]) {
           case "Christmas":
             let xmasIconContainer = document.createElement("div");
-            xmasIconContainer.className = "tooltip";
             let xmasIcon = document.createElement("img");
-            let xmasIconText = document.createElement("span");
-            xmasIconText.className = "tooltip-text";
-            xmasIconText.textContent = "Evento NAVIDEÑO";
+            let xmasIconText = document.createElement("p");
+            xmasIconText.textContent = "Navidad";
             xmasIcon.src = "./img/icons/Navidad.svg";
-            xmasIcon.alt = "Evento NAVIDEÑO";
             bar.appendChild(xmasIconContainer);
             xmasIconContainer.appendChild(xmasIcon);
             xmasIconContainer.appendChild(xmasIconText);
             break;
           case "Kids":
             let kidsIconContainer = document.createElement("div");
-            kidsIconContainer.className = "tooltip";
             let kidsIcon = document.createElement("img");
-            let kidsIconText = document.createElement("span");
-            kidsIconText.className = "tooltip-text";
-            kidsIconText.textContent = "Evento INFANTIL";
-            kidsIcon.src = "./img/icons/iconoKids.svg";
-            kidsIcon.alt = "Evento INFANTIL";
+            let kidsIconText = document.createElement("p");
+            kidsIconText.textContent = "Infantil";
+            kidsIcon.src = "./img/icons/Kids.svg";
             bar.appendChild(kidsIconContainer);
             kidsIconContainer.appendChild(kidsIcon);
             kidsIconContainer.appendChild(kidsIconText);
             break;
           case "Play":
             let playIconContainer = document.createElement("div");
-            playIconContainer.className = "tooltip";
             let playIcon = document.createElement("img");
-            let playIconText = document.createElement("span");
-            playIconText.className = "tooltip-text";
-            playIconText.textContent = "Evento LÚDICO";
-            playIcon.src = "./img/icons/iconoPlay.svg";
-            playIcon.alt = "Evento LÚDICO";
+            let playIconText = document.createElement("p");
+            playIconText.textContent = "Lúdico";
+            playIcon.src = "./img/icons/Play.svg";
             bar.appendChild(playIconContainer);
             playIconContainer.appendChild(playIcon);
             playIconContainer.appendChild(playIconText);
             break;
           case "Music":
             let musicIconContainer = document.createElement("div");
-            musicIconContainer.className = "tooltip";
             let musicIcon = document.createElement("img");
-            let musicIconText = document.createElement("span");
-            musicIconText.className = "tooltip-text";
-            musicIconText.textContent = "Evento MUSICAL";
-            musicIcon.src = "./img/icons/iconoMusic.svg";
-            musicIcon.alt = "Evento MUSICAL";
+            let musicIconText = document.createElement("p");
+            musicIconText.textContent = "Música";
+            musicIcon.src = "./img/icons/Music.svg";
             bar.appendChild(musicIconContainer);
             musicIconContainer.appendChild(musicIcon);
             musicIconContainer.appendChild(musicIconText);
             break;
           case "Sports":
             let sportIconContainer = document.createElement("div");
-            sportIconContainer.className = "tooltip";
             let sportIcon = document.createElement("img");
-            let sportIconText = document.createElement("span");
-            sportIconText.className = "tooltip-text";
-            sportIconText.textContent = "Evento DEPORTIVO";
-            sportIcon.src = "./img/icons/iconoSports.png";
-            sportIcon.alt = "Evento DEPORTIVO";
+            let sportIconText = document.createElement("p");
+            sportIconText.textContent = "Deporte";
+            sportIcon.src = "./img/icons/Sports.svg";
             bar.appendChild(sportIconContainer);
             sportIconContainer.appendChild(sportIcon);
             sportIconContainer.appendChild(sportIconText);
             break;
           case "Theatre":
             let theatreIconContainer = document.createElement("div");
-            theatreIconContainer.className = "tooltip";
             let theatreIcon = document.createElement("img");
-            let theatreIconText = document.createElement("span");
-            theatreIconText.className = "tooltip-text";
-            theatreIconText.textContent = "Evento TEATRAL";
-            theatreIcon.src = "./img/icons/iconoTheatre.svg";
-            theatreIcon.alt = "Evento TEATRAL";
+            let theatreIconText = document.createElement("p");
+            theatreIconText.textContent = "Teatro";
+            theatreIcon.src = "./img/icons/Theatre.svg";
             bar.appendChild(theatreIconContainer);
             theatreIconContainer.appendChild(theatreIcon);
             theatreIconContainer.appendChild(theatreIconText);
             break;
           case "Party":
             let partyIconContainer = document.createElement("div");
-            partyIconContainer.className = "tooltip";
             let partyIcon = document.createElement("img");
-            let partyIconText = document.createElement("span");
-            partyIconText.className = "tooltip-text";
-            partyIconText.textContent = "Evento FESTIVO";
-            partyIcon.src = "./img/icons/iconoParty.svg";
-            partyIcon.alt = "Evento FESTIVO";
+            let partyIconText = document.createElement("p");
+            partyIconText.textContent = "Fiestas";
+            partyIcon.src = "./img/icons/Cocktail.svg";
             bar.appendChild(partyIconContainer);
             partyIconContainer.appendChild(partyIcon);
             partyIconContainer.appendChild(partyIconText);
             break;
           case "Food":
             let foodIconContainer = document.createElement("div");
-            foodIconContainer.className = "tooltip";
             let foodIcon = document.createElement("img");
-            let foodIconText = document.createElement("span");
-            foodIconText.className = "tooltip-text";
-            foodIconText.textContent = "Evento GASTRONÓMICO";
-            foodIcon.src = "./img/icons/iconoFood.svg";
-            foodIcon.alt = "Evento GASTRONÓMICO";
+            let foodIconText = document.createElement("p");
+            foodIconText.textContent = "Gastronómico";
+            foodIcon.src = "./img/icons/Food.svg";
             bar.appendChild(foodIconContainer);
             foodIconContainer.appendChild(foodIcon);
             foodIconContainer.appendChild(foodIconText);
             break;
           case "Museum":
             let museumIconContainer = document.createElement("div");
-            museumIconContainer.className = "tooltip";
             let museumIcon = document.createElement("img");
-            let museumIconText = document.createElement("span");
-            museumIconText.className = "tooltip-text";
-            museumIconText.textContent = "Evento de MUSEO";
-            museumIcon.src = "./img/icons/iconoMuseum.svg";
-            museumIcon.alt = "Evento de MUSEO";
+            let museumIconText = document.createElement("p");
+            museumIconText.textContent = "Museo";
+            museumIcon.src = "./img/icons/Museum.svg";
             bar.appendChild(museumIconContainer);
             museumIconContainer.appendChild(museumIcon);
             museumIconContainer.appendChild(museumIconText);
             break;
-          // Pongo el default por si acaso UwU
           default:
-            let defaultIconContainer = document.createElement("div");
-            defaultIconContainer.className = "tooltip";
-            let defaultIcon = document.createElement("img");
-            let defaultIconText = document.createElement("span");
-            defaultIconText.className = "tooltip-text";
-            defaultIconText.textContent = "Evento POR DEFECTO";
-            defaultIcon.src = "./img/icons/xmark-solid.svg";
-            defaultIcon.alt = "Evento POR DEFECTO";
-            bar.appendChild(defaultIconContainer);
-            defaultIconContainer.appendChild(defaultIcon);
-            defaultIconContainer.appendChild(defaultIconText);
+            console.error(`Hay ningun caso con ese nombre ${allEvents[position].category[cat]}`)
             break;
         }
       }
@@ -284,7 +210,7 @@ function changeformatDateJSON (){
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
 function dataModal(e){
   //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
-  const idOfEvent = e.currentTarget.id;
+  const idOfEvent = e.currentTarget.dataset.id;
   createModal(idOfEvent)
 }
 function createModal(id) {
@@ -451,8 +377,20 @@ function getFilterDate() {
 btnEvent.addEventListener("click", getFilterDate)
 
 
+function selectNavBar (){
+  const listEvent = document.querySelectorAll(".navegation ul li");
+  listEvent.forEach( li => {
+    li.addEventListener("click", () => {
+      listEvent.forEach(li => li.classList.remove("nav-select"));
+      li.classList.add("nav-select");
+    })
+  })
+}
 
+
+selectNavBar();
 window.addEventListener("DOMContentLoaded", () => {
   createAll();
   responsiveFooter();
 });
+
