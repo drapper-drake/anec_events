@@ -85,7 +85,7 @@ function changeformatDateJSON (){
 
       if (allEvents[position].free) {
         freeIconText.textContent = "Evento GRATUITO";
-        freeIcon.src = "./img/icons/Gratis.svg";
+        freeIcon.src = "./img/icons/gratis.svg";
         freeIcon.alt = "Evento GRATUITO";
       } else {
         freeIconText.textContent = "Evento DE PAGO";
