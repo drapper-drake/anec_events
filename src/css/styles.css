@@ -107,6 +107,7 @@ h1 {
   border-radius: 15px;
   border: 3px solid var(--bg-dark);
   position: relative;
+  transition: 200ms;
 }
 
 .navegation ul{
@@ -168,13 +169,7 @@ h1 {
 
 .photoEvent {
   width: 100%;
-<<<<<<< HEAD
   height: 150px;
-=======
-  height: 340px;
-  background-color: var(--bg-light);
-  border-radius: 25px;
->>>>>>> feature/bookmarks
   position: relative;
 }
 
@@ -275,8 +270,7 @@ h1 {
   left: 50%;
   margin-left: -70px;
 
-  opacity: 0;
-  transition: opacity 500ms;
+
 }
 .tooltip:hover .tooltip-text {
   visibility: visible;
