@@ -80,6 +80,64 @@ h1 {
 }
 
 .container {
+  height: 500px;
+}
+
+/* Estilos de BARRA NAVEGACION*/
+.container-nav{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-title{
+  font-family: "Lobster", cursive;
+  color: var(--bg-dark);
+  font-size: 40px;
+
+}
+
+
+.navegation{
+  color: var(--color-text-bg-light);
+  width: 550px;
+  height: 50px;
+  background-color: var(--color-text-bg-dark);
+  border-radius: 15px;
+  border: 3px solid var(--bg-dark);
+  position: relative;
+}
+
+.navegation ul{
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  padding-left: 0;  /*Para quitar el espacio que tiene por defectos las listas no me deja espaciar bien*/
+}
+
+.container-nav li{
+  cursor: pointer;
+}
+
+.navegation li:hover {
+  border-bottom: 3px solid var(--color-contrast-bg-dark);
+}
+
+.nav-select{
+  background: var(--bg-dark);
+  height: 100%;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  transform: translateY(-18px);
+}
+
+
+
+/* Estilos de las tarjetas de eventos */
+
+.container {
   width: 90%;
   height: min-content;
   margin: 56px auto;
@@ -214,6 +272,10 @@ h1 {
 /* Estilos de las ventanas modales */
 
 .modal-container {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 3;
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
@@ -299,7 +361,8 @@ footer {
   color: var(--color-text-bg-dark);
   text-align: center;
 }
-.container-developers p strong {
+
+.container-developers p strong{
   font-weight: bold;
   font-size: 1.25em;
 }
@@ -455,5 +518,16 @@ a:visited {
     top: 95px
   }
 
+
+}
+
+@media screen and (max-width: 585px){
+  .navegation{
+    width: 90%;
+  }
+
+  .nav-title{
+    width: 80%;
+  }
 
 }

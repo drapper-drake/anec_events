@@ -354,7 +354,21 @@ window.onscroll = function(){
   }
 }
 
+
+function selectNavBar (){
+  const listEvent = document.querySelectorAll(".navegation ul li");
+  listEvent.forEach( li => {
+    li.addEventListener("click", () => {
+      listEvent.forEach(li => li.classList.remove("nav-select"));
+      li.classList.add("nav-select");
+    })
+  })
+}
+
+
+selectNavBar();
 window.addEventListener("DOMContentLoaded", () => {
   createAll();
   responsiveFooter();
 });
+
