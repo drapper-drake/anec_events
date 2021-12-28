@@ -1,4 +1,4 @@
-const allEvents = [];
+let allEvents = [];
 
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
@@ -29,23 +29,30 @@ function changeformatDateJSON (){
   }
 }
   // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
-  function createEvent( container ) {
-    for(let position in allEvents ){
+  function createEvent( container, listEvents ) {
+    for(let position in listEvents ){
       //Llamar función que imprime la fecha en el orden deseado
-      let dateStart = dateFormat(allEvents[position].dateStart, true);
+      let dateStart = dateFormat(listEvents[position].dateStart, true);
       let containerCard = document.createElement("div");
       containerCard.className = "container-card";
 
       //DIV DE LA IMAGEN
       let photoEvent = document.createElement("div");
       photoEvent.className = "photoEvent";
+      //BOTON FAVORITOS
+      let bookmark = document.createElement("img");
+      bookmark.className = "bookmark"
+      if(checkBookMarks(listEvents[position])){
+        bookmark.classList.add(checkBookMarks(listEvents[position]))
+      }
+      bookmark.addEventListener('click',selectedBookmark)
       //IMAGEN
       let image = document.createElement("img");
-      image.src = allEvents[position].photoEvent;
+      image.src = listEvents[position].photoEvent;
       //TARJETA
       let card = document.createElement("div");
       card.className = "card";
-      card.id = allEvents[position].id
+      card.id = listEvents[position].id
       // AÑADE EL EVENTO A LA TARJETA
       card.addEventListener("click", dataModal);
 
@@ -54,10 +61,10 @@ function changeformatDateJSON (){
       infoCard.className = "info-card";
       // NOMBRE
       let name = document.createElement("h3");
-      name.innerText = allEvents[position].nameEvent;
+      name.innerText = listEvents[position].nameEvent;
       // LUGAR
       let place = document.createElement("p");
-      place.innerText = allEvents[position].cityLocation;
+      place.innerText = listEvents[position].cityLocation;
       // BARRA DE ICONOS
       let bar = document.createElement("div");
       bar.className = "icons-bar";
@@ -70,6 +77,7 @@ function changeformatDateJSON (){
 
       container.appendChild(containerCard);
       containerCard.appendChild(photoEvent);
+      photoEvent.appendChild(bookmark);
       photoEvent.appendChild(image);
       containerCard.appendChild(card);
       card.appendChild(infoCard)
@@ -79,8 +87,8 @@ function changeformatDateJSON (){
       infoCard.appendChild(place);
       dateCard.appendChild(date);
 
-      if(allEvents[position].hasOwnProperty("dateFinal")){
-        let dateF = dateFormat(allEvents[position].dateFinal,true );
+      if(listEvents[position].hasOwnProperty("dateFinal")){
+        let dateF = dateFormat(listEvents[position].dateFinal,true );
         let dateEnd = document.createElement("p");
         dateEnd.innerText = dateF;
         let divider = document.createElement("hr");
@@ -97,7 +105,7 @@ function changeformatDateJSON (){
       freeIconContainer.appendChild(freeIcon);
       freeIconContainer.appendChild(freeIconText);
 
-      if (allEvents[position].free) {
+      if (listEvents[position].free) {
         freeIconText.textContent = "Evento GRATUITO";
         freeIcon.src = "./img/icons/Gratis.svg";
         freeIcon.alt = "Evento GRATUITO";
@@ -107,7 +115,7 @@ function changeformatDateJSON (){
         freeIcon.alt = "Evento DE PAGO";
       }
       // ICONO BENÉFICO
-      if(allEvents[position].charity) {
+      if(listEvents[position].charity) {
         let charityIconContainer = document.createElement("div");
         charityIconContainer.className = "tooltip";
         let charityIcon = document.createElement("img");
@@ -130,7 +138,7 @@ function changeformatDateJSON (){
       ruralIconContainer.appendChild(ruralIcon);
       ruralIconContainer.appendChild(ruralIconText);
 
-      if (allEvents[position].village) {
+      if (listEvents[position].village) {
         ruralIconText.textContent = "Evento RURAL";
         ruralIcon.src = "./img/icons/iconoVillage.png";
         ruralIcon.alt = "Evento RURAL";
@@ -140,8 +148,8 @@ function changeformatDateJSON (){
         ruralIcon.alt = "Evento URBANO";
       }
       // ICONOS DE CATEGORÍAS
-      for(let cat in allEvents[position].category) {
-        switch(allEvents[position].category[cat]) {
+      for(let cat in listEvents[position].category) {
+        switch(listEvents[position].category[cat]) {
           case "Christmas":
             let xmasIconContainer = document.createElement("div");
             xmasIconContainer.className = "tooltip";
@@ -371,6 +379,27 @@ function dateFormat(month, dateShort = false) {
   return `${month.getDate()} ${monthFormat}`
  ;
 }
+/* Funciones para el botón de favoritos*/
+let arrayBookMark= [];
+const saveLocalStorage = () => localStorage.setItem("bookmark", JSON.stringify(arrayBookMark));
+//Functions for LocalStorage
+
+function selectedBookmark () {
+  const  btnSelected = this
+  btnSelected.classList.toggle("bookmark-selected");
+  const idBookmark =this.parentNode.nextSibling.id;
+  let index = arrayBookMark.findIndex((el) => el === idBookmark);
+  index >-1 ? arrayBookMark.splice(index,1) : arrayBookMark.push(idBookmark)
+  saveLocalStorage()
+}
+function checkBookMarks (JsonEvent){
+  let indexOfId = arrayBookMark.findIndex((el) => el === JsonEvent.id);
+  if(indexOfId!= -1){
+    return "bookmark-selected"
+  }
+}
+
+//Check favoritos, busca cada evento por su id,los que encuentra ,les pone la clase bookmark-selected
 
 /* Función del slider de logos de patrocinadores
  * Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
@@ -429,6 +458,10 @@ window.onscroll = function(){
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("bookmark") != null) {
+    let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
+    arrayBookMark = uploadEvents;
+  }
   createAll();
   responsiveFooter();
 });

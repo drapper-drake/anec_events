@@ -113,7 +113,7 @@ h1 {
   height: 340px;
   background-color: var(--bg-light);
   border-radius: 25px;
-  left: 200px;
+  position: relative;
 }
 
 .photoEvent > img {
@@ -122,6 +122,24 @@ h1 {
 
   object-fit: cover;
   border-radius: 25px;
+}
+.photoEvent >.bookmark{
+  width: 48px;
+  height: 48px;
+  background: url(../img/icons/heart-outline.svg) var(--bg-light) no-repeat;
+  border: 1px solid var;
+  position: absolute;
+  left: 10px;
+  top:10px
+}
+.photoEvent >.bookmark-selected{
+  width: 48px;
+  height: 48px;
+  background: url(../img/icons/heart.svg) var(--bg-light) no-repeat;
+  border: 1px solid var;
+  position: absolute;
+  left: 10px;
+  top:10px
 }
 
 .card {
