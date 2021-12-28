@@ -35,7 +35,9 @@ function changeformatDateJSON (){
       let dateStart = dateFormat(allEvents[position].dateStart, true);
       let containerCard = document.createElement("div");
       containerCard.className = "container-card";
-
+      containerCard.dataset.id = allEvents[position].id
+      // AÑADE EL EVENTO A LA TARJETA
+      containerCard.addEventListener("click", dataModal);
       //DIV DE LA IMAGEN
       let photoEvent = document.createElement("div");
       photoEvent.className = "photoEvent";
@@ -45,10 +47,6 @@ function changeformatDateJSON (){
       //TARJETA
       let card = document.createElement("div");
       card.className = "card";
-      card.id = allEvents[position].id
-      // AÑADE EL EVENTO A LA TARJETA
-      card.addEventListener("click", dataModal);
-
       //DATOS TARJETA
       let infoCard = document.createElement("div");
       infoCard.className = "info-card";
@@ -61,39 +59,32 @@ function changeformatDateJSON (){
       // BARRA DE ICONOS
       let bar = document.createElement("div");
       bar.className = "icons-bar";
-      //DIV FECHA
-      let dateCard = document.createElement("div");
-      dateCard.className = "date-card";
       // FECHA
       let date = document.createElement("p");
-      date.innerText = dateStart;
+      date.innerText = `Solo el ${dateStart}`;
+      if(allEvents[position].hasOwnProperty("dateFinal")){
+        let dateF = dateFormat(allEvents[position].dateFinal,true );
+        date.innerText = `Desde ${dateStart} | al ${dateF}`;
+      }
 
       container.appendChild(containerCard);
       containerCard.appendChild(photoEvent);
       photoEvent.appendChild(image);
       containerCard.appendChild(card);
       card.appendChild(infoCard)
-      card.appendChild(dateCard)
-      infoCard.appendChild(bar);
       infoCard.appendChild(name);
       infoCard.appendChild(place);
-      dateCard.appendChild(date);
+      infoCard.appendChild(date);
+      infoCard.appendChild(bar);
 
-      if(allEvents[position].hasOwnProperty("dateFinal")){
-        let dateF = dateFormat(allEvents[position].dateFinal,true );
-        let dateEnd = document.createElement("p");
-        dateEnd.innerText = dateF;
-        let divider = document.createElement("hr");
-        dateCard.appendChild(divider);
-        dateCard.appendChild(dateEnd);
-      }
+
       // ICONO GRATUITO / DE PAGO
       let freeIconContainer = document.createElement("div");
       freeIconContainer.className = "tooltip";
       let freeIcon = document.createElement("img");
       let freeIconText = document.createElement("span");
       freeIconText.className = "tooltip-text";
-      bar.appendChild(freeIconContainer);
+      photoEvent.appendChild(freeIconContainer);
       freeIconContainer.appendChild(freeIcon);
       freeIconContainer.appendChild(freeIconText);
 
@@ -103,7 +94,7 @@ function changeformatDateJSON (){
         freeIcon.alt = "Evento GRATUITO";
       } else {
         freeIconText.textContent = "Evento DE PAGO";
-        freeIcon.src = "./img/icons/pago.svg";
+        freeIcon.src = "./img/icons/pago-euro.svg";
         freeIcon.alt = "Evento DE PAGO";
       }
       // ICONO BENÉFICO
@@ -281,7 +272,7 @@ function changeformatDateJSON (){
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
 function dataModal(e){
   //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
-  const idOfEvent = e.currentTarget.id;
+  const idOfEvent = e.currentTarget.dataset.id;
   createModal(idOfEvent)
 }
 function createModal(id) {
