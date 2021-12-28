@@ -32,13 +32,13 @@ function changeformatDateJSON (){
   }
 }
   // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
-  function createEvent( container ) {
-    for(let position in allEvents ){
+  function createEvent( container, events ) {
+    for(let position in events ){
       //Llamar función que imprime la fecha en el orden deseado
-      let dateStart = dateFormat(allEvents[position].dateStart, true);
+      let dateStart = dateFormat(events[position].dateStart, true);
       let containerCard = document.createElement("div");
       containerCard.className = "container-card";
-      containerCard.dataset.id = allEvents[position].id
+      containerCard.dataset.id = events[position].id
       // AÑADE EL EVENTO A LA TARJETA
       containerCard.addEventListener("click", dataModal);
       //DIV DE LA IMAGEN
@@ -46,24 +46,24 @@ function changeformatDateJSON (){
       photoEvent.className = "photoEvent";
       //IMAGEN
       let image = document.createElement("img");
-      image.src = allEvents[position].photoEvent;
+      image.src = events[position].photoEvent;
       //DATOS TARJETA
       let infoCard = document.createElement("div");
       infoCard.className = "info-card";
       // NOMBRE
       let name = document.createElement("h3");
-      name.innerText = allEvents[position].nameEvent;
+      name.innerText = events[position].nameEvent;
       // LUGAR
       let place = document.createElement("p");
-      place.innerText = allEvents[position].cityLocation;
+      place.innerText = events[position].cityLocation;
       // BARRA DE ICONOS
       let bar = document.createElement("div");
       bar.className = "icons-bar";
       // FECHA
       let date = document.createElement("p");
       date.innerText = `Solo el ${dateStart}`;
-      if(allEvents[position].hasOwnProperty("dateFinal")){
-        let dateF = dateFormat(allEvents[position].dateFinal,true );
+      if(events[position].hasOwnProperty("dateFinal")){
+        let dateF = dateFormat(events[position].dateFinal,true );
         date.innerText = `Desde el ${dateStart}  al ${dateF}`;
       }
       container.appendChild(containerCard);
@@ -86,7 +86,7 @@ function changeformatDateJSON (){
       freeIconContainer.appendChild(freeIcon);
       freeIconContainer.appendChild(freeIconText);
 
-      if (allEvents[position].free) {
+      if (events[position].free) {
         freeIconText.textContent = "Evento GRATUITO";
         freeIcon.src = "./img/icons/gratis.svg";
         freeIcon.alt = "Evento GRATUITO";
@@ -96,7 +96,7 @@ function changeformatDateJSON (){
         freeIcon.alt = "Evento DE PAGO";
       }
       // ICONO BENÉFICO
-      if(allEvents[position].charity) {
+      if(events[position].charity) {
         let charityIconContainer = document.createElement("div");
         let charityIcon = document.createElement("img");
         let charityIconText = document.createElement("p");
@@ -107,8 +107,8 @@ function changeformatDateJSON (){
         charityIconContainer.appendChild(charityIconText);
       }
       // ICONOS DE CATEGORÍAS
-      for(let cat in allEvents[position].category) {
-        switch(allEvents[position].category[cat]) {
+      for(let cat in events[position].category) {
+        switch(events[position].category[cat]) {
           case "Christmas":
             let xmasIconContainer = document.createElement("div");
             let xmasIcon = document.createElement("img");
@@ -364,6 +364,11 @@ function datefilter(dateStart,dateFinal){
   const dateTo = new Date(dateFinal)
   const filter = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo)
   console.log(filter)
+  const resetContent = document.querySelector(".container")
+  resetContent.innerHTML = ""
+
+  createEvent( resetContent, filter);
+
 
 }
 
@@ -374,6 +379,7 @@ function getFilterDate() {
   console.log(start)
   console.log(final)
 }
+
 btnEvent.addEventListener("click", getFilterDate)
 
 
