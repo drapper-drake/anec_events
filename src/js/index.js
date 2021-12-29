@@ -12,6 +12,7 @@ function createAll() {
         //Es un generador de Id basados en el nombre del evento
         let idEvent = data[evento].nameEvent;
         idEvent = idEvent.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+        data[evento].bookmark = false;
         data[evento].id = idEvent;
         allEvents.push(data[evento]);
       }
@@ -46,9 +47,9 @@ function changeformatDateJSON (){
       let bookmarkContainer = document.createElement("div");
       bookmarkContainer.className = "bookmark"
       let bookmark = document.createElement("img");
-      bookmark.src = checkBookMarks(listEvents[position]) ? checkBookMarks(listEvents[position]) : "./img/icons/bookmark.svg";
+      bookmark.src = listEvents[position].bookmark ? "./img/icons/bookmark-selected.svg"  : "./img/icons/bookmark.svg";
       bookmark.dataset.name = listEvents[position].id
-      bookmark.removeEventListener("click",dataModal)
+      // bookmark.removeEventListener("click",dataModal)
       bookmark.addEventListener('click',selectedBookmark)
       //IMAGEN
       let image = document.createElement("img");
@@ -315,41 +316,18 @@ let arrayBookMark= [];
 const saveLocalStorage = () => localStorage.setItem("bookmark", JSON.stringify(arrayBookMark));
 
 function selectedBookmark (e) {
-  const bookmarkSelected = "/img/icons/bookmark-selected.svg"
-  const bookmarkNormal = "/img/icons/bookmark.svg"
-  const imageBookmark= e.currentTarget.dataset.name;
-
-  console.log(imageBookmark)
-  // switch(imageBookmark){
-  //   case bookmarkNormal:
-  //     imageBookmark= bookmarkSelected;
-  //   break;
-  //   case bookmarkSelected:
-  //     imageBookmark= bookmarkNormal;
-  //   break;
-  //   default:
-  //   console.error('Algo va mal ' + imageBookmark);
-  // }
-
-  // console.log(e.currentTarget.src)
-  // if (e.currentTarget.src === bookmarkNormal) {
-  //   e.currentTarget.src = bookmarkSelected;
-  // }else if (e.currentTarget.src === bookmarkSelected){
-  //   e.currentTarget.src = bookmarkNormal;
-  // }
+  e.preventDefault();
+  e.stopPropagation();
   const idBookmark = e.currentTarget.dataset.name;
-  let index = arrayBookMark.findIndex((el) => el === idBookmark);
-  index > -1 ? arrayBookMark.splice(index,1) : arrayBookMark.push(idBookmark)
+  let index = allEvents.findIndex((el) => el.id === idBookmark);
+  allEvents[index].bookmark = !allEvents[index].bookmark;
+  const bookmarkSelected = "/img/icons/bookmark-selected.svg";
+  const bookmarkNormal = "/img/icons/bookmark.svg";
+  e.currentTarget.src = allEvents[index].bookmark ? bookmarkSelected : bookmarkNormal ;
+
+  let indexB = arrayBookMark.findIndex((el) => el.id === idBookmark);
+  indexB > -1 ? arrayBookMark.splice(indexB,1) : arrayBookMark.push(idBookmark);
   saveLocalStorage()
-}
-/* Esta función se llama en CreateEvents y comprueba que el evento que se encuentra
-creando, NO tiene id en bookmark, que sería el valor -1, y la función no devuelve nada.
-En caso de que tuviera ID devuelve la clase que hay que poner*/
-function checkBookMarks (currentEvent){
-  let indexOfId = arrayBookMark.findIndex((el) => el === currentEvent.id);
-  if(indexOfId != -1){
-    return "./img/icons/bookmark-selected.svg"
-  }
 }
 //Esta el boton en el encabezado temporalmente
 const btnH1 = document.querySelector("h1")
@@ -443,12 +421,19 @@ function getFilterTodayDate() {
 }
 
 function getFilterDate() {
-  let start = document.querySelector("#start").value;
-  let final = document.querySelector("#final").value;
-  const dateFrom = new Date(start);
-  const dateTo = new Date(final);
-  const listFilteredDate = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
-  resetAndCreateEventsFiltered(listFilteredDate);
+  if(isValidDate()){
+    let start = document.querySelector("#start").value;
+    let final = document.querySelector("#final").value;
+    const dateFrom = new Date(start);
+    const dateTo = new Date(final);
+    const listFilteredDate = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
+    resetAndCreateEventsFiltered(listFilteredDate);
+  }
+}
+function isValidDate (){
+  let dateStart = document.querySelector("#start").value;
+  let dateFinal = document.querySelector("#final").value;
+  return dateStart && dateFinal;
 }
 btnEvent.addEventListener("click", getFilterDate);
 
