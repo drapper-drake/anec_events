@@ -18,6 +18,9 @@ function createAll() {
       changeformatDateJSON(data);
       allEvents.sort((a,b) => a.dateStart - b.dateStart)
       createEvent( content, allEvents);
+
+      //?quitar ahora
+      // datefilter("2021/12/1", "2022/01/30")
     });
   }
 function changeformatDateJSON (){
@@ -35,7 +38,7 @@ function changeformatDateJSON (){
       let dateStart = dateFormat(listEvents[position].dateStart, true);
       let containerCard = document.createElement("div");
       containerCard.className = "container-card";
-      containerCard.dataset.id = allEvents[position].id
+      containerCard.dataset.id = listEvents[position].id
       // AÑADE EL EVENTO A LA TARJETA
       containerCard.addEventListener("click", dataModal);
       //DIV DE LA IMAGEN
@@ -66,8 +69,8 @@ function changeformatDateJSON (){
       // FECHA
       let date = document.createElement("p");
       date.innerText = `Solo el ${dateStart}`;
-      if(allEvents[position].hasOwnProperty("dateFinal")){
-        let dateF = dateFormat(allEvents[position].dateFinal,true );
+      if(listEvents[position].hasOwnProperty("dateFinal")){
+        let dateF = dateFormat(listEvents[position].dateFinal,true );
         date.innerText = `Desde el ${dateStart}  al ${dateF}`;
       }
       container.appendChild(containerCard);
@@ -390,6 +393,28 @@ window.onscroll = function(){
     BtnUp.style.transform= "scale(0)";
   }
 }
+
+const btnEvent = document.querySelector('#submit')
+// Función que filtra los eventos desde una fecha de inicio y otra final
+function datefilter(dateStart,dateFinal){
+  const dateFrom = new Date(dateStart)
+  const dateTo = new Date(dateFinal)
+  const filter = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo)
+  console.log(filter)
+  const resetContent = document.querySelector(".container")
+  resetContent.innerHTML = ""
+
+  createEvent( resetContent, filter);
+}
+
+function getFilterDate() {
+  let start = document.querySelector("#start").value
+  let final = document.querySelector("#final").value
+  datefilter(start,final)
+
+}
+
+btnEvent.addEventListener("click", getFilterDate)
 
 
 function selectNavBar (){
