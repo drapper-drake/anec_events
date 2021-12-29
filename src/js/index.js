@@ -370,7 +370,6 @@ function responsiveFooter() {
 
 // BOTÓN PARA SUBIR AL INICIO DE LA WEB
 const BtnUp = document.getElementById("btn-up");
-
 BtnUp.addEventListener("click", scrollUp);
 
 // Funcion que cuando hay scroll hace una animacion para subir al top
@@ -396,21 +395,23 @@ window.onscroll = function(){
 
 const btnEvent = document.querySelector('#submit')
 // Función que filtra los eventos desde una fecha de inicio y otra final
-function datefilter(dateStart,dateFinal){
-  const dateFrom = new Date(dateStart)
-  const dateTo = new Date(dateFinal)
-  const filter = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo)
-  console.log(filter)
-  const resetContent = document.querySelector(".container")
-  resetContent.innerHTML = ""
-
-  createEvent( resetContent, filter);
+function resetAndCreateEventsFiltered(listFiltered){
+  const resetContent = document.querySelector(".container");
+  resetContent.innerHTML = "";
+  if(listFiltered.length === [].length){
+    console.error('No hay eventos ni página de 404')
+  }else{
+    createEvent( resetContent, listFiltered);
+  }
 }
 
 function getFilterDate() {
   let start = document.querySelector("#start").value
   let final = document.querySelector("#final").value
-  datefilter(start,final)
+  const dateFrom = new Date(start)
+  const dateTo = new Date(final)
+  const listFilteredDate = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo)
+  resetAndCreateEventsFiltered(listFilteredDate)
 
 }
 
