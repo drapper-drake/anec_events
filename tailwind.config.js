@@ -10,8 +10,9 @@ module.exports = {
       xl: "1440px",
     },
     colors: {
-      "bg-light":" #f2f2f2",
-      "bg-dark": "#0b3762",
+      'purple': '#3f3cbb',
+      "light":" #f2f2f2",
+      "dark": "#0b3762",
       "text-bg-light": "#342618",
       "text-bg-dark": "#ffffff",
       "contrast-bg-light": "#0b4da5",

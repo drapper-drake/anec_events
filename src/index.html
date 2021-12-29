@@ -13,9 +13,9 @@
     <script type="module" src="./js/index.js"></script>
     <title>Ànec Events</title>
   </head>
-  <body>
-    <header>
-      <div class="container-title">
+  <body class="w-full min-h-full m-0 bg-light">
+    <header class="w-full h-450px bg-[url('../assets/img/sitting-4.png')]">
+      <div class="w-min h-min relative text-center font-sans">
         <div class="text-intro">
           <h1>Ànec Events</h1>
           <h2 class="description-header">Eventos para todos en Alicante</h2>
@@ -34,15 +34,18 @@
           <li class>Precios</li>
         </ul>
       </div>
-    </div>
-
-    <main>
+      <div>
         <label  for="start">Desde el día</label>
         <input type="date" id="start" value="">
         <label for="final">Hasta el día</label>
         <input type="date" id="final" value="">
         <button id="submit">Buscar</button>
-        <div class="container"></div>
+      </div>
+    </div>
+
+    <main class="w-full h-full bg-purple flex place-content-center">
+        <div class="container w-11/12 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-1 text-lg"></div>
+
     </main>
     <div id="btn-up">
       <img
