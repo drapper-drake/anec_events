@@ -47,6 +47,7 @@ function changeformatDateJSON (){
       //BOTON FAVORITOS
       let bookmark = document.createElement("img");
       bookmark.className = "bookmark"
+      bookmark.dataset.name = listEvents[position].id
       if(checkBookMarks(listEvents[position])){
         bookmark.classList.add(checkBookMarks(listEvents[position]))
       }
@@ -308,34 +309,41 @@ function dateFormat(month, dateShort = false) {
   return `${month.getDate()} ${monthFormat}`
  ;
 }
-/* Funciones para el botón de favoritos*/
+//Funciones para el botón de favoritos
 let arrayBookMark= [];
-const saveLocalStorage = () => localStorage.setItem("bookmark", JSON.stringify(arrayBookMark));
 //Functions for LocalStorage
+const saveLocalStorage = () => localStorage.setItem("bookmark", JSON.stringify(arrayBookMark));
 
-function selectedBookmark () {
-  const  btnSelected = this
-  btnSelected.classList.toggle("bookmark-selected");
-  const idBookmark =this.parentNode.nextSibling.id;
+function selectedBookmark (e) {
+  this.classList.toggle("bookmark-selected");
+  const idBookmark = e.currentTarget.dataset.name;
   let index = arrayBookMark.findIndex((el) => el === idBookmark);
-  index >-1 ? arrayBookMark.splice(index,1) : arrayBookMark.push(idBookmark)
+  index > -1 ? arrayBookMark.splice(index,1) : arrayBookMark.push(idBookmark)
   saveLocalStorage()
 }
-function checkBookMarks (JsonEvent){
-  let indexOfId = arrayBookMark.findIndex((el) => el === JsonEvent.id);
-  if(indexOfId!= -1){
+/* Esta función se llama en CreateEvents y comprueba que el evento que se encuentra
+creando, NO tiene id en bookmark, que sería el valor -1, y la función no devuelve nada.
+En caso de que tuviera ID devuelve la clase que hay que poner*/
+function checkBookMarks (currentEvent){
+  let indexOfId = arrayBookMark.findIndex((el) => el === currentEvent.id);
+  if(indexOfId != -1){
     return "bookmark-selected"
   }
 }
-/* Testeando borrar los eventos*/
+//Esta el boton en el encabezado temporalmente
 const btnH1 = document.querySelector("h1")
-function clearContainer(){
-  const content = document.querySelector(".container");
-  while(content.firstChild){
-    content.removeChild(content.firstChild)
+function filterBookmarks () {
+  let listFilteredBookmark = [];
+  for(let index in arrayBookMark){
+    for(let position in allEvents){
+      if(allEvents[position].id === arrayBookMark[index]){
+        listFilteredBookmark.push(allEvents[position]);
+      }
+    }
   }
+  resetAndCreateEventsFiltered(listFilteredBookmark)
 }
-btnH1.addEventListener("click",clearContainer)
+btnH1.addEventListener("click",filterBookmarks)
 //Check favoritos, busca cada evento por su id,los que encuentra ,les pone la clase bookmark-selected
 
 /* Función del slider de logos de patrocinadores
@@ -412,11 +420,8 @@ function getFilterDate() {
   const dateTo = new Date(final)
   const listFilteredDate = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo)
   resetAndCreateEventsFiltered(listFilteredDate)
-
 }
-
 btnEvent.addEventListener("click", getFilterDate)
-
 
 function selectNavBar (){
   const listEvent = document.querySelectorAll(".navegation ul li");
