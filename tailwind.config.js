@@ -8,7 +8,6 @@ module.exports = {
       md: "768px",
       lg: "976px",
       xl: "1440px",
-      hm: "660px", //Breakpoint especial para el cambio de encabezado
     },
     colors: {
       "purple": "#3f3cbb",
@@ -16,15 +15,27 @@ module.exports = {
       "dark": "#0b3762",
       "bg-light": "#342618",
       "white": "#ffffff",
+      "black": "#000000",
       "bg-dark": "#ffffff",
       "contrast-bg-light": "#0b4da5",
       "contrast-bg-dark": "#ffa438",
       "links-cta": "#ffa438",
       "links-visited": "#8197ba",
+      "neutral": {
+        100: "#f5f5f5",
+        200: "#e5e5e5",
+        300: "#d4d4d4",
+        400: "#e3e3e3",
+        500: "#737373",
+        600: "#525252",
+        700: "#404040",
+        800: "#262626",
+        900: "#171717",
+      },
     },
     fontFamily: {
       sans: ["Be Vietnam Pro", "sans-serif"],
-      serif: [ "Lobster Two", "cursive"],
+      serif: [ "Merriweather", "serif"],
     },
   },
 

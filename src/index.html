@@ -17,7 +17,7 @@
     <header class="w-full h-[450px] bg-[url(../assets/img/Pato-de-pie-mobile.png)] bg-no-repeat bg-center flex justify-center items-center md:bg-[url('../assets/img/sitting-4.png')] md:justify-around ">
       <div class="w-min h-min relative text-center font-sans">
         <div class="w-[400px] md:w-[600px] h-[330px] flex flex-col justify-between items-center relative">
-          <h1 class="text-links-cta font-serif text-left text-7xl font-bold absolute -top-4">
+          <h1 class="text-links-cta  text-left text-7xl font-bold absolute -top-4">
             Ànec Events
           </h1>
           <h2 class="description-header w-2/3 text-dark font-sans font-bold translate-x-[1/2] md:text-bg-dark md:font-normal md:translate-x-0 text-4xl absolute top-56 md:top-32 ">
@@ -29,36 +29,38 @@
 
     <div class="container-nav w-6/12 self-start sm:w-full flex flex-col justify-center bg-dark text-bg-dark">
       <div class="navegation">
-        <ul class="flex flex-col sm:flex-row ">
-          <li class ="bg-links-cta h-full p-1.5 rounded -translate-y-4">Todos</li>
-          <li class="hover:underline">Para ti</li>
-          <li class="hover:underline">Hoy</li>
-          <li class="hover:underline">Este fin de semana</li>
-          <li class="hover:underline">Categorías</li>
-          <li class="hover:underline">Precios</li>
+        <ul class="flex flex-col md:flex-row md:justify-evenly">
+          <li class ="bg-links-cta h-full p-1.5 rounded -translate-y-4 cursor-pointer">Todos</li>
+          <li class="hover:underline cursor-pointer">Para ti</li>
+          <li class="hover:underline cursor-pointer">Hoy</li>
+          <li class="hover:underline cursor-pointer">Este fin de semana</li>
+          <li class="hover:underline cursor-pointer">Categorías</li>
+          <li class="hover:underline cursor-pointer">Precios</li>
         </ul>
       </div>
-      <div>
-        <label  for="start">Desde el día</label>
-        <input type="date" id="start" value="">
-        <label for="final">Hasta el día</label>
-        <input type="date" id="final" value="">
-        <button id="submit">Buscar</button>
+      <div class="flex flex-row justify-center gap-10">
+        <form>
+          <label class="w-24 font-sans" for="start">Desde el día</label>
+          <input class="w-36 cursor-pointer text-neutral-500 text-sm text-right" type="date" id="start" value="" required>
+          <label class="w-24 font-sans" for="final">Hasta el día</label>
+          <input class="w-36 cursor-pointer text-neutral-500 text-sm text-right" type="date" id="final" value="" required>
+          <button class="w-24 font-sans cursor-pointer rounded border-4 border-solid border-dark hover:bg-contrast-bg-light" id="submit">Buscar</button>
+        </form>
       </div>
     </div>
 
     <main class="w-full flex place-content-center">
-        <div class="container w-11/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-1 text-lg"></div>
+        <div class="container w-11/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-1 text-lg p-10 gap-10"></div>
 
     </main>
-    <div id="btn-up" class="w-14 h-14 bg-dark flex justify-center items-center rounded-full fixed bottom-10 right-4 cursor-pointer  border-4 border-solid border-bg-dark transition-all delay-150 border-4 scale-0 hover:bg-contrast-bg-light">
+    <div id="btn-up" class="w-14 h-14 bg-dark flex justify-center items-center rounded-full fixed bottom-10 right-4 cursor-pointer border-4 border-solid border-bg-dark transition-all delay-150 border-4 scale-0 hover:bg-contrast-bg-light">
       <img
           class="arrow-up"
           src="./img/icons/arrow.svg"
           alt="Volver arriba"
         />
     </div>
-    <footer class= "w-full min-h-200 py-4 bg-dark flex flex-col font-sans text-base text-bg-dark text-center">
+    <footer class="w-full min-h-200 py-4 bg-dark flex flex-col font-sans text-base text-bg-dark text-center">
       <div>
         <p class="font-bold text-lg">Desarrollado por Dapper Drake</p>
         <p>

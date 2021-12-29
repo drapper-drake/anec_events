@@ -45,12 +45,12 @@ function changeformatDateJSON (){
       let photoEvent = document.createElement("div");
       photoEvent.className = "photoEvent";
       //BOTON FAVORITOS
+      let bookmarkContainer = document.createElement("div");
+      bookmarkContainer.className = "bookmark"
       let bookmark = document.createElement("img");
-      bookmark.className = "bookmark"
+      bookmark.src = checkBookMarks(listEvents[position]) ? checkBookMarks(listEvents[position]) : "./img/icons/bookmark.svg";
       bookmark.dataset.name = listEvents[position].id
-      if(checkBookMarks(listEvents[position])){
-        bookmark.classList.add(checkBookMarks(listEvents[position]))
-      }
+      bookmark.removeEventListener("click",dataModal)
       bookmark.addEventListener('click',selectedBookmark)
       //IMAGEN
       let image = document.createElement("img");
@@ -76,7 +76,8 @@ function changeformatDateJSON (){
       }
       container.appendChild(containerCard);
       containerCard.appendChild(photoEvent);
-      photoEvent.appendChild(bookmark);
+      photoEvent.appendChild(bookmarkContainer);
+      bookmarkContainer.appendChild(bookmark);
       photoEvent.appendChild(image);
       containerCard.appendChild(infoCard);
       infoCard.appendChild(name);
@@ -100,9 +101,9 @@ function changeformatDateJSON (){
         freeIcon.src = "./img/icons/gratis.svg";
         freeIcon.alt = "Evento GRATUITO";
       } else {
-        freeIconText.textContent = "Evento DE PAGO";
+        freeIconText.textContent = "Evento de PAGO";
         freeIcon.src = "./img/icons/Pago-euro.svg";
-        freeIcon.alt = "Evento DE PAGO";
+        freeIcon.alt = "Evento de PAGO";
       }
       // ICONO BENÉFICO
       if(listEvents[position].charity) {
@@ -290,13 +291,13 @@ function createModal(id) {
   // FUNCIONALIDAD DEL MODAL
   closeButton.addEventListener("click", () => {
     modalBox.remove();
-    body.classList.remove("overflow-hidden")
+    body.classList.remove("overflow-hidden");
 
   });
   window.addEventListener("click", (e) => {
     if (e.target == modalBox) {
       modalBox.remove();
-      body.classList.remove("overflow-hidden")
+      body.classList.remove("overflow-hidden");
     }
   });
 }
@@ -316,7 +317,28 @@ let arrayBookMark= [];
 const saveLocalStorage = () => localStorage.setItem("bookmark", JSON.stringify(arrayBookMark));
 
 function selectedBookmark (e) {
-  this.classList.toggle("bookmark-selected");
+  const bookmarkSelected = "/img/icons/bookmark-selected.svg"
+  const bookmarkNormal = "/img/icons/bookmark.svg"
+  const imageBookmark= e.currentTarget.dataset.name;
+
+  console.log(imageBookmark)
+  // switch(imageBookmark){
+  //   case bookmarkNormal:
+  //     imageBookmark= bookmarkSelected;
+  //   break;
+  //   case bookmarkSelected:
+  //     imageBookmark= bookmarkNormal;
+  //   break;
+  //   default:
+  //   console.error('Algo va mal ' + imageBookmark);
+  // }
+
+  // console.log(e.currentTarget.src)
+  // if (e.currentTarget.src === bookmarkNormal) {
+  //   e.currentTarget.src = bookmarkSelected;
+  // }else if (e.currentTarget.src === bookmarkSelected){
+  //   e.currentTarget.src = bookmarkNormal;
+  // }
   const idBookmark = e.currentTarget.dataset.name;
   let index = arrayBookMark.findIndex((el) => el === idBookmark);
   index > -1 ? arrayBookMark.splice(index,1) : arrayBookMark.push(idBookmark)
@@ -328,7 +350,7 @@ En caso de que tuviera ID devuelve la clase que hay que poner*/
 function checkBookMarks (currentEvent){
   let indexOfId = arrayBookMark.findIndex((el) => el === currentEvent.id);
   if(indexOfId != -1){
-    return "bookmark-selected"
+    return "./img/icons/bookmark-selected.svg"
   }
 }
 //Esta el boton en el encabezado temporalmente
@@ -429,7 +451,7 @@ function selectNavBar (){
   const navSelected = "bg-links-cta h-full p-1.5 rounded sm:-translate-y-4"
   listEvent.forEach( li => {
     li.addEventListener("click", () => {
-      listEvent.forEach(li => li.className = "hover:underline");
+      listEvent.forEach(li => li.className = "hover:underline cursor-pointer");
       li.className = navSelected;
     })
   })
