@@ -19,8 +19,6 @@ function createAll() {
       allEvents.sort((a,b) => a.dateStart - b.dateStart)
       createEvent( content, allEvents);
 
-      //?quitar ahora
-      // datefilter("2021/12/1", "2022/01/30")
     });
   }
 function changeformatDateJSON (){
@@ -366,7 +364,7 @@ function filterBookmarks () {
   }
   resetAndCreateEventsFiltered(listFilteredBookmark)
 }
-btnH1.addEventListener("click",filterBookmarks)
+btnH1.addEventListener("click",getFilterTodayDate)
 //Check favoritos, busca cada evento por su id,los que encuentra ,les pone la clase bookmark-selected
 
 /* Función del slider de logos de patrocinadores
@@ -430,21 +428,29 @@ function resetAndCreateEventsFiltered(listFiltered){
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
   if(listFiltered.length === [].length){
-    console.error('No hay eventos ni página de 404')
+    console.error('No hay eventos ni página de 404');
   }else{
     createEvent( resetContent, listFiltered);
   }
 }
+const changeFormatDateForFilter = (date) => `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`;
+
+function getFilterTodayDate() {
+  const today = changeFormatDateForFilter(new Date());
+  const listFilteredDate = allEvents.filter(events => changeFormatDateForFilter(events.dateStart) === today) // || ( events.hasOwnProperty("dateFinal") ) ? changeFormatDateForFilter(events.dateFinal) >= today :  );
+  console.log(listFilteredDate)
+  resetAndCreateEventsFiltered(listFilteredDate);
+}
 
 function getFilterDate() {
-  let start = document.querySelector("#start").value
-  let final = document.querySelector("#final").value
-  const dateFrom = new Date(start)
-  const dateTo = new Date(final)
-  const listFilteredDate = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo)
-  resetAndCreateEventsFiltered(listFilteredDate)
+  let start = document.querySelector("#start").value;
+  let final = document.querySelector("#final").value;
+  const dateFrom = new Date(start);
+  const dateTo = new Date(final);
+  const listFilteredDate = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
+  resetAndCreateEventsFiltered(listFilteredDate);
 }
-btnEvent.addEventListener("click", getFilterDate)
+btnEvent.addEventListener("click", getFilterDate);
 
 function selectNavBar (){
   const listEvent = document.querySelectorAll(".navegation ul li");
