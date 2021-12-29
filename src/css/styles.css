@@ -14,96 +14,23 @@
   --color-links-visited: #8197ba;
 }
 
-header {
-  width: 100%;
-  height: 450px;
 
-  background: url(../assets/img/sitting-4.png) no-repeat center 16px;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.container-title {
-  width: min-content;
-  height: min-content;
-
-  font-family: "Be Vietnam Pro", sans-serif;
-  text-align: center;
-  position: relative;
-}
-
-.text-intro {
-  width: 600px;
-  height: 330px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  position: relative;
-}
 
 h1 {
-  color: var(--color-links-cta);
   text-shadow: 4px 0 0 var(--color-contrast-bg-light);
-  font-family: "Lobster Two", cursive;
-  text-align: start;
-  font-size: 70px;
-  font-weight: bold;
 
-  position:absolute;
-  top: -80px;
-}
-
-.description-header {
-  width: 60%;
-  color: var(--color-text-bg-dark);
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: normal;
-  font-size: 36px;
-
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-40%);
-}
-
-.container {
-  height: 500px;
 }
 
 /* Estilos de BARRA NAVEGACION*/
-.container-nav{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.nav-title{
-  font-family: "Lobster", cursive;
-  color: var(--bg-dark);
-  font-size: 40px;
-
-}
-
 
 .navegation{
-  color: var(--color-text-bg-light);
-  width: 550px;
-  height: 50px;
-  background-color: var(--color-text-bg-dark);
-  border-radius: 15px;
-  border: 3px solid var(--bg-dark);
   position: relative;
   transition: 200ms;
 }
 
 .navegation ul{
   display: flex;
+  width:100%;
   justify-content: space-evenly;
   list-style: none;
   padding-left: 0;  /*Para quitar el espacio que tiene por defectos las listas no me deja espaciar bien*/
@@ -113,33 +40,10 @@ h1 {
   cursor: pointer;
 }
 
-.navegation li:hover {
+/* .navegation li:hover {
   border-bottom: 3px solid var(--color-contrast-bg-dark);
-}
-
-.nav-select{
-  background: var(--bg-dark);
-  height: 100%;
-  color: white;
-  border-radius: 10px;
-  padding: 5px;
-  transform: translateY(-18px);
-}
-
-
-
-/* Estilos de las tarjetas de eventos */
-/*
-.container {
-  width: 90%;
-  height: min-content;
-  margin: 56px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr ;
-  grid-column-gap: 8px;
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 18px;
 } */
+
 
 /* Estilos de las tarjetas de eventos */
 
@@ -286,7 +190,7 @@ h1 {
 
 .modal-container {
   position: fixed;
-  z-index: 3;
+  z-index: 2;
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
@@ -295,10 +199,8 @@ h1 {
   justify-content: center;
   align-items: center;
 
-  position: fixed;
   left: 0;
   top: 0;
-  z-index: 1;
 }
 
 .modal {
@@ -352,128 +254,18 @@ h1 {
   cursor: pointer;
 }
 
-.description {
-  text-align: initial;
 
-  padding: 0px 25px 10px;
-}
 
-footer {
-  width: 100%;
-  min-height: 200px;
-  padding: 1em 0;
-  background-color: var(--bg-dark);
-
-  display: flex;
-  flex-direction: column;
-
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 18px;
-  color: var(--color-text-bg-dark);
-  text-align: center;
-}
-
-.container-developers p strong{
-  font-weight: bold;
-  font-size: 1.25em;
-}
-.container-img {
-  width: 80%;
-  background: var(--color-text-bg-dark);
-  border-radius: 15px;
-  padding: 0 1em;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  margin: 1em auto;
-}
-
-.container-img > img {
-  max-height: 50px;
-}
-
-a {
+/* a {
   color: var(--color-links-cta);
 }
 a:visited {
   color: var(--color-links-visited);
-}
-
-/*Clases estándar para añadir y eliminar desde JS*/
-.overflow-hidden{
-  overflow: hidden;
-}
-.hidden {
-  display: none;
-}
-
-/* Botón de volver arriba */
-#btn-up {
-  width: 50px;
-  height: 50px;
-  background: var(--bg-dark);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 50%;
-  position: fixed;
-  bottom: 50px;
-  right: 20px;
-
-  cursor: pointer;
-  border: 4px solid transparent;
-  transition: all 300ms ease;
-  transform: scale(0);
-}
-#btn-up:hover{
-  background-color: var(--color-contrast-bg-light);
-}
+} */
 
 /* Responsive */
 
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .logo-pato {
-    transform: translate(250px, -80px);
-  }
-  .container {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 @media screen and (max-width: 768px) {
-  body {
-    margin: 0;
-  }
-  header {
-    justify-content: center;
-  }
-
-  body .description {
-    display: none;
-  }
-
-  .container-logo {
-    display: none;
-  }
-  .container-img {
-    width: 300px;
-  }
-
-  .text-intro {
-    width: 400px;
-    height: 330px;
-  }
-  .logo-pato {
-    display: none;
-  }
-  .container {
-    grid-template-columns: 1fr;
-  }
-
   .modal-container{
     align-items: center;
   }
@@ -516,29 +308,15 @@ a:visited {
 
 @media screen and (max-width: 660px){
   header {
-    background: url(../assets/img/Pato-de-pie-mobile.png) no-repeat center 16px;
+    /* background: url(../assets/img/Pato-de-pie-mobile.png) no-repeat center 16px; */
   }
   .description-header{
-    color: var(--bg-dark);
-    font-weight: bold;
-    top: 190px;
-    transform: translateX(-50%);
+    /* color: var(--bg-dark);
+    font-weight: bold; */
+    /* top: 190px; */
   }
-
   .text-intro h1 {
-    top: 95px
-  }
-
-
-}
-
-@media screen and (max-width: 585px){
-  .navegation{
-    width: 90%;
-  }
-
-  .nav-title{
-    width: 80%;
+    /* top: 95px */
   }
 
 }

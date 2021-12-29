@@ -8,13 +8,15 @@ module.exports = {
       md: "768px",
       lg: "976px",
       xl: "1440px",
+      hm: "660px", //Breakpoint especial para el cambio de encabezado
     },
     colors: {
-      'purple': '#3f3cbb',
+      "purple": "#3f3cbb",
       "light":" #f2f2f2",
       "dark": "#0b3762",
-      "text-bg-light": "#342618",
-      "text-bg-dark": "#ffffff",
+      "bg-light": "#342618",
+      "white": "#ffffff",
+      "bg-dark": "#ffffff",
       "contrast-bg-light": "#0b4da5",
       "contrast-bg-dark": "#ffa438",
       "links-cta": "#ffa438",

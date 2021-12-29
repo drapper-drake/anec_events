@@ -13,25 +13,29 @@
     <script type="module" src="./js/index.js"></script>
     <title>Ànec Events</title>
   </head>
-  <body class="w-full min-h-full m-0 bg-light">
-    <header class="w-full h-450px bg-[url('../assets/img/sitting-4.png')]">
+  <body class="w-full flex flex-col min-h-screen m-0 bg-light">
+    <header class="w-full h-[450px] bg-[url(../assets/img/Pato-de-pie-mobile.png)] bg-no-repeat bg-center flex justify-center items-center md:bg-[url('../assets/img/sitting-4.png')] md:justify-around ">
       <div class="w-min h-min relative text-center font-sans">
-        <div class="text-intro">
-          <h1>Ànec Events</h1>
-          <h2 class="description-header">Eventos para todos en Alicante</h2>
+        <div class="w-[400px] md:w-[600px] h-[330px] flex flex-col justify-between items-center relative">
+          <h1 class="text-links-cta font-serif text-left text-7xl font-bold absolute -top-4">
+            Ànec Events
+          </h1>
+          <h2 class="description-header w-2/3 text-dark font-sans font-bold translate-x-[1/2] md:text-bg-dark md:font-normal md:translate-x-0 text-4xl absolute top-56 md:top-32 ">
+            Eventos para todos en Alicante
+          </h2>
         </div>
       </div>
     </header>
 
-    <div class="container-nav">
+    <div class="container-nav w-6/12 self-start sm:w-full flex flex-col justify-center bg-dark text-bg-dark">
       <div class="navegation">
-        <ul>
-          <li class = "nav-select">Todos</li>
-          <li class>Para ti</li>
-          <li class>Hoy</li>
-          <li class>Este fin de semana</li>
-          <li class>Categorías</li>
-          <li class>Precios</li>
+        <ul class="flex flex-col sm:flex-row ">
+          <li class ="bg-links-cta h-full p-1.5 rounded -translate-y-4">Todos</li>
+          <li class="hover:underline">Para ti</li>
+          <li class="hover:underline">Hoy</li>
+          <li class="hover:underline">Este fin de semana</li>
+          <li class="hover:underline">Categorías</li>
+          <li class="hover:underline">Precios</li>
         </ul>
       </div>
       <div>
@@ -43,45 +47,33 @@
       </div>
     </div>
 
-    <main class="w-full h-full bg-purple flex place-content-center">
-        <div class="container w-11/12 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-1 text-lg"></div>
+    <main class="w-full flex place-content-center">
+        <div class="container w-11/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-1 text-lg"></div>
 
     </main>
-    <div id="btn-up">
+    <div id="btn-up" class="w-14 h-14 bg-dark flex justify-center items-center rounded-full fixed bottom-10 right-4 cursor-pointer  border-4 border-solid border-bg-dark transition-all delay-150 border-4 scale-0 hover:bg-contrast-bg-light">
       <img
           class="arrow-up"
           src="./img/icons/arrow.svg"
           alt="Volver arriba"
         />
     </div>
-    <footer>
-      <div class="container-developers">
-        <p><strong>Desarrollado por Dapper Drake</strong></p>
+    <footer class= "w-full min-h-200 py-4 bg-dark flex flex-col font-sans text-base text-bg-dark text-center">
+      <div>
+        <p class="font-bold text-lg">Desarrollado por Dapper Drake</p>
         <p>
           Somos alumnos de la EOI, hemos desarrollado esta web para facilitar la
           búsqueda de eventos y fomentar el ocio en Alicante
         </p>
       </div>
-      <div class="container-partners">
+      <div class="flex flex-col justify-center items-center">
         <h4>Patrocinadores:</h4>
-        <div class="container-img">
-          <img
-            src="./img/footer/gobesp.png"
-            alt="Logo Gobierno de España"
-          />
-          <img
-            src="./img/footer/logoEoi.svg"
-            alt="Logo Escuela de Organización Industrial"
-          />
-          <img
-            src="./img/footer/ue.png"
-            alt="Logo Unión Europea, Fondo Social Europeo. Iniciativa de Empleo Juvenil."
-          />
-          <img src="./img/footer/fundonce.png" alt="Logo Fundación Once" />
-          <img
-            src="./img/footer/garjuv.png"
-            alt="Sistema Nacional de Garantía Juvenil"
-          />
+        <div class="container-img w-80 lg:w-4/5 bg-white px-4 rounded-full flex flex-wrap justify-evenly my-4 ">
+          <img class="max-h-12" src="./img/footer/gobesp.png" alt="Logo Gobierno de España"/>
+          <img class="max-h-12" src="./img/footer/logoEoi.svg" alt="Logo Escuela de Organización Industrial"/>
+          <img class="max-h-12" src="./img/footer/ue.png" alt="Logo Unión Europea, Fondo Social Europeo. Iniciativa de Empleo Juvenil."/>
+          <img class="max-h-12" src="./img/footer/fundonce.png" alt="Logo Fundación Once" />
+          <img class="max-h-12" src="./img/footer/garjuv.png" alt="Sistema Nacional de Garantía Juvenil" />
         </div>
       </div>
     </footer>

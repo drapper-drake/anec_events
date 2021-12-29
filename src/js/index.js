@@ -230,6 +230,7 @@ function createModal(id) {
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
   let modalBox = document.createElement("div");
+
   modalBox.className = "modal-container";
   modalWindow.appendChild(modalBox);
   // VENTANA
@@ -349,7 +350,7 @@ btnH1.addEventListener("click",filterBookmarks)
 /* Función del slider de logos de patrocinadores
  * Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
  * */
-const Sponsors = document.querySelectorAll(".container-img>img");
+const Sponsors = document.querySelectorAll(".container-img > img");
 
 let indexSlider = 0;
 //Le añado a todas una clase que las oculta
@@ -425,10 +426,11 @@ btnEvent.addEventListener("click", getFilterDate)
 
 function selectNavBar (){
   const listEvent = document.querySelectorAll(".navegation ul li");
+  const navSelected = "bg-links-cta h-full p-1.5 rounded sm:-translate-y-4"
   listEvent.forEach( li => {
     li.addEventListener("click", () => {
-      listEvent.forEach(li => li.classList.remove("nav-select"));
-      li.classList.add("nav-select");
+      listEvent.forEach(li => li.className = "hover:underline");
+      li.className = navSelected;
     })
   })
 }
