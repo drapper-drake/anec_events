@@ -1,4 +1,5 @@
 let allEvents = [];
+let currentListEvents = [];
 
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
@@ -209,7 +210,7 @@ function changeformatDateJSON (){
             museumIconContainer.appendChild(museumIconText);
             break;
           default:
-            console.error(`Hay ningun caso con ese nombre ${allEvents[position].category[cat]}`)
+            console.error(`Hay ningun caso con ese nombre ${listEvents[position].category[cat]}`)
             break;
         }
       }
@@ -226,7 +227,7 @@ function createModal(id) {
   //QUITAR EL SCROLL DEL BODY
   const body = document.querySelector('body')
   body.classList.add("overflow-hidden")
-  let dataEvent = allEvents.find((el) => el.id === id);
+  let dataEvent = currentListEvents.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
   let modalBox = document.createElement("div");
@@ -340,10 +341,10 @@ function filterBookmarks () {
       }
     }
   }
-  resetAndCreateEventsFiltered(listFilteredBookmark)
+  currentListEvents = listFilteredBookmark;
+  resetAndCreateEventsFiltered(listFilteredBookmark);
 }
-btnH1.addEventListener("click",getFilterTodayDate)
-//Check favoritos, busca cada evento por su id,los que encuentra ,les pone la clase bookmark-selected
+btnH1.addEventListener("click",filterBookmarks);
 
 /* Función del slider de logos de patrocinadores
  * Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
@@ -411,14 +412,6 @@ function resetAndCreateEventsFiltered(listFiltered){
     createEvent( resetContent, listFiltered);
   }
 }
-const changeFormatDateForFilter = (date) => `${date.getDay()}/${date.getMonth()}/${date.getFullYear()}`;
-
-function getFilterTodayDate() {
-  const today = changeFormatDateForFilter(new Date());
-  const listFilteredDate = allEvents.filter(events => changeFormatDateForFilter(events.dateStart) === today) // || ( events.hasOwnProperty("dateFinal") ) ? changeFormatDateForFilter(events.dateFinal) >= today :  );
-  console.log(listFilteredDate)
-  resetAndCreateEventsFiltered(listFilteredDate);
-}
 
 function getFilterDate() {
   if(isValidDate()){
@@ -426,7 +419,8 @@ function getFilterDate() {
     let final = document.querySelector("#final").value;
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
-    const listFilteredDate = allEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
+    const listFilteredDate = currentListEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
+    currentListEvents = listFilteredDate;
     resetAndCreateEventsFiltered(listFilteredDate);
   }
 }
@@ -456,6 +450,7 @@ window.addEventListener("DOMContentLoaded", () => {
     arrayBookMark = uploadEvents;
   }
   createAll();
+  currentListEvents = allEvents;
   responsiveFooter();
 });
 
