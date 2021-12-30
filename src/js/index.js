@@ -415,12 +415,27 @@ function resetAndCreateEventsFiltered(listFiltered){
 
 function getFilterDate(e) {
   e.preventDefault();
-  if(isValidDate()){
+  if(isValidDate()) {
     let start = document.querySelector("#start").value;
     let final = document.querySelector("#final").value;
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
-    const listFilteredDate = currentListEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
+    const listFilteredDate = [];
+    for(let event in currentListEvents){
+      if(!currentListEvents[event].dateFinal) {
+        if(currentListEvents[event].dateStart >= dateFrom && currentListEvents[event].dateStart <= dateTo) {
+          listFilteredDate.push(currentListEvents[event]);
+        }
+        } else {
+          // events.dateStart >= dateFrom && events.dateStart <= dateTo && events.dateFinal >= dateFrom && events.dateFinal <= dateTo;
+          if(currentListEvents[event].dateStart >= dateFrom && currentListEvents[event].dateFinal <= dateTo){
+            //Fecha de inicio mayor o igual  Fecha Inicio Input && Fecha de inicio menor o igual  Fecha Final input && echa de inicio mayor o igual Fecha Input &&
+             listFilteredDate.push(currentListEvents[event])
+          } ;
+        }
+    }
+
+
     resetAndCreateEventsFiltered(listFilteredDate);
   }
 }
@@ -444,7 +459,6 @@ function selectNavBar (){
 const filterNavBar = document.querySelectorAll(".navegation > div");
 function filterNav(e){
   const idCategory = e.currentTarget.id
-  console.log(idCategory)
   if(idCategory === "all"){
     return resetAndCreateEventsFiltered(allEvents);
   }else if (idCategory === "bookmark"){
