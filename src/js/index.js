@@ -19,21 +19,21 @@ function createAll() {
       }
       changeformatDateJSON(data);
       allEvents.sort((a,b) => a.dateStart - b.dateStart)
-      createEvent( content, allEvents);
+      createEvent(content, allEvents);
 
     });
   }
-function changeformatDateJSON (){
+function changeformatDateJSON() {
   for (let index in allEvents) {
     allEvents[index].dateStart = new Date(allEvents[index].dateStart);
-    if(allEvents[index].hasOwnProperty("dateFinal")){
+    if(allEvents[index].hasOwnProperty("dateFinal")) {
     allEvents[index].dateFinal = new Date(allEvents[index].dateFinal);
     }
   }
 }
   // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
-  function createEvent( container, listEvents ) {
-    for(let position in listEvents ){
+  function createEvent(container, listEvents) {
+    for(let position in listEvents) {
       //Llamar función que imprime la fecha en el orden deseado
       let dateStart = dateFormat(listEvents[position].dateStart, true);
       let containerCard = document.createElement("div");
@@ -218,20 +218,19 @@ function changeformatDateJSON (){
   }
 
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
-function dataModal(e){
+function dataModal(e) {
   //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
   const idOfEvent = e.currentTarget.dataset.id;
-  createModal(idOfEvent)
+  createModal(idOfEvent);
 }
 function createModal(id) {
   //QUITAR EL SCROLL DEL BODY
-  const body = document.querySelector('body')
-  body.classList.add("overflow-hidden")
+  const body = document.querySelector('body');
+  body.classList.add("overflow-hidden");
   let dataEvent = currentListEvents.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
   let modalBox = document.createElement("div");
-
   modalBox.className = "modal-container";
   modalWindow.appendChild(modalBox);
   // VENTANA
@@ -292,7 +291,6 @@ function createModal(id) {
   closeButton.addEventListener("click", () => {
     modalBox.remove();
     body.classList.remove("overflow-hidden");
-
   });
   window.addEventListener("click", (e) => {
     if (e.target == modalBox) {
@@ -304,12 +302,11 @@ function createModal(id) {
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
   const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-  let monthFormat = monthNames[month.getMonth()]
-  if(dateShort){
-    monthFormat= monthFormat.toUpperCase().substring(0,3)
+  let monthFormat = monthNames[month.getMonth()];
+  if(dateShort) {
+    monthFormat= monthFormat.toUpperCase().substring(0,3);
   }
-  return `${month.getDate()} ${monthFormat}`
- ;
+  return `${month.getDate()} ${monthFormat}`;
 }
 //Funciones para el botón de favoritos
 let arrayBookMark= [];
@@ -328,11 +325,11 @@ function selectedBookmark (e) {
 
   let indexB = arrayBookMark.findIndex((el) => el.id === idBookmark);
   indexB > -1 ? arrayBookMark.splice(indexB,1) : arrayBookMark.push(idBookmark);
-  saveLocalStorage()
+  saveLocalStorage();
 }
 //Esta el boton en el encabezado temporalmente
-const btnH1 = document.querySelector("h1")
-function filterBookmarks () {
+const btnH1 = document.querySelector("h1");
+function filterBookmarks() {
   let listFilteredBookmark = [];
   for(let index in arrayBookMark){
     for(let position in allEvents){
@@ -390,25 +387,24 @@ function scrollUp(){
 
 // Funcion para que el btn-up no aparezca si no se ha hecho scroll
 
-window.onscroll = function(){
+window.onscroll = () => {
   let scroll = document.documentElement.scrollTop;
-
-  if (scroll > 500){
+  if (scroll > 500) {
     BtnUp.style.transform = "scale(1)";
   } else if(scroll < 500) {
     BtnUp.style.transform= "scale(0)";
   }
 }
 
-const btnEvent = document.querySelector('#submit')
+const btnEvent = document.querySelector('#submit');
 // Función que filtra los eventos desde una fecha de inicio y otra final
-function resetAndCreateEventsFiltered(listFiltered){
-  currentListEvents = listFiltered;
+function resetAndCreateEventsFiltered(listFiltered) {
+  // currentListEvents = listFiltered;
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
-  if(listFiltered.length === [].length){
+  if(listFiltered.length === [].length) {
     console.error('No hay eventos ni página de 404');
-  }else{
+  } else {
     createEvent(resetContent, listFiltered);
   }
 }
@@ -420,62 +416,42 @@ function getFilterDate(e) {
     let final = document.querySelector("#final").value;
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
-
-    const listFilteredDate = [];
-    for(let evento in currentListEvents) {
-      let event = currentListEvents[evento];
-      if(event.dateFinal) {
-        if((event.dateStart >= dateFrom && event.dateStart <= dateTo) || (event.dateFinal >= dateFrom && event.dateFinal <= dateTo) || (event.dateStart >= dateFrom && event.dateFinal <= dateTo)) {
-          listFilteredDate.push(event);
-        }
-      } else {
-        if(event.dateStart >= dateFrom && event.dateStart <= dateTo) {
-          listFilteredDate.push(event);
-        }
-      }
-    }
-
-    // const listFilteredDate = currentListEvents.filter((events) => {
-    //   if(events.dateFinal) {
-    //     return ((events.dateStart >= dateFrom && events.dateStart <= dateTo) || (events.dateFinal >= dateFrom && events.dateFinal <= dateTo) || (events.dateStart >= dateFrom && events.dateFinal <= dateTo));
-    //   } else {
-    //     return (events.dateStart >= dateFrom && events.dateStart <= dateTo);
-    //   }
-    // });
+    const listFilteredDate = currentListEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
     resetAndCreateEventsFiltered(listFilteredDate);
   }
 }
-function isValidDate (){
+function isValidDate() {
   let dateStart = document.querySelector("#start").value;
   let dateFinal = document.querySelector("#final").value;
   return dateStart && dateFinal;
 }
 btnEvent.addEventListener("click", getFilterDate);
 
-function selectNavBar (){
-  const listEvent = document.querySelectorAll(".navegation>div");
-  const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded"
-  listEvent.forEach( div => {
-    div.addEventListener("click", () => {
-      listEvent.forEach(div => div.className = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded");
-      div.className = navSelected;
-    })
+// Cambio de color al seleccionar en NavBar
+const divList = document.querySelectorAll(".navegation > div");
+const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded"
+divList.forEach( div => {
+  div.addEventListener("click", () => {
+    divList.forEach(div => div.className = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded");
+    div.className = navSelected;
   })
-}
-const filterNavBar = document.querySelectorAll(".navegation > div");
-function filterNav(e){
-  const idCategory = e.currentTarget.id
-  if(idCategory === "all"){
-    return resetAndCreateEventsFiltered(allEvents);
-  }else if (idCategory === "bookmark"){
-    return filterBookmarks();
+})
+// reset de eventos al usar NavBar
+divList.forEach(category => category.addEventListener("click", (e) => {
+  const idCategory = e.currentTarget.id;
+  switch(idCategory) {
+    case "all":
+      resetAndCreateEventsFiltered(allEvents);
+      break;
+    case "bookmark":
+      filterBookmarks();
+      break;
+    default:
+      resetAndCreateEventsFiltered(allEvents.filter(events => events.category.includes(idCategory)));
+      break;
   }
-  const listEvent = allEvents.filter(events => events.category.includes(idCategory));
-  return resetAndCreateEventsFiltered(listEvent);
-}
-filterNavBar.forEach(category => category.addEventListener("click", filterNav));
+}));
 
-selectNavBar();
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
     let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
@@ -485,4 +461,3 @@ window.addEventListener("DOMContentLoaded", () => {
   currentListEvents = allEvents;
   responsiveFooter();
 });
-
