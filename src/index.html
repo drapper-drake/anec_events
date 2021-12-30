@@ -14,43 +14,46 @@
     <title>Ànec Events</title>
   </head>
   <body class="w-full flex flex-col min-h-screen m-0 bg-light">
-    <header class="w-full h-[450px] bg-[url(../assets/img/Pato-de-pie-mobile.png)] bg-no-repeat bg-center flex justify-center items-center md:bg-[url('../assets/img/sitting-4.png')] md:justify-around ">
+    <header class="w-full h-[450px] bg-[url('/img/Pato-de-pie-mobile.png')] bg-no-repeat bg-center flex justify-center items-center md:bg-[url('/img/sitting-4.png')] md:justify-around ">
       <div class="w-min h-min relative text-center font-sans">
         <div class="w-[400px] md:w-[600px] h-[330px] flex flex-col justify-between items-center relative">
           <h1 class="text-links-cta  text-left text-7xl font-bold absolute -top-4">
             Ànec Events
           </h1>
-          <h2 class="description-header w-2/3 text-dark font-sans font-bold translate-x-[1/2] md:text-bg-dark md:font-normal md:translate-x-0 text-4xl absolute top-56 md:top-32 ">
+          <h2 class="description-header w-2/3 text-dark font-sans font-bold translate-x-[1/2] md:text-bg-dark md:font-normal md:translate-x-10 text-4xl absolute top-56 md:top-40 ">
             Eventos para todos en Alicante
           </h2>
         </div>
       </div>
     </header>
 
-    <div class="container-nav w-6/12 self-start sm:w-full flex flex-col justify-center bg-dark text-bg-dark">
+    <div class="container-nav w-full flex flex-col justify-center text-bg-dark">
       <div class="navegation">
-        <ul class="flex flex-col md:flex-row md:justify-evenly">
-          <li class ="bg-links-cta h-full p-1.5 rounded -translate-y-4 cursor-pointer">Todos</li>
-          <li class="hover:underline cursor-pointer">Para ti</li>
-          <li class="hover:underline cursor-pointer">Hoy</li>
-          <li class="hover:underline cursor-pointer">Este fin de semana</li>
-          <li class="hover:underline cursor-pointer">Categorías</li>
-          <li class="hover:underline cursor-pointer">Precios</li>
+        <ul class="ml-1 flex justify-start gap-3 md:flex-row overflow-x-scroll md:justify-center lg:overflow-x-hidden">
+          <li class="py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded">Todos</li>
+          <li class="py-1 px-2 cursor-pointer bg-dark rounded">Deporte</li>
+          <li class="py-1 px-2 cursor-pointer bg-dark rounded">Infantil</li>
+          <li class="py-1 px-2 cursor-pointer bg-dark rounded">Gastrónomico</li>
+          <li class="py-1 px-2 cursor-pointer bg-dark rounded">Música</li>
+          <li class="py-1 px-2 cursor-pointer bg-dark rounded">Teatro</li>
+          <li class="py-1 px-2 cursor-pointer bg-dark rounded">Museo</li>
+          <li class="py-1 px-2 cursor-pointer bg-dark rounded">Fiestas</li>
+          <li class="py-1 px-2 cursor-pointer bg-dark rounded">Lúdico</li>
         </ul>
       </div>
-      <div class="flex flex-row justify-center gap-10">
-        <form>
-          <label class="w-24 font-sans" for="start">Desde el día</label>
-          <input class="w-36 cursor-pointer text-neutral-500 text-sm text-right" type="date" id="start" required>
-          <label class="w-24 font-sans" for="final">Hasta el día</label>
-          <input class="w-36 cursor-pointer text-neutral-500 text-sm text-right" type="date" id="final" required>
-          <button class="w-24 font-sans cursor-pointer rounded border-4 border-solid border-dark hover:bg-contrast-bg-light" id="submit">Buscar</button>
+      <div class="w-full flex flex-row justify-center my-4">
+        <form class="flex flex-col items-center md:flex-row">
+          <label class="m-1 w-24 font-sans font-bold text-sm text-bg-light" for="start">Desde el día: </label>
+          <input class="m-1 w-36 cursor-pointer text-neutral-600 text-xs text-right rounded border-2 border-solid border-dark" type="date" id="start" required>
+          <label class="m-1 w-24 font-sans font-bold text-sm text-bg-light" for="final">Hasta el día: </label>
+          <input class="m-1 w-36 cursor-pointer text-neutral-600 text-xs text-right rounded border-2 border-solid border-dark" type="date" id="final" required>
+          <button class="m-1 w-20 font-sans font-bold cursor-pointer rounded text-dark bg-links-cta border-2 border-solid border-links-cta shadow-md hover:bg-light hover:border-dark" id="submit">Buscar</button>
         </form>
       </div>
     </div>
 
-    <main class="w-full flex place-content-center">
-        <div class="container w-11/12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-1 text-lg p-10 gap-10"></div>
+    <main class="flex justify-center">
+        <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-col-4 text-lg p-10 gap-10 lg:gap-x-8"></div>
 
     </main>
     <div id="btn-up" class="w-14 h-14 bg-dark flex justify-center items-center rounded-full fixed bottom-10 right-4 cursor-pointer border-4 border-solid border-bg-dark transition-all delay-150 scale-0 hover:bg-contrast-bg-light">

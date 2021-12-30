@@ -433,10 +433,10 @@ btnEvent.addEventListener("click", getFilterDate);
 
 function selectNavBar (){
   const listEvent = document.querySelectorAll(".navegation ul li");
-  const navSelected = "bg-links-cta h-full p-1.5 rounded sm:-translate-y-4"
+  const navSelected = "bg-links-cta py-1 px-2 text-dark font-bold  cursor-pointer rounded"
   listEvent.forEach( li => {
     li.addEventListener("click", () => {
-      listEvent.forEach(li => li.className = "hover:underline cursor-pointer");
+      listEvent.forEach(li => li.className = "py-1 px-2 cursor-pointer bg-dark rounded");
       li.className = navSelected;
     })
   })
