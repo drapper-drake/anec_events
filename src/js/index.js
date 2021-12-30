@@ -409,7 +409,7 @@ function resetAndCreateEventsFiltered(listFiltered){
   if(listFiltered.length === [].length){
     console.error('No hay eventos ni página de 404');
   }else{
-    createEvent( resetContent, listFiltered);
+    createEvent(resetContent, listFiltered);
   }
 }
 
@@ -420,22 +420,28 @@ function getFilterDate(e) {
     let final = document.querySelector("#final").value;
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
+
     const listFilteredDate = [];
-    for(let event in currentListEvents){
-      if(!currentListEvents[event].dateFinal) {
-        if(currentListEvents[event].dateStart >= dateFrom && currentListEvents[event].dateStart <= dateTo) {
-          listFilteredDate.push(currentListEvents[event]);
+    for(let evento in currentListEvents) {
+      let event = currentListEvents[evento];
+      if(event.dateFinal) {
+        if((event.dateStart >= dateFrom && event.dateStart <= dateTo) || (event.dateFinal >= dateFrom && event.dateFinal <= dateTo) || (event.dateStart >= dateFrom && event.dateFinal <= dateTo)) {
+          listFilteredDate.push(event);
         }
-        } else {
-          // events.dateStart >= dateFrom && events.dateStart <= dateTo && events.dateFinal >= dateFrom && events.dateFinal <= dateTo;
-          if(currentListEvents[event].dateStart >= dateFrom && currentListEvents[event].dateFinal <= dateTo){
-            //Fecha de inicio mayor o igual  Fecha Inicio Input && Fecha de inicio menor o igual  Fecha Final input && echa de inicio mayor o igual Fecha Input &&
-             listFilteredDate.push(currentListEvents[event])
-          } ;
+      } else {
+        if(event.dateStart >= dateFrom && event.dateStart <= dateTo) {
+          listFilteredDate.push(event);
         }
+      }
     }
 
-
+    // const listFilteredDate = currentListEvents.filter((events) => {
+    //   if(events.dateFinal) {
+    //     return ((events.dateStart >= dateFrom && events.dateStart <= dateTo) || (events.dateFinal >= dateFrom && events.dateFinal <= dateTo) || (events.dateStart >= dateFrom && events.dateFinal <= dateTo));
+    //   } else {
+    //     return (events.dateStart >= dateFrom && events.dateStart <= dateTo);
+    //   }
+    // });
     resetAndCreateEventsFiltered(listFilteredDate);
   }
 }
@@ -462,7 +468,7 @@ function filterNav(e){
   if(idCategory === "all"){
     return resetAndCreateEventsFiltered(allEvents);
   }else if (idCategory === "bookmark"){
-    return filterBookmarks ();
+    return filterBookmarks();
   }
   const listEvent = allEvents.filter(events => events.category.includes(idCategory));
   return resetAndCreateEventsFiltered(listEvent);
