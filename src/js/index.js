@@ -341,10 +341,9 @@ function filterBookmarks () {
       }
     }
   }
-  currentListEvents = listFilteredBookmark;
   resetAndCreateEventsFiltered(listFilteredBookmark);
 }
-btnH1.addEventListener("click",filterBookmarks);
+
 
 /* Función del slider de logos de patrocinadores
  * Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
@@ -404,6 +403,7 @@ window.onscroll = function(){
 const btnEvent = document.querySelector('#submit')
 // Función que filtra los eventos desde una fecha de inicio y otra final
 function resetAndCreateEventsFiltered(listFiltered){
+  currentListEvents = listFiltered;
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
   if(listFiltered.length === [].length){
@@ -413,14 +413,14 @@ function resetAndCreateEventsFiltered(listFiltered){
   }
 }
 
-function getFilterDate() {
+function getFilterDate(e) {
+  e.preventDefault();
   if(isValidDate()){
     let start = document.querySelector("#start").value;
     let final = document.querySelector("#final").value;
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
     const listFilteredDate = currentListEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
-    currentListEvents = listFilteredDate;
     resetAndCreateEventsFiltered(listFilteredDate);
   }
 }
@@ -432,16 +432,28 @@ function isValidDate (){
 btnEvent.addEventListener("click", getFilterDate);
 
 function selectNavBar (){
-  const listEvent = document.querySelectorAll(".navegation ul li");
-  const navSelected = "bg-links-cta py-1 px-2 text-dark font-bold  cursor-pointer rounded"
-  listEvent.forEach( li => {
-    li.addEventListener("click", () => {
-      listEvent.forEach(li => li.className = "py-1 px-2 cursor-pointer bg-dark rounded");
-      li.className = navSelected;
+  const listEvent = document.querySelectorAll(".navegation>div");
+  const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded"
+  listEvent.forEach( div => {
+    div.addEventListener("click", () => {
+      listEvent.forEach(div => div.className = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded");
+      div.className = navSelected;
     })
   })
 }
-
+const filterNavBar = document.querySelectorAll(".navegation > div");
+function filterNav(e){
+  const idCategory = e.currentTarget.id
+  console.log(idCategory)
+  if(idCategory === "all"){
+    return resetAndCreateEventsFiltered(allEvents);
+  }else if (idCategory === "bookmark"){
+    return filterBookmarks ();
+  }
+  const listEvent = allEvents.filter(events => events.category.includes(idCategory));
+  return resetAndCreateEventsFiltered(listEvent);
+}
+filterNavBar.forEach(category => category.addEventListener("click", filterNav));
 
 selectNavBar();
 window.addEventListener("DOMContentLoaded", () => {
