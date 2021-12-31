@@ -327,8 +327,7 @@ function selectedBookmark (e) {
   indexB > -1 ? arrayBookMark.splice(indexB,1) : arrayBookMark.push(idBookmark);
   saveLocalStorage();
 }
-//Esta el boton en el encabezado temporalmente
-const btnH1 = document.querySelector("h1");
+
 function filterBookmarks() {
   let listFilteredBookmark = [];
   for(let index in arrayBookMark){
@@ -396,8 +395,7 @@ window.onscroll = () => {
   }
 }
 
-const btnEvent = document.querySelector('#submit');
-// Función que filtra los eventos desde una fecha de inicio y otra final
+// función que muestra los eventos filtrados
 function resetAndCreateEventsFiltered(listFiltered) {
   // currentListEvents = listFiltered;
   const resetContent = document.querySelector(".container");
@@ -409,23 +407,22 @@ function resetAndCreateEventsFiltered(listFiltered) {
   }
 }
 
-function getFilterDate(e) {
+// función de filtrar por fecha
+const btnEvent = document.querySelector('#submit');
+btnEvent.addEventListener("click", (e) => {
   e.preventDefault();
-  if(isValidDate()) {
-    let start = document.querySelector("#start").value;
-    let final = document.querySelector("#final").value;
+  let start = document.querySelector("#start").value;
+  let final = document.querySelector("#final").value;
+  if(start && final) {
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
-    const listFilteredDate = currentListEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
+    const listFilteredDate = currentListEvents.filter(event => (event.dateStart >= dateFrom && event.dateStart <= dateTo) ||
+    (event.dateFinal >= dateFrom && event.dateFinal <= dateTo) ||
+    (event.dateStart <= dateFrom && event.dateFinal >= dateTo));
+    // fechaInicio en Rango OR fechaFinal en Rango OR el evento dura más que el Rango
     resetAndCreateEventsFiltered(listFilteredDate);
   }
-}
-function isValidDate() {
-  let dateStart = document.querySelector("#start").value;
-  let dateFinal = document.querySelector("#final").value;
-  return dateStart && dateFinal;
-}
-btnEvent.addEventListener("click", getFilterDate);
+});
 
 // Cambio de color al seleccionar en NavBar
 const divList = document.querySelectorAll(".navegation > div");
