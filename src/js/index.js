@@ -19,219 +19,218 @@ function createAll() {
       }
       changeformatDateJSON(data);
       allEvents.sort((a,b) => a.dateStart - b.dateStart)
-      createEvent( content, allEvents);
+      createEvent(content, allEvents);
 
     });
   }
-function changeformatDateJSON (){
+function changeformatDateJSON() {
   for (let index in allEvents) {
     allEvents[index].dateStart = new Date(allEvents[index].dateStart);
-    if(allEvents[index].hasOwnProperty("dateFinal")){
+    if(allEvents[index].hasOwnProperty("dateFinal")) {
     allEvents[index].dateFinal = new Date(allEvents[index].dateFinal);
     }
   }
 }
-  // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
-  function createEvent( container, listEvents ) {
-    for(let position in listEvents ){
-      //Llamar función que imprime la fecha en el orden deseado
-      let dateStart = dateFormat(listEvents[position].dateStart, true);
-      let containerCard = document.createElement("div");
-      containerCard.className = "container-card";
-      containerCard.dataset.id = listEvents[position].id
-      // AÑADE EL EVENTO A LA TARJETA
-      containerCard.addEventListener("click", dataModal);
-      //DIV DE LA IMAGEN
-      let photoEvent = document.createElement("div");
-      photoEvent.className = "photoEvent";
-      //BOTON FAVORITOS
-      let bookmarkContainer = document.createElement("div");
-      bookmarkContainer.className = "bookmark"
-      let bookmark = document.createElement("img");
-      bookmark.src = listEvents[position].bookmark ? "./img/icons/bookmark-selected.svg"  : "./img/icons/bookmark.svg";
-      bookmark.dataset.name = listEvents[position].id
-      // bookmark.removeEventListener("click",dataModal)
-      bookmark.addEventListener('click',selectedBookmark)
-      //IMAGEN
-      let image = document.createElement("img");
-      image.src = listEvents[position].photoEvent;
-      //DATOS TARJETA
-      let infoCard = document.createElement("div");
-      infoCard.className = "info-card";
-      // NOMBRE
-      let name = document.createElement("h3");
-      name.innerText = listEvents[position].nameEvent;
-      // LUGAR
-      let place = document.createElement("p");
-      place.innerText = listEvents[position].cityLocation;
-      // BARRA DE ICONOS
-      let bar = document.createElement("div");
-      bar.className = "icons-bar";
-      // FECHA
-      let date = document.createElement("p");
-      date.innerText = `Solo el ${dateStart}`;
-      if(listEvents[position].hasOwnProperty("dateFinal")){
-        let dateF = dateFormat(listEvents[position].dateFinal,true );
-        date.innerText = `Desde el ${dateStart}  al ${dateF}`;
-      }
-      container.appendChild(containerCard);
-      containerCard.appendChild(photoEvent);
-      photoEvent.appendChild(bookmarkContainer);
-      bookmarkContainer.appendChild(bookmark);
-      photoEvent.appendChild(image);
-      containerCard.appendChild(infoCard);
-      infoCard.appendChild(name);
-      infoCard.appendChild(place);
-      infoCard.appendChild(date);
-      infoCard.appendChild(bar);
+// ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
+function createEvent(container, listEvents) {
+  for(let position in listEvents) {
+    //Llamar función que imprime la fecha en el orden deseado
+    let dateStart = dateFormat(listEvents[position].dateStart, true);
+    let containerCard = document.createElement("div");
+    containerCard.className = "container-card";
+    containerCard.dataset.id = listEvents[position].id
+    // AÑADE EL EVENTO A LA TARJETA
+    containerCard.addEventListener("click", dataModal);
+    //DIV DE LA IMAGEN
+    let photoEvent = document.createElement("div");
+    photoEvent.className = "photoEvent";
+    //BOTON FAVORITOS
+    let bookmarkContainer = document.createElement("div");
+    bookmarkContainer.className = "bookmark"
+    let bookmark = document.createElement("img");
+    bookmark.src = listEvents[position].bookmark ? "./img/icons/bookmark-selected.svg"  : "./img/icons/bookmark.svg";
+    bookmark.dataset.name = listEvents[position].id
+    // bookmark.removeEventListener("click",dataModal)
+    bookmark.addEventListener('click',selectedBookmark)
+    //IMAGEN
+    let image = document.createElement("img");
+    image.src = listEvents[position].photoEvent;
+    //DATOS TARJETA
+    let infoCard = document.createElement("div");
+    infoCard.className = "info-card";
+    // NOMBRE
+    let name = document.createElement("h3");
+    name.innerText = listEvents[position].nameEvent;
+    // LUGAR
+    let place = document.createElement("p");
+    place.innerText = listEvents[position].cityLocation;
+    // BARRA DE ICONOS
+    let bar = document.createElement("div");
+    bar.className = "icons-bar";
+    // FECHA
+    let date = document.createElement("p");
+    date.innerText = `Solo el ${dateStart}`;
+    if(listEvents[position].hasOwnProperty("dateFinal")){
+      let dateF = dateFormat(listEvents[position].dateFinal,true );
+      date.innerText = `Desde el ${dateStart}  al ${dateF}`;
+    }
+    container.appendChild(containerCard);
+    containerCard.appendChild(photoEvent);
+    photoEvent.appendChild(bookmarkContainer);
+    bookmarkContainer.appendChild(bookmark);
+    photoEvent.appendChild(image);
+    containerCard.appendChild(infoCard);
+    infoCard.appendChild(name);
+    infoCard.appendChild(place);
+    infoCard.appendChild(date);
+    infoCard.appendChild(bar);
 
 
-      // ICONO GRATUITO / DE PAGO
-      let freeIconContainer = document.createElement("div");
-      freeIconContainer.className = "tooltip";
-      let freeIcon = document.createElement("img");
-      let freeIconText = document.createElement("span");
-      freeIconText.className = "tooltip-text";
-      photoEvent.appendChild(freeIconContainer);
-      freeIconContainer.appendChild(freeIcon);
-      freeIconContainer.appendChild(freeIconText);
+    // ICONO GRATUITO / DE PAGO
+    let freeIconContainer = document.createElement("div");
+    freeIconContainer.className = "tooltip";
+    let freeIcon = document.createElement("img");
+    let freeIconText = document.createElement("span");
+    freeIconText.className = "tooltip-text";
+    photoEvent.appendChild(freeIconContainer);
+    freeIconContainer.appendChild(freeIcon);
+    freeIconContainer.appendChild(freeIconText);
 
-      if (listEvents[position].free) {
-        freeIconText.textContent = "Evento GRATUITO";
-        freeIcon.src = "./img/icons/gratis.svg";
-        freeIcon.alt = "Evento GRATUITO";
-      } else {
-        freeIconText.textContent = "Evento de PAGO";
-        freeIcon.src = "./img/icons/Pago-euro.svg";
-        freeIcon.alt = "Evento de PAGO";
-      }
-      // ICONO BENÉFICO
-      if(listEvents[position].charity) {
-        let charityIconContainer = document.createElement("div");
-        let charityIcon = document.createElement("img");
-        let charityIconText = document.createElement("p");
-        charityIconText.textContent = "Benéfico";
-        charityIcon.src = "./img/icons/Charity.svg";
-        bar.appendChild(charityIconContainer);
-        charityIconContainer.appendChild(charityIcon);
-        charityIconContainer.appendChild(charityIconText);
-      }
-      // ICONOS DE CATEGORÍAS
-      for(let cat in listEvents[position].category) {
-        switch(listEvents[position].category[cat]) {
-          case "Christmas":
-            let xmasIconContainer = document.createElement("div");
-            let xmasIcon = document.createElement("img");
-            let xmasIconText = document.createElement("p");
-            xmasIconText.textContent = "Navidad";
-            xmasIcon.src = "./img/icons/Navidad.svg";
-            bar.appendChild(xmasIconContainer);
-            xmasIconContainer.appendChild(xmasIcon);
-            xmasIconContainer.appendChild(xmasIconText);
-            break;
-          case "Kids":
-            let kidsIconContainer = document.createElement("div");
-            let kidsIcon = document.createElement("img");
-            let kidsIconText = document.createElement("p");
-            kidsIconText.textContent = "Infantil";
-            kidsIcon.src = "./img/icons/Kids.svg";
-            bar.appendChild(kidsIconContainer);
-            kidsIconContainer.appendChild(kidsIcon);
-            kidsIconContainer.appendChild(kidsIconText);
-            break;
-          case "Play":
-            let playIconContainer = document.createElement("div");
-            let playIcon = document.createElement("img");
-            let playIconText = document.createElement("p");
-            playIconText.textContent = "Lúdico";
-            playIcon.src = "./img/icons/Play.svg";
-            bar.appendChild(playIconContainer);
-            playIconContainer.appendChild(playIcon);
-            playIconContainer.appendChild(playIconText);
-            break;
-          case "Music":
-            let musicIconContainer = document.createElement("div");
-            let musicIcon = document.createElement("img");
-            let musicIconText = document.createElement("p");
-            musicIconText.textContent = "Música";
-            musicIcon.src = "./img/icons/Music.svg";
-            bar.appendChild(musicIconContainer);
-            musicIconContainer.appendChild(musicIcon);
-            musicIconContainer.appendChild(musicIconText);
-            break;
-          case "Sports":
-            let sportIconContainer = document.createElement("div");
-            let sportIcon = document.createElement("img");
-            let sportIconText = document.createElement("p");
-            sportIconText.textContent = "Deporte";
-            sportIcon.src = "./img/icons/Sports.svg";
-            bar.appendChild(sportIconContainer);
-            sportIconContainer.appendChild(sportIcon);
-            sportIconContainer.appendChild(sportIconText);
-            break;
-          case "Theatre":
-            let theatreIconContainer = document.createElement("div");
-            let theatreIcon = document.createElement("img");
-            let theatreIconText = document.createElement("p");
-            theatreIconText.textContent = "Teatro";
-            theatreIcon.src = "./img/icons/Theatre.svg";
-            bar.appendChild(theatreIconContainer);
-            theatreIconContainer.appendChild(theatreIcon);
-            theatreIconContainer.appendChild(theatreIconText);
-            break;
-          case "Party":
-            let partyIconContainer = document.createElement("div");
-            let partyIcon = document.createElement("img");
-            let partyIconText = document.createElement("p");
-            partyIconText.textContent = "Fiestas";
-            partyIcon.src = "./img/icons/Cocktail.svg";
-            bar.appendChild(partyIconContainer);
-            partyIconContainer.appendChild(partyIcon);
-            partyIconContainer.appendChild(partyIconText);
-            break;
-          case "Food":
-            let foodIconContainer = document.createElement("div");
-            let foodIcon = document.createElement("img");
-            let foodIconText = document.createElement("p");
-            foodIconText.textContent = "Gastronómico";
-            foodIcon.src = "./img/icons/Food.svg";
-            bar.appendChild(foodIconContainer);
-            foodIconContainer.appendChild(foodIcon);
-            foodIconContainer.appendChild(foodIconText);
-            break;
-          case "Museum":
-            let museumIconContainer = document.createElement("div");
-            let museumIcon = document.createElement("img");
-            let museumIconText = document.createElement("p");
-            museumIconText.textContent = "Museo";
-            museumIcon.src = "./img/icons/Museum.svg";
-            bar.appendChild(museumIconContainer);
-            museumIconContainer.appendChild(museumIcon);
-            museumIconContainer.appendChild(museumIconText);
-            break;
-          default:
-            console.error(`Hay ningun caso con ese nombre ${listEvents[position].category[cat]}`)
-            break;
-        }
+    if (listEvents[position].free) {
+      freeIconText.textContent = "Evento GRATUITO";
+      freeIcon.src = "./img/icons/gratis.svg";
+      freeIcon.alt = "Evento GRATUITO";
+    } else {
+      freeIconText.textContent = "Evento de PAGO";
+      freeIcon.src = "./img/icons/Pago-euro.svg";
+      freeIcon.alt = "Evento de PAGO";
+    }
+    // ICONO BENÉFICO
+    if(listEvents[position].charity) {
+      let charityIconContainer = document.createElement("div");
+      let charityIcon = document.createElement("img");
+      let charityIconText = document.createElement("p");
+      charityIconText.textContent = "Benéfico";
+      charityIcon.src = "./img/icons/Charity.svg";
+      bar.appendChild(charityIconContainer);
+      charityIconContainer.appendChild(charityIcon);
+      charityIconContainer.appendChild(charityIconText);
+    }
+    // ICONOS DE CATEGORÍAS
+    for(let cat in listEvents[position].category) {
+      switch(listEvents[position].category[cat]) {
+        case "Christmas":
+          let xmasIconContainer = document.createElement("div");
+          let xmasIcon = document.createElement("img");
+          let xmasIconText = document.createElement("p");
+          xmasIconText.textContent = "Navidad";
+          xmasIcon.src = "./img/icons/Navidad.svg";
+          bar.appendChild(xmasIconContainer);
+          xmasIconContainer.appendChild(xmasIcon);
+          xmasIconContainer.appendChild(xmasIconText);
+          break;
+        case "Kids":
+          let kidsIconContainer = document.createElement("div");
+          let kidsIcon = document.createElement("img");
+          let kidsIconText = document.createElement("p");
+          kidsIconText.textContent = "Infantil";
+          kidsIcon.src = "./img/icons/Kids.svg";
+          bar.appendChild(kidsIconContainer);
+          kidsIconContainer.appendChild(kidsIcon);
+          kidsIconContainer.appendChild(kidsIconText);
+          break;
+        case "Play":
+          let playIconContainer = document.createElement("div");
+          let playIcon = document.createElement("img");
+          let playIconText = document.createElement("p");
+          playIconText.textContent = "Lúdico";
+          playIcon.src = "./img/icons/Play.svg";
+          bar.appendChild(playIconContainer);
+          playIconContainer.appendChild(playIcon);
+          playIconContainer.appendChild(playIconText);
+          break;
+        case "Music":
+          let musicIconContainer = document.createElement("div");
+          let musicIcon = document.createElement("img");
+          let musicIconText = document.createElement("p");
+          musicIconText.textContent = "Música";
+          musicIcon.src = "./img/icons/Music.svg";
+          bar.appendChild(musicIconContainer);
+          musicIconContainer.appendChild(musicIcon);
+          musicIconContainer.appendChild(musicIconText);
+          break;
+        case "Sports":
+          let sportIconContainer = document.createElement("div");
+          let sportIcon = document.createElement("img");
+          let sportIconText = document.createElement("p");
+          sportIconText.textContent = "Deporte";
+          sportIcon.src = "./img/icons/Sports.svg";
+          bar.appendChild(sportIconContainer);
+          sportIconContainer.appendChild(sportIcon);
+          sportIconContainer.appendChild(sportIconText);
+          break;
+        case "Theatre":
+          let theatreIconContainer = document.createElement("div");
+          let theatreIcon = document.createElement("img");
+          let theatreIconText = document.createElement("p");
+          theatreIconText.textContent = "Teatro";
+          theatreIcon.src = "./img/icons/Theatre.svg";
+          bar.appendChild(theatreIconContainer);
+          theatreIconContainer.appendChild(theatreIcon);
+          theatreIconContainer.appendChild(theatreIconText);
+          break;
+        case "Party":
+          let partyIconContainer = document.createElement("div");
+          let partyIcon = document.createElement("img");
+          let partyIconText = document.createElement("p");
+          partyIconText.textContent = "Fiestas";
+          partyIcon.src = "./img/icons/Cocktail.svg";
+          bar.appendChild(partyIconContainer);
+          partyIconContainer.appendChild(partyIcon);
+          partyIconContainer.appendChild(partyIconText);
+          break;
+        case "Food":
+          let foodIconContainer = document.createElement("div");
+          let foodIcon = document.createElement("img");
+          let foodIconText = document.createElement("p");
+          foodIconText.textContent = "Gastronómico";
+          foodIcon.src = "./img/icons/Food.svg";
+          bar.appendChild(foodIconContainer);
+          foodIconContainer.appendChild(foodIcon);
+          foodIconContainer.appendChild(foodIconText);
+          break;
+        case "Museum":
+          let museumIconContainer = document.createElement("div");
+          let museumIcon = document.createElement("img");
+          let museumIconText = document.createElement("p");
+          museumIconText.textContent = "Museo";
+          museumIcon.src = "./img/icons/Museum.svg";
+          bar.appendChild(museumIconContainer);
+          museumIconContainer.appendChild(museumIcon);
+          museumIconContainer.appendChild(museumIconText);
+          break;
+        default:
+          console.error(`Hay ningun caso con ese nombre ${listEvents[position].category[cat]}`)
+          break;
       }
     }
   }
+}
 
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
-function dataModal(e){
+function dataModal(e) {
   //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
   const idOfEvent = e.currentTarget.dataset.id;
-  createModal(idOfEvent)
+  createModal(idOfEvent);
 }
 function createModal(id) {
   //QUITAR EL SCROLL DEL BODY
-  const body = document.querySelector('body')
-  body.classList.add("overflow-hidden")
+  const body = document.querySelector('body');
+  body.classList.add("overflow-hidden");
   let dataEvent = currentListEvents.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
   let modalBox = document.createElement("div");
-
   modalBox.className = "modal-container";
   modalWindow.appendChild(modalBox);
   // VENTANA
@@ -292,7 +291,6 @@ function createModal(id) {
   closeButton.addEventListener("click", () => {
     modalBox.remove();
     body.classList.remove("overflow-hidden");
-
   });
   window.addEventListener("click", (e) => {
     if (e.target == modalBox) {
@@ -301,16 +299,17 @@ function createModal(id) {
     }
   });
 }
+
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
   const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-  let monthFormat = monthNames[month.getMonth()]
-  if(dateShort){
-    monthFormat= monthFormat.toUpperCase().substring(0,3)
+  let monthFormat = monthNames[month.getMonth()];
+  if(dateShort) {
+    monthFormat= monthFormat.toUpperCase().substring(0,3);
   }
-  return `${month.getDate()} ${monthFormat}`
- ;
+  return `${month.getDate()} ${monthFormat}`;
 }
+
 //Funciones para el botón de favoritos
 let arrayBookMark= [];
 //Functions for LocalStorage
@@ -328,11 +327,10 @@ function selectedBookmark (e) {
 
   let indexB = arrayBookMark.findIndex((el) => el.id === idBookmark);
   indexB > -1 ? arrayBookMark.splice(indexB,1) : arrayBookMark.push(idBookmark);
-  saveLocalStorage()
+  saveLocalStorage();
 }
-//Esta el boton en el encabezado temporalmente
-const btnH1 = document.querySelector("h1")
-function filterBookmarks () {
+
+function filterBookmarks() {
   let listFilteredBookmark = [];
   for(let index in arrayBookMark){
     for(let position in allEvents){
@@ -343,7 +341,6 @@ function filterBookmarks () {
   }
   resetAndCreateEventsFiltered(listFilteredBookmark);
 }
-
 
 /* Función del slider de logos de patrocinadores
  * Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
@@ -390,72 +387,73 @@ function scrollUp(){
 
 // Funcion para que el btn-up no aparezca si no se ha hecho scroll
 
-window.onscroll = function(){
+window.onscroll = () => {
   let scroll = document.documentElement.scrollTop;
-
-  if (scroll > 500){
+  if (scroll > 500) {
     BtnUp.style.transform = "scale(1)";
   } else if(scroll < 500) {
     BtnUp.style.transform= "scale(0)";
   }
 }
 
-const btnEvent = document.querySelector('#submit')
-// Función que filtra los eventos desde una fecha de inicio y otra final
-function resetAndCreateEventsFiltered(listFiltered){
-  currentListEvents = listFiltered;
+// función que muestra los eventos filtrados
+function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
-  if(listFiltered.length === [].length){
+  if(listFiltered.length === [].length) {
     console.error('No hay eventos ni página de 404');
-  }else{
-    createEvent( resetContent, listFiltered);
+  } else {
+    createEvent(resetContent, listFiltered);
   }
 }
 
-function getFilterDate(e) {
+// función de filtrar por fecha
+const btnEvent = document.querySelector('#submit');
+btnEvent.addEventListener("click", (e) => {
   e.preventDefault();
-  if(isValidDate()){
-    let start = document.querySelector("#start").value;
-    let final = document.querySelector("#final").value;
+  let start = document.querySelector("#start").value;
+  let final = document.querySelector("#final").value;
+  if(start && final) {
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
-    const listFilteredDate = currentListEvents.filter(events => events.dateStart >= dateFrom && events.dateStart <= dateTo);
+    const listFilteredDate = currentListEvents.filter(event => (event.dateStart >= dateFrom && event.dateStart <= dateTo) ||
+    (event.dateFinal >= dateFrom && event.dateFinal <= dateTo) ||
+    (event.dateStart <= dateFrom && event.dateFinal >= dateTo));
+    /*
+    * El evento:
+    * - Empieza en el rango
+    * - Termina en el rango
+    * - Dura más que el rango
+    */
     resetAndCreateEventsFiltered(listFilteredDate);
   }
-}
-function isValidDate (){
-  let dateStart = document.querySelector("#start").value;
-  let dateFinal = document.querySelector("#final").value;
-  return dateStart && dateFinal;
-}
-btnEvent.addEventListener("click", getFilterDate);
+});
 
-function selectNavBar (){
-  const listEvent = document.querySelectorAll(".navegation>div");
-  const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded"
-  listEvent.forEach( div => {
-    div.addEventListener("click", () => {
-      listEvent.forEach(div => div.className = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded");
-      div.className = navSelected;
-    })
+// Cambio de color al seleccionar en NavBar
+const divList = document.querySelectorAll(".navegation > div");
+const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded"
+divList.forEach( div => {
+  div.addEventListener("click", () => {
+    divList.forEach(div => div.className = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded");
+    div.className = navSelected;
   })
-}
-const filterNavBar = document.querySelectorAll(".navegation > div");
-function filterNav(e){
-  const idCategory = e.currentTarget.id
-  console.log(idCategory)
-  if(idCategory === "all"){
-    return resetAndCreateEventsFiltered(allEvents);
-  }else if (idCategory === "bookmark"){
-    return filterBookmarks ();
+})
+// reset de eventos al usar NavBar
+divList.forEach(category => category.addEventListener("click", (e) => {
+  const idCategory = e.currentTarget.id;
+  switch(idCategory) {
+    case "all":
+      resetAndCreateEventsFiltered(allEvents);
+      break;
+    case "bookmark":
+      filterBookmarks();
+      break;
+    default:
+      resetAndCreateEventsFiltered(allEvents.filter(events => events.category.includes(idCategory)));
+      break;
   }
-  const listEvent = allEvents.filter(events => events.category.includes(idCategory));
-  return resetAndCreateEventsFiltered(listEvent);
-}
-filterNavBar.forEach(category => category.addEventListener("click", filterNav));
+}));
 
-selectNavBar();
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
     let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
@@ -465,4 +463,3 @@ window.addEventListener("DOMContentLoaded", () => {
   currentListEvents = allEvents;
   responsiveFooter();
 });
-
