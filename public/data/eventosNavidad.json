@@ -390,6 +390,7 @@
     "hoursOpen": "10:00",
     "hoursClose": "20:00",
     "dateStart": "2021/12/03",
+    "dateFinal": "2022/12/31",
     "category": ["Museum"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641059944/MUBAG_-_Mujeres._Entre_Renoir_y_Sorolla_vu3bk8.jpg",
     "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
@@ -403,6 +404,7 @@
     "hoursOpen": "10:00",
     "hoursClose": "20:00",
     "dateStart": "2021/08/10",
+    "dateFinal": "2022/12/31",
     "category": ["Museum"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060101/MUBAG_-_Alicante._Paraje_ex%C3%B3tico._La_mirada_de_Didier_Petit_de_Meurville_wz3xos.jpg",
     "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
@@ -416,6 +418,7 @@
     "hoursOpen": "10:00",
     "hoursClose": "20:00",
     "dateStart": "2021/08/10",
+    "dateFinal": "2022/12/31",
     "category": ["Museum"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060232/MUBAG_-_En_consonancia._Emilio_Varela_y_sus_contempor%C3%A1neos_clpvo6.jpg",
     "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
@@ -429,6 +432,7 @@
     "hoursOpen": "10:00",
     "hoursClose": "20:00",
     "dateStart": "2021/05/18",
+    "dateFinal": "2022/12/31",
     "category": ["Museum"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060354/MUBAG_-_La_ventana_del_arte_azjt8p.jpg",
     "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
@@ -442,6 +446,7 @@
     "hoursOpen": "10:00",
     "hoursClose": "20:00",
     "dateStart": "2021/04/01",
+    "dateFinal": "2022/12/31",
     "category": ["Museum"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_A_estudio._Piezas_para_nuevos_discursos_t1wdhz.jpg",
     "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
@@ -455,6 +460,7 @@
     "hoursOpen": "10:00",
     "hoursClose": "20:00",
     "dateStart": "2020/12/22",
+    "dateFinal": "2022/12/31",
     "category": ["Museum"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_La_generaci%C3%B3n_figurativa._Premios_para_la_creaci%C3%B3n_de_un_museo_xemexh.jpg",
     "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
@@ -468,6 +474,7 @@
     "hoursOpen": "10:00",
     "hoursClose": "20:00",
     "dateStart": "2020/12/22",
+    "dateFinal": "2022/12/31",
     "category": ["Museum"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_Del_informalismo_a_la_abstracci%C3%B3n_mediterr%C3%A1nea_a7ztsm.jpg",
     "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
@@ -481,6 +488,7 @@
     "hoursOpen": "10:00",
     "hoursClose": "20:00",
     "dateStart": "2019/12/16",
+    "dateFinal": "2022/12/31",
     "category": ["Museum"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_Escuela_de_dibujo_del_Consulado_Mar%C3%ADtimo_Terrestre_s6bx65.jpg",
     "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
