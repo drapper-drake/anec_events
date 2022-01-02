@@ -641,33 +641,7 @@
     "linkTickets": "https://www.eventbrite.es/e/entradas-low-festival-benidorm-2021-68253938367?aff=ebdssbcitybrowse"
   },
   {
-    "nameEvent": "Auditorio Marina Sur",
-    "free": false,
-    "site": "Auditorio Marina Sur",
-    "cityLocation": "Valencia",
-    "village": true,
-    "hoursOpen": "20:00",
-    "dateStart": "2022/04/23",
-    "category": ["Music"],
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641146547/anac-event/rfppemdqmgfybtucnf5t.jpg",
-    "linkTickets": "https://www.eventbrite.es/e/entradas-auditorio-marina-sur-valencia-151620275325?aff=ebdssbcitybrowse"
-  },
-  {
-    "nameEvent": "Concierto Secreto en Valencia",
-    "free": false,
-    "site": "Secreto",
-    "cityLocation": "Valencia",
-    "village": true,
-    "hoursOpen": "20:00",
-    "hoursClose": "22:00",
-    "dateStart": "2022/01/29",
-    "category": ["Music"],
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641146990/anac-event/m0a8cnl1ott4vmmzxjjr.jpg",
-    "comments": "La regla principal de un Concierto Secreto es que debe permanecer secreto, por eso no podemos dar muchos detalles. Cada evento es distinto y mágico. Conocerás el lugar 24 horas antes.",
-    "linkTickets": "https://www.eventbrite.es/e/entradas-concierto-secreto-en-valencia-225129186457?aff=ebdssbcitybrowse"
-  },
-  {
-    "nameEvent": "Homenaje a Enrigue Urquillo y Los Secretos",
+    "nameEvent": "Homenaje a Enrique Urquillo y Los Secretos",
     "free": false,
     "site": "Calle Reina Sofía",
     "cityLocation": "Águilas",
