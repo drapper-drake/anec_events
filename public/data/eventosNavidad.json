@@ -824,7 +824,7 @@
     "horusClose": "20:00",
     "dateStart": "2021/11/15",
     "dateFinal": "2022/03/28",
-    "category": "Museum",
+    "category": ["Museum"],
     "comments": "Alicante acoge una exposición dedicada al poeta Miguel Hernández, con más de un centenar de obras divididas en bloques temáticos y cronológicos: Génesis, Religión, Eros y otros símbolos, Ideología, Amor, Guerra, Cárcel, Muerte, Resurrección y Literatura. ",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159052/anac-event/ddvj5wnqqwgnwbfyhkxx.jpg"
     },
@@ -836,7 +836,7 @@
       "village": false,
       "hoursOpen": "20:00",
       "dateStart": "2022/01/29",
-      "category": "Theatre",
+      "category": ["Theatre"],
       "comments": "El buen burgués Orgón ha caído bajo la influencia de Tartufo, un falso devoto, que busca quedarse con todos sus bienes. El impostor exagera la devoción y llega a convertirse en el director espiritual de Orgón. Además, pretende casarse con la hija de su benefactor, al tiempo que trata de seducir a la segunda esposa de este, Elmira, mucho más joven que su marido. Una vez desenmascarado, tratará de aprovecharse de unas donaciones firmadas que Orgón le ha transmitido para intentar echar al dueño de su propia casa. Recurre, incluso, ante el rey, pero éste, hace que Tartufo sea detenido al descubrir que el beatucón no es más que un estafador.",
       "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159101/anac-event/tzndqycsuv91hktberwk.png",
       "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=983"
@@ -901,7 +901,7 @@
       "village": false,
       "hoursOpen": "20:30",
       "dateStart": "2022/02/16",
-      "category": "Music",
+      "category": ["Music"],
       "comments": "José Luis Luri Prieto. Concierto lírico con arias de Ópera y romanzas de Zarzuela para tenor, del repertorio italiano, francés y español.",
       "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639656531/anac-event/asli18u6co8sqnvqzkja.jpg",
       "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=986"
@@ -915,7 +915,7 @@
       "hoursOpen": "20:30",
       "dateStart": "2022/02/03",
       "dateFinal": "2022/02/06",
-      "category": "Theatre",
+      "category": ["Theatre"],
       "comments": "Ganador del Premio Olivier a la mejor comedia entre muchos otros, este espectáculo es una mezcla entre Monty Python y Sherlock Holmes. LA FUNCIÓN QUE SALE MAL nos presenta a un grupo amateur de teatro en el estreno de su obra en la que, como el propio título sugiere, todo lo que puede salir mal, ¡sale mal!. Los actores, propensos a los accidentes, luchan contra las adversidades hasta la mismísima caída del telón, con unas consecuencias divertídisimas e irreparables.",
       "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159283/anac-event/xpr4xaz5oplnjjmcsctw.jpg",
       "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=984"
@@ -929,7 +929,7 @@
       "hoursOpen": "16:30, 21:30, 20:30 y 17:30",
       "dateStart": "2022/02/12",
       "dateFinal": "2022/02/13",
-      "category": "Theatre",
+      "category": ["Theatre"],
       "comments": "Se abre el telón, Mota, Segura y Flo, también conocidos entre ciertos sectores del público como La Vieja del visillo, Krispin Klander y Torrente, salen al escenario juntos por primera vez en la historia, juntos y por separado, por parejas e individualmente, ofreciendo reflexiones risas y disparates varios que ayuden a entender cuál es hoy en día nuestro sentido del humor, con un único objetivo hacer reír por todos los medios al espectador.",
       "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159298/anac-event/ir6i3goeo2xb53pvwu0d.jpg",
       "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=829"
@@ -942,7 +942,7 @@
       "village": false,
       "hoursOpen": "20:30",
       "dateStart": "2022/02/08",
-      "category": "Music",
+      "category": ["Music"],
       "comments": "Tres décadas de éxitos internacionales han hecho de Luis Cobos un divulgador de la música instrumental, clásica y popular, y un ícono en la dirección de orquesta. En este magnífico concierto se percibe un trabajo hecho con pasión, constancia, exigencia profesional y energía, que transmite emociones.",
       "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159317/anac-event/ckxp0zkr6hexmnfgkzhw.jpg",
       "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=985"
