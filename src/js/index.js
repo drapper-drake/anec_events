@@ -117,101 +117,54 @@ function createEvent(container, listEvents) {
     }
     // ICONOS DE CATEGORÍAS
     for (let cat in listEvents[position].category) {
+      let categoryIconContainer = document.createElement("div");
+      let categoryIcon = document.createElement("img");
+      let categoryIconInfo = document.createElement("p");
+
       switch (listEvents[position].category[cat]) {
         case "Christmas":
-          let xmasIconContainer = document.createElement("div");
-          let xmasIcon = document.createElement("img");
-          let xmasIconText = document.createElement("p");
-          xmasIconText.textContent = "Navidad";
-          xmasIcon.src = "./img/icons/Navidad.svg";
-          bar.appendChild(xmasIconContainer);
-          xmasIconContainer.appendChild(xmasIcon);
-          xmasIconContainer.appendChild(xmasIconText);
+          categoryIconInfo.textContent = "Navidad";
+          categoryIcon.src = "./img/icons/Navidad.svg";
           break;
         case "Kids":
-          let kidsIconContainer = document.createElement("div");
-          let kidsIcon = document.createElement("img");
-          let kidsIconText = document.createElement("p");
-          kidsIconText.textContent = "Infantil";
-          kidsIcon.src = "./img/icons/Kids.svg";
-          bar.appendChild(kidsIconContainer);
-          kidsIconContainer.appendChild(kidsIcon);
-          kidsIconContainer.appendChild(kidsIconText);
+          categoryIconInfo.textContent = "Infantil";
+          categoryIcon.src = "./img/icons/Kids.svg";
           break;
         case "Play":
-          let playIconContainer = document.createElement("div");
-          let playIcon = document.createElement("img");
-          let playIconText = document.createElement("p");
-          playIconText.textContent = "Lúdico";
-          playIcon.src = "./img/icons/Play.svg";
-          bar.appendChild(playIconContainer);
-          playIconContainer.appendChild(playIcon);
-          playIconContainer.appendChild(playIconText);
+          categoryIconInfo.textContent = "Lúdico";
+          categoryIcon.src = "./img/icons/Play.svg";
           break;
         case "Music":
-          let musicIconContainer = document.createElement("div");
-          let musicIcon = document.createElement("img");
-          let musicIconText = document.createElement("p");
-          musicIconText.textContent = "Música";
-          musicIcon.src = "./img/icons/Music.svg";
-          bar.appendChild(musicIconContainer);
-          musicIconContainer.appendChild(musicIcon);
-          musicIconContainer.appendChild(musicIconText);
+          categoryIconInfo.textContent = "Música";
+          categoryIcon.src = "./img/icons/Music.svg";
           break;
         case "Sports":
-          let sportIconContainer = document.createElement("div");
-          let sportIcon = document.createElement("img");
-          let sportIconText = document.createElement("p");
-          sportIconText.textContent = "Deporte";
-          sportIcon.src = "./img/icons/Sports.svg";
-          bar.appendChild(sportIconContainer);
-          sportIconContainer.appendChild(sportIcon);
-          sportIconContainer.appendChild(sportIconText);
+          categoryIconInfo.textContent = "Deporte";
+          categoryIcon.src = "./img/icons/Sports.svg";
           break;
         case "Theatre":
-          let theatreIconContainer = document.createElement("div");
-          let theatreIcon = document.createElement("img");
-          let theatreIconText = document.createElement("p");
-          theatreIconText.textContent = "Teatro";
-          theatreIcon.src = "./img/icons/Theatre.svg";
-          bar.appendChild(theatreIconContainer);
-          theatreIconContainer.appendChild(theatreIcon);
-          theatreIconContainer.appendChild(theatreIconText);
+          categoryIconInfo.textContent = "Teatro";
+          categoryIcon.src = "./img/icons/Theatre.svg";
           break;
         case "Party":
-          let partyIconContainer = document.createElement("div");
-          let partyIcon = document.createElement("img");
-          let partyIconText = document.createElement("p");
-          partyIconText.textContent = "Fiestas";
-          partyIcon.src = "./img/icons/Cocktail.svg";
-          bar.appendChild(partyIconContainer);
-          partyIconContainer.appendChild(partyIcon);
-          partyIconContainer.appendChild(partyIconText);
+          categoryIconInfo.textContent = "Fiestas";
+          categoryIcon.src = "./img/icons/Cocktail.svg";
           break;
         case "Food":
-          let foodIconContainer = document.createElement("div");
-          let foodIcon = document.createElement("img");
-          let foodIconText = document.createElement("p");
-          foodIconText.textContent = "Gastronómico";
-          foodIcon.src = "./img/icons/Food.svg";
-          bar.appendChild(foodIconContainer);
-          foodIconContainer.appendChild(foodIcon);
-          foodIconContainer.appendChild(foodIconText);
+          categoryIconInfo.textContent = "Gastronómico";
+          categoryIcon.src = "./img/icons/Food.svg";
           break;
         case "Museum":
-          let museumIconContainer = document.createElement("div");
-          let museumIcon = document.createElement("img");
-          let museumIconText = document.createElement("p");
-          museumIconText.textContent = "Museo";
-          museumIcon.src = "./img/icons/Museum.svg";
-          bar.appendChild(museumIconContainer);
-          museumIconContainer.appendChild(museumIcon);
-          museumIconContainer.appendChild(museumIconText);
+          categoryIconInfo.textContent = "Museo";
+          categoryIcon.src = "./img/icons/Museum.svg";
           break;
         default:
-          console.error(`Hay ningun caso con ese nombre ${listEvents[position].category[cat]}`)
+          console.error(`Hay ninguna categoria con ese nombre ${listEvents[position].category[cat]}`)
           break;
       }
+      bar.appendChild(categoryIconContainer);
+      categoryIconContainer.appendChild(categoryIcon);
+      categoryIconContainer.appendChild(categoryIconInfo);
     }
   }
 }
