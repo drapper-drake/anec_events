@@ -13,27 +13,27 @@ function createAll() {
         //Es un generador de Id basados en el nombre del evento
         let idEvent = data[evento].nameEvent;
         idEvent = idEvent.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
-        data[evento].bookmark = false;
+        data[evento].bookmark = arrayBookMark.includes(idEvent);
         data[evento].id = idEvent;
         allEvents.push(data[evento]);
       }
       changeformatDateJSON(data);
-      allEvents.sort((a,b) => a.dateStart - b.dateStart)
+      allEvents.sort((a, b) => a.dateStart - b.dateStart)
       createEvent(content, allEvents);
 
     });
-  }
+}
 function changeformatDateJSON() {
   for (let index in allEvents) {
     allEvents[index].dateStart = new Date(allEvents[index].dateStart);
-    if(allEvents[index].hasOwnProperty("dateFinal")) {
-    allEvents[index].dateFinal = new Date(allEvents[index].dateFinal);
+    if (allEvents[index].hasOwnProperty("dateFinal")) {
+      allEvents[index].dateFinal = new Date(allEvents[index].dateFinal);
     }
   }
 }
 // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
 function createEvent(container, listEvents) {
-  for(let position in listEvents) {
+  for (let position in listEvents) {
     //Llamar función que imprime la fecha en el orden deseado
     let dateStart = dateFormat(listEvents[position].dateStart, true);
     let containerCard = document.createElement("div");
@@ -48,10 +48,9 @@ function createEvent(container, listEvents) {
     let bookmarkContainer = document.createElement("div");
     bookmarkContainer.className = "bookmark"
     let bookmark = document.createElement("img");
-    bookmark.src = listEvents[position].bookmark ? "./img/icons/bookmark-selected.svg"  : "./img/icons/bookmark.svg";
+    bookmark.src = listEvents[position].bookmark ? "./img/icons/bookmark-selected.svg" : "./img/icons/bookmark.svg";
     bookmark.dataset.name = listEvents[position].id
-    // bookmark.removeEventListener("click",dataModal)
-    bookmark.addEventListener('click',selectedBookmark)
+    bookmark.addEventListener('click', selectedBookmark)
     //IMAGEN
     let image = document.createElement("img");
     image.src = listEvents[position].photoEvent;
@@ -70,8 +69,8 @@ function createEvent(container, listEvents) {
     // FECHA
     let date = document.createElement("p");
     date.innerText = `Solo el ${dateStart}`;
-    if(listEvents[position].hasOwnProperty("dateFinal")){
-      let dateF = dateFormat(listEvents[position].dateFinal,true );
+    if (listEvents[position].hasOwnProperty("dateFinal")) {
+      let dateF = dateFormat(listEvents[position].dateFinal, true);
       date.innerText = `Desde el ${dateStart}  al ${dateF}`;
     }
     container.appendChild(containerCard);
@@ -106,7 +105,7 @@ function createEvent(container, listEvents) {
       freeIcon.alt = "Evento de PAGO";
     }
     // ICONO BENÉFICO
-    if(listEvents[position].charity) {
+    if (listEvents[position].charity) {
       let charityIconContainer = document.createElement("div");
       let charityIcon = document.createElement("img");
       let charityIconText = document.createElement("p");
@@ -117,8 +116,8 @@ function createEvent(container, listEvents) {
       charityIconContainer.appendChild(charityIconText);
     }
     // ICONOS DE CATEGORÍAS
-    for(let cat in listEvents[position].category) {
-      switch(listEvents[position].category[cat]) {
+    for (let cat in listEvents[position].category) {
+      switch (listEvents[position].category[cat]) {
         case "Christmas":
           let xmasIconContainer = document.createElement("div");
           let xmasIcon = document.createElement("img");
@@ -243,7 +242,7 @@ function createModal(id) {
   let modalImage = document.createElement("img");
   modalImage.src = dataEvent.photoEvent;
   // añadimos la clase 'landscape' al modal de imágenes apaisadas
-  if(modalImage.naturalWidth > modalImage.naturalHeight) {
+  if (modalImage.naturalWidth > modalImage.naturalHeight) {
     fatherModalImagen.className = "modal-image landscape";
   }
   fatherModalImagen.appendChild(modalImage);
@@ -302,39 +301,43 @@ function createModal(id) {
 
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
-  const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-  let monthFormat = monthNames[month.getMonth()];
-  if(dateShort) {
-    monthFormat= monthFormat.toUpperCase().substring(0,3);
+  const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+  let monthFormat = monthNames[month.getMonth()]
+  if (dateShort) {
+    monthFormat = monthFormat.toUpperCase().substring(0, 3)
   }
-  return `${month.getDate()} ${monthFormat}`;
+  return `${month.getDate()} ${monthFormat}`
+    ;
 }
 
 //Funciones para el botón de favoritos
-let arrayBookMark= [];
+let arrayBookMark = [];
 //Functions for LocalStorage
 const saveLocalStorage = () => localStorage.setItem("bookmark", JSON.stringify(arrayBookMark));
 
-function selectedBookmark (e) {
-  e.preventDefault();
+function selectedBookmark(e) {
   e.stopPropagation();
+  const bookmarkSelected = "/img/icons/bookmark-selected.svg";
+  const bookmarkNormal = "/img/icons/bookmark.svg";
   const idBookmark = e.currentTarget.dataset.name;
   let index = allEvents.findIndex((el) => el.id === idBookmark);
   allEvents[index].bookmark = !allEvents[index].bookmark;
-  const bookmarkSelected = "/img/icons/bookmark-selected.svg";
-  const bookmarkNormal = "/img/icons/bookmark.svg";
-  e.currentTarget.src = allEvents[index].bookmark ? bookmarkSelected : bookmarkNormal ;
-
-  let indexB = arrayBookMark.findIndex((el) => el.id === idBookmark);
-  indexB > -1 ? arrayBookMark.splice(indexB,1) : arrayBookMark.push(idBookmark);
+  if (allEvents[index].bookmark === true) {
+    e.currentTarget.src = bookmarkSelected;
+    arrayBookMark.push(idBookmark)
+  } else if (allEvents[index].bookmark === false) {
+    e.currentTarget.src = bookmarkNormal;
+    let indexB = arrayBookMark.findIndex((el) => el === idBookmark);
+    arrayBookMark.splice(indexB, 1);
+  }
   saveLocalStorage();
 }
 
 function filterBookmarks() {
   let listFilteredBookmark = [];
-  for(let index in arrayBookMark){
-    for(let position in allEvents){
-      if(allEvents[position].id === arrayBookMark[index]){
+  for (let index in arrayBookMark) {
+    for (let position in allEvents) {
+      if (allEvents[position].id === arrayBookMark[index]) {
         listFilteredBookmark.push(allEvents[position]);
       }
     }
@@ -342,9 +345,9 @@ function filterBookmarks() {
   resetAndCreateEventsFiltered(listFilteredBookmark);
 }
 
-/* Función del slider de logos de patrocinadores
- * Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
- * */
+
+// Función del slider de logos de patrocinadores
+
 const Sponsors = document.querySelectorAll(".container-img > img");
 
 let indexSlider = 0;
@@ -377,9 +380,9 @@ const BtnUp = document.getElementById("btn-up");
 BtnUp.addEventListener("click", scrollUp);
 
 // Funcion que cuando hay scroll hace una animacion para subir al top
-function scrollUp(){
+function scrollUp() {
   let currentScroll = document.documentElement.scrollTop;
-  if (currentScroll > 0){
+  if (currentScroll > 0) {
     window.requestAnimationFrame(scrollUp);
     window.scrollTo(0, currentScroll - (currentScroll / 8));
   }
@@ -391,8 +394,8 @@ window.onscroll = () => {
   let scroll = document.documentElement.scrollTop;
   if (scroll > 500) {
     BtnUp.style.transform = "scale(1)";
-  } else if(scroll < 500) {
-    BtnUp.style.transform= "scale(0)";
+  } else if (scroll < 500) {
+    BtnUp.style.transform = "scale(0)";
   }
 }
 
@@ -400,7 +403,7 @@ window.onscroll = () => {
 function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
-  if(listFiltered.length === [].length) {
+  if (listFiltered.length === [].length) {
     console.error('No hay eventos ni página de 404');
   } else {
     createEvent(resetContent, listFiltered);
@@ -413,12 +416,12 @@ btnEvent.addEventListener("click", (e) => {
   e.preventDefault();
   let start = document.querySelector("#start").value;
   let final = document.querySelector("#final").value;
-  if(start && final) {
+  if (start && final) {
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
     const listFilteredDate = currentListEvents.filter(event => (event.dateStart >= dateFrom && event.dateStart <= dateTo) ||
-    (event.dateFinal >= dateFrom && event.dateFinal <= dateTo) ||
-    (event.dateStart <= dateFrom && event.dateFinal >= dateTo));
+      (event.dateFinal >= dateFrom && event.dateFinal <= dateTo) ||
+      (event.dateStart <= dateFrom && event.dateFinal >= dateTo));
     /*
     * El evento:
     * - Empieza en el rango
@@ -431,17 +434,18 @@ btnEvent.addEventListener("click", (e) => {
 
 // Cambio de color al seleccionar en NavBar
 const divList = document.querySelectorAll(".navegation > div");
-const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded"
-divList.forEach( div => {
+const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
+const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded";
+divList.forEach(div => {
   div.addEventListener("click", () => {
-    divList.forEach(div => div.className = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded");
+    divList.forEach(div => div.className = navUnselected);
     div.className = navSelected;
   })
 })
 // reset de eventos al usar NavBar
 divList.forEach(category => category.addEventListener("click", (e) => {
   const idCategory = e.currentTarget.id;
-  switch(idCategory) {
+  switch (idCategory) {
     case "all":
       resetAndCreateEventsFiltered(allEvents);
       break;
