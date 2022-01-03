@@ -955,9 +955,22 @@
       "hoursOpen": "10:00",
       "hoursClose": "22:00",
       "dateStart": "2022/02/08",
-      "category": ["Sport", "Kids"],
+      "category": ["Sports", "Kids"],
       "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641205162/Castillo_Santa_B%C3%A1rbara_x96spk.jpg",
       "linkTickets": "https://www.alicanteturismo.com/castillo-de-santa-barbara/"
+    },
+    {
+      "nameEvent": "Museo de la ciudad de Alicante (MUSA)",
+      "free": true,
+      "site": "Castillo de Santa Bárbara",
+      "cityLocation": "Alicante",
+      "village": false,
+      "hoursOpen": "10:00",
+      "hoursClose": "22:00",
+      "dateStart": "2022/02/08",
+      "category": ["Museum"],
+      "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641206088/MUSA_-_Castillo_Santa_B%C3%A1rbara_yxasda.jpg",
+      "linkTickets": "https://www.alicanteturismo.com/museo-de-la-ciudad-de-alicante-musa/"
     },
     {
       "nameEvent": "Museo Arcade Vintage",
