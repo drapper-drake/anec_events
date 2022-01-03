@@ -4,7 +4,7 @@ let currentListEvents = [];
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
-  fetch("/data/eventosNavidad.json")
+  fetch("/data/eventosAlicante.json")
     .then((response) => response.json())
     .then((data) => {
       // data es un array de eventos
@@ -255,10 +255,11 @@ function createModal(id) {
 function dateFormat(month, dateShort = false) {
   const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   let monthFormat = monthNames[month.getMonth()]
+  let year = month.getFullYear()
   if (dateShort) {
     monthFormat = monthFormat.toUpperCase().substring(0, 3)
   }
-  return `${month.getDate()} ${monthFormat}`
+  return `${month.getDate()} ${monthFormat} ${year} `
     ;
 }
 
