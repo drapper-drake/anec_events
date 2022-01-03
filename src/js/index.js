@@ -269,6 +269,14 @@ function dateFormat(month, dateShort = false) {
     ;
 }
 
+//Comprobar los de todo el año
+function allYear(dateFrom, dateTo){
+  let dateFromNoYear = dateFrom.substr(0,5)
+  let dateToNoYear = dateTo.substr(0,6)
+
+  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC" );
+}
+
 //Funciones para el botón de favoritos
 let arrayBookMark = [];
 //Functions for LocalStorage
@@ -424,17 +432,6 @@ divList.forEach(category => category.addEventListener("click", (e) => {
   }
 }));
 
-//Comprobar los de todo el año
-function allYear(dateFrom, dateTo){
-   let dateFromNoYear = dateFrom.substr(0,5)
-   let dateToNoYear = dateTo.substr(0,6)
-
-   if(dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC" ){
-   return true
-  }else {
-    return false
-  }
-}
 
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
