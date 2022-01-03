@@ -18,7 +18,7 @@ function createAll() {
         allEvents.push(data[evento]);
       }
       changeformatDateJSON(data);
-      allEvents.sort((a, b) => a.dateStart - b.dateStart)
+      allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime())
       createEvent(content, allEvents);
 
     });
@@ -120,7 +120,6 @@ function createEvent(container, listEvents) {
       let categoryIconContainer = document.createElement("div");
       let categoryIcon = document.createElement("img");
       let categoryIconInfo = document.createElement("p");
-
       switch (listEvents[position].category[cat]) {
         case "Christmas":
           categoryIconInfo.textContent = "Navidad";
@@ -372,9 +371,16 @@ btnEvent.addEventListener("click", (e) => {
   if (start && final) {
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
-    const listFilteredDate = currentListEvents.filter(event => (event.dateStart >= dateFrom && event.dateStart <= dateTo) ||
-      (event.dateFinal >= dateFrom && event.dateFinal <= dateTo) ||
-      (event.dateStart <= dateFrom && event.dateFinal >= dateTo));
+    const listFilteredDate = currentListEvents.filter(event => {
+      if (event.dateFinal) {
+        return (event.dateStart.getTime() >= dateFrom.getTime() && event.dateStart.getTime() <= dateTo.getTime()) ||
+          (event.dateFinal.getTime() >= dateFrom.getTime() && event.dateFinal.getTime() <= dateTo.getTime()) ||
+          (event.dateStart.getTime() <= dateFrom.getTime() && event.dateFinal.getTime() >= dateTo.getTime());
+      } else {
+        return (event.dateStart.getTime() >= dateFrom.getTime() && event.dateStart.getTime() <= dateTo.getTime());
+      }
+
+    });
     /*
     * El evento:
     * - Empieza en el rango
