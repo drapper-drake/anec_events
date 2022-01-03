@@ -954,7 +954,8 @@
       "village": false,
       "hoursOpen": "10:00",
       "hoursClose": "22:00",
-      "dateStart": "2022/02/08",
+      "dateStart": "2022/01/01",
+      "dateFinal": "2022/12/31",
       "category": ["Sports", "Kids"],
       "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641205162/Castillo_Santa_B%C3%A1rbara_x96spk.jpg",
       "linkTickets": "https://www.alicanteturismo.com/castillo-de-santa-barbara/"
@@ -967,7 +968,8 @@
       "village": false,
       "hoursOpen": "10:00",
       "hoursClose": "22:00",
-      "dateStart": "2022/02/08",
+      "dateStart": "2022/01/01",
+      "dateFinal": "2022/12/31",
       "category": ["Museum"],
       "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641206088/MUSA_-_Castillo_Santa_B%C3%A1rbara_yxasda.jpg",
       "linkTickets": "https://www.alicanteturismo.com/museo-de-la-ciudad-de-alicante-musa/"
@@ -979,7 +981,8 @@
       "village": true,
       "hoursOpen": "10:00",
       "hoursClose": "20:00",
-      "dateStart": "2022/02/08",
+      "dateStart": "2022/01/01",
+      "dateFinal": "2022/12/31",
       "category": ["Museum"],
       "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641205623/Museo_Arcade_Vintage_-_Ibi_bsyaro.jpg",
       "linkTickets": "https://museoarcadevintage.com/"
