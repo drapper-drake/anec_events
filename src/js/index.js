@@ -71,17 +71,12 @@ function createEvent(container, listEvents) {
     date.innerText = `Solo el ${dateStart}`;
     if (listEvents[position].hasOwnProperty("dateFinal")) {
       let dateF = dateFormat(listEvents[position].dateFinal, true);
-<<<<<<< HEAD
-      date.innerText = `Del ${dateStart}  al ${dateF}`;
-=======
       let resultado = allYear(dateStart, dateF)
       if(!resultado){
         date.innerText = `Del ${dateStart}  al ${dateF}`;
       }else {
         date.innerText = `Todo el año`;
-
       }
->>>>>>> feature/functionAllYear
     }
     container.appendChild(containerCard);
     containerCard.appendChild(photoEvent);
