@@ -983,7 +983,7 @@
       "hoursClose": "20:00",
       "dateStart": "2022/01/01",
       "dateFinal": "2022/12/31",
-      "category": ["Museum"],
+      "category": ["Museum", "Play"],
       "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641205623/Museo_Arcade_Vintage_-_Ibi_bsyaro.jpg",
       "linkTickets": "https://museoarcadevintage.com/"
     }
