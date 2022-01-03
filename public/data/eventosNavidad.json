@@ -564,7 +564,7 @@
     "village": true,
     "dateStart": "2022/01/01",
     "dateFinal": "2022/12/31",
-    "category": ["Sports"],
+    "category": ["Sports", "Kids"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641063137/Font_Roja_rlbfit.jpg"
   },
   {
@@ -574,7 +574,7 @@
     "village": true,
     "dateStart": "2022/01/01",
     "dateFinal": "2022/12/31",
-    "category": ["Sports"],
+    "category": ["Sports", "Kids"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641143548/Les_Fonts_d_Algar_t26u7k.jpg"
   },
   {
@@ -601,7 +601,7 @@
     "hoursClose": "19:00",
     "dateStart": "2022/01/01",
     "dateFinal": "2022/12/31",
-    "category": ["Museum"],
+    "category": ["Museum", "Kids"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641064378/Museo_Valenciano_del_Juguete_pdkxar.jpg",
     "linkTickets": "https://www.museojuguete.com/es/"
   },
@@ -660,7 +660,7 @@
     "village": true,
     "dateStart": "2022/01/01",
     "dateFinal": "2022/12/31",
-    "category": ["Sports"],
+    "category": ["Sports", "Kids"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641140801/Laberinto_Onil_jchqix.jpg",
     "linkTickets": "https://alicantenatura.es/espacios_naturales/casa-tapena/"
   },
@@ -671,7 +671,7 @@
     "village": true,
     "dateStart": "2022/01/01",
     "dateFinal": "2022/12/31",
-    "category": ["Sports"],
+    "category": ["Sports", "Kids"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641141001/El_Plano_-_Sax_oyjwco.jpg",
     "linkTickets": "https://alicantenatura.es/espacios_naturales/el-plano/"
   },
@@ -759,7 +759,7 @@
   {
     "nameEvent": "Zona Recreativa El Castellet",
     "free": true,
-    "site": "Peña del Cstellet",
+    "site": "Peña del Castellet",
     "cityLocation": "Castell de Castells",
     "village": true,
     "dateStart": "2022/01/01",
@@ -776,7 +776,7 @@
     "village": true,
     "dateStart": "2022/01/01",
     "dateFinal": "2022/12/31",
-    "category": ["Sports"],
+    "category": ["Sports", "Kids"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641143449/Trompa_del_Elefante_-_Ibi_f73wco.jpg"
   },
   {
@@ -798,7 +798,7 @@
     "village": true,
     "dateStart": "2022/01/01",
     "dateFinal": "2022/12/31",
-    "category": ["Sports"],
+    "category": ["Sports", "Kids"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641144131/Mol%C3%AD_de_l_Ombr%C3%ADa_-_Banyeres_of3zb5.jpg",
     "linkTickets": "https://www.portademariola.com/zona-de-acampada-moli-lombria/?lang=es"
   },
@@ -810,7 +810,7 @@
     "village": true,
     "dateStart": "2022/01/01",
     "dateFinal": "2022/12/31",
-    "category": ["Sports"],
+    "category": ["Sports", "Kids"],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641144483/Laguna_Rosa_-_Torrevieja_toaqlh.jpg",
     "linkTickets": "https://parquesnaturales.gva.es/es/web/pn-lagunas-de-la-mata-torrevieja"
   },
@@ -946,5 +946,29 @@
       "comments": "Tres décadas de éxitos internacionales han hecho de Luis Cobos un divulgador de la música instrumental, clásica y popular, y un ícono en la dirección de orquesta. En este magnífico concierto se percibe un trabajo hecho con pasión, constancia, exigencia profesional y energía, que transmite emociones.",
       "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159317/anac-event/ckxp0zkr6hexmnfgkzhw.jpg",
       "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=985"
+    },
+    {
+      "nameEvent": "Castillo de Santa Bárbara",
+      "free": true,
+      "cityLocation": "Alicante",
+      "village": false,
+      "hoursOpen": "10:00",
+      "hoursClose": "22:00",
+      "dateStart": "2022/02/08",
+      "category": ["Sport", "Kids"],
+      "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641205162/Castillo_Santa_B%C3%A1rbara_x96spk.jpg",
+      "linkTickets": "https://www.alicanteturismo.com/castillo-de-santa-barbara/"
+    },
+    {
+      "nameEvent": "Museo Arcade Vintage",
+      "free": false,
+      "cityLocation": "Ibi",
+      "village": true,
+      "hoursOpen": "10:00",
+      "hoursClose": "20:00",
+      "dateStart": "2022/02/08",
+      "category": ["Museum"],
+      "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641205623/Museo_Arcade_Vintage_-_Ibi_bsyaro.jpg",
+      "linkTickets": "https://museoarcadevintage.com/"
     }
 ]
