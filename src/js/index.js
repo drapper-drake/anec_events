@@ -71,7 +71,13 @@ function createEvent(container, listEvents) {
     date.innerText = `Solo el ${dateStart}`;
     if (listEvents[position].hasOwnProperty("dateFinal")) {
       let dateF = dateFormat(listEvents[position].dateFinal, true);
-      date.innerText = `Desde el ${dateStart}  al ${dateF}`;
+      let resultado = allYear(dateStart, dateF)
+      if(!resultado){
+        date.innerText = `Del ${dateStart}  al ${dateF}`;
+      }else {
+        date.innerText = `Todo el año`;
+
+      }
     }
     container.appendChild(containerCard);
     containerCard.appendChild(photoEvent);
@@ -417,6 +423,18 @@ divList.forEach(category => category.addEventListener("click", (e) => {
       break;
   }
 }));
+
+//Comprobar los de todo el año
+function allYear(dateFrom, dateTo){
+   let dateFromNoYear = dateFrom.substr(0,5)
+   let dateToNoYear = dateTo.substr(0,6)
+
+   if(dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC" ){
+   return true
+  }else {
+    return false
+  }
+}
 
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
