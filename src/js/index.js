@@ -71,7 +71,7 @@ function createEvent(container, listEvents) {
     date.innerText = `Solo el ${dateStart}`;
     if (listEvents[position].hasOwnProperty("dateFinal")) {
       let dateF = dateFormat(listEvents[position].dateFinal, true);
-      date.innerText = `Desde el ${dateStart}  al ${dateF}`;
+      date.innerText = `Del ${dateStart}  al ${dateF}`;
     }
     container.appendChild(containerCard);
     containerCard.appendChild(photoEvent);
