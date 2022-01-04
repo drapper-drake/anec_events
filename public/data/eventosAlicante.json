@@ -1041,7 +1041,7 @@
       "hoursClose": "23:55",
       "dateStart": "2022/07/09",
       "dateFinal": "2022/07/10",
-      "category": ["Music"],
+      "category": ["Music", "Party"],
       "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316522/anac-event/nvw2ahsctkuqhed1ucr9.jpg"
     },
     {
@@ -1054,5 +1054,64 @@
       "hoursOpen": "17:00",
       "category": ["Music"],
       "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316672/anac-event/zouvl7hs0a4hgiorm1uf.jpg"
+    },
+    {
+      "nameEvent": "The Manfreds",
+      "free": false,
+      "site": "Benidorm Palace",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "dateStart": "2022/04/24",
+      "hoursOpen": "20:30",
+      "category": ["Music"],
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316922/anac-event/pgr1ujs3tbv5y6dd2zan.jpg"
+    },
+    {
+      "nameEvent": "Benidorm Salsa Congress 2022",
+      "free": false,
+      "site": "C/ del Actor Luis Prendes, 4",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "hoursOpen": "11:00",
+      "hoursClose": "19:00",
+      "dateStart": "2022/07/04",
+      "dateFinal": "2022/07/10",
+      "category": ["Music", "Party"],
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641317196/anac-event/b8a2gasemyhsrcnkcrpb.jpg"
+    },
+    {
+      "nameEvent": "Benidorm Bachata Congress 2022",
+      "free": false,
+      "site": "C/ del Actor Luis Prendes, 4",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "dateStart": "2022/06/27",
+      "dateFinal": "2022/07/03",
+      "category": ["Music", "Party"],
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641317565/anac-event/shg4qzn4i9tggxewmgas.jpg"
+    },
+    {
+      "nameEvent": "Viva Suecia en Concierto",
+      "free": false,
+      "site": "Estadio Municipal Guillermo Amor",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "dateStart": "2022/07/29",
+      "hoursOpen": "18:30",
+      "category": ["Music"],
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641317851/anac-event/jbnnhgpob0ja0rbgrev5.jpg"
+    },
+    {
+      "nameEvent": "Innovation In The Sun",
+      "free": false,
+      "site": "Discoteca Penelope, Av. de la Comunidad Valenciana, km 121",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "hoursOpen": "22:00",
+      "hoursClose": "05:00",
+      "dateStart": "2022/06/21",
+      "dateFinal": "2022/06/28",
+      "category": ["Music", "Party"],
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641318228/anac-event/ybnjdwstkdxby3jtkv3i.jpg"
     }
 ]
