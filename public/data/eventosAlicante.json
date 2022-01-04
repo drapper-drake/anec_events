@@ -996,5 +996,63 @@
       "dateFinal": "2022/12/31",
       "category": ["Sports"],
       "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641303636/Barranco_de_La_Encantada_-_Planes_vuwl0j.jpg"
+    },
+    {
+      "nameEvent": "Benidorm Fest 2022",
+      "free": false,
+      "site": "Palacio de Deportes L'Illa de Benidorm",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "dateStart": "2022/01/26",
+      "dateFinal": "2022/01/29",
+      "category": ["Music"],
+      "comments": "Benidorm Fest es el nuevo festival que organiza Radio Televisión Española para elegir al representante español en la 66ª edición de Eurovisión.",
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641315440/anac-event/faxmbhtqrzjfwa8rrpj9.jpg"
+    },
+    {
+      "nameEvent": "Alejandro Sanz en Concierto",
+      "free": false,
+      "site": "Estadio Municipal Guillermo Amor",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "dateStart": "2022/07/14",
+      "hoursOpen": "20:00",
+      "category": ["Music"],
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316051/anac-event/gwgppexjkkyqaae2agtr.jpg"
+    },
+    {
+      "nameEvent": "The Benidorm Elvis Fiesta 2022",
+      "free": false,
+      "site": "Benidorm Palace",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "dateStart": "2022/04/03",
+      "hoursOpen": "20:30",
+      "category": ["Music"],
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316143/anac-event/cmv1yoadjhlqhwznxzbg.jpg"
+    },
+    {
+      "nameEvent": "Reggaeton Beach Festival 2022",
+      "free": false,
+      "site": "Estadio Municipal Guillermo Amor",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "hoursOpen": "12:00",
+      "hoursClose": "23:55",
+      "dateStart": "2022/07/09",
+      "dateFinal": "2022/07/10",
+      "category": ["Music"],
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316522/anac-event/nvw2ahsctkuqhed1ucr9.jpg"
+    },
+    {
+      "nameEvent": "Concierto Homenaje a la Ruta 90's & 2MIL",
+      "free": false,
+      "site": "Auditorio Julio Iglesias",
+      "cityLocation": "Benidorm",
+      "village": true,
+      "dateStart": "2022/06/22",
+      "hoursOpen": "17:00",
+      "category": ["Music"],
+      "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316672/anac-event/zouvl7hs0a4hgiorm1uf.jpg"
     }
 ]
