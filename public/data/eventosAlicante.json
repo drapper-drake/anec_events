@@ -986,5 +986,15 @@
       "category": ["Museum", "Play"],
       "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641205623/Museo_Arcade_Vintage_-_Ibi_bsyaro.jpg",
       "linkTickets": "https://museoarcadevintage.com/"
+    },
+    {
+      "nameEvent": "Barranco de La Encantada",
+      "free": true,
+      "cityLocation": "Planes",
+      "village": true,
+      "dateStart": "2022/01/01",
+      "dateFinal": "2022/12/31",
+      "category": ["Sports"],
+      "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641303636/Barranco_de_La_Encantada_-_Planes_vuwl0j.jpg"
     }
 ]
