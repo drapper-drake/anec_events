@@ -19,7 +19,9 @@ function createAll() {
       }
       changeformatDateJSON(data);
       allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime())
-      createEvent(content, allEvents);
+      currentListEvents = [...allEvents];
+      const firstpagination = divideListEventForPagination(1)
+      createEvent(content, firstpagination);
       pagination(currentListEvents)
     });
 }
@@ -34,7 +36,7 @@ function changeformatDateJSON() {
 // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
 function createEvent(container, listEvents) {
   // for (let position in listEvents) {
-  for (let position = 0; position < 12; position++) {
+  for (let position in listEvents) {
     //Llamar función que imprime la fecha en el orden deseado
     let dateStart = dateFormat(listEvents[position].dateStart, true);
     let containerCard = document.createElement("div");
@@ -309,6 +311,7 @@ function filterBookmarks() {
       }
     }
   }
+  // ! Creo que el problema es que no actualizan a current list event
   resetAndCreateEventsFiltered(listFilteredBookmark);
 }
 
@@ -370,7 +373,7 @@ window.onscroll = () => {
 function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
-  //pagination(listFiltered)
+  // ? pagination(listFiltered)
   if (listFiltered.length === [].length) {
     console.error('No hay eventos ni página de 404');
   } else {
@@ -428,7 +431,13 @@ divList.forEach(category => category.addEventListener("click", (e) => {
       filterBookmarks();
       break;
     default:
-      resetAndCreateEventsFiltered(allEvents.filter(events => events.category.includes(idCategory)));
+
+      let listCategoryEvent = allEvents.filter(events => events.category.includes(idCategory));
+      console.log("Categoria : ", category, " Listado de la categoria ", listCategoryEvent)
+      pagination(listCategoryEvent);
+      listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
+      console.log("Categoria : ", category, " Listado de la categoria pasado por la division", listCategoryEvent)
+      resetAndCreateEventsFiltered(listCategoryEvent);
       break;
   }
 }));
@@ -437,7 +446,9 @@ const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer bo
 
 function pagination(listEvents) {
   const containerNavPages = document.querySelector(".pagination");
-  containerNavPages.innerHTML = "";
+  while (containerNavPages.hasChildNodes()) {
+    containerNavPages.firstChild.remove();
+  }
   const numberPages = Math.trunc(listEvents.length / 12)
   for (let page = 0; page <= numberPages; page++) {
     const anchor = document.createElement("a");
@@ -447,24 +458,27 @@ function pagination(listEvents) {
     containerNavPages.appendChild(anchor)
   }
 }
+function divideListEventForPagination(numberPage, list = currentListEvents) {
+  let listpagination = [...list];
+  let min = 0;
+  let max = 12;
+  if (numberPage === 1) {
+    // No hace nada con las variables porque necesito que sea de 0 a 12
+  } else if (numberPage % 2 === 0) {
+    min = 12 * (numberPage - 1) + 1;
+  } else {
+    min = 12 * (numberPage - 1) - 1;
+  }
+  max = (min + max) > list.length ? list.length : min + max;
+  return listpagination = listpagination.slice(min, max)
+}
 function changePagination(e) {
   document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
   e.currentTarget.className = e.currentTarget.className === pageSelected ? pageUnSelected : pageSelected;
-  let listpagination = [...currentListEvents];
-  let min = 0;
-  let max = 12;
-
-  if (Number(e.currentTarget.textContent) === 1) {
-
-  } else if (Number(e.currentTarget.textContent) % 2 === 0) {
-    min = 12 * (e.currentTarget.textContent - 1) + 1;
-    max = min + max;
-  } else {
-    min = 12 * (e.currentTarget.textContent - 1) - 1;
-    max = min + max;
-  }
-  listpagination = listpagination.slice(min, max)
-  resetAndCreateEventsFiltered(listpagination)
+  // TODO tengo que ver como actualizar en cada caso la lista de eventos que estan puestos para poder pasarlo
+  // ! porque parece que coge all Events en otras paginas
+  const listPagination = divideListEventForPagination(Number(e.currentTarget.textContent));
+  resetAndCreateEventsFiltered(listPagination)
 }
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
@@ -472,6 +486,6 @@ window.addEventListener("DOMContentLoaded", () => {
     arrayBookMark = uploadEvents;
   }
   createAll();
-  currentListEvents = allEvents;
+  // currentListEvents = allEvents;
   responsiveFooter();
 });
