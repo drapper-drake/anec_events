@@ -23,6 +23,7 @@ const handler = async (event) => {
     // ? O usar una validacion como en el video de serveless ( 3:09:00)
     const eventStartTime = event.queryStringParameters.start;
     const eventEndTime = event.queryStringParameters.end;
+
     const eventG = {
       summary: summary,
       location: location,
@@ -57,15 +58,9 @@ const handler = async (event) => {
           statusCode: 200,
           body: console.log({ message: `Calendar Event Created: ${summary}` })
         }
-      })
-    return {
-      statusCode: 200,
-      body: console.log({ message: `Hello ${summary}` }),
+      }
+    )
 
-      // // more keys you can return:
-      // headers: { "headerName": "headerValue", ... },
-      // isBase64Encoded: true,
-    }
   }
   catch (error) {
     return { statusCode: 500, body: error.toString() }

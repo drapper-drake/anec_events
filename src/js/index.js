@@ -241,7 +241,7 @@ function createModal(id) {
   btnCalendar.className = "btn-addCalendar py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
   btnCalendar.textContent = "Añadir al calendario";
   btnCalendar.dataset.name = id;
-  btnCalendar.addEventListener("click", requestHelloWorld);
+  btnCalendar.addEventListener("click", requestCalendar);
   modalText.appendChild(btnCalendar);
   // BOTÓN DE CIERRE
   let closeButton = document.createElement("img");
@@ -448,15 +448,16 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 const formatUrl = (content) => content.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /gm, "+");
 const formatDateURL = (date) => `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
-const requestHelloWorld = (e) => {
+const requestCalendar = (e) => {
   e.preventDefault;
   e.stopPropagation;
   const BtnId = e.currentTarget.dataset.name;
   let dataEvent = currentListEvents.find((el) => el.id === BtnId);
+  // let URL = `./.netlify/functions/calendar?summary=Hola&location=Aqui&start=2022/01/06`;
   let URL = `./.netlify/functions/calendar?summary=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}`;
   //console.log(dataEvent)
   if (dataEvent.hasOwnProperty('dateFinal')) {
     URL = `./.netlify/functions/calendar?summary=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}&end=${formatDateURL(dataEvent.dateFinal)}`
   }
-  fetch(URL).then(() => console.log('Todo OK'))
+  fetch(URL).then(res => console.log('Todo OK' + res));
 }
