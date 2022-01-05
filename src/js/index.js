@@ -370,7 +370,6 @@ window.onscroll = () => {
 function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
-  pagination(listFiltered)
   if (listFiltered.length === [].length) {
     console.error('No hay eventos ni página de 404');
   } else {
@@ -453,11 +452,11 @@ function changePagination(e) {
   let listpagination = currentListEvents;
   let min = 0;
   let max = 12;
-  if (Number(e.currentTarget.textContent) === 3 || 5 || 7) {
+  if (Number(e.currentTarget.textContent) % 2 === 0) {
     min = 12 * (e.currentTarget.textContent - 1) + 1;
     max = min + max;
-  } else if (Number(e.currentTarget.textContent) === 2 || 4 || 6 || 8) {
-    min = 12 * (e.currentTarget.textContent - 1);
+  } else {
+    min = 12 * (e.currentTarget.textContent - 1) - 1;
     max = min + max;
   }
   listpagination = listpagination.slice(min, max)
