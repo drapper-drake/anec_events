@@ -20,7 +20,7 @@ function createAll() {
       changeformatDateJSON(data);
       allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime())
       createEvent(content, allEvents);
-
+      pagination(currentListEvents)
     });
 }
 function changeformatDateJSON() {
@@ -33,7 +33,8 @@ function changeformatDateJSON() {
 }
 // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
 function createEvent(container, listEvents) {
-  for (let position in listEvents) {
+  // for (let position in listEvents) {
+  for (let position = 0; position < 12; position++) {
     //Llamar función que imprime la fecha en el orden deseado
     let dateStart = dateFormat(listEvents[position].dateStart, true);
     let containerCard = document.createElement("div");
@@ -72,9 +73,9 @@ function createEvent(container, listEvents) {
     if (listEvents[position].hasOwnProperty("dateFinal")) {
       let dateF = dateFormat(listEvents[position].dateFinal, true);
       let resultado = allYear(dateStart, dateF)
-      if(!resultado){
+      if (!resultado) {
         date.innerText = `Del ${dateStart}  al ${dateF}`;
-      }else {
+      } else {
         date.innerText = `Todo el año`;
       }
     }
@@ -269,11 +270,11 @@ function dateFormat(month, dateShort = false) {
 }
 
 //Comprobar los de todo el año
-function allYear(dateFrom, dateTo){
-  let dateFromNoYear = dateFrom.substr(0,5)
-  let dateToNoYear = dateTo.substr(0,6)
+function allYear(dateFrom, dateTo) {
+  let dateFromNoYear = dateFrom.substr(0, 5)
+  let dateToNoYear = dateTo.substr(0, 6)
 
-  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC" );
+  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
 }
 
 //Funciones para el botón de favoritos
@@ -430,8 +431,36 @@ divList.forEach(category => category.addEventListener("click", (e) => {
       break;
   }
 }));
+const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer rounded "
+const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light "
 
-
+function pagination(listEvents) {
+  const containerNavPages = document.querySelector(".pagination");
+  const numberPages = Math.trunc(listEvents.length / 12)
+  for (let page = 0; page <= numberPages; page++) {
+    const div = document.createElement("a");
+    div.textContent = page + 1;
+    div.className = page === 0 ? pageSelected : pageUnSelected;
+    div.addEventListener("click", changePagination)
+    containerNavPages.appendChild(div)
+  }
+}
+function changePagination(e) {
+  document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
+  e.currentTarget.className = e.currentTarget.className === pageSelected ? pageUnSelected : pageSelected;
+  let listpagination = currentListEvents;
+  let min = 0;
+  let max = 12;
+  if (Number(e.currentTarget.textContent) === 3 || 5 || 7) {
+    min = 12 * (e.currentTarget.textContent - 1) + 1;
+    max = min + max;
+  } else if (Number(e.currentTarget.textContent) === 2 || 4 || 6 || 8) {
+    min = 12 * (e.currentTarget.textContent - 1);
+    max = min + max;
+  }
+  listpagination = listpagination.slice(min, max)
+  resetAndCreateEventsFiltered(listpagination)
+}
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
     let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
