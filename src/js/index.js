@@ -237,9 +237,10 @@ function createModal(id) {
     modalText.appendChild(description);
   }
   //BOTÓN ADD CALENDAR
-  let btnCalendar = document.createElement("button");
+  let btnCalendar = document.createElement("a");
   btnCalendar.className = "btn-addCalendar py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
   btnCalendar.textContent = "Añadir al calendario";
+  btnCalendar.target = "blank"
   btnCalendar.dataset.name = id;
   btnCalendar.addEventListener("click", requestCalendar);
   modalText.appendChild(btnCalendar);
@@ -454,10 +455,14 @@ const requestCalendar = (e) => {
   const BtnId = e.currentTarget.dataset.name;
   let dataEvent = currentListEvents.find((el) => el.id === BtnId);
   // let URL = `./.netlify/functions/calendar?summary=Hola&location=Aqui&start=2022/01/06`;
-  let URL = `./.netlify/functions/calendar?summary=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}`;
+  let URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}`;
   //console.log(dataEvent)
   if (dataEvent.hasOwnProperty('dateFinal')) {
-    URL = `./.netlify/functions/calendar?summary=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}&end=${formatDateURL(dataEvent.dateFinal)}`
+    // https://calendar.google.com/calendar/u/0/r/eventedit?text=Otra+cosa&dates=20201231T193000Z/20201231T223000Z&details=With+clowns+and+stuff&location=North+Pole
+    // ! Queda cambiar el formato de fecha y quizás sería interesante formatear ya la locación para que salga bien referenciada
+    URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}&end=${formatDateURL(dataEvent.dateFinal)}`;
+    // URL = `./.netlify/functions/calendar?summary=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}&end=${formatDateURL(dataEvent.dateFinal)}`
   }
-  fetch(URL).then(res => console.log('Todo OK' + res));
+  window.open(URL, "_blank")
+  //fetch(URL).then(res => console.log('Todo OK' + res));
 }
