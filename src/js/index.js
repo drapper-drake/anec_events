@@ -370,6 +370,7 @@ window.onscroll = () => {
 function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
+  pagination(listFiltered)
   if (listFiltered.length === [].length) {
     console.error('No hay eventos ni página de 404');
   } else {
@@ -436,6 +437,7 @@ const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer bo
 
 function pagination(listEvents) {
   const containerNavPages = document.querySelector(".pagination");
+  containerNavPages.innerHTML = "";
   const numberPages = Math.trunc(listEvents.length / 12)
   for (let page = 0; page <= numberPages; page++) {
     const div = document.createElement("a");
