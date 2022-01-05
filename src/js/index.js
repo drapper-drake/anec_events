@@ -370,6 +370,7 @@ window.onscroll = () => {
 function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
+  //pagination(listFiltered)
   if (listFiltered.length === [].length) {
     console.error('No hay eventos ni página de 404');
   } else {
@@ -431,7 +432,7 @@ divList.forEach(category => category.addEventListener("click", (e) => {
       break;
   }
 }));
-const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer rounded "
+const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded "
 const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light "
 
 function pagination(listEvents) {
@@ -439,20 +440,23 @@ function pagination(listEvents) {
   containerNavPages.innerHTML = "";
   const numberPages = Math.trunc(listEvents.length / 12)
   for (let page = 0; page <= numberPages; page++) {
-    const div = document.createElement("a");
-    div.textContent = page + 1;
-    div.className = page === 0 ? pageSelected : pageUnSelected;
-    div.addEventListener("click", changePagination)
-    containerNavPages.appendChild(div)
+    const anchor = document.createElement("a");
+    anchor.textContent = page + 1;
+    anchor.className = page === 0 ? pageSelected : pageUnSelected;
+    anchor.addEventListener("click", changePagination)
+    containerNavPages.appendChild(anchor)
   }
 }
 function changePagination(e) {
   document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
   e.currentTarget.className = e.currentTarget.className === pageSelected ? pageUnSelected : pageSelected;
-  let listpagination = currentListEvents;
+  let listpagination = [...currentListEvents];
   let min = 0;
   let max = 12;
-  if (Number(e.currentTarget.textContent) % 2 === 0) {
+
+  if (Number(e.currentTarget.textContent) === 1) {
+
+  } else if (Number(e.currentTarget.textContent) % 2 === 0) {
     min = 12 * (e.currentTarget.textContent - 1) + 1;
     max = min + max;
   } else {
