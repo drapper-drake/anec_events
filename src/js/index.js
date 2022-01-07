@@ -1,5 +1,6 @@
 let allEvents = [];
 let currentListEvents = [];
+let activeCategory = "all";
 
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
@@ -423,6 +424,7 @@ divList.forEach(div => {
 // reset de eventos al usar NavBar
 divList.forEach(category => category.addEventListener("click", (e) => {
   const idCategory = e.currentTarget.id;
+  activeCategory = idCategory;
   switch (idCategory) {
     case "all":
       resetAndCreateEventsFiltered(allEvents);
@@ -440,6 +442,7 @@ divList.forEach(category => category.addEventListener("click", (e) => {
       resetAndCreateEventsFiltered(listCategoryEvent);
       break;
   }
+
 }));
 const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded "
 const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light "
@@ -458,8 +461,10 @@ function pagination(listEvents) {
     containerNavPages.appendChild(anchor)
   }
 }
-function divideListEventForPagination(numberPage, list = currentListEvents) {
-  let listpagination = [...list];
+function divideListEventForPagination(numberPage) {
+
+  let list = activeCategory === "all" ? [...allEvents] : allEvents.filter(events => events.category.includes(activeCategory));
+  // let list = [...currentListEvents]
   let min = 0;
   let max = 12;
   if (numberPage === 1) {
@@ -470,13 +475,12 @@ function divideListEventForPagination(numberPage, list = currentListEvents) {
     min = 12 * (numberPage - 1) - 1;
   }
   max = (min + max) > list.length ? list.length : min + max;
-  return listpagination = listpagination.slice(min, max)
+  return list = list.slice(min, max)
 }
 function changePagination(e) {
   document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
   e.currentTarget.className = e.currentTarget.className === pageSelected ? pageUnSelected : pageSelected;
   // TODO tengo que ver como actualizar en cada caso la lista de eventos que estan puestos para poder pasarlo
-  // ! porque parece que coge all Events en otras paginas
   const listPagination = divideListEventForPagination(Number(e.currentTarget.textContent));
   resetAndCreateEventsFiltered(listPagination)
 }
