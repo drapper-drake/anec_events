@@ -1,5 +1,6 @@
 let allEvents = [];
 let currentListEvents = [];
+let activeCategory = "all";
 
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
@@ -19,8 +20,10 @@ function createAll() {
       }
       changeformatDateJSON(data);
       allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime())
-      createEvent(content, allEvents);
-
+      currentListEvents = [...allEvents];
+      const firstpagination = divideListEventForPagination(1)
+      createEvent(content, firstpagination);
+      pagination(currentListEvents)
     });
 }
 function changeformatDateJSON() {
@@ -33,6 +36,7 @@ function changeformatDateJSON() {
 }
 // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
 function createEvent(container, listEvents) {
+  // for (let position in listEvents) {
   for (let position in listEvents) {
     //Llamar función que imprime la fecha en el orden deseado
     let dateStart = dateFormat(listEvents[position].dateStart, true);
@@ -72,9 +76,9 @@ function createEvent(container, listEvents) {
     if (listEvents[position].hasOwnProperty("dateFinal")) {
       let dateF = dateFormat(listEvents[position].dateFinal, true);
       let resultado = allYear(dateStart, dateF)
-      if(!resultado){
+      if (!resultado) {
         date.innerText = `Del ${dateStart}  al ${dateF}`;
-      }else {
+      } else {
         date.innerText = `Todo el año`;
       }
     }
@@ -269,11 +273,11 @@ function dateFormat(month, dateShort = false) {
 }
 
 //Comprobar los de todo el año
-function allYear(dateFrom, dateTo){
-  let dateFromNoYear = dateFrom.substr(0,5)
-  let dateToNoYear = dateTo.substr(0,6)
+function allYear(dateFrom, dateTo) {
+  let dateFromNoYear = dateFrom.substr(0, 5)
+  let dateToNoYear = dateTo.substr(0, 6)
 
-  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC" );
+  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
 }
 
 //Funciones para el botón de favoritos
@@ -308,6 +312,7 @@ function filterBookmarks() {
       }
     }
   }
+  // ! Creo que el problema es que no actualizan a current list event
   resetAndCreateEventsFiltered(listFilteredBookmark);
 }
 
@@ -369,6 +374,7 @@ window.onscroll = () => {
 function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
+  // ? pagination(listFiltered)
   if (listFiltered.length === [].length) {
     console.error('No hay eventos ni página de 404');
   } else {
@@ -418,6 +424,7 @@ divList.forEach(div => {
 // reset de eventos al usar NavBar
 divList.forEach(category => category.addEventListener("click", (e) => {
   const idCategory = e.currentTarget.id;
+  activeCategory = idCategory;
   switch (idCategory) {
     case "all":
       resetAndCreateEventsFiltered(allEvents);
@@ -426,18 +433,63 @@ divList.forEach(category => category.addEventListener("click", (e) => {
       filterBookmarks();
       break;
     default:
-      resetAndCreateEventsFiltered(allEvents.filter(events => events.category.includes(idCategory)));
+
+      let listCategoryEvent = allEvents.filter(events => events.category.includes(idCategory));
+      console.log("Categoria : ", category, " Listado de la categoria ", listCategoryEvent)
+      pagination(listCategoryEvent);
+      listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
+      console.log("Categoria : ", category, " Listado de la categoria pasado por la division", listCategoryEvent)
+      resetAndCreateEventsFiltered(listCategoryEvent);
       break;
   }
+
 }));
+const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded "
+const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light "
 
+function pagination(listEvents) {
+  const containerNavPages = document.querySelector(".pagination");
+  while (containerNavPages.hasChildNodes()) {
+    containerNavPages.firstChild.remove();
+  }
+  const numberPages = Math.trunc(listEvents.length / 12)
+  for (let page = 0; page <= numberPages; page++) {
+    const anchor = document.createElement("a");
+    anchor.textContent = page + 1;
+    anchor.className = page === 0 ? pageSelected : pageUnSelected;
+    anchor.addEventListener("click", changePagination)
+    containerNavPages.appendChild(anchor)
+  }
+}
+function divideListEventForPagination(numberPage) {
 
+  let list = activeCategory === "all" ? [...allEvents] : allEvents.filter(events => events.category.includes(activeCategory));
+  // let list = [...currentListEvents]
+  let min = 0;
+  let max = 12;
+  if (numberPage === 1) {
+    // No hace nada con las variables porque necesito que sea de 0 a 12
+  } else if (numberPage % 2 === 0) {
+    min = 12 * (numberPage - 1) + 1;
+  } else {
+    min = 12 * (numberPage - 1) - 1;
+  }
+  max = (min + max) > list.length ? list.length : min + max;
+  return list = list.slice(min, max)
+}
+function changePagination(e) {
+  document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
+  e.currentTarget.className = e.currentTarget.className === pageSelected ? pageUnSelected : pageSelected;
+  // TODO tengo que ver como actualizar en cada caso la lista de eventos que estan puestos para poder pasarlo
+  const listPagination = divideListEventForPagination(Number(e.currentTarget.textContent));
+  resetAndCreateEventsFiltered(listPagination)
+}
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
     let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
     arrayBookMark = uploadEvents;
   }
   createAll();
-  currentListEvents = allEvents;
+  // currentListEvents = allEvents;
   responsiveFooter();
 });
