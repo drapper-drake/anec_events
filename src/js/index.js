@@ -1,6 +1,7 @@
+import moment from 'moment';
+
 let allEvents = [];
 let currentListEvents = [];
-
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
@@ -12,7 +13,7 @@ function createAll() {
       for (let evento in data) {
         //Es un generador de Id basados en el nombre del evento
         let idEvent = data[evento].nameEvent;
-        idEvent = idEvent.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+        idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
         data[evento].bookmark = arrayBookMark.includes(idEvent);
         data[evento].id = idEvent;
         allEvents.push(data[evento]);
@@ -50,7 +51,7 @@ function createEvent(container, listEvents) {
     let bookmark = document.createElement("img");
     bookmark.src = listEvents[position].bookmark ? "./img/icons/bookmark-selected.svg" : "./img/icons/bookmark.svg";
     bookmark.dataset.name = listEvents[position].id
-    bookmark.addEventListener('click', selectedBookmark)
+    bookmark.addEventListener("click", selectedBookmark)
     //IMAGEN
     let image = document.createElement("img");
     image.src = listEvents[position].photoEvent;
@@ -72,9 +73,9 @@ function createEvent(container, listEvents) {
     if (listEvents[position].hasOwnProperty("dateFinal")) {
       let dateF = dateFormat(listEvents[position].dateFinal, true);
       let resultado = allYear(dateStart, dateF)
-      if(!resultado){
+      if (!resultado) {
         date.innerText = `Del ${dateStart}  al ${dateF}`;
-      }else {
+      } else {
         date.innerText = `Todo el año`;
       }
     }
@@ -181,7 +182,7 @@ function dataModal(e) {
 }
 function createModal(id) {
   //QUITAR EL SCROLL DEL BODY
-  const body = document.querySelector('body');
+  const body = document.querySelector("body");
   body.classList.add("overflow-hidden");
   let dataEvent = currentListEvents.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
@@ -194,11 +195,11 @@ function createModal(id) {
   modal.className = "modal";
   modalBox.appendChild(modal);
   // IMAGEN
-  let fatherModalImagen = document.createElement('div');
+  let fatherModalImagen = document.createElement("div");
   fatherModalImagen.className = "modal-image";
   let modalImage = document.createElement("img");
   modalImage.src = dataEvent.photoEvent;
-  // añadimos la clase 'landscape' al modal de imágenes apaisadas
+  // añadimos la clase "landscape" al modal de imágenes apaisadas
   if (modalImage.naturalWidth > modalImage.naturalHeight) {
     fatherModalImagen.className = "modal-image landscape";
   }
@@ -237,6 +238,14 @@ function createModal(id) {
     }
     modalText.appendChild(description);
   }
+  //BOTÓN ADD CALENDAR
+  let btnCalendar = document.createElement("a");
+  btnCalendar.className = "btn-addCalendar py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
+  btnCalendar.textContent = "Añadir al calendario";
+  btnCalendar.target = "blank"
+  btnCalendar.dataset.name = id;
+  btnCalendar.addEventListener("click", requestCalendar);
+  modalText.appendChild(btnCalendar);
   // BOTÓN DE CIERRE
   let closeButton = document.createElement("img");
   closeButton.className = "close";
@@ -269,11 +278,11 @@ function dateFormat(month, dateShort = false) {
 }
 
 //Comprobar los de todo el año
-function allYear(dateFrom, dateTo){
-  let dateFromNoYear = dateFrom.substr(0,5)
-  let dateToNoYear = dateTo.substr(0,6)
+function allYear(dateFrom, dateTo) {
+  let dateFromNoYear = dateFrom.substr(0, 5)
+  let dateToNoYear = dateTo.substr(0, 6)
 
-  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC" );
+  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
 }
 
 //Funciones para el botón de favoritos
@@ -370,14 +379,14 @@ function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
   if (listFiltered.length === [].length) {
-    console.error('No hay eventos ni página de 404');
+    console.error("No hay eventos ni página de 404");
   } else {
     createEvent(resetContent, listFiltered);
   }
 }
 
 // función de filtrar por fecha
-const btnEvent = document.querySelector('#submit');
+const btnEvent = document.querySelector("#submit");
 btnEvent.addEventListener("click", (e) => {
   e.preventDefault();
   let start = document.querySelector("#start").value;
@@ -393,7 +402,6 @@ btnEvent.addEventListener("click", (e) => {
       } else {
         return (event.dateStart.getTime() >= dateFrom.getTime() && event.dateStart.getTime() <= dateTo.getTime());
       }
-
     });
     /*
     * El evento:
@@ -441,3 +449,17 @@ window.addEventListener("DOMContentLoaded", () => {
   currentListEvents = allEvents;
   responsiveFooter();
 });
+
+const requestCalendar = (e) => {
+  e.preventDefault;
+  e.stopPropagation;
+  const BtnId = e.currentTarget.dataset.name;
+  let dataEvent = currentListEvents.find((el) => el.id === BtnId);
+  let start = moment(dataEvent.dateStart).format('YYYYMMDD');
+  let end = moment(dataEvent.dateStart).add(1, "days").format('YYYYMMDD');
+  if (dataEvent.hasOwnProperty('dateFinal')) {
+    end = moment(dataEvent.dateFinal).add(1, "days").format('YYYYMMDD');
+  }
+  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${dataEvent.nameEvent}&location=${dataEvent.site}&dates=${start}/${end}`;
+  window.open(URL, "_blank")
+}
