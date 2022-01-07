@@ -72,9 +72,9 @@ function createEvent(container, listEvents) {
     if (listEvents[position].hasOwnProperty("dateFinal")) {
       let dateF = dateFormat(listEvents[position].dateFinal, true);
       let resultado = allYear(dateStart, dateF)
-      if(!resultado){
+      if (!resultado) {
         date.innerText = `Del ${dateStart}  al ${dateF}`;
-      }else {
+      } else {
         date.innerText = `Todo el año`;
       }
     }
@@ -269,11 +269,11 @@ function dateFormat(month, dateShort = false) {
 }
 
 //Comprobar los de todo el año
-function allYear(dateFrom, dateTo){
-  let dateFromNoYear = dateFrom.substr(0,5)
-  let dateToNoYear = dateTo.substr(0,6)
+function allYear(dateFrom, dateTo) {
+  let dateFromNoYear = dateFrom.substr(0, 5)
+  let dateToNoYear = dateTo.substr(0, 6)
 
-  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC" );
+  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
 }
 
 //Funciones para el botón de favoritos
@@ -405,20 +405,20 @@ btnEvent.addEventListener("click", (e) => {
   }
 });
 
-// Cambio de color al seleccionar en NavBar
-const divList = document.querySelectorAll(".navegation > div");
-const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
-const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded";
-divList.forEach(div => {
-  div.addEventListener("click", () => {
-    divList.forEach(div => div.className = navUnselected);
+// Funciones de cambio de estilo y filtrado por categoria
+const DivFilterCategory = document.querySelectorAll(".navegation > div");
+const ChangeStyleAndFilter = (div) => {
+  div.addEventListener("click", (e) => {
+    const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
+    const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded";
+    DivFilterCategory.forEach(div => div.className = navUnselected);
     div.className = navSelected;
+    const idCategory = e.currentTarget.id;
+    filterByCategory(idCategory)
   })
-})
-// reset de eventos al usar NavBar
-divList.forEach(category => category.addEventListener("click", (e) => {
-  const idCategory = e.currentTarget.id;
-  switch (idCategory) {
+}
+const filterByCategory = (category) => {
+  switch (category) {
     case "all":
       resetAndCreateEventsFiltered(allEvents);
       break;
@@ -426,11 +426,11 @@ divList.forEach(category => category.addEventListener("click", (e) => {
       filterBookmarks();
       break;
     default:
-      resetAndCreateEventsFiltered(allEvents.filter(events => events.category.includes(idCategory)));
+      resetAndCreateEventsFiltered(allEvents.filter(events => events.category.includes(category)));
       break;
   }
-}));
-
+}
+DivFilterCategory.forEach(ChangeStyleAndFilter);
 
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
