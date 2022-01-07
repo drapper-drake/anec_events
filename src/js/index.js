@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 let allEvents = [];
 let currentListEvents = [];
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
@@ -447,22 +449,17 @@ window.addEventListener("DOMContentLoaded", () => {
   currentListEvents = allEvents;
   responsiveFooter();
 });
-const formatUrl = (content) => content.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/ /gm, "+");
-const formatDateURL = (date) => `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`
+
 const requestCalendar = (e) => {
   e.preventDefault;
   e.stopPropagation;
   const BtnId = e.currentTarget.dataset.name;
   let dataEvent = currentListEvents.find((el) => el.id === BtnId);
-  // let URL = `./.netlify/functions/calendar?summary=Hola&location=Aqui&start=2022/01/06`;
-  let URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}`;
-  //console.log(dataEvent)
+  let start = moment(dataEvent.dateStart).format('YYYYMMDD');
+  let end = moment(dataEvent.dateStart).add(1, "days").format('YYYYMMDD');
   if (dataEvent.hasOwnProperty('dateFinal')) {
-    // https://calendar.google.com/calendar/u/0/r/eventedit?text=Otra+cosa&dates=20201231T193000Z/20201231T223000Z&details=With+clowns+and+stuff&location=North+Pole
-    // ! Queda cambiar el formato de fecha y quizás sería interesante formatear ya la locación para que salga bien referenciada
-    URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}&end=${formatDateURL(dataEvent.dateFinal)}`;
-    // URL = `./.netlify/functions/calendar?summary=${formatUrl(dataEvent.nameEvent)}&location=${formatUrl(dataEvent.cityLocation)}&start=${formatDateURL(dataEvent.dateStart)}&end=${formatDateURL(dataEvent.dateFinal)}`
+    end = moment(dataEvent.dateFinal).add(1, "days").format('YYYYMMDD');
   }
+  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${dataEvent.nameEvent}&location=${dataEvent.site}&dates=${start}/${end}`;
   window.open(URL, "_blank")
-  //fetch(URL).then(res => console.log('Todo OK' + res));
 }

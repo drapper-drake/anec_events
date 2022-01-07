@@ -21,6 +21,7 @@
   "homepage": "https://github.com/drapper-drake/anec_events#readme",
   "devDependencies": {
     "live-server": "^1.1.0",
+    "moment": "^2.29.1",
     "netlify-cli": "^8.6.2",
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
