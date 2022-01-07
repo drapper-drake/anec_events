@@ -273,8 +273,7 @@ function dateFormat(month, dateShort = false) {
   if (dateShort) {
     monthFormat = monthFormat.toUpperCase().substring(0, 3)
   }
-  return `${month.getDate()} ${monthFormat} ${year} `
-    ;
+  return `${month.getDate()} ${monthFormat} ${year} `;
 }
 
 //Comprobar los de todo el año
