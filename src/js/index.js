@@ -417,8 +417,8 @@ const ChangeStyleAndFilter = (div) => {
     div.className = navSelected;
     const idCategory = e.currentTarget.id;
     //Cambio Color SVG
-    document.querySelectorAll(`svg >path`).forEach(path => path.style.fill = "#f2f2f2"); // Pasan todos a Blanco
-    document.querySelectorAll(`#icon-${idCategory} >path`).forEach(path => path.style.fill = "#0b3762") //El seleccionado pasa Azul
+    document.querySelectorAll(`svg >path`).forEach(path => path.classList.remove("fill-dark")); // Pasan todos a Blanco
+    document.querySelectorAll(`#icon-${idCategory} >path`).forEach(path => path.classList.add("fill-dark")) //El seleccionado pasa Azul
     filterByCategory(idCategory)
   })
 }
