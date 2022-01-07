@@ -407,13 +407,18 @@ btnEvent.addEventListener("click", (e) => {
 
 // Funciones de cambio de estilo y filtrado por categoria
 const DivFilterCategory = document.querySelectorAll(".navegation > div");
+
 const ChangeStyleAndFilter = (div) => {
   div.addEventListener("click", (e) => {
     const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
-    const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded";
+    const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer  bg-dark rounded";
     DivFilterCategory.forEach(div => div.className = navUnselected);
+
     div.className = navSelected;
     const idCategory = e.currentTarget.id;
+    //Cambio Color SVG
+    document.querySelectorAll(`svg >path`).forEach(path => path.style.fill = "#f2f2f2"); // Pasan todos a Blanco
+    document.querySelectorAll(`#icon-${idCategory} >path`).forEach(path => path.style.fill = "#0b3762") //El seleccionado pasa Azul
     filterByCategory(idCategory)
   })
 }
