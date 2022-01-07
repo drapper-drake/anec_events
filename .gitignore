@@ -116,3 +116,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# Por recomendación de Moi
+package-lock.json
+
+# Local Netlify folder
+.netlify

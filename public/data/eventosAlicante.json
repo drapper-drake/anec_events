@@ -1,0 +1,1518 @@
+[
+  {
+    "nameEvent": "Ruta de museos con aperitivo",
+    "free": false,
+    "site": "Plaza Portal de Elche",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "17:00",
+    "dateStart": "2021/12/17",
+    "dateFinal": "2022/02/26",
+    "category": [
+      "Museum"
+    ],
+    "comments": "Pasa una tarde memorable explorando Alicante y disfruta de un aperitivo comentando lo aprendido. Visitarás el Museo de Hogueras, el MACA y el MARQ.",
+    "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/4/9816/1139472/vertic_372_270.jpg",
+    "linkTickets": "https://www.atrapalo.com/actividades/alicante-a-traves-de-sus-museos-con-un-aperitivo-_e4849816/"
+  },
+  {
+    "nameEvent": "Explorar, jugar, cocinar y disfrutar como un local",
+    "free": false,
+    "site": "Plaza Puerta del Mar",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "dateStart": "2021/12/17",
+    "dateFinal": "2022/02/26",
+    "category": [
+      "Food"
+    ],
+    "comments": "Disfruta de un día completo recorriendo Alicante y aprendiendo sobre la cultura, secretos ocultos como un local. Tendrás la oportunidad de cocinar una Paella y almorzar con un chef profesional local.",
+    "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/4/9720/1138655/vertic_372_270.jpg",
+    "linkTickets": "https://www.atrapalo.com/actividades/explorar-jugar-cocinar-y-disfrutar-como-un-local_e4849720/"
+  },
+  {
+    "nameEvent": "Paquete Xc Mountain Bike Experience",
+    "free": false,
+    "site": "Aeropuerto de Alicante, El Altet.",
+    "cityLocation": "Elche",
+    "village": true,
+    "dateStart": "2021/12/17",
+    "dateFinal": "2022/02/28",
+    "category": [
+      "Sports"
+    ],
+    "comments": "Se ofrecen paquetes diseñados para adaptar las rutas al nivel físico/técnico de cada persona. La compañía se hace cargo de todo, desde la recogida hasta el regreso al aeropuerto.",
+    "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/4/9796/1139274/vertic_372_270.jpg",
+    "linkTickets": "https://www.atrapalo.com/actividades/paquete-xc-mountain-bike-experience_e4849796/#descripcion_evento"
+  },
+  {
+    "nameEvent": "Parasailing",
+    "free": false,
+    "site": "Marmarela Mediterranean Cocktail Club",
+    "cityLocation": "Alicante",
+    "village": false,
+    "dateStart": "2021/12/17",
+    "dateFinal": "2022/02/28",
+    "category": [
+      "Sports"
+    ],
+    "comments": "Actividad para todos los públicos que combina la emoción de volar con lo bonito de navegar. Ideal para disfrutar en familia o con amigos",
+    "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/4/6426/1116324/vertic_372_270.jpg",
+    "linkTickets": "https://www.atrapalo.com/actividades/parasailing-en-alicante_e4846426/"
+  },
+  {
+    "nameEvent": "Recorrido en bicicleta",
+    "free": false,
+    "site": "Hoteles y apartamentos en Benidorm, Albir, La Nucia, Cala de Finestrat y Villajoiosa, Sella u Orxeta.",
+    "cityLocation": "Marina Alta",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "16:00",
+    "dateStart": "2021/12/17",
+    "dateFinal": "2022/02/26",
+    "category": [
+      "Sports"
+    ],
+    "comments": "Deslízate en bicicleta cuesta abajo durante 38 km contemplando las vistas de montañas, desfiladeros, valles, castillos árabes y pueblos pintorescos. Apto para todos los públicos. No se necesita experiencia.",
+    "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/6/1262/1217700/vertic_372_270.jpg",
+    "linkTickets": "https://www.atrapalo.com/actividades/recorrido-en-bicicleta-por-benidorm_e4861262/"
+  },
+  {
+    "nameEvent": "Parapente biplaza",
+    "free": false,
+    "site": "Parapente Aventura",
+    "cityLocation": "Santa Pola",
+    "village": true,
+    "dateStart": "2021/12/15",
+    "dateFinal": "2023/07/31",
+    "category": [
+      "Sports"
+    ],
+    "comments": "Es necesario llevar calzado deportivo, ropa de abrigo y una tarjeta de memoria microSD con 4GB de memoria como mínimo para cada vuelo.",
+    "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/6/4847/1253650/vertic_372_270.jpg",
+    "linkTickets": "https://www.atrapalo.com/actividades/volar-en-parapente-biplaza-en-santa-pola_e4864847/"
+  },
+  {
+    "nameEvent": "Fira i Porrat de Benissa 2022",
+    "free": true,
+    "site": "Benissa",
+    "cityLocation": "Benissa",
+    "village": true,
+    "dateStart": "2022/01/11",
+    "dateFinal": "2022/01/27",
+    "category": [
+      "Play",
+      "Party"
+    ],
+    "comments": "Durante años, esta feria fue el centro comercial de la comarca. Atracciones feriales, bendición de los animales, ferias de ganado, mercado medieval y una gran diversidad de actividades culturales y deportivas se dan cita durante dos semanas de feria. La celebración de San Antoni del Porquet, con la clásica bendición de animales, atracciones feriales, bendición de los animales, degustación de productos típicos, ferias de ganado, mercado medieval en el centro histórico. Fiesta de INTERÉS TURÍSTICO LOCAL",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639662799/anac-event/ovwdk7xr8b9scfwxcgnc.jpg"
+  },
+  {
+    "nameEvent": "Media Maratón Internacional",
+    "free": false,
+    "site": "Santa Pola",
+    "cityLocation": "Santa Pola",
+    "village": true,
+    "dateStart": "2022/01/23",
+    "hoursOpen": "10:30",
+    "category": [
+      "Sports"
+    ],
+    "comments": "Corre en una de las mejores Media Maratón de España. Considerada dentro de las 4 mejores del territorio nacional, con casi 10.000 corredores.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639663480/anac-event/onjtfm1v1m3yjlrx81mv.jpg"
+  },
+  {
+    "nameEvent": "Manuel Carrasco",
+    "free": false,
+    "site": "Universidad Miguel Hernández",
+    "cityLocation": "Elche",
+    "village": true,
+    "dateStart": "2022/06/03",
+    "hoursOpen": "22:30",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639741285/anac-event/budgpcoatxwdtowytbj1.jpg"
+  },
+  {
+    "nameEvent": "Concierto Manel",
+    "free": false,
+    "price": 20.0,
+    "site": " Sala The One - Calle del Bronce, 8, 03690 San Vicente del Raspeig",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:00",
+    "hoursClose": "23:30",
+    "dateStart": "2022/02/18",
+    "comments": "El concierto se realizará con el público de pie, cumpliendo el 70% de restricción de aforo que marca la normativa de la Comunidad Valenciana, se deberá llevar la mascarilla en todo momento que no se esté consumiendo.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639922829/anac-event/qxkx9fpg5o6xbkbqufnl.jpg",
+    "atributionsPhoto": "Manel, en una imagen promocional por Mireia Grau",
+    "linkTickets": "https://www.enterticket.es/eventos/concierto-manel-alicante-2022-211099"
+  },
+  {
+    "nameEvent": "Viento del Este - Tributo a Mary Poppins",
+    "free": false,
+    "price": 10.0,
+    "site": "Teatro Auditorio Emilio Martinez Saez - Calle Médico José Pérez Ochoa, 03650 Pinoso",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "18:30",
+    "dateStart": "2021/12/23",
+    "comments": " Un tributo al clásico por todos conocido, Mary Poppins. Una puesta en escena espectacular, con un amplio reparto, que hará las delicias de pequeños y mayores. Podrás cantar, o por lo menos tararear, las canciones que nos han acompañado siempre como 'Supercalifragilisticoexpialioso', 'Un poco de azúcar', 'Prácticamente perfecta', etc.",
+    "category": [
+      "Music",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639923540/anac-event/saatsbxrcciu3imshacj.jpg",
+    "linkTickets": "https://www.enterticket.es/eventos/viento-del-este-tributo-a-mary-poppins-833101"
+  },
+  {
+    "nameEvent": "Concierto Cruz Cafuné",
+    "free": false,
+    "price": 14.0,
+    "site": " Sala The One - Calle del Bronce, 8, 03690 San Vicente del Raspeig",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:00",
+    "hoursClose": "23:30",
+    "dateStart": "2022/04/22",
+    "comments": "El concierto se realizará con el público de pie, cumpliendo el 70% de restricción de aforo que marca la normativa de la Comunidad Valenciana, se deberá llevar la mascarilla en todo momento que no se esté consumiendo.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639926055/anac-event/xfo4mx2jgyb7bhp7fxv4.jpg",
+    "atributionsPhoto": "Cruz Cafuné, en una imagen promocional por Laura Lewis",
+    "linkTickets": "https://www.enterticket.es/eventos/concierto-cruz-cafune-alicante-2022-435531"
+  },
+  {
+    "nameEvent": "Concierto Yung Beef",
+    "free": false,
+    "price": 20.0,
+    "site": " Sala The One - Calle del Bronce, 8, 03690 San Vicente del Raspeig",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "18:00",
+    "hoursClose": "23:30",
+    "dateStart": "2022/02/20",
+    "comments": "El concierto se realizará con el público de pie, cumpliendo el 70% de restricción de aforo que marca la normativa de la Comunidad Valenciana, se deberá llevar la mascarilla en todo momento que no se esté consumiendo.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639926847/anac-event/jrf5y8l0rigw0qpcymgp.jpg",
+    "atributionsPhoto": "Yung Beef, en una imagen promocional por Borja Conde y María Simún",
+    "linkTickets": "https://www.enterticket.es/eventos/concierto-yung-beef-alicante-2022-496899"
+  },
+  {
+    "nameEvent": "Concierto Hard GZ",
+    "free": false,
+    "price": 14.0,
+    "site": " Sala The One - Calle del Bronce, 8, 03690 San Vicente del Raspeig",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:00",
+    "hoursClose": "23:30",
+    "dateStart": "2022/02/25",
+    "comments": "El concierto se realizará con el público de pie, cumpliendo el 70% de restricción de aforo que marca la normativa de la Comunidad Valenciana, se deberá llevar la mascarilla en todo momento que no se esté consumiendo.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639927507/anac-event/iuiyebk58mxrdnnotkio.jpg",
+    "atributionsPhoto": "Yung Beef, en una imagen promocional por Borja Conde y María Simún",
+    "linkTickets": "https://www.enterticket.es/eventos/concierto-hard-gz-alicante-2022-165871"
+  },
+  {
+    "nameEvent": "Concierto Delaossa",
+    "free": false,
+    "price": 20.0,
+    "site": " Sala The One - Calle del Bronce, 8, 03690 San Vicente del Raspeig",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:00",
+    "hoursClose": "23:30",
+    "dateStart": "2022/02/26",
+    "comments": "El concierto se realizará con el público de pie, cumpliendo el 70% de restricción de aforo que marca la normativa de la Comunidad Valenciana, se deberá llevar la mascarilla en todo momento que no se esté consumiendo.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639927802/anac-event/cayhnfryfjvksthu1st3.jpg",
+    "linkTickets": "https://www.enterticket.es/eventos/concierto-delaossa-alicante-2022-327878"
+  },
+  {
+    "nameEvent": "Concierto Zetazen",
+    "free": false,
+    "price": 16.0,
+    "site": " Sala The One - Calle del Bronce, 8, 03690 San Vicente del Raspeig",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:00",
+    "hoursClose": "23:30",
+    "dateStart": "2022/03/11",
+    "comments": "El concierto se realizará con el público de pie, cumpliendo el 70% de restricción de aforo que marca la normativa de la Comunidad Valenciana, se deberá llevar la mascarilla en todo momento que no se esté consumiendo.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639928160/anac-event/qsgrpstmtr8tm61vplim.jpg",
+    "linkTickets": "https://www.enterticket.es/eventos/concierto-zetazen-alicante-2022-202291"
+  },
+  {
+    "nameEvent": "Concierto Lágrimas de Sangre",
+    "free": false,
+    "price": 12.0,
+    "site": " Sala The One - Calle del Bronce, 8, 03690 San Vicente del Raspeig",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "21:00",
+    "dateStart": "2022/09/02",
+    "comments": "El concierto se realizará con el público de pie, cumpliendo el 70% de restricción de aforo que marca la normativa de la Comunidad Valenciana, se deberá llevar la mascarilla en todo momento que no se esté consumiendo.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639928737/anac-event/ifjxas5dv84o2wfzgfcw.jpg",
+    "atributionsPhoto": "Lágrimas de Sangre, en una imagen promocional por Marc Estivill",
+    "linkTickets": "https://www.enterticket.es/eventos/concierto-lagrimas-de-sangre-alicante-2020-447435"
+  },
+  {
+    "nameEvent": "Concierto Kaydy Cain",
+    "free": false,
+    "price": 18.0,
+    "site": " Sala The One - Calle del Bronce, 8, 03690 San Vicente del Raspeig",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "21:00",
+    "dateStart": "2022/02/13",
+    "comments": "El concierto se realizará con el público de pie, cumpliendo el 70% de restricción de aforo que marca la normativa de la Comunidad Valenciana, se deberá llevar la mascarilla en todo momento que no se esté consumiendo.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639929168/anac-event/p5ge0vpccarebskwc65h.jpg",
+    "atributionsPhoto": "Imagen por Alexander C. Luque, sacada para MetalMagazine",
+    "linkTickets": "https://www.enterticket.es/eventos/concierto-kaydy-cain-alicante-2022-727713"
+  },
+  {
+    "nameEvent": "La Coartada",
+    "free": false,
+    "site": "Teatro Principal",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "18:00",
+    "dateStart": "2022/01/22",
+    "dateFinal": "2022/01/23",
+    "cast": "María Castro, Gorka Otxoa y Miguel Hermoso.",
+    "companyT": "TXALO Producciones-Talycual, La Alegria ",
+    "comments": "Ana es una mujer al límite. Divorciada y atormentada por su pasado, pide ayuda a su mejor amigo para prepararse a testificar en la que sin duda será la declaración más importante de su vida. De ella dependerá no solo la custodia de su única hija sino también su propia libertad. A lo largo de la noche, el enfrentamiento descarnado con sus propios demonios revelará hasta dónde es capaz de llegar para evitar el peor de todos sus miedos: el silencio.",
+    "category": [
+      "Theatre"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639934249/anac-event/wwfdrmewz77dlbcrirf6.webp"
+  },
+  {
+    "nameEvent": "Tempus Fugit",
+    "free": false,
+    "price": 15.0,
+    "site": "Gran Teatro - Calle Kursaal",
+    "cityLocation": "Elche",
+    "village": true,
+    "hoursOpen": "20:00",
+    "hoursFinal": "21:00",
+    "dateStart": "2022/01/22",
+    "companyT": "LaMov",
+    "comments": "En Tempus fugit el paso del tiempo y su fugacidad sirven de base para esta nueva obra que se suma a la quincena de espectáculos que LaMov ha estrenado a lo largo de su trayectoria. En Tempus fugit los movimientos de los bailarines son explosivos, dinámicos, a ratos extremos e infinitos. La obra es un viaje frenético, apasionante y hasta doloroso, representa el paso de la vida y lo que dejamos en ella a nuestro paso. Tempus fugit es belleza, es amor, es dolor, es risa, es ceniza…",
+    "category": [
+      "Theatre"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639656716/anac-event/ucvff5yw5snaiac0xa3v.jpg",
+    "linkTickets": "https://www.instanticket.es/tempus-fugit-la-mov-cia-de-danza"
+  },
+  {
+    "nameEvent": "ETRUSCOS: El amanecer de Roma",
+    "free": false,
+    "site": "MARQ Museo Arqueológico Provincial de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "dateStart": "2021/12/20",
+    "dateFinal": "2022/03/18",
+    "comments": "La entrada de visita libre es válida desde las 10h hasta treinta minutos antes del cierre de las instalaciones (19h de martes a sábado y 14h domingos). El acceso al museo se realizará siempre siguiendo las indicaciones del personal y respetando el aforo de las salas.",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640002619/anac-event/as15jio71d8d8kjv1cic.jpg",
+    "linkTickets": "https://www.instanticket.es/etruscos-sin-guia-el-amanecer-de-roma/?id=000124"
+  },
+  {
+    "nameEvent": "LES LUTHIERS: Viejos Hazmerreíres",
+    "free": false,
+    "site": "ADDA: Auditorio de la diputación de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/09",
+    "dateFinal": "2022/02/10",
+    "comments": "Les Luthiers regresan a Alicante tras 18 años para presentar su espectáculo 'Viejos Hazmerreíres', un divertido recopilatorio que reúne algunas de las obras más celebradas del conjunto argentino.",
+    "category": [
+      "Theatre"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640004286/anac-event/hjhjawjlvchekahhgwau.jpg",
+    "linkTickets": "https://www.instanticket.es/les-luthiers-viejos-hazmerreires/?id=LUTHIERS20"
+  },
+  {
+    "nameEvent": "La sirenita",
+    "free": false,
+    "site": "Parroquia Virgen de las Nieves",
+    "cityLocation": "Dénia",
+    "village": true,
+    "hoursOpen": "18:00",
+    "hoursFinal": "20:00",
+    "dateStart": "2022/01/23",
+    "category": [
+      "Music",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640003736/anac-event/svrrj6vl6kn7eqjfecff.jpg",
+    "linkTickets": "https://www.giglon.com/todos?idEvent=la-sirenita-el-Music"
+  },
+  {
+    "nameEvent": "Simfónica & Abraham Cupeiro",
+    "free": false,
+    "site": "Auditorio de la Diputación de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:00",
+    "dateStart": "2022/04/06",
+    "category": [
+      "Music"
+    ],
+    "comments": "Director Daniel Abad 'pangea'",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640004615/anac-event/cmi5yxqrppqcclrwgqc5.jpg",
+    "linkTickets": "https://www.instanticket.es/adda%C2%B7simfonica-and-abraham-cupeirodirector-daniel-abad-pangea/?id=060422PANGEA"
+  },
+  {
+    "nameEvent": "Café Quijano",
+    "free": false,
+    "site": "Gran Teatro de Elche",
+    "cityLocation": "Elche",
+    "village": true,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/03/12",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640006641/anac-event/eazkwuegnlxrrscmlptj.jpg",
+    "linkTickets": "https://www.instanticket.es/cafe-quijano-manhattan-tour-2022/?id=120322CAFEQ"
+  },
+  {
+    "nameEvent": "Leyendas del Rock",
+    "free": false,
+    "site": "Polideportivo Municipal",
+    "cityLocation": "Villena",
+    "village": true,
+    "hoursOpen": "16:00",
+    "dateStart": "2022/08/04",
+    "dateFinal": "2022/08/06",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1640731602/anac-event/zbsqcf1qhzxjgwb53hpo.jpg",
+    "linkTickets": "https://www.ticketmaster.es/event/20709?subchannel_id=11876&brand=base_mb_es"
+  },
+  {
+    "nameEvent": "Museo de Aguas de Alicante",
+    "free": true,
+    "site": "Plaza Arquitecto Miguel López, s/n",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641059399/museo-aguas-alicante_bk71yb.jpg",
+    "linkTickets": "https://www.alicanteturismo.com/museo-de-aguas-y-pozos-de-garrigos/"
+  },
+  {
+    "nameEvent": "Mujeres. Entre Renoir y Sorolla",
+    "free": true,
+    "site": "MUBAG. C/ Gravina 13-15",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2021/12/03",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641059944/MUBAG_-_Mujeres._Entre_Renoir_y_Sorolla_vu3bk8.jpg",
+    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+  },
+  {
+    "nameEvent": "Alicante. Paraje exótico. La mirada de Didier Petit de Meurville",
+    "free": true,
+    "site": "MUBAG. C/ Gravina 13-15",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2021/08/10",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060101/MUBAG_-_Alicante._Paraje_ex%C3%B3tico._La_mirada_de_Didier_Petit_de_Meurville_wz3xos.jpg",
+    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+  },
+  {
+    "nameEvent": "En consonancia. Emilio Varela y sus contemporáneos",
+    "free": true,
+    "site": "MUBAG. C/ Gravina 13-15",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2021/08/10",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060232/MUBAG_-_En_consonancia._Emilio_Varela_y_sus_contempor%C3%A1neos_clpvo6.jpg",
+    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+  },
+  {
+    "nameEvent": "La ventana del arte",
+    "free": true,
+    "site": "MUBAG. C/ Gravina 13-15",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2021/05/18",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060354/MUBAG_-_La_ventana_del_arte_azjt8p.jpg",
+    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+  },
+  {
+    "nameEvent": "A estudio. Piezas para nuevos discursos",
+    "free": true,
+    "site": "MUBAG. C/ Gravina 13-15",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2021/04/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_A_estudio._Piezas_para_nuevos_discursos_t1wdhz.jpg",
+    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+  },
+  {
+    "nameEvent": "La generación figurativa. Premios para la creación de un museo",
+    "free": true,
+    "site": "MUBAG. C/ Gravina 13-15",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2020/12/22",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_La_generaci%C3%B3n_figurativa._Premios_para_la_creaci%C3%B3n_de_un_museo_xemexh.jpg",
+    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+  },
+  {
+    "nameEvent": "Del informalismo a la abstracción mediterránea",
+    "free": true,
+    "site": "MUBAG. C/ Gravina 13-15",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2020/12/22",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_Del_informalismo_a_la_abstracci%C3%B3n_mediterr%C3%A1nea_a7ztsm.jpg",
+    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+  },
+  {
+    "nameEvent": "Escuela de dibujo del Consulado Marítimo Terrestre",
+    "free": true,
+    "site": "MUBAG. C/ Gravina 13-15",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2019/12/16",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_Escuela_de_dibujo_del_Consulado_Mar%C3%ADtimo_Terrestre_s6bx65.jpg",
+    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+  },
+  {
+    "nameEvent": "Refugios Antiaéreos de la Guerra Civil",
+    "free": false,
+    "site": "Casa de Máquinas. Calle Italia, 19",
+    "cityLocation": "Alicante",
+    "village": false,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641061252/Refugios_antia%C3%A9reos_Guerra_Civil_Alicante_as3m50.jpg",
+    "linkTickets": "https://turiguiasalicante.com/refugios/"
+  },
+  {
+    "nameEvent": "Casa de la Asegurada",
+    "free": true,
+    "site": "Calle Villavieja",
+    "cityLocation": "Alicante",
+    "village": false,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641061754/MACA_-_Casa_de_la_Asegurada_o0shda.jpg"
+  },
+  {
+    "nameEvent": "Museo de Belenes",
+    "free": true,
+    "site": "Calle San Agustín, 3",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "19:45",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641062190/Museo_de_belenes_Alicante_qizooz.jpg",
+    "linkTickets": "https://www.alicanteturismo.com/museo-de-belenes/"
+  },
+  {
+    "nameEvent": "L'Alcúdia 25 años",
+    "free": true,
+    "site": "MUA. Universidad de Alicante",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "09:00",
+    "hoursClose": "20:00",
+    "dateStart": "2021/12/02",
+    "dateFinal": "2024/12/02",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641062674/MUA_-_L_Alc%C3%BAdia_25_a%C3%B1os_gnhbgn.jpg",
+    "linkTickets": "http://www.mua.ua.es/pagina.php?opc=7&lang=1"
+  },
+  {
+    "nameEvent": "Espai Arcadi Blasco",
+    "free": true,
+    "site": "MUA. Universidad de Alicante",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "09:00",
+    "hoursClose": "20:00",
+    "dateStart": "2021/07/09",
+    "dateFinal": "2023/07/02",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641062675/MUA_-_Espai_Arcadi_Blasco_yorugk.jpg",
+    "linkTickets": "http://www.mua.ua.es/pagina.php?opc=7&lang=1"
+  },
+  {
+    "nameEvent": "Parc Natural de la Font Roja",
+    "free": true,
+    "cityLocation": "Alcoy",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641063137/Font_Roja_rlbfit.jpg"
+  },
+  {
+    "nameEvent": "Les Fonts d'Algar",
+    "free": true,
+    "cityLocation": "Callosa d'en Sarrià",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641143548/Les_Fonts_d_Algar_t26u7k.jpg"
+  },
+  {
+    "nameEvent": "Museo Alcoyano de la Festa",
+    "free": false,
+    "site": "C/ San Miquel, 60-62",
+    "cityLocation": "Alcoy",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "19:00",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641064004/Museo_Alcoyano_de_la_Festa_pf1jzm.jpg",
+    "linkTickets": "https://www.alcoyturismo.com/fcom/16/81/folder/asc/4011/maf-museo-alcoyano-de-la-festa.html"
+  },
+  {
+    "nameEvent": "Museo Valenciano del Juguete",
+    "free": false,
+    "site": "Glorieta Nicolás Payá Jover, 1",
+    "cityLocation": "Ibi",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "19:00",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641064378/Museo_Valenciano_del_Juguete_pdkxar.jpg",
+    "linkTickets": "https://www.museojuguete.com/es/"
+  },
+  {
+    "nameEvent": "Ruta de los Castillos del Vinalopó",
+    "free": true,
+    "cityLocation": "Río Vinalopó",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641064680/Castillo_Villena_-_Ruta_castillos_Vinalop%C3%B3_dizxmn.jpg"
+  },
+  {
+    "nameEvent": "Xorret de Catí",
+    "free": true,
+    "site": "CV-817, s/n",
+    "cityLocation": "Castalla",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641065016/Xorret_de_Cat%C3%AD_zf9fo5.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/xorret-de-cati/"
+  },
+  {
+    "nameEvent": "Low Festival Benidorm",
+    "free": false,
+    "site": "C.D. Guillermo Amor",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "hoursOpen": "16:00",
+    "dateStart": "2022/07/29",
+    "dateFinal": "2022/08/01",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641146291/anac-event/lfwu00qoidc5eimutc7n.jpg",
+    "linkTickets": "https://www.eventbrite.es/e/entradas-low-festival-benidorm-2021-68253938367?aff=ebdssbcitybrowse"
+  },
+  {
+    "nameEvent": "Homenaje a Enrique Urquijo y Los Secretos",
+    "free": false,
+    "site": "Calle Reina Sofía",
+    "cityLocation": "Águilas",
+    "village": true,
+    "hoursOpen": "21:00",
+    "dateStart": "2022/02/11",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641147483/anac-event/u79dbi5vxusjtkzqrjh0.jpg",
+    "linkTickets": "https://www.eventbrite.es/e/entradas-homenaje-a-enrique-urquijo-y-los-secretos-226251633727?aff=ebdssbcitybrowse"
+  },
+  {
+    "nameEvent": "Paraje Ermita de Santa Ana y Casa Tápena",
+    "free": true,
+    "site": "Poblado Favanella, 13",
+    "cityLocation": "Onil",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641140801/Laberinto_Onil_jchqix.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/casa-tapena/"
+  },
+  {
+    "nameEvent": "Área Recreativa El Plano",
+    "free": true,
+    "cityLocation": "Sax",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641141001/El_Plano_-_Sax_oyjwco.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/el-plano/"
+  },
+  {
+    "nameEvent": "Balcón de Alicante",
+    "free": true,
+    "site": "Sierra del Maigmó",
+    "cityLocation": "Tibi",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641141370/Balc%C3%B3n_de_Alicante_-_Maigm%C3%B3_tysuu4.jpg"
+  },
+  {
+    "nameEvent": "Vía Verde del Maigmó",
+    "free": true,
+    "site": "Sierra del Maigmó",
+    "cityLocation": "Tibi",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641141756/V%C3%ADa_verde_Maigm%C3%B3_mvyzem.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/via-verde-agost-maigmo/"
+  },
+  {
+    "nameEvent": "Peñas del Sol",
+    "free": true,
+    "site": "Sierra de Salinas",
+    "cityLocation": "Villena",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641142135/Pe%C3%B1as_del_Sol_-Villena_nzlybj.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/penas-del-sol/"
+  },
+  {
+    "nameEvent": "L'Avaiol",
+    "free": true,
+    "cityLocation": "Petrer",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641142349/L_Avaiol_-_Petrer_xytut2.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/lavaiol/"
+  },
+  {
+    "nameEvent": "Mas de Prats",
+    "free": true,
+    "site": "Sierra de Mariola",
+    "cityLocation": "Cocentaina",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641142560/Mas_de_Prats_-_Cocentaina_w4c18h.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/mas-de-prats/"
+  },
+  {
+    "nameEvent": "El Rentonar",
+    "free": true,
+    "cityLocation": "Torremanzanas",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641142813/El_Rentonar_-_Torremanzanas_khlkjg.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/el-rentonar/"
+  },
+  {
+    "nameEvent": "Espacio Natural La Garriga",
+    "free": true,
+    "site": "Vall de Gallinera",
+    "cityLocation": "Alpatró",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641143006/La_Garriga_-_Alpatr%C3%B3_uwdebs.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/la-garriga/"
+  },
+  {
+    "nameEvent": "Zona Recreativa El Castellet",
+    "free": true,
+    "site": "Peña del Castellet",
+    "cityLocation": "Castell de Castells",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641143223/El_Castellet_-_Castell_de_Castells_ebjyda.jpg",
+    "linkTickets": "https://alicantenatura.es/espacios_naturales/el-castellet/"
+  },
+  {
+    "nameEvent": "Trompa del Elefante",
+    "free": true,
+    "site": "Partida Santamaria, 35",
+    "cityLocation": "Ibi",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641143449/Trompa_del_Elefante_-_Ibi_f73wco.jpg"
+  },
+  {
+    "nameEvent": "Pantano de Tibi",
+    "free": true,
+    "site": "Río Monnegre",
+    "cityLocation": "Tibi y Jijona",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641143758/Pantano_de_Tibi_qgefop.jpg"
+  },
+  {
+    "nameEvent": "Paraje Natural Molí de l'Ombría",
+    "free": true,
+    "site": "Partida Campo Oro, 895. Sierra de Mariola",
+    "cityLocation": "Banyeres de Mariola",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641144131/Mol%C3%AD_de_l_Ombr%C3%ADa_-_Banyeres_of3zb5.jpg",
+    "linkTickets": "https://www.portademariola.com/zona-de-acampada-moli-lombria/?lang=es"
+  },
+  {
+    "nameEvent": "Parque Natural de las Lagunas de La Mata",
+    "free": true,
+    "site": "Carretera Nacional, s/n",
+    "cityLocation": "Torrevieja",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641144483/Laguna_Rosa_-_Torrevieja_toaqlh.jpg",
+    "linkTickets": "https://parquesnaturales.gva.es/es/web/pn-lagunas-de-la-mata-torrevieja"
+  },
+  {
+    "nameEvent": "Miguel Hernández, a plena luz",
+    "free": true,
+    "site": "Palacio Provincial de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "11:00",
+    "horusClose": "20:00",
+    "dateStart": "2021/11/15",
+    "dateFinal": "2022/03/28",
+    "category": [
+      "Museum"
+    ],
+    "comments": "Alicante acoge una exposición dedicada al poeta Miguel Hernández, con más de un centenar de obras divididas en bloques temáticos y cronológicos: Génesis, Religión, Eros y otros símbolos, Ideología, Amor, Guerra, Cárcel, Muerte, Resurrección y Literatura. ",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159052/anac-event/ddvj5wnqqwgnwbfyhkxx.jpg"
+  },
+  {
+    "nameEvent": "TARTUFO de MOLIÈRE",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:00",
+    "dateStart": "2022/01/29",
+    "category": [
+      "Theatre"
+    ],
+    "comments": "El buen burgués Orgón ha caído bajo la influencia de Tartufo, un falso devoto, que busca quedarse con todos sus bienes. El impostor exagera la devoción y llega a convertirse en el director espiritual de Orgón. Además, pretende casarse con la hija de su benefactor, al tiempo que trata de seducir a la segunda esposa de este, Elmira, mucho más joven que su marido. Una vez desenmascarado, tratará de aprovecharse de unas donaciones firmadas que Orgón le ha transmitido para intentar echar al dueño de su propia casa. Recurre, incluso, ante el rey, pero éste, hace que Tartufo sea detenido al descubrir que el beatucón no es más que un estafador.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159101/anac-event/tzndqycsuv91hktberwk.png",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=983"
+  },
+  {
+    "nameEvent": "Kids & Stories: CINDERELLA (Cenicienta)",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "12:00",
+    "dateStart": "2022/02/05",
+    "category": [
+      "Theatre",
+      "Kids"
+    ],
+    "comments": "Una Cenicienta muy particular va a necesitar vuestra ayuda para contar su historia. Música, baile y dos hermanastras superdivertidas que te harán reír de lo lindo. Un cuento para pequeños y mayores con todos los ingredientes del clásico pero con una visión nueva que nos recordará que la magia existe y los sueños se pueden cumplir.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159124/anac-event/sb7fnfe7mar6lzpsvpvp.jpg",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=855"
+  },
+  {
+    "nameEvent": "Kids & Stories: THE BREMEN TOWN MUSICIANS",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "12:00",
+    "dateStart": "2022/02/12",
+    "category": [
+      "Theatre",
+      "Kids"
+    ],
+    "comments": "Una deliciosa adaptación musical del cuento clásico de los Hermanos Grimm. Vive con nosotros las aventuras de cuatro animalitos que tienen la suerte de encontrarse y que deciden ir en busca de una vida mejor. Una trompeta, un ukelele, un tambor y un magnifico saxo os harán disfrutar cada momento. ¡Apúntate a su viaje y vamos todos a Bremen Town!",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159140/anac-event/c2qrh7vpgdb96i94zc9t.jpg",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=1005"
+  },
+  {
+    "nameEvent": "Kids & Stories: THE WOLF AND THES SEVEN KIDS",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "12:00",
+    "dateStart": "2022/02/19",
+    "category": [
+      "Theatre",
+      "Kids"
+    ],
+    "comments": "Había una vez un lobo muy muy hambriento, una mamá cabra a la que le gustaba cantar,y siete traviesos cabritillos. ¿Conseguirá el ingenioso lobo engañar a los pequeños cabritillos antes de que vuelva su mamá? ¡Necesitamos tu ayuda! ¿O es que estás de parte del lobo?",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159244/anac-event/z2nxkpllh9qnuw86f7j7.jpg",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=854"
+  },
+  {
+    "nameEvent": "Kids & Stories: SLEEPING BEAUTY",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "12:00",
+    "dateStart": "2022/02/26",
+    "category": [
+      "Theatre",
+      "Kids"
+    ],
+    "comments": "Un espectáculo donde las risas y la magia se unen a divertidísímas canciones llenas de ritmo, incluso de arte flamenco! Disfruta de una sorpresa tras otra con este cuento tradicional puesto en escena de la manera más original que te puedas imaginar. Conoce a los peculiares personajes de esta historia y... ¿quién sabe?, igual después de este cuento, quieres leer muchos más.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159266/anac-event/no88sqnr9mewifarbxym.jpg",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=856"
+  },
+  {
+    "nameEvent": "GALA LÍRICA PUCCINI",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/16",
+    "category": [
+      "Music"
+    ],
+    "comments": "José Luis Luri Prieto. Concierto lírico con arias de Ópera y romanzas de Zarzuela para tenor, del repertorio italiano, francés y español.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639656531/anac-event/asli18u6co8sqnvqzkja.jpg",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=986"
+  },
+  {
+    "nameEvent": "La función que sale mal",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/03",
+    "dateFinal": "2022/02/06",
+    "category": [
+      "Theatre"
+    ],
+    "comments": "Ganador del Premio Olivier a la mejor comedia entre muchos otros, este espectáculo es una mezcla entre Monty Python y Sherlock Holmes. LA FUNCIÓN QUE SALE MAL nos presenta a un grupo amateur de teatro en el estreno de su obra en la que, como el propio título sugiere, todo lo que puede salir mal, ¡sale mal!. Los actores, propensos a los accidentes, luchan contra las adversidades hasta la mismísima caída del telón, con unas consecuencias divertídisimas e irreparables.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159283/anac-event/xpr4xaz5oplnjjmcsctw.jpg",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=984"
+  },
+  {
+    "nameEvent": "EL SENTIDO DEL HUMOR: DOS TONTOS Y YO",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "16:30, 21:30, 20:30 y 17:30",
+    "dateStart": "2022/02/12",
+    "dateFinal": "2022/02/13",
+    "category": [
+      "Theatre"
+    ],
+    "comments": "Se abre el telón, Mota, Segura y Flo, también conocidos entre ciertos sectores del público como La Vieja del visillo, Krispin Klander y Torrente, salen al escenario juntos por primera vez en la historia, juntos y por separado, por parejas e individualmente, ofreciendo reflexiones risas y disparates varios que ayuden a entender cuál es hoy en día nuestro sentido del humor, con un único objetivo hacer reír por todos los medios al espectador.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159298/anac-event/ir6i3goeo2xb53pvwu0d.jpg",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=829"
+  },
+  {
+    "nameEvent": "UNA NOCHE CON LUIS COBOS",
+    "free": false,
+    "site": "Teatro Principal de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/08",
+    "category": [
+      "Music"
+    ],
+    "comments": "Tres décadas de éxitos internacionales han hecho de Luis Cobos un divulgador de la música instrumental, clásica y popular, y un ícono en la dirección de orquesta. En este magnífico concierto se percibe un trabajo hecho con pasión, constancia, exigencia profesional y energía, que transmite emociones.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641159317/anac-event/ckxp0zkr6hexmnfgkzhw.jpg",
+    "linkTickets": "https://www.teatroprincipaldealicante.com/fichaobra.php?id=985"
+  },
+  {
+    "nameEvent": "Castillo de Santa Bárbara",
+    "free": true,
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "22:00",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641205162/Castillo_Santa_B%C3%A1rbara_x96spk.jpg",
+    "linkTickets": "https://www.alicanteturismo.com/castillo-de-santa-barbara/"
+  },
+  {
+    "nameEvent": "Museo de la ciudad de Alicante (MUSA)",
+    "free": true,
+    "site": "Castillo de Santa Bárbara",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "22:00",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641206088/MUSA_-_Castillo_Santa_B%C3%A1rbara_yxasda.jpg",
+    "linkTickets": "https://www.alicanteturismo.com/museo-de-la-ciudad-de-alicante-musa/"
+  },
+  {
+    "nameEvent": "Museo Arcade Vintage",
+    "free": false,
+    "cityLocation": "Ibi",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum",
+      "Play"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641205623/Museo_Arcade_Vintage_-_Ibi_bsyaro.jpg",
+    "linkTickets": "https://museoarcadevintage.com/"
+  },
+  {
+    "nameEvent": "Barranco de La Encantada",
+    "free": true,
+    "cityLocation": "Planes",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641303636/Barranco_de_La_Encantada_-_Planes_vuwl0j.jpg"
+  },
+  {
+    "nameEvent": "Benidorm Fest 2022",
+    "free": false,
+    "site": "Palacio de Deportes L'Illa de Benidorm",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "dateStart": "2022/01/26",
+    "dateFinal": "2022/01/29",
+    "category": [
+      "Music"
+    ],
+    "comments": "Benidorm Fest es el nuevo festival que organiza Radio Televisión Española para elegir al representante español en la 66ª edición de Eurovisión.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641315440/anac-event/faxmbhtqrzjfwa8rrpj9.jpg"
+  },
+  {
+    "nameEvent": "Alejandro Sanz en Concierto",
+    "free": false,
+    "site": "Estadio Municipal Guillermo Amor",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "dateStart": "2022/07/14",
+    "hoursOpen": "20:00",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316051/anac-event/gwgppexjkkyqaae2agtr.jpg"
+  },
+  {
+    "nameEvent": "The Benidorm Elvis Fiesta 2022",
+    "free": false,
+    "site": "Benidorm Palace",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "dateStart": "2022/04/03",
+    "hoursOpen": "20:30",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316143/anac-event/cmv1yoadjhlqhwznxzbg.jpg"
+  },
+  {
+    "nameEvent": "Reggaeton Beach Festival 2022",
+    "free": false,
+    "site": "Estadio Municipal Guillermo Amor",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "hoursOpen": "12:00",
+    "hoursClose": "23:55",
+    "dateStart": "2022/07/09",
+    "dateFinal": "2022/07/10",
+    "category": [
+      "Music",
+      "Party"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316522/anac-event/nvw2ahsctkuqhed1ucr9.jpg"
+  },
+  {
+    "nameEvent": "Concierto Homenaje a la Ruta 90's & 2MIL",
+    "free": false,
+    "site": "Auditorio Julio Iglesias",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "dateStart": "2022/06/22",
+    "hoursOpen": "17:00",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316672/anac-event/zouvl7hs0a4hgiorm1uf.jpg"
+  },
+  {
+    "nameEvent": "The Manfreds",
+    "free": false,
+    "site": "Benidorm Palace",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "dateStart": "2022/04/24",
+    "hoursOpen": "20:30",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316922/anac-event/pgr1ujs3tbv5y6dd2zan.jpg"
+  },
+  {
+    "nameEvent": "Benidorm Salsa Congress 2022",
+    "free": false,
+    "site": "C/ del Actor Luis Prendes, 4",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "hoursOpen": "11:00",
+    "hoursClose": "19:00",
+    "dateStart": "2022/07/04",
+    "dateFinal": "2022/07/10",
+    "category": [
+      "Music",
+      "Party"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641317196/anac-event/b8a2gasemyhsrcnkcrpb.jpg"
+  },
+  {
+    "nameEvent": "Benidorm Bachata Congress 2022",
+    "free": false,
+    "site": "C/ del Actor Luis Prendes, 4",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "dateStart": "2022/06/27",
+    "dateFinal": "2022/07/03",
+    "category": [
+      "Music",
+      "Party"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641317565/anac-event/shg4qzn4i9tggxewmgas.jpg"
+  },
+  {
+    "nameEvent": "Viva Suecia en Concierto",
+    "free": false,
+    "site": "Estadio Municipal Guillermo Amor",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "dateStart": "2022/07/29",
+    "hoursOpen": "18:30",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641317851/anac-event/jbnnhgpob0ja0rbgrev5.jpg"
+  },
+  {
+    "nameEvent": "Innovation In The Sun",
+    "free": false,
+    "site": "Discoteca Penelope, Av. de la Comunidad Valenciana, km 121",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "hoursOpen": "22:00",
+    "hoursClose": "05:00",
+    "dateStart": "2022/06/21",
+    "dateFinal": "2022/06/28",
+    "category": [
+      "Music",
+      "Party"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641318228/anac-event/ybnjdwstkdxby3jtkv3i.jpg"
+  },
+  {
+    "nameEvent": "ECOALICANTE 2022",
+    "free": false,
+    "site": "IFA",
+    "cityLocation": "Elche",
+    "village": true,
+    "hoursOpen": "10:30",
+    "hoursClose": "20:30",
+    "dateStart": "2022/02/26",
+    "dateFinal": "2022/02/27",
+    "category": [
+      "Food"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641381193/IFA_-_ECOALICANTE_2022_b0t4eo.jpg",
+    "linkTickets": "https://www.feria-alicante.com/ferias/ecoalicante-2022/"
+  },
+  {
+    "nameEvent": "Jesal Extetic",
+    "free": false,
+    "site": "IFA",
+    "cityLocation": "Elche",
+    "village": true,
+    "hoursOpen": "10:30",
+    "hoursClose": "20:30",
+    "dateStart": "2022/02/26",
+    "dateFinal": "2022/02/28",
+    "category": [
+      "Play"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641381193/IFA_-_Cartel_Jesal_Extetic_2022_ouneb7.jpg",
+    "linkTickets": "https://www.feria-alicante.com/ferias/jesal-extetic-2022/"
+  },
+  {
+    "nameEvent": "Antic Auto 2022",
+    "free": false,
+    "site": "IFA",
+    "cityLocation": "Elche",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:30",
+    "dateStart": "2022/03/12",
+    "dateFinal": "2022/03/13",
+    "category": [
+      "Play"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641381193/IFA_-_Antic_Auto_2022_iyv93r.jpg",
+    "linkTickets": "https://www.feria-alicante.com/ferias/antic-auto-2022/"
+  },
+  {
+    "nameEvent": "FUTURMODA MARZO 2022",
+    "free": false,
+    "site": "IFA",
+    "cityLocation": "Elche",
+    "village": true,
+    "dateStart": "2022/03/09",
+    "dateFinal": "2022/03/10",
+    "category": [
+      "Play"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641381193/IFA_-_Futurmoda_marzo_2022_qphrcf.jpg",
+    "linkTickets": "https://www.feria-alicante.com/ferias/futurmoda-octubre-2021-2/"
+  },
+  {
+    "nameEvent": "Salón del Manga 2022",
+    "free": false,
+    "site": "IFA",
+    "cityLocation": "Elche",
+    "village": true,
+    "dateStart": "2022/04/23",
+    "dateFinal": "2022/04/24",
+    "category": [
+      "Play"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641381193/IFA_-_SAL%C3%93N_MANGA_2022_tdotwh.jpg",
+    "linkTickets": "https://www.feria-alicante.com/ferias/salon-manga-2022/"
+  },
+  {
+    "nameEvent": "El Mundo de los Niños",
+    "free": false,
+    "site": "Puerto de Alicante, frente al Paseo de Canalejas.",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "11:00",
+    "hoursClose": "22:30",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Kids",
+      "Play"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641381730/Alicante_-_El_Mundo_de_los_ni%C3%B1os_ezreqi.jpg",
+    "linkTickets": "http://xn--elmundodelosnios-kub.es/"
+  },
+  {
+    "nameEvent": "Terra Mítica",
+    "free": false,
+    "cityLocation": "Benidorm",
+    "village": true,
+    "hoursOpen": "10:30",
+    "hoursClose": "22:30",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Play",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641382172/Terra_M%C3%ADtica_c4bxzs.jpg",
+    "linkTickets": "https://www.terramiticapark.com/"
+  },
+  {
+    "nameEvent": "Aqualandia",
+    "free": false,
+    "cityLocation": "Benidorm",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "21:00",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Play",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641382447/Aqualandia_u6exme.jpg",
+    "linkTickets": "https://www.aqualandia.net/"
+  },
+  {
+    "nameEvent": "XII Setmana Gastronòmica de la Nyora i el Llagostí",
+    "free": false,
+    "cityLocation": "Guardamar del Segura",
+    "village": true,
+    "dateStart": "2022/06/05",
+    "dateFinal": "2022/06/12",
+    "category": [
+      "Food"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641383392/setmana-de-la-nora-i-llagosti_wveksl.jpg",
+    "linkTickets": "https://guardamarturismo.com/12a-semana-gastronomica-de-la-nyora-i-el-llagosti/"
+  },
+  {
+    "nameEvent": "Parque Alfonso XIII",
+    "free": true,
+    "cityLocation": "Guardamar del Segura",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641383893/Parque_Alfonso_XIII_-_Guardamar_ksqcez.jpg",
+    "linkTickets": "https://guardamarturismo.com/parques-y-zonas-verdes/"
+  },
+  {
+    "nameEvent": "Parque Reina Sofía",
+    "free": true,
+    "cityLocation": "Guardamar del Segura",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641383893/Parque_Reina_Sof%C3%ADa_-_Guardamar_m2is8y.jpg",
+    "linkTickets": "https://guardamarturismo.com/parques-y-zonas-verdes/"
+  },
+  {
+    "nameEvent": "Parc de les Nyores",
+    "free": true,
+    "cityLocation": "Guardamar del Segura",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641383893/Parc_de_les_nyores_-_Guardamar_gcx7uh.jpg",
+    "linkTickets": "https://guardamarturismo.com/parques-y-zonas-verdes/"
+  },
+  {
+    "nameEvent": "Casa Museo Miguel Hernández",
+    "free": true,
+    "site": "Calle Miguel Hernández, 73",
+    "cityLocation": "Orihuela",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Museum"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641384339/Casa_Museo_Miguel_Hern%C3%A1ndez_-_Orihuela_uim652.jpg",
+    "linkTickets": "https://www.orihuelaturistica.es/orihuela/web_php/index.php?contenido=fichaComercial&id=55&idContacto=2&mode=list&order=&idNivel="
+  },
+  {
+    "nameEvent": "Parque El Palmeral",
+    "free": true,
+    "site": "Avenida de Elche, 109",
+    "cityLocation": "Alicante",
+    "village": false,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports",
+      "Kids"
+    ],
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641384733/Parque_El_Palmeral_-_Alicante_ub5nnn.jpg",
+    "linkTickets": "https://www.alicanteturismo.com/parque-el-palmeral/"
+  }
+]

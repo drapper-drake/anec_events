@@ -1,491 +1,89 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-:root {
-  --bg-light: #f2f2f2;
-  --bg-dark: #0b3762;
-  --color-text-bg-light: #342618;
-  --color-text-bg-dark: #ffffff;
-  --color-contrast-bg-light: #0b4da5;
-  --color-contrast-bg-dark: #ffa438;
-  --color-links-cta: #ffa438;
-  --color-links-visited: #8197ba;
-}
-
-body {
-  width: 100%;
-  height: min-content;
-  background-color: var(--bg-light);
-
-  margin: 0;
-}
-
-header {
-  width: 100%;
-  height: 450px;
-
-  background: url(../assets/img/sitting-4.png) no-repeat center 16px;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.container-title {
-  width: min-content;
-  height: min-content;
-
-  font-family: "Be Vietnam Pro", sans-serif;
-  text-align: center;
-  position: relative;
-}
-
-.text-intro {
-  width: 600px;
-  height: 330px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-
-  position: relative;
-}
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 h1 {
-  color: var(--color-links-cta);
-  text-shadow: 4px 0 0 var(--color-contrast-bg-light);
-  font-family: "Lobster Two", cursive;
-  text-align: start;
-  font-size: 70px;
-  font-weight: bold;
-
-  position:absolute;
-  top: -80px;
+  font-family: 'Lobster Two', cursive;
+  text-shadow: 4px 0 0 #0b4da5;
 }
 
-.description-header {
-  width: 60%;
-  color: var(--color-text-bg-dark);
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-weight: normal;
-  font-size: 36px;
-
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translateX(-40%);
-}
-
-.container {
-  width: 90%;
-  height: min-content;
-  margin: 56px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 39px;
-  grid-row-gap: 39px;
-
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 18px;
-}
-
-/* Estilos de las tarjetas de eventos */
-
-.container-card {
-  width: 90%;
-  padding-bottom: 15em;
-  margin: 2em auto;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 16px;
-}
-
-.photoEvent {
-  width: 100%;
-  height: 340px;
-  background-color: var(--bg-light);
-  border-radius: 25px;
-  left: 200px;
-}
-
-.photoEvent > img {
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-  border-radius: 25px;
-}
-
-.card {
-  width: 100%;
-  height: 280px;
-  background: var(--bg-dark);
-  border-radius: 25px;
-
-  display: flex;
-  flex-direction: row;
-  box-shadow: 0px 10px 12px 4px #00000050;
-  transition: 400ms;
-  transition-timing-function: cubic-bezier(1, -0.24, 0.39, 0.71);
-
-  position: absolute;
-  bottom: 7em;
-  /*text-align: center;*/
-  color: var(--color-text-bg-dark);
-  cursor: pointer;
-}
-.card:hover {
-  bottom: 5em;
-}
-.info-card {
-  display: flex;
-  flex-direction: column;
-  width: 75%;
-  padding: 0px 15px;
-}
-.info-card > h3 {
-  margin: 0;
-  height: 50%;
-  font-family: "Lobster two", cursive;
-  font-size: 2em;
-}
-
-.info-card > p {
-  margin: 0;
-
-  font-size: 1.5em;
-}
-.date-card {
-  width: 25%;
-  color: var(--color-text-bg-light);
-  background: var(--bg-light);
-  border-radius: 0 25px 25px 0;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  font-weight: bold;
-  text-align: center;
-}
-hr {
-  width: 75%;
-  border: none;
-  border-top: 1px solid var(--color-text-bg-light);
-}
-.icons-bar {
-  width: 100%;
-  /* height: 50px; */
-  background: var(--bg-light);
-  border-radius: 15px;
-  margin: 10px auto;
-
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-figure {
-  width: 50px;
-  height: 50px;
-
-  display: flex;
-  align-items: center;
-  margin: 0;
-}
-
-figure > img {
-  width: 40px;
-  height: 40px;
-
-  margin-left: 10px;
-}
-
-/* Estilos de las ventanas modales */
-
-.modal-container {
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
-
-.modal {
-  width: 75vw;
-  height: min-content;
-  margin: 0 auto;
-  background: var(--bg-light);
-  border-radius: 25px;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  position: relative;
-
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 1.5em;
-  color: var(--color-text-bg-light);
-  text-align: center;
-}
-
-.modal-image {
-  width: 50%;
-  height: 500px;
-  display: flex;
-  padding: 16px ;
-  justify-content: center;
-  align-items: center;
-}
-.modal-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: scale-down;
-}
-
-.modal-text {
-  padding: 25px;
-  width: 50%;
-  height: 80%;
-}
-.modal-text > p:first-of-type {
-  font-family: "Lobster Two", cursive;
-  font-size: 2em;
-}
-
-.close {
-  width: 48px;
-  height: 48px;
-  position: relative;
-  align-self: flex-start;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.description {
-  text-align: initial;
-
-  padding: 0px 25px 10px;
-}
-
-footer {
-  width: 100%;
-  min-height: 200px;
-  padding: 1em 0;
-  background-color: var(--bg-dark);
-
-  display: flex;
-  flex-direction: column;
-
-  font-family: "Be Vietnam Pro", sans-serif;
-  font-size: 18px;
-  color: var(--color-text-bg-dark);
-  text-align: center;
-}
-.container-developers p strong {
-  font-weight: bold;
-  font-size: 1.25em;
-}
-.container-img {
-  width: 80%;
-  background: var(--color-text-bg-dark);
-  border-radius: 15px;
-  padding: 0 1em;
-
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-
-  margin: 1em auto;
-}
-
-.container-img > img {
-  max-height: 50px;
-}
-
-a {
-  color: var(--color-links-cta);
-}
-a:visited {
-  color: var(--color-links-visited);
-}
-
-/*Clase estandar para ocultar ciertos elementos temporalmente*/
-
-.hidden {
-  display: none;
-}
-
-/* Botón de volver arriba */
-#btn-up {
-  width: 50px;
-  height: 50px;
-  background: var(--bg-dark);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  border-radius: 50%;
-  position: fixed;
-  bottom: 50px;
-  right: 20px;
-
-  cursor: pointer;
-  border: 4px solid transparent;
-  transition: all 300ms ease;
-  transform: scale(0);
-}
-#btn-up:hover{
-  background-color: var(--color-contrast-bg-light);
-}
-
-/* Responsive */
-
-@media screen and (min-width: 769px) and (max-width: 1023px) {
-  .logo-pato {
-    transform: translate(250px, -80px);
+@layer components {
+  .modal-container {
+    @apply w-full h-screen bg-neutral-900 bg-opacity-70 flex justify-center items-center fixed top-0 left-0 z-[2] ;
   }
-  .container {
-    grid-template-columns: 1fr 1fr;
+  .modal {
+    @apply w-full h-screen bg-light overflow-y-scroll flex flex-col justify-around items-center font-sans text-bg-light text-center md:w-3/4 md:h-3/4 md:overflow-y-hidden md:rounded-3xl md:flex-row md:justify-around md:relative;
   }
-  .card {
-    border-radius: 0 0 25px 25px;
-    bottom: 0;
+  .modal-image {
+    @apply w-1/2 h-1/2 flex justify-center items-center order-2 md:h-96 md:p-4 md:order-none;
   }
-  .card:hover {
-    bottom: 0;
+  .modal-image img {
+    @apply w-full h-full object-scale-down;
   }
-  .date-card {
-    border-radius: 0 0 25px 0;
+  .landscape {
+    @apply sm:w-full;
   }
-}
-
-@media screen and (max-width: 768px) {
-  body {
-    margin: 0;
+  .modal-text {
+    @apply w-4/5 h-2/4 flex flex-col justify-around order-3 md:w-2/4 md:h-4/5 md:order-none;
   }
-  header {
-    justify-content: center;
+  .modal-text > p:first-of-type {
+    @apply font-serif text-2xl font-bold leading-10 md:text-2xl;
+  }
+  .close {
+    @apply w-12 h-12 relative self-center order-1 cursor-pointer md:self-start md:order-none md:p-2.5;
   }
 
-  body .description {
-    display: none;
-  }
-  .container-card{
-    border-radius: 25px;
+  .container-card {
+    @apply  rounded-2xl text-base cursor-pointer font-sans;
     box-shadow: 0px 10px 12px 4px #00000050;
   }
-  .card{
-    box-shadow: none;
+  .photoEvent {
+    @apply w-full h-40 relative;
   }
-  .container-logo {
-    display: none;
-  }
-  .container-img {
-    width: 300px;
+  .photoEvent > img {
+    @apply w-full h-full object-cover rounded-tl-2xl rounded-tr-2xl;
   }
 
-  .text-intro {
-    width: 400px;
-    height: 330px;
-  }
-  .logo-pato {
-    display: none;
-  }
-  .container {
-    grid-template-columns: 1fr;
-  }
-  .card {
-    border-radius: 0 0 25px 25px;
-    bottom: 0;
-  }
-  .card:hover {
-    bottom: 0;
+  .info-card {
+    @apply w-full h-72 flex flex-col justify-evenly px-4;
   }
 
-  .info-card{
-    display: flex;
-    justify-content: flex-start;
+  .info-card h3 {
+    @apply h-2/6 text-xl font-serif;
   }
 
-  .info-card h3{
-    height: 58%;
+  .info-card p {
+    @apply text-base;
   }
 
-  .date-card {
-    border-radius: 0 0 25px 0;
+  .icons-bar {
+   @apply w-full py-2.5 bg-light rounded-[80px] flex flex-row flex-wrap justify-evenly;
+   box-shadow: 0px 2px 4px  #00000050;
   }
-
-  .modal-container{
-    align-items: center;
+  .icons-bar > div {
+    @apply flex flex-col items-center;
   }
-
-  .modal {
-    flex-direction: column;
-    border-radius: 0;
-    width: 100%;
-    height: 100%;
-    overflow-y: scroll;
+  .icons-bar > div > img {
+    @apply w-6 h-6;
   }
-
-  .modal-image {
-    height: 45%;
-    order: 2;
-    padding: 0;
+  .bookmark {
+    @apply w-12 h-12 flex justify-center items-end absolute top-0 left-0;
   }
-
-  .landscape {
-    width: 100%;
+  .tooltip {
+    @apply w-12 h-12 flex justify-center items-end absolute top-0 right-0;
   }
-
-  .modal-text{
-    width: 80%;
-    height: 50%;
-    order: 3;
+  .tooltip .tooltip-text {
+    @apply hidden w-24 bg-black text-white text-center rounded-md px-1 py-1 absolute z-[1] bottom-full left-1/2 -translate-x-1/2;
   }
-
-  .close {
-    position: relative;
-    order:1;
-    align-self: center;
-    height: 5%;
+  .tooltip:hover .tooltip-text {
+    @apply block opacity-100;
   }
-
-  .modal-text > p:first-of-type {
-    margin-top: 0;
+  .tooltip .tooltip-text::after {
+    @apply absolute top-full left-1/2 -ml-1 border-[5px] border-solid;
+    content: " ";
+    border-color: black transparent transparent transparent;
   }
-}
-
-@media screen and (max-width: 660px){
-  header {
-    background: url(../assets/img/Pato-de-pie-mobile.png) no-repeat center 16px;
-  }
-  .description-header{
-    color: var(--bg-dark);
-    font-weight: bold;
-    top: 190px;
-    transform: translateX(-50%);
-  }
-
-  .text-intro h1 {
-    top: 95px
-  }
-
 
 }

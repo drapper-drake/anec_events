@@ -1,9 +1,11 @@
-const allArray = [];
+import moment from 'moment';
 
+let allEvents = [];
+let currentListEvents = [];
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
-  fetch("src/js/eventosNavidad.json")
+  fetch("/data/eventosAlicante.json")
     .then((response) => response.json())
     .then((data) => {
       // data es un array de eventos
@@ -11,232 +13,178 @@ function createAll() {
       for (let evento in data) {
         //Es un generador de Id basados en el nombre del evento
         let idEvent = data[evento].nameEvent;
-        idEvent = idEvent.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+        idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
+        data[evento].bookmark = arrayBookMark.includes(idEvent);
         data[evento].id = idEvent;
-        allArray.push(data[evento]);
+        allEvents.push(data[evento]);
       }
       changeformatDateJSON(data);
-      allArray.sort((a,b) => a.dateStart - b.dateStart)
-      createEvent( content, allArray);
+      allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime())
+      createEvent(content, allEvents);
+
     });
-  }
-function changeformatDateJSON (){
-  for (let index in allArray) {
-    allArray[index].dateStart = new Date(allArray[index].dateStart);
-    if(allArray[index].hasOwnProperty("dateFinal")){
-    allArray[index].dateFinal = new Date(allArray[index].dateFinal);
+}
+function changeformatDateJSON() {
+  for (let index in allEvents) {
+    allEvents[index].dateStart = new Date(allEvents[index].dateStart);
+    if (allEvents[index].hasOwnProperty("dateFinal")) {
+      allEvents[index].dateFinal = new Date(allEvents[index].dateFinal);
     }
   }
 }
-  // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
-  function createEvent( container ) {
-    for(let position in allArray ){
-      //Llamar función que imprime la fecha en el orden deseado
-      let dateStart = dateFormat(allArray[position].dateStart, true);
-      let containerCard = document.createElement("div");
-      containerCard.className = "container-card";
-
-      //DIV DE LA IMAGEN
-      let photoEvent = document.createElement("div");
-      photoEvent.className = "photoEvent";
-      //IMAGEN
-      let image = document.createElement("img");
-      image.src = allArray[position].photoEvent;
-      //TARJETA
-      let card = document.createElement("div");
-      card.className = "card";
-      card.id = allArray[position].id
-      // AÑADE EL EVENTO A LA TARJETA
-      card.addEventListener("click", dataModal);
-
-      //DATOS TARJETA
-      let infoCard = document.createElement("div");
-      infoCard.className = "info-card";
-      // NOMBRE
-      let name = document.createElement("h3");
-      name.innerText = allArray[position].nameEvent;
-      // LUGAR
-      let place = document.createElement("p");
-      place.innerText = allArray[position].cityLocation;
-      // BARRA DE ICONOS
-      let bar = document.createElement("div");
-      bar.className = "icons-bar";
-      //DIV FECHA
-      let dateCard = document.createElement("div");
-      dateCard.className = "date-card";
-      // FECHA
-      let date = document.createElement("p");
-      date.innerText = dateStart;
-
-      container.appendChild(containerCard);
-      containerCard.appendChild(photoEvent);
-      photoEvent.appendChild(image);
-      containerCard.appendChild(card);
-      card.appendChild(infoCard)
-      card.appendChild(dateCard)
-      infoCard.appendChild(bar);
-      infoCard.appendChild(name);
-      infoCard.appendChild(place);
-      dateCard.appendChild(date);
-
-      if(allArray[position].hasOwnProperty("dateFinal")){
-        let dateF = dateFormat(allArray[position].dateFinal,true );
-        let dateEnd = document.createElement("p");
-        dateEnd.innerText = dateF;
-        let divider = document.createElement("hr");
-        dateCard.appendChild(divider);
-        dateCard.appendChild(dateEnd);
-      }
-      // ICONO GRATUITO / DE PAGO
-      let freeIconContainer = document.createElement("figure");
-      let freeIcon = document.createElement("img");
-      bar.appendChild(freeIconContainer);
-      freeIconContainer.appendChild(freeIcon);
-
-      if (allArray[position].free) {
-        freeIconContainer.title = "Evento GRATUITO";
-        freeIcon.src = "/src/assets/img/Gratis.svg";
-        freeIcon.alt = "Evento GRATUITO";
+// ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
+function createEvent(container, listEvents) {
+  for (let position in listEvents) {
+    //Llamar función que imprime la fecha en el orden deseado
+    let dateStart = dateFormat(listEvents[position].dateStart, true);
+    let containerCard = document.createElement("div");
+    containerCard.className = "container-card";
+    containerCard.dataset.id = listEvents[position].id
+    // AÑADE EL EVENTO A LA TARJETA
+    containerCard.addEventListener("click", dataModal);
+    //DIV DE LA IMAGEN
+    let photoEvent = document.createElement("div");
+    photoEvent.className = "photoEvent";
+    //BOTON FAVORITOS
+    let bookmarkContainer = document.createElement("div");
+    bookmarkContainer.className = "bookmark"
+    let bookmark = document.createElement("img");
+    bookmark.src = listEvents[position].bookmark ? "./img/icons/bookmark-selected.svg" : "./img/icons/bookmark.svg";
+    bookmark.dataset.name = listEvents[position].id
+    bookmark.addEventListener("click", selectedBookmark)
+    //IMAGEN
+    let image = document.createElement("img");
+    image.src = listEvents[position].photoEvent;
+    //DATOS TARJETA
+    let infoCard = document.createElement("div");
+    infoCard.className = "info-card";
+    // NOMBRE
+    let name = document.createElement("h3");
+    name.innerText = listEvents[position].nameEvent;
+    // LUGAR
+    let place = document.createElement("p");
+    place.innerText = listEvents[position].cityLocation;
+    // BARRA DE ICONOS
+    let bar = document.createElement("div");
+    bar.className = "icons-bar";
+    // FECHA
+    let date = document.createElement("p");
+    date.innerText = `Solo el ${dateStart}`;
+    if (listEvents[position].hasOwnProperty("dateFinal")) {
+      let dateF = dateFormat(listEvents[position].dateFinal, true);
+      let resultado = allYear(dateStart, dateF)
+      if (!resultado) {
+        date.innerText = `Del ${dateStart}  al ${dateF}`;
       } else {
-        freeIconContainer.title = "Evento DE PAGO";
-        freeIcon.src = "/src/assets/img/pago.svg";
-        freeIcon.alt = "Evento DE PAGO";
-      }
-      // ICONO BENÉFICO
-      if(allArray[position].charity) {
-        let charityIconContainer = document.createElement("figure");
-        let charityIcon = document.createElement("img");
-        charityIconContainer.title = "Evento BENÉFICO";
-        charityIcon.src = "/src/assets/img/Solidario.svg";
-        charityIcon.alt = "Evento BENÉFICO";
-        bar.appendChild(charityIconContainer);
-        charityIconContainer.appendChild(charityIcon);
-      }
-      // ICONO RURAL / URBANO
-      if(allArray[position].village) {
-        let ruralIconContainer = document.createElement("figure");
-        let ruralIcon = document.createElement("img");
-        ruralIconContainer.title = "Evento RURAL";
-        ruralIcon.src = "/src/assets/img/iconoVillage.png";
-        ruralIcon.alt = "Evento RURAL";
-        bar.appendChild(ruralIconContainer);
-        ruralIconContainer.appendChild(ruralIcon);
-      } else {
-        let cityIconContainer = document.createElement("figure");
-        let cityIcon = document.createElement("img");
-        cityIconContainer.title = "Evento URBANO";
-        cityIcon.src = "/src/assets/img/iconoCity.png";
-        cityIcon.alt = "Evento URBANO";
-        bar.appendChild(cityIconContainer);
-        cityIconContainer.appendChild(cityIcon);
-      }
-      // ICONOS DE CATEGORÍAS
-      for(let cat in allArray[position].category) {
-        switch(allArray[position].category[cat]) {
-          case "Christmas":
-            let xmasIconContainer = document.createElement("figure");
-            let xmasIcon = document.createElement("img");
-            xmasIconContainer.title = "Evento NAVIDEÑO";
-            xmasIcon.src = "/src/assets/img/Navidad.svg";
-            xmasIcon.alt = "Evento NAVIDEÑO";
-            bar.appendChild(xmasIconContainer);
-            xmasIconContainer.appendChild(xmasIcon);
-            break;
-          case "Kids":
-            let kidsIconContainer = document.createElement("figure");
-            let kidsIcon = document.createElement("img");
-            kidsIconContainer.title = "Evento INFANTIL";
-            kidsIcon.src = "/src/assets/img/iconoKids.svg";
-            kidsIcon.alt = "Evento INFANTIL";
-            bar.appendChild(kidsIconContainer);
-            kidsIconContainer.appendChild(kidsIcon);
-            break;
-          case "Play":
-            let playIconContainer = document.createElement("figure");
-            let playIcon = document.createElement("img");
-            playIconContainer.title = "Evento LÚDICO";
-            playIcon.src = "/src/assets/img/iconoPlay.svg";
-            playIcon.alt = "Evento LÚDICO";
-            bar.appendChild(playIconContainer);
-            playIconContainer.appendChild(playIcon);
-            break;
-          case "Music":
-            let musicIconContainer = document.createElement("figure");
-            let musicIcon = document.createElement("img");
-            musicIconContainer.title = "Evento MUSICAL";
-            musicIcon.src = "/src/assets/img/iconoMusic.svg";
-            musicIcon.alt = "Evento MUSICAL";
-            bar.appendChild(musicIconContainer);
-            musicIconContainer.appendChild(musicIcon);
-            break;
-          case "Sports":
-            let sportIconContainer = document.createElement("figure");
-            let sportIcon = document.createElement("img");
-            sportIconContainer.title = "Evento DEPORTIVO";
-            sportIcon.src = "/src/assets/img/iconoSports.png";
-            sportIcon.alt = "Evento DEPORTIVO";
-            bar.appendChild(sportIconContainer);
-            sportIconContainer.appendChild(sportIcon);
-            break;
-          case "Theatre":
-            let theatreIconContainer = document.createElement("figure");
-            let theatreIcon = document.createElement("img");
-            theatreIconContainer.title = "Evento TEATRAL";
-            theatreIcon.src = "/src/assets/img/iconoTheatre.svg";
-            theatreIcon.alt = "Evento TEATRAL";
-            bar.appendChild(theatreIconContainer);
-            theatreIconContainer.appendChild(theatreIcon);
-            break;
-          case "Party":
-            let partyIconContainer = document.createElement("figure");
-            let partyIcon = document.createElement("img");
-            partyIconContainer.title = "Evento FESTIVO";
-            partyIcon.src = "/src/assets/img/iconoParty.svg";
-            partyIcon.alt = "Evento FESTIVO";
-            bar.appendChild(partyIconContainer);
-            partyIconContainer.appendChild(partyIcon);
-            break;
-          case "Food":
-            let foodIconContainer = document.createElement("figure");
-            let foodIcon = document.createElement("img");
-            foodIconContainer.title = "Evento GASTRONÓMICO";
-            foodIcon.src = "/src/assets/img/iconoFood.svg";
-            foodIcon.alt = "Evento GASTRONÓMICO";
-            bar.appendChild(foodIconContainer);
-            foodIconContainer.appendChild(foodIcon);
-            break;
-          case "Museum":
-            let museumIconContainer = document.createElement("figure");
-            let museumIcon = document.createElement("img");
-            museumIconContainer.title = "Evento de MUSEO";
-            museumIcon.src = "/src/assets/img/iconoMuseum.svg";
-            museumIcon.alt = "Evento de MUSEO";
-            bar.appendChild(museumIconContainer);
-            museumIconContainer.appendChild(museumIcon);
-            break;
-          // Pongo el default por si acaso UwU
-          default:
-            let defaultIconContainer = document.createElement("figure");
-            let defaultIcon = document.createElement("img");
-            defaultIconContainer.title = "Evento POR DEFECTO";
-            defaultIcon.src = "/src/assets/img/xmark-solid.svg";
-            defaultIcon.alt = "Evento POR DEFECTO";
-            bar.appendChild(defaultIconContainer);
-            defaultIconContainer.appendChild(defaultIcon);
-            break;
-        }
+        date.innerText = `Todo el año`;
       }
     }
+    container.appendChild(containerCard);
+    containerCard.appendChild(photoEvent);
+    photoEvent.appendChild(bookmarkContainer);
+    bookmarkContainer.appendChild(bookmark);
+    photoEvent.appendChild(image);
+    containerCard.appendChild(infoCard);
+    infoCard.appendChild(name);
+    infoCard.appendChild(place);
+    infoCard.appendChild(date);
+    infoCard.appendChild(bar);
+
+
+    // ICONO GRATUITO / DE PAGO
+    let freeIconContainer = document.createElement("div");
+    freeIconContainer.className = "tooltip";
+    let freeIcon = document.createElement("img");
+    let freeIconText = document.createElement("span");
+    freeIconText.className = "tooltip-text";
+    photoEvent.appendChild(freeIconContainer);
+    freeIconContainer.appendChild(freeIcon);
+    freeIconContainer.appendChild(freeIconText);
+
+    if (listEvents[position].free) {
+      freeIconText.textContent = "Evento GRATUITO";
+      freeIcon.src = "./img/icons/gratis.svg";
+      freeIcon.alt = "Evento GRATUITO";
+    } else {
+      freeIconText.textContent = "Evento de PAGO";
+      freeIcon.src = "./img/icons/Pago-euro.svg";
+      freeIcon.alt = "Evento de PAGO";
+    }
+    // ICONO BENÉFICO
+    if (listEvents[position].charity) {
+      let charityIconContainer = document.createElement("div");
+      let charityIcon = document.createElement("img");
+      let charityIconText = document.createElement("p");
+      charityIconText.textContent = "Benéfico";
+      charityIcon.src = "./img/icons/Charity.svg";
+      bar.appendChild(charityIconContainer);
+      charityIconContainer.appendChild(charityIcon);
+      charityIconContainer.appendChild(charityIconText);
+    }
+    // ICONOS DE CATEGORÍAS
+    for (let cat in listEvents[position].category) {
+      let categoryIconContainer = document.createElement("div");
+      let categoryIcon = document.createElement("img");
+      let categoryIconInfo = document.createElement("p");
+      switch (listEvents[position].category[cat]) {
+        case "Christmas":
+          categoryIconInfo.textContent = "Navidad";
+          categoryIcon.src = "./img/icons/Navidad.svg";
+          break;
+        case "Kids":
+          categoryIconInfo.textContent = "Infantil";
+          categoryIcon.src = "./img/icons/Kids.svg";
+          break;
+        case "Play":
+          categoryIconInfo.textContent = "Lúdico";
+          categoryIcon.src = "./img/icons/Play.svg";
+          break;
+        case "Music":
+          categoryIconInfo.textContent = "Música";
+          categoryIcon.src = "./img/icons/Music.svg";
+          break;
+        case "Sports":
+          categoryIconInfo.textContent = "Deporte";
+          categoryIcon.src = "./img/icons/Sports.svg";
+          break;
+        case "Theatre":
+          categoryIconInfo.textContent = "Teatro";
+          categoryIcon.src = "./img/icons/Theatre.svg";
+          break;
+        case "Party":
+          categoryIconInfo.textContent = "Fiestas";
+          categoryIcon.src = "./img/icons/Cocktail.svg";
+          break;
+        case "Food":
+          categoryIconInfo.textContent = "Gastronómico";
+          categoryIcon.src = "./img/icons/Food.svg";
+          break;
+        case "Museum":
+          categoryIconInfo.textContent = "Museo";
+          categoryIcon.src = "./img/icons/Museum.svg";
+          break;
+        default:
+          console.error(`Hay ninguna categoria con ese nombre ${listEvents[position].category[cat]}`)
+          break;
+      }
+      bar.appendChild(categoryIconContainer);
+      categoryIconContainer.appendChild(categoryIcon);
+      categoryIconContainer.appendChild(categoryIconInfo);
+    }
   }
+}
 
 // ESTA FUNCIÓN CREA CADA VENTANA MODAL
-function dataModal(e){
+function dataModal(e) {
   //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
-  const idOfEvent = e.currentTarget.id;
-  createModal(idOfEvent)
+  const idOfEvent = e.currentTarget.dataset.id;
+  createModal(idOfEvent);
 }
 function createModal(id) {
-  let dataEvent = allArray.find((el) => el.id === id);
+  //QUITAR EL SCROLL DEL BODY
+  const body = document.querySelector("body");
+  body.classList.add("overflow-hidden");
+  let dataEvent = currentListEvents.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
   let modalBox = document.createElement("div");
@@ -247,12 +195,12 @@ function createModal(id) {
   modal.className = "modal";
   modalBox.appendChild(modal);
   // IMAGEN
-  let fatherModalImagen = document.createElement('div');
+  let fatherModalImagen = document.createElement("div");
   fatherModalImagen.className = "modal-image";
   let modalImage = document.createElement("img");
   modalImage.src = dataEvent.photoEvent;
-  // añadimos la clase 'landscape' al modal de imágenes apaisadas
-  if(modalImage.naturalWidth > modalImage.naturalHeight) {
+  // añadimos la clase "landscape" al modal de imágenes apaisadas
+  if (modalImage.naturalWidth > modalImage.naturalHeight) {
     fatherModalImagen.className = "modal-image landscape";
   }
   fatherModalImagen.appendChild(modalImage);
@@ -290,41 +238,91 @@ function createModal(id) {
     }
     modalText.appendChild(description);
   }
+  //BOTÓN ADD CALENDAR
+  let btnCalendar = document.createElement("a");
+  btnCalendar.className = "btn-addCalendar py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
+  btnCalendar.textContent = "Añadir al calendario";
+  btnCalendar.target = "blank"
+  btnCalendar.dataset.name = id;
+  btnCalendar.addEventListener("click", requestCalendar);
+  modalText.appendChild(btnCalendar);
   // BOTÓN DE CIERRE
   let closeButton = document.createElement("img");
   closeButton.className = "close";
-  closeButton.src = "src/assets/img/xmark-solid.svg";
+  closeButton.src = "./img/icons/xmark-solid.svg";
   closeButton.alt = "Cerrar";
   modal.appendChild(closeButton);
   // FUNCIONALIDAD DEL MODAL
   closeButton.addEventListener("click", () => {
     modalBox.remove();
-
+    body.classList.remove("overflow-hidden");
   });
   window.addEventListener("click", (e) => {
     if (e.target == modalBox) {
       modalBox.remove();
+      body.classList.remove("overflow-hidden");
     }
   });
 }
-function removeModalBox(){
-  modalBox.remove();
-}
+
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
-  const monthNames = ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+  const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
   let monthFormat = monthNames[month.getMonth()]
-  if(dateShort){
-    monthFormat= monthFormat.toUpperCase().substring(0,3)
+  let year = month.getFullYear()
+  if (dateShort) {
+    monthFormat = monthFormat.toUpperCase().substring(0, 3)
   }
-  return `${month.getDate()} ${monthFormat}`
- ;
+  return `${month.getDate()} ${monthFormat} ${year} `;
 }
 
-/* Función del slider de logos de patrocinadores
- * Selecciono todas las imágenes del contenedor con la variable Sponsors lo que me da un array
- * */
-const Sponsors = document.querySelectorAll(".container-img>img");
+//Comprobar los de todo el año
+function allYear(dateFrom, dateTo) {
+  let dateFromNoYear = dateFrom.substr(0, 5)
+  let dateToNoYear = dateTo.substr(0, 6)
+
+  return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
+}
+
+//Funciones para el botón de favoritos
+let arrayBookMark = [];
+//Functions for LocalStorage
+const saveLocalStorage = () => localStorage.setItem("bookmark", JSON.stringify(arrayBookMark));
+
+function selectedBookmark(e) {
+  e.stopPropagation();
+  const bookmarkSelected = "/img/icons/bookmark-selected.svg";
+  const bookmarkNormal = "/img/icons/bookmark.svg";
+  const idBookmark = e.currentTarget.dataset.name;
+  let index = allEvents.findIndex((el) => el.id === idBookmark);
+  allEvents[index].bookmark = !allEvents[index].bookmark;
+  if (allEvents[index].bookmark === true) {
+    e.currentTarget.src = bookmarkSelected;
+    arrayBookMark.push(idBookmark)
+  } else if (allEvents[index].bookmark === false) {
+    e.currentTarget.src = bookmarkNormal;
+    let indexB = arrayBookMark.findIndex((el) => el === idBookmark);
+    arrayBookMark.splice(indexB, 1);
+  }
+  saveLocalStorage();
+}
+
+function filterBookmarks() {
+  let listFilteredBookmark = [];
+  for (let index in arrayBookMark) {
+    for (let position in allEvents) {
+      if (allEvents[position].id === arrayBookMark[index]) {
+        listFilteredBookmark.push(allEvents[position]);
+      }
+    }
+  }
+  resetAndCreateEventsFiltered(listFilteredBookmark);
+}
+
+
+// Función del slider de logos de patrocinadores
+
+const Sponsors = document.querySelectorAll(".container-img > img");
 
 let indexSlider = 0;
 //Le añado a todas una clase que las oculta
@@ -351,33 +349,116 @@ function responsiveFooter() {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  createAll();
-  responsiveFooter();
-});
-
 // BOTÓN PARA SUBIR AL INICIO DE LA WEB
-
-document.getElementById("btn-up").addEventListener("click", scrollUp);
+const BtnUp = document.getElementById("btn-up");
+BtnUp.addEventListener("click", scrollUp);
 
 // Funcion que cuando hay scroll hace una animacion para subir al top
-function scrollUp(){
+function scrollUp() {
   let currentScroll = document.documentElement.scrollTop;
-  if (currentScroll > 0){
+  if (currentScroll > 0) {
     window.requestAnimationFrame(scrollUp);
     window.scrollTo(0, currentScroll - (currentScroll / 8));
   }
 }
 
 // Funcion para que el btn-up no aparezca si no se ha hecho scroll
-btnUp = document.getElementById("btn-up");
 
-window.onscroll = function(){
+window.onscroll = () => {
   let scroll = document.documentElement.scrollTop;
-
-  if (scroll > 500){
-    btnUp.style.transform = "scale(1)";
-  } else if(scroll < 500) {
-    btnUp.style.transform= "scale(0)";
+  if (scroll > 500) {
+    BtnUp.style.transform = "scale(1)";
+  } else if (scroll < 500) {
+    BtnUp.style.transform = "scale(0)";
   }
+}
+
+// función que muestra los eventos filtrados
+function resetAndCreateEventsFiltered(listFiltered) {
+  const resetContent = document.querySelector(".container");
+  resetContent.innerHTML = "";
+  if (listFiltered.length === [].length) {
+    console.error("No hay eventos ni página de 404");
+  } else {
+    createEvent(resetContent, listFiltered);
+  }
+}
+
+// función de filtrar por fecha
+const btnEvent = document.querySelector("#submit");
+btnEvent.addEventListener("click", (e) => {
+  e.preventDefault();
+  let start = document.querySelector("#start").value;
+  let final = document.querySelector("#final").value;
+  if (start && final) {
+    const dateFrom = new Date(start);
+    const dateTo = new Date(final);
+    const listFilteredDate = currentListEvents.filter(event => {
+      if (event.dateFinal) {
+        return (event.dateStart.getTime() >= dateFrom.getTime() && event.dateStart.getTime() <= dateTo.getTime()) ||
+          (event.dateFinal.getTime() >= dateFrom.getTime() && event.dateFinal.getTime() <= dateTo.getTime()) ||
+          (event.dateStart.getTime() <= dateFrom.getTime() && event.dateFinal.getTime() >= dateTo.getTime());
+      } else {
+        return (event.dateStart.getTime() >= dateFrom.getTime() && event.dateStart.getTime() <= dateTo.getTime());
+      }
+    });
+    /*
+    * El evento:
+    * - Empieza en el rango
+    * - Termina en el rango
+    * - Dura más que el rango
+    */
+    resetAndCreateEventsFiltered(listFilteredDate);
+  }
+});
+
+// Cambio de color al seleccionar en NavBar
+const divList = document.querySelectorAll(".navegation > div");
+const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
+const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded";
+divList.forEach(div => {
+  div.addEventListener("click", () => {
+    divList.forEach(div => div.className = navUnselected);
+    div.className = navSelected;
+  })
+})
+// reset de eventos al usar NavBar
+divList.forEach(category => category.addEventListener("click", (e) => {
+  const idCategory = e.currentTarget.id;
+  switch (idCategory) {
+    case "all":
+      resetAndCreateEventsFiltered(allEvents);
+      break;
+    case "bookmark":
+      filterBookmarks();
+      break;
+    default:
+      resetAndCreateEventsFiltered(allEvents.filter(events => events.category.includes(idCategory)));
+      break;
+  }
+}));
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("bookmark") != null) {
+    let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
+    arrayBookMark = uploadEvents;
+  }
+  createAll();
+  currentListEvents = allEvents;
+  responsiveFooter();
+});
+
+const requestCalendar = (e) => {
+  e.preventDefault;
+  e.stopPropagation;
+  const BtnId = e.currentTarget.dataset.name;
+  let dataEvent = currentListEvents.find((el) => el.id === BtnId);
+  let start = moment(dataEvent.dateStart).format('YYYYMMDD');
+  let end = moment(dataEvent.dateStart).add(1, "days").format('YYYYMMDD');
+  if (dataEvent.hasOwnProperty('dateFinal')) {
+    end = moment(dataEvent.dateFinal).add(1, "days").format('YYYYMMDD');
+  }
+  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${dataEvent.nameEvent}&location=${dataEvent.site}&dates=${start}/${end}`;
+  window.open(URL, "_blank")
 }
