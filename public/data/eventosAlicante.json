@@ -976,7 +976,7 @@
     "cityLocation": "Alicante",
     "village": false,
     "hoursOpen": "12:00",
-    "dateStart": "2022/02/5",
+    "dateStart": "2022/02/05",
     "category": [
       "Theatre",
       "Kids"
@@ -1367,6 +1367,8 @@
     "site": "IFA. Carretera N-340, km 731, 03320 Elche.",
     "cityLocation": "Elche",
     "village": true,
+    "dateStart": "2022/04/23",
+    "datefinal": "2022/04/24",
     "category": [
       "Play"
     ],
