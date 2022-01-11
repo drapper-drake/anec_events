@@ -517,3 +517,16 @@ const requestCalendar = (e) => {
   const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${dataEvent.nameEvent}&location=${dataEvent.site}&dates=${start}/${end}`;
   window.open(URL, "_blank")
 }
+
+// animación de la hamburguesa del header
+const hamburguer = document.querySelector(".hamburguer");
+hamburguer.addEventListener("click", () => {
+  const bar1 = document.querySelector(".bar-1");
+  const bar2 = document.querySelector(".bar-2");
+  const bar3 = document.querySelector(".bar-3");
+  bar1.classList.toggle("rotate-45");
+  bar1.classList.toggle("-translate-y-1.5");
+  bar2.classList.toggle("opacity-0");
+  bar3.classList.toggle("-rotate-45");
+  bar3.classList.toggle("translate-y-1.5");
+});

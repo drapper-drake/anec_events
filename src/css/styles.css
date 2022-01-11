@@ -1,17 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,400;0,700;1,100;1,400;1,700&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  font-family: 'Lobster Two', cursive;
-  text-shadow: 4px 0 0 #0b4da5;
+h1{
+  text-shadow: 5px 0 0 #0B3762;
 }
+
 
 @layer components {
   .modal-container {
-    @apply w-full h-screen bg-neutral-900 bg-opacity-70 flex justify-center items-center fixed top-0 left-0 z-[2] ;
+    @apply w-full h-screen bg-neutral-900 bg-opacity-70 flex justify-center items-center fixed top-0 left-0 z-[3] ;
   }
   .modal {
     @apply w-full h-screen bg-light overflow-y-scroll flex flex-col justify-around items-center font-sans text-bg-light text-center md:w-3/4 md:h-3/4 md:overflow-y-hidden md:rounded-3xl md:flex-row md:justify-around md:relative;
