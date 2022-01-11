@@ -119,3 +119,6 @@ dist
 
 # Por recomendación de Moi
 package-lock.json
+
+# Local Netlify folder
+.netlify

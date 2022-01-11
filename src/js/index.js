@@ -1,6 +1,9 @@
+import moment from 'moment';
+
 let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
+let listFilterDates = [];
 
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
@@ -13,7 +16,7 @@ function createAll() {
       for (let evento in data) {
         //Es un generador de Id basados en el nombre del evento
         let idEvent = data[evento].nameEvent;
-        idEvent = idEvent.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
+        idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
         data[evento].bookmark = arrayBookMark.includes(idEvent);
         data[evento].id = idEvent;
         allEvents.push(data[evento]);
@@ -54,7 +57,7 @@ function createEvent(container, listEvents) {
     let bookmark = document.createElement("img");
     bookmark.src = listEvents[position].bookmark ? "./img/icons/bookmark-selected.svg" : "./img/icons/bookmark.svg";
     bookmark.dataset.name = listEvents[position].id
-    bookmark.addEventListener('click', selectedBookmark)
+    bookmark.addEventListener("click", selectedBookmark)
     //IMAGEN
     let image = document.createElement("img");
     image.src = listEvents[position].photoEvent;
@@ -185,7 +188,7 @@ function dataModal(e) {
 }
 function createModal(id) {
   //QUITAR EL SCROLL DEL BODY
-  const body = document.querySelector('body');
+  const body = document.querySelector("body");
   body.classList.add("overflow-hidden");
   let dataEvent = currentListEvents.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
@@ -198,11 +201,11 @@ function createModal(id) {
   modal.className = "modal";
   modalBox.appendChild(modal);
   // IMAGEN
-  let fatherModalImagen = document.createElement('div');
+  let fatherModalImagen = document.createElement("div");
   fatherModalImagen.className = "modal-image";
   let modalImage = document.createElement("img");
   modalImage.src = dataEvent.photoEvent;
-  // añadimos la clase 'landscape' al modal de imágenes apaisadas
+  // añadimos la clase "landscape" al modal de imágenes apaisadas
   if (modalImage.naturalWidth > modalImage.naturalHeight) {
     fatherModalImagen.className = "modal-image landscape";
   }
@@ -241,6 +244,14 @@ function createModal(id) {
     }
     modalText.appendChild(description);
   }
+  //BOTÓN ADD CALENDAR
+  let btnCalendar = document.createElement("a");
+  btnCalendar.className = "btn-addCalendar py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
+  btnCalendar.textContent = "Añadir al calendario";
+  btnCalendar.target = "blank"
+  btnCalendar.dataset.name = id;
+  btnCalendar.addEventListener("click", requestCalendar);
+  modalText.appendChild(btnCalendar);
   // BOTÓN DE CIERRE
   let closeButton = document.createElement("img");
   closeButton.className = "close";
@@ -268,8 +279,7 @@ function dateFormat(month, dateShort = false) {
   if (dateShort) {
     monthFormat = monthFormat.toUpperCase().substring(0, 3)
   }
-  return `${month.getDate()} ${monthFormat} ${year} `
-    ;
+  return `${month.getDate()} ${monthFormat} ${year} `;
 }
 
 //Comprobar los de todo el año
@@ -303,22 +313,7 @@ function selectedBookmark(e) {
   saveLocalStorage();
 }
 
-function filterBookmarks() {
-  let listFilteredBookmark = [];
-  for (let index in arrayBookMark) {
-    for (let position in allEvents) {
-      if (allEvents[position].id === arrayBookMark[index]) {
-        listFilteredBookmark.push(allEvents[position]);
-      }
-    }
-  }
-  // ! Creo que el problema es que no actualizan a current list event
-  resetAndCreateEventsFiltered(listFilteredBookmark);
-}
-
-
 // Función del slider de logos de patrocinadores
-
 const Sponsors = document.querySelectorAll(".container-img > img");
 
 let indexSlider = 0;
@@ -374,16 +369,15 @@ window.onscroll = () => {
 function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
-  // ? pagination(listFiltered)
   if (listFiltered.length === [].length) {
-    console.error('No hay eventos ni página de 404');
+    console.error("No hay eventos ni página de 404");
   } else {
     createEvent(resetContent, listFiltered);
   }
 }
 
 // función de filtrar por fecha
-const btnEvent = document.querySelector('#submit');
+const btnEvent = document.querySelector("#submit");
 btnEvent.addEventListener("click", (e) => {
   e.preventDefault();
   let start = document.querySelector("#start").value;
@@ -391,7 +385,8 @@ btnEvent.addEventListener("click", (e) => {
   if (start && final) {
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
-    const listFilteredDate = currentListEvents.filter(event => {
+    // * He cambiado la variable por una global para que funcione con la paginación
+    listFilterDates = currentListEvents.filter(event => {
       if (event.dateFinal) {
         return (event.dateStart.getTime() >= dateFrom.getTime() && event.dateStart.getTime() <= dateTo.getTime()) ||
           (event.dateFinal.getTime() >= dateFrom.getTime() && event.dateFinal.getTime() <= dateTo.getTime()) ||
@@ -399,7 +394,6 @@ btnEvent.addEventListener("click", (e) => {
       } else {
         return (event.dateStart.getTime() >= dateFrom.getTime() && event.dateStart.getTime() <= dateTo.getTime());
       }
-
     });
     /*
     * El evento:
@@ -407,7 +401,8 @@ btnEvent.addEventListener("click", (e) => {
     * - Termina en el rango
     * - Dura más que el rango
     */
-    resetAndCreateEventsFiltered(listFilteredDate);
+    activeCategory = "date";
+    resetAndCreateEventsFiltered(listFilterDates);
   }
 });
 
@@ -425,20 +420,25 @@ divList.forEach(div => {
 divList.forEach(category => category.addEventListener("click", (e) => {
   const idCategory = e.currentTarget.id;
   activeCategory = idCategory;
+
   switch (idCategory) {
     case "all":
       resetAndCreateEventsFiltered(allEvents);
       break;
     case "bookmark":
-      filterBookmarks();
+      let listBookmark = allEvents.filter(events => events.bookmark);
+      console.log(listBookmark)
+      pagination(listBookmark);
+      listBookmark = divideListEventForPagination(1, listBookmark);
+      resetAndCreateEventsFiltered(listBookmark);
+      //todo revisar como incorporar la lista de favoritos
+
+      //filterBookmarks();
       break;
     default:
-
       let listCategoryEvent = allEvents.filter(events => events.category.includes(idCategory));
-      console.log("Categoria : ", category, " Listado de la categoria ", listCategoryEvent)
       pagination(listCategoryEvent);
       listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
-      console.log("Categoria : ", category, " Listado de la categoria pasado por la division", listCategoryEvent)
       resetAndCreateEventsFiltered(listCategoryEvent);
       break;
   }
@@ -462,9 +462,20 @@ function pagination(listEvents) {
   }
 }
 function divideListEventForPagination(numberPage) {
-
-  let list = activeCategory === "all" ? [...allEvents] : allEvents.filter(events => events.category.includes(activeCategory));
-  // let list = [...currentListEvents]
+  let list = [];
+  switch (activeCategory) {
+    case "all":
+      list = [...allEvents];
+      break;
+    case "date":
+      list = [...listFilterDates]
+      break;
+    case "bookmark":
+      list = allEvents.filter(event => event.bookmark)
+      break;
+    default:
+      list = allEvents.filter(event => event.category.includes(activeCategory));
+  }
   let min = 0;
   let max = 12;
   if (numberPage === 1) {
@@ -480,7 +491,6 @@ function divideListEventForPagination(numberPage) {
 function changePagination(e) {
   document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
   e.currentTarget.className = e.currentTarget.className === pageSelected ? pageUnSelected : pageSelected;
-  // TODO tengo que ver como actualizar en cada caso la lista de eventos que estan puestos para poder pasarlo
   const listPagination = divideListEventForPagination(Number(e.currentTarget.textContent));
   resetAndCreateEventsFiltered(listPagination)
 }
@@ -493,3 +503,17 @@ window.addEventListener("DOMContentLoaded", () => {
   // currentListEvents = allEvents;
   responsiveFooter();
 });
+
+const requestCalendar = (e) => {
+  e.preventDefault;
+  e.stopPropagation;
+  const BtnId = e.currentTarget.dataset.name;
+  let dataEvent = currentListEvents.find((el) => el.id === BtnId);
+  let start = moment(dataEvent.dateStart).format('YYYYMMDD');
+  let end = moment(dataEvent.dateStart).add(1, "days").format('YYYYMMDD');
+  if (dataEvent.hasOwnProperty('dateFinal')) {
+    end = moment(dataEvent.dateFinal).add(1, "days").format('YYYYMMDD');
+  }
+  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${dataEvent.nameEvent}&location=${dataEvent.site}&dates=${start}/${end}`;
+  window.open(URL, "_blank")
+}
