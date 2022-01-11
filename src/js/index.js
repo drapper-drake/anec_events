@@ -263,6 +263,8 @@ function createModal(id) {
       body.classList.remove("overflow-hidden");
     }
   });
+
+  resetAndCreateInfoPage()
 }
 
 // Función que convierte número del mes en nombre del mes reducido en español
@@ -383,6 +385,16 @@ function resetAndCreateEventsFiltered(listFiltered) {
     createEvent(resetContent, listFiltered);
   }
 }
+
+//Borra tarjetas repinta página de eventos
+function resetAndCreateInfoPage(){
+  const resetContent = document.querySelector(".container");
+  const resetNav = document.querySelector(".container-nav")
+  resetContent.innerHTML = "";
+  resetNav.innerHTML = "FUNCIONO";
+  
+}
+
 
 // función de filtrar por fecha
 const btnEvent = document.querySelector("#submit");

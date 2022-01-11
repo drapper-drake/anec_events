@@ -21,6 +21,7 @@ module.exports = {
       "contrast-bg-dark": "#ffa438",
       "links-cta": "#ffa438",
       "links-visited": "#8197ba",
+      "pink": "#ffc0cb",
       "neutral": {
         100: "#f5f5f5",
         200: "#e5e5e5",
