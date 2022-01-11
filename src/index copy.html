@@ -11,22 +11,26 @@
   <title>Ànec Events</title>
 </head>
 
-<body class="w-full flex flex-col min-h-screen m-0 bg-light">
-  <header
-    class="w-full h-[450px] bg-[url('/img/Pato-de-pie-mobile.png')] bg-no-repeat bg-center flex justify-center items-center md:bg-[url('/img/sitting-4.png')] md:justify-around ">
-    <div class="w-min h-min relative text-center font-sans">
-      <div class="w-[400px] md:w-[600px] h-[330px] flex flex-col justify-between items-center relative">
-        <h1 class="text-links-cta  text-left text-7xl font-bold absolute -top-4">
-          Ànec Events
-        </h1>
-        <h2
-          class="description-header w-2/3 text-dark font-sans font-bold translate-x-[1/2] md:text-bg-dark md:font-normal md:translate-x-10 text-4xl absolute top-56 md:top-40 ">
-          Eventos para todos en Alicante
-        </h2>
-      </div>
+<body class="w-full flex flex-col min-h-screen m-0 bg-light pt-40">
+  <header class="fixed top-0 z-[2] w-full h-20 md:h-32 bg-bg-dark-80 flex justify-around">
+    <div class="flex justify-center items-center">
+      <img class="m-2.5 w-12 h-12 md:w-16 md:h-16" src="./img/Favicon.png" alt="Logo">
+      <h1 class="m-2.5 font-cursive text-4xl text-links-cta md:text-6xl">Ànec events</h1>
     </div>
+    <div class="flex justify-center items-center gap-4">
+      <button class="hamburguer md:hidden text-neutral-500 w-10 h-10 relative focus:outline-none bg-white" @click="open = !open">
+          <span class="sr-only" >Open main menu</span>
+          <div class="flex flex-col w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <span aria-hidden="true" class="bar-1 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out -translate-y-1.5"></span>
+              <span aria-hidden="true" class="bar-2 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out"></span>
+              <span aria-hidden="true" class="bar-3 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out translate-y-1.5"></span>
+          </div>
+      </button>
+      <button class="hidden  md:block text-bg-dark font-sans text-lg cursor-pointer">Entrar</button>
+      <button class="hidden md:block text-bg-dark font-sans text-lg  bg-contrast-bg-dark border-solid rounded-2xl p-2.5 cursor-pointer duration-700 hover:bg-light hover:border-contrast-bg-light hover:text-contrast-bg-light">Crear cuenta</button>
+    </div>
+    
   </header>
-
   <div class="container-nav w-full flex flex-col justify-center text-bg-dark">
     <div
       class="navegation ml-1 flex justify-start gap-3 md:flex-row overflow-x-scroll overflow-hidden lg:justify-center xl:overflow-x-hidden">
