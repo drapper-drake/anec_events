@@ -406,44 +406,44 @@ btnEvent.addEventListener("click", (e) => {
   }
 });
 
-// Cambio de color al seleccionar en NavBar
-const divList = document.querySelectorAll(".navegation > div");
-const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
-const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded";
-divList.forEach(div => {
-  div.addEventListener("click", () => {
-    divList.forEach(div => div.className = navUnselected);
-    div.className = navSelected;
-  })
-})
-// reset de eventos al usar NavBar
-divList.forEach(category => category.addEventListener("click", (e) => {
-  const idCategory = e.currentTarget.id;
-  activeCategory = idCategory;
+// Funciones de cambio de estilo y filtrado por categoria
+const DivFilterCategory = document.querySelectorAll(".navegation > div");
 
-  switch (idCategory) {
+const ChangeStyleAndFilter = (div) => {
+  div.addEventListener("click", (e) => {
+    const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
+    const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer  bg-dark rounded";
+    DivFilterCategory.forEach(div => div.className = navUnselected);
+
+    div.className = navSelected;
+    const idCategory = e.currentTarget.id;
+    //Cambio Color SVG
+    document.querySelectorAll(`svg >path`).forEach(path => path.classList.remove("fill-dark")); // Pasan todos a Blanco
+    document.querySelectorAll(`#icon-${idCategory} >path`).forEach(path => path.classList.add("fill-dark")) //El seleccionado pasa Azul
+    activeCategory = idCategory;
+    filterByCategory(idCategory)
+  })
+}
+const filterByCategory = (category) => {
+  switch (category) {
     case "all":
       resetAndCreateEventsFiltered(allEvents);
       break;
     case "bookmark":
       let listBookmark = allEvents.filter(events => events.bookmark);
-      console.log(listBookmark)
       pagination(listBookmark);
       listBookmark = divideListEventForPagination(1, listBookmark);
       resetAndCreateEventsFiltered(listBookmark);
-      //todo revisar como incorporar la lista de favoritos
-
-      //filterBookmarks();
       break;
     default:
-      let listCategoryEvent = allEvents.filter(events => events.category.includes(idCategory));
+      let listCategoryEvent = allEvents.filter(events => events.category.includes(category));
       pagination(listCategoryEvent);
       listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
       resetAndCreateEventsFiltered(listCategoryEvent);
       break;
   }
-
-}));
+}
+DivFilterCategory.forEach(ChangeStyleAndFilter);
 const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded "
 const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light "
 
