@@ -427,7 +427,10 @@ const ChangeStyleAndFilter = (div) => {
 const filterByCategory = (category) => {
   switch (category) {
     case "all":
-      resetAndCreateEventsFiltered(allEvents);
+      let list = [...allEvents];
+      pagination(list);
+      list = divideListEventForPagination(1, list);
+      resetAndCreateEventsFiltered(list);
       break;
     case "bookmark":
       let listBookmark = allEvents.filter(events => events.bookmark);
