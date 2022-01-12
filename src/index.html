@@ -12,28 +12,27 @@
 </head>
 
 <body class="w-full flex flex-col min-h-screen m-0 bg-light pt-40">
-  <header class="fixed top-0 z-[2] w-full h-20 md:h-32 bg-bg-dark-80 flex justify-around">
-    <div class="flex justify-center items-center">
-      <img class="m-2.5 w-12 h-12 md:w-16 md:h-16" src="./img/Favicon.png" alt="Logo">
-      <h1 class="m-2.5 font-cursive text-4xl text-links-cta md:text-6xl">Ànec events</h1>
-    </div>
+
+  <header class="fixed top-0 z-[2] w-full h-20 md:h-32 bg-bg-dark-80 flex justify-around drop-shadow-[0_8px_10px_rgba(0,0,0,0.25)]">
     <div class="flex justify-center items-center gap-4">
-      <button class="hamburguer md:hidden text-neutral-500 w-10 h-10 relative focus:outline-none bg-white"
-        @click="open = !open">
-        <span class="sr-only">Open main menu</span>
+      <img class="w-12 h-12 md:w-16 md:h-16" src="./img/Favicon.png" alt="Logo">
+      <h1 class="font-cursive text-4xl text-links-cta md:text-6xl">Ànec events</h1>
+    </div>
+    <div class="relative flex justify-center items-center gap-4">
+      <button class="hamburguer md:hidden text-neutral-500 w-10 h-10 relative focus:outline-none bg-white">
+        <span class="sr-only">Abrir menú</span>
         <div class="flex flex-col w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-          <span aria-hidden="true"
-            class="bar-1 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out -translate-y-1.5"></span>
-          <span aria-hidden="true"
-            class="bar-2 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out"></span>
-          <span aria-hidden="true"
-            class="bar-3 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out translate-y-1.5"></span>
+          <span aria-hidden="true" class="bar-1 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out -translate-y-1.5"></span>
+          <span aria-hidden="true" class="bar-2 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out"></span>
+          <span aria-hidden="true" class="bar-3 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out translate-y-1.5"></span>
         </div>
       </button>
-      <button class="hidden  md:block text-bg-dark font-sans text-lg cursor-pointer">Entrar</button>
-      <button
-        class="hidden md:block text-bg-dark font-sans text-lg  bg-contrast-bg-dark border-solid rounded-2xl p-2.5 cursor-pointer duration-700 hover:bg-light hover:border-contrast-bg-light hover:text-contrast-bg-light">Crear
-        cuenta</button>
+      <div class="fixed top-20 md:top-0 left-0 w-full md:w-52 flex flex-col md:flex-row md:justify-center md:items-center md:gap-4 md:relative
+      bg-light md:bg-opacity-0 drop-shadow-[0_8px_10px_rgba(0,0,0,0.25)]">
+        <button class="log-in hidden md:block h-16 md:h-12 text-bg-light md:text-bg-dark font-sans text-lg cursor-pointer border-b md:border-b-0">Entrar</button>
+        <button class="sign-in hidden md:block h-16 md:h-12 text-bg-dark-80 md:text-bg-dark font-sans text-lg md:bg-contrast-bg-dark md:border-solid md:rounded-2xl p-2.5
+        cursor-pointer md:duration-700 md:hover:bg-light md:hover:border-contrast-bg-light md:hover:text-contrast-bg-light">Crear cuenta</button>
+      </div>
     </div>
   </header>
 
@@ -149,8 +148,8 @@
           class="m-1 w-40 cursor-pointer text-neutral-600 text-sm text-right rounded border-2 border-solid border-dark"
           type="date" id="final" required>
         <button
-          class="m-1 w-20 font-sans font-bold cursor-pointer rounded text-dark bg-links-cta border-2 border-solid border-links-cta shadow-md hover:bg-light hover:border-dark"
-          id="submit">Buscar</button>
+          class="m-1 w-20 font-sans font-bold cursor-pointer rounded text-dark bg-links-cta border-2 border-solid border-links-cta shadow-md
+          hover:bg-light hover:border-dark" id="submit">Buscar</button>
       </form>
     </div>
   </div>
