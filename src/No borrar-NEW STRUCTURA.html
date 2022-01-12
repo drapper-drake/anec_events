@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="icon" href="./img/Favicon.png" type="image/x-icon" />
+  <script type="module" src="./js/index.js"></script>
+  <title>Ànec Events</title>
+</head>
+
+<body class="w-full flex flex-col min-h-screen m-0 bg-light pt-24 md:pt-40 ">
+  <header class="fixed top-0 z-[2] w-full h-20 md:h-32 bg-bg-dark-80 flex justify-around">
+    <div class="flex justify-center items-center">
+      <img class="m-2.5 w-12 h-12 md:w-16 md:h-16" src="./img/Favicon.png" alt="Logo">
+      <h1 class="m-2.5 font-cursive text-4xl text-links-cta md:text-6xl">Ànec events</h1>
+    </div>
+    <div class="flex justify-center items-center gap-4">
+      <button class="hamburguer md:hidden text-neutral-500 w-10 h-10 relative focus:outline-none bg-white" @click="open = !open">
+          <span class="sr-only" >Open main menu</span>
+          <div class="flex flex-col w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <span aria-hidden="true" class="bar-1 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out -translate-y-1.5"></span>
+              <span aria-hidden="true" class="bar-2 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out"></span>
+              <span aria-hidden="true" class="bar-3 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out translate-y-1.5"></span>
+          </div>
+      </button>
+      <button class="hidden  md:block text-bg-dark font-sans text-lg cursor-pointer">Entrar</button>
+      <button class="hidden md:block text-bg-dark font-sans text-lg  bg-contrast-bg-dark border-solid rounded-2xl p-2.5 cursor-pointer duration-700 hover:bg-light hover:border-contrast-bg-light hover:text-contrast-bg-light">Crear cuenta</button>
+    </div>
+
+  </header>
+  <main class="flex justify-center content-center">
+    <div class="container w-full flex flex-col justify-center text-bg-light">
+      <div class="info-container md:border-solid  md:shadow-lg">
+        <div class="top-info flex flex-col justify-around items-center md:flex-row">
+          <div class="img-container min-w-sm p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-none">
+            <img class="w-full rounded-2xl"  src="https://www.costacruceros.com/content/dam/costa/costa-magazine/articles-magazine/beaches/malaga-beaches/malaga-spiagge_m.jpg.image.694.390.low.jpg" alt="">
+            <div class="bookmark"></div>
+          </div>
+
+          <div class="info-event flex flex-col w-96 gap-2 relative md:max-w-sm lg:max-w-sm">
+            <h2 class="text-center font-serif text-3xl font-bold p-5">Explorar, jugar, cocinar y disfrutar como un local</h2>
+            <div id="category" class="flex justify-start gap-2 py-1 px-2">
+              <svg class="w-6 h-6 -ml-1" width="22" height="22" viewBox="0 0 50 50" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M48.8906 0.567208C48.545 0.316753 48.1425 0.142702 47.7137 0.0582703C47.2849 -0.0261613 46.8409 -0.0187528 46.4157 0.0799331L15.6447 7.22277C15.0205 7.36763 14.4664 7.70208 14.0704 8.17293C13.6745 8.64379 13.4594 9.22403 13.4594 9.82142V32.8905C11.5618 32.1217 9.44757 31.9423 7.43124 32.3788C5.41492 32.8154 3.60423 33.8446 2.2685 35.3134C0.932772 36.7822 0.143375 38.6122 0.0177273 40.531C-0.10792 42.4499 0.436896 44.3552 1.57114 45.9634C2.70538 47.5717 4.36844 48.797 6.31295 49.4572C8.25746 50.1173 10.3795 50.177 12.3635 49.6273C14.3475 49.0776 16.0874 47.948 17.3244 46.4064C18.5613 44.8649 19.2293 42.9937 19.229 41.0713V22.6272L44.2304 16.8236V25.7477C42.3328 24.9789 40.2186 24.7994 38.2022 25.236C36.1859 25.6725 34.3752 26.7017 33.0395 28.1706C31.7038 29.6394 30.9144 31.4693 30.7887 33.3882C30.6631 35.3071 31.2079 37.2123 32.3421 38.8206C33.4764 40.4288 35.1394 41.6542 37.084 42.3143C39.0285 42.9745 41.1505 43.0341 43.1345 42.4845C45.1185 41.9348 46.8584 40.8052 48.0954 39.2636C49.3323 37.722 50.0003 35.8509 50 33.9285V2.67858C50.0001 2.27151 49.9002 1.86977 49.7079 1.50391C49.5157 1.13806 49.2361 0.817706 48.8906 0.567208ZM9.61306 44.6427C8.85232 44.6427 8.10866 44.4333 7.47613 44.0408C6.84359 43.6484 6.35059 43.0906 6.05947 42.438C5.76835 41.7854 5.69218 41.0673 5.84059 40.3746C5.989 39.6818 6.35534 39.0454 6.89326 38.5459C7.43119 38.0465 8.11654 37.7063 8.86267 37.5685C9.60879 37.4307 10.3822 37.5014 11.085 37.7717C11.7878 38.0421 12.3886 38.4998 12.8112 39.0871C13.2338 39.6745 13.4594 40.3649 13.4594 41.0713C13.4583 42.0182 13.0527 42.926 12.3316 43.5955C11.6105 44.265 10.6328 44.6417 9.61306 44.6427ZM19.229 17.1049V11.9129L44.2304 6.10938V11.3013L19.229 17.1049ZM40.3841 37.4999C39.6233 37.4999 38.8797 37.2904 38.2471 36.898C37.6146 36.5056 37.1216 35.9478 36.8305 35.2952C36.5393 34.6426 36.4632 33.9245 36.6116 33.2317C36.76 32.5389 37.1263 31.9026 37.6643 31.4031C38.2022 30.9036 38.8875 30.5635 39.6337 30.4257C40.3798 30.2879 41.1532 30.3586 41.856 30.6289C42.5588 30.8992 43.1596 31.357 43.5822 31.9443C44.0048 32.5316 44.2304 33.2221 44.2304 33.9285C44.2293 34.8753 43.8237 35.7831 43.1026 36.4527C42.3815 37.1222 41.4038 37.4988 40.3841 37.4999Z"
+                  fill="#342618" />
+              </svg>
+              <p>Gastronómico</p>
+            </div>
+            <div id="city-location" class="flex justify-start items-center gap-2 py-1 px-2 rounded">
+              <svg width="22" height="22" viewBox="0 0 16 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.83333 5.0415C8.55163 5.0415 9.2405 5.32685 9.74841 5.83476C10.2563 6.34267 10.5417 7.03154 10.5417 7.74984C10.5417 8.1055 10.4716 8.45768 10.3355 8.78627C10.1994 9.11486 9.99991 9.41343 9.74841 9.66492C9.49692 9.91641 9.19836 10.1159 8.86977 10.252C8.54118 10.3881 8.189 10.4582 7.83333 10.4582C7.11504 10.4582 6.42616 10.1728 5.91825 9.66492C5.41034 9.15701 5.125 8.46813 5.125 7.74984C5.125 7.03154 5.41034 6.34267 5.91825 5.83476C6.42616 5.32685 7.11504 5.0415 7.83333 5.0415ZM7.83333 0.166504C9.84456 0.166504 11.7734 0.96546 13.1956 2.38761C14.6177 3.80976 15.4167 5.73861 15.4167 7.74984C15.4167 13.4373 7.83333 21.8332 7.83333 21.8332C7.83333 21.8332 0.25 13.4373 0.25 7.74984C0.25 5.73861 1.04896 3.80976 2.47111 2.38761C3.89326 0.96546 5.82211 0.166504 7.83333 0.166504ZM7.83333 2.33317C6.39674 2.33317 5.01899 2.90385 4.00317 3.91968C2.98735 4.9355 2.41667 6.31325 2.41667 7.74984C2.41667 8.83317 2.41667 10.9998 7.83333 18.269C13.25 10.9998 13.25 8.83317 13.25 7.74984C13.25 6.31325 12.6793 4.9355 11.6635 3.91968C10.6477 2.90385 9.26992 2.33317 7.83333 2.33317Z" fill="#342618"/>
+                </svg>
+              <p>IFA. Carretera N-340, hm 731, 03320 Elche.</p>
+            </div>
+            <div id="date" class="flex justify-start items-center gap-2 py-1 px-2 rounded">
+              <svg width="22" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.0999 19.6402H2.16654V7.76019H17.0999V19.6402ZM13.8999 0.200195V2.3602H5.36654V0.200195H3.2332V2.3602H2.16654C0.982536 2.3602 0.0332031 3.3214 0.0332031 4.5202V19.6402C0.0332031 20.2131 0.257964 20.7625 0.658042 21.1675C1.05812 21.5726 1.60074 21.8002 2.16654 21.8002H17.0999C17.6657 21.8002 18.2083 21.5726 18.6084 21.1675C19.0084 20.7625 19.2332 20.2131 19.2332 19.6402V4.5202C19.2332 3.94733 19.0084 3.39792 18.6084 2.99284C18.2083 2.58777 17.6657 2.3602 17.0999 2.3602H16.0332V0.200195" fill="#342618"/>
+              </svg>
+              <p>Del 26 de Febrero de 2022 al 27 de Febrero de 2022 </p>
+            </div>
+
+            <div id="hours" class="flex justify-start items-center gap-2 py-1 px-2 rounded">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.8333 19.6665C15.6 19.6665 19.5 15.7665 19.5 10.9998C19.5 6.23317 15.6 2.33317 10.8333 2.33317C6.06667 2.33317 2.16667 6.23317 2.16667 10.9998C2.16667 15.7665 6.06667 19.6665 10.8333 19.6665ZM10.8333 0.166504C16.7917 0.166504 21.6667 5.0415 21.6667 10.9998C21.6667 16.9582 16.7917 21.8332 10.8333 21.8332C4.875 21.8332 0 16.9582 0 10.9998C0 5.0415 4.875 0.166504 10.8333 0.166504ZM16.25 13.0582L15.4917 14.4665L9.75 11.3248V5.58317H11.375V10.3498L16.25 13.0582Z" fill="#342618"/>
+              </svg>
+              <p>De 10:30 a 21:30</p>
+            </div>
+
+            <button class="btn-calendar mt-3.5 font-sans bg-dark self-center text-light rounded-md cursor-pointer transition-all delay-150 hover:bg-contrast-bg-light px-6 py-1">Añadir al calendario</button>
+            <div id="price" class="flex justify-start items-center self-start py-1 rounded">
+              <svg class="relative top-1" width="44" height="44" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.0004 21.2C21.0494 21.2009 20.1164 20.9401 19.3037 20.4463C18.491 19.9524 17.8297 19.2445 17.3924 18.4H21.2004C21.6404 18.4 22.0004 18.04 22.0004 17.6C22.0004 17.16 21.6404 16.8 21.2004 16.8H16.8644C16.8244 16.536 16.8004 16.272 16.8004 16C16.8004 15.728 16.8244 15.464 16.8644 15.2H21.2004C21.6404 15.2 22.0004 14.84 22.0004 14.4C22.0004 13.96 21.6404 13.6 21.2004 13.6H17.3924C17.8305 12.7562 18.4919 12.0488 19.3045 11.5551C20.117 11.0613 21.0496 10.8002 22.0004 10.8C23.0004 10.8 23.9364 11.088 24.7364 11.576C25.1364 11.824 25.6564 11.784 25.9924 11.448C26.4564 10.984 26.3524 10.224 25.7924 9.88005C24.6529 9.17556 23.3401 8.80164 22.0004 8.80005C18.8644 8.80005 16.2084 10.808 15.2164 13.6H13.2004C12.7604 13.6 12.4004 13.96 12.4004 14.4C12.4004 14.84 12.7604 15.2 13.2004 15.2H14.8484C14.7836 15.7314 14.7836 16.2687 14.8484 16.8H13.2004C12.7604 16.8 12.4004 17.16 12.4004 17.6C12.4004 18.04 12.7604 18.4 13.2004 18.4H15.2164C16.2084 21.192 18.8644 23.2 22.0004 23.2C23.3924 23.2 24.6884 22.808 25.7924 22.12C26.3444 21.776 26.4484 21.008 25.9844 20.544C25.6484 20.208 25.1284 20.168 24.7284 20.424C23.9364 20.92 23.0084 21.2 22.0004 21.2Z" fill="#342618"/>
+              </svg>
+              <p>Desde 10 €</p>
+            </div>
+          </div>
+        </div>
+        <div class="share-bar flex flex-col content-center justify-around h-36 mt-5 md:flex-row md:border-y md:border-neutral-300 border-opacity-5">
+          <button class="btn-more-info font-sans bg-links-cta self-center border-4 border-solid border-links-cta font-bold rounded-md cursor-pointer transition-all text-dark delay-150 duration-700 hover:bg-light hover:border-contrast-bg-light hover:text-contrast-bg-light px-4 py-1 mb-5 md:mb-0 md:order-1">Más información</button>
+          <div class="h-10 share-icon cursor-pointer flex flex-row justify-center items-center mb-5 md:self-center md:mb-0">
+            <svg width="30" height="30" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 17.5C0 20.7161 2.77118 23.3333 6.17647 23.3333C7.81118 23.3333 9.28941 22.7208 10.395 21.7389L22.7294 28.3967C22.6924 28.6494 22.6471 28.9022 22.6471 29.1667C22.6471 32.3828 25.4182 35 28.8235 35C32.2288 35 35 32.3828 35 29.1667C35 25.9506 32.2288 23.3333 28.8235 23.3333C27.1888 23.3333 25.7106 23.9458 24.605 24.9278L12.2706 18.2719C12.3076 18.0172 12.3529 17.7644 12.3529 17.5C12.3529 17.2356 12.3076 16.9828 12.2706 16.7281L24.605 10.0722C25.7106 11.0542 27.1888 11.6667 28.8235 11.6667C32.2288 11.6667 35 9.04944 35 5.83333C35 2.61722 32.2288 0 28.8235 0C25.4182 0 22.6471 2.61722 22.6471 5.83333C22.6471 6.09778 22.6924 6.35056 22.7294 6.60528L10.395 13.2611C9.25648 12.2397 7.74681 11.6691 6.17647 11.6667C2.77118 11.6667 0 14.2839 0 17.5Z" fill="#342618"/>
+            </svg>
+            <p class="text-bg-light text-md pl-4">Comparte con tus amigos</p>
+          </div>
+          <div class="container-social flex flex-row justify-evenly md:self-center md:w-1/5">
+            <svg width="46" height="35" viewBox="0 0 46 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M46 4.15164C44.3084 4.85321 42.4911 5.32725 40.5807 5.54151C42.5519 4.43756 44.0267 2.70008 44.7298 0.653256C42.8778 1.68284 40.8509 2.40756 38.7372 2.7959C37.3158 1.37543 35.4331 0.433922 33.3814 0.117546C31.3297 -0.198829 29.2238 0.127629 27.3906 1.04624C25.5574 1.96484 24.0996 3.42421 23.2434 5.19775C22.3872 6.97129 22.1806 8.95978 22.6556 10.8545C18.903 10.6782 15.232 9.76526 11.8807 8.17507C8.52947 6.58488 5.57292 4.35294 3.20294 1.62408C2.39258 2.93242 1.92663 4.44933 1.92663 6.06485C1.92572 7.51918 2.30837 8.95124 3.04062 10.234C3.77288 11.5167 4.83209 12.6104 6.12428 13.4181C4.62568 13.3735 3.16014 12.9945 1.84964 12.3126V12.4264C1.84949 14.4662 2.60334 16.4432 3.98328 18.0219C5.36322 19.6007 7.28426 20.684 9.42042 21.088C8.03021 21.4401 6.57269 21.492 5.15793 21.2397C5.76063 22.9948 6.93463 24.5295 8.51559 25.6291C10.0965 26.7287 12.0053 27.338 13.9746 27.3718C10.6316 29.8281 6.5029 31.1605 2.2528 31.1546C1.49994 31.1548 0.74771 31.1136 0 31.0314C4.3141 33.6275 9.33602 35.0053 14.4649 35C31.8268 35 41.3182 21.5412 41.3182 9.86851C41.3182 9.48928 41.308 9.10626 41.2898 8.72703C43.136 7.47742 44.7296 5.93002 45.996 4.15733L46 4.15164V4.15164Z" fill="#342618"/>
+            </svg>
+            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M33.6 0H1.4C0.625625 0 0 0.625625 0 1.4V33.6C0 34.3744 0.625625 35 1.4 35H33.6C34.3744 35 35 34.3744 35 33.6V1.4C35 0.625625 34.3744 0 33.6 0ZM29.5575 10.2156H26.7619C24.57 10.2156 24.1456 11.2569 24.1456 12.7881V16.1612H29.3781L28.6956 21.4419H24.1456V35H18.69V21.4463H14.1269V16.1612H18.69V12.2675C18.69 7.74812 21.4506 5.285 25.4844 5.285C27.4181 5.285 29.0763 5.42938 29.5619 5.495V10.2156H29.5575Z" fill="#342618"/>
+            </svg>
+            <svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2852 0.105C12.1514 0.0190909 12.7464 0 17.5 0C22.2536 0 22.8486 0.0206818 24.7132 0.105C26.5777 0.189318 27.8505 0.486818 28.9641 0.917955C30.1302 1.35864 31.1882 2.0475 32.0632 2.93841C32.9541 3.81182 33.6414 4.86818 34.0805 6.03591C34.5132 7.14955 34.8091 8.42227 34.895 10.2836C34.9809 12.153 35 12.748 35 17.5C35 22.2536 34.9793 22.8486 34.895 24.7148C34.8107 26.5761 34.5132 27.8489 34.0805 28.9625C33.6413 30.1304 32.9529 31.1885 32.0632 32.0632C31.1882 32.9541 30.1302 33.6414 28.9641 34.0805C27.8505 34.5132 26.5777 34.8091 24.7164 34.895C22.8486 34.9809 22.2536 35 17.5 35C12.7464 35 12.1514 34.9793 10.2852 34.895C8.42386 34.8107 7.15114 34.5132 6.0375 34.0805C4.86965 33.6413 3.81153 32.9529 2.93682 32.0632C2.04651 31.1892 1.35755 30.1316 0.917955 28.9641C0.486818 27.8505 0.190909 26.5777 0.105 24.7164C0.0190909 22.847 0 22.252 0 17.5C0 12.7464 0.0206818 12.1514 0.105 10.2868C0.189318 8.42227 0.486818 7.14955 0.917955 6.03591C1.3582 4.86831 2.04769 3.81073 2.93841 2.93682C3.81188 2.04671 4.86893 1.35775 6.03591 0.917955C7.14955 0.486818 8.42227 0.190909 10.2836 0.105H10.2852ZM24.5716 3.255C22.7261 3.17068 22.1725 3.15318 17.5 3.15318C12.8275 3.15318 12.2739 3.17068 10.4284 3.255C8.72136 3.33295 7.79545 3.61773 7.17818 3.85795C6.36205 4.17614 5.77818 4.55318 5.16568 5.16568C4.58507 5.73054 4.13824 6.41818 3.85795 7.17818C3.61773 7.79545 3.33295 8.72136 3.255 10.4284C3.17068 12.2739 3.15318 12.8275 3.15318 17.5C3.15318 22.1725 3.17068 22.7261 3.255 24.5716C3.33295 26.2786 3.61773 27.2045 3.85795 27.8218C4.13795 28.5807 4.585 29.2695 5.16568 29.8343C5.73045 30.415 6.41932 30.862 7.17818 31.142C7.79545 31.3823 8.72136 31.667 10.4284 31.745C12.2739 31.8293 12.8259 31.8468 17.5 31.8468C22.1741 31.8468 22.7261 31.8293 24.5716 31.745C26.2786 31.667 27.2045 31.3823 27.8218 31.142C28.638 30.8239 29.2218 30.4468 29.8343 29.8343C30.415 29.2695 30.862 28.5807 31.142 27.8218C31.3823 27.2045 31.667 26.2786 31.745 24.5716C31.8293 22.7261 31.8468 22.1725 31.8468 17.5C31.8468 12.8275 31.8293 12.2739 31.745 10.4284C31.667 8.72136 31.3823 7.79545 31.142 7.17818C30.8239 6.36205 30.4468 5.77818 29.8343 5.16568C29.2694 4.58511 28.5818 4.13829 27.8218 3.85795C27.2045 3.61773 26.2786 3.33295 24.5716 3.255ZM15.2648 22.8948C16.5131 23.4144 17.9031 23.4845 19.1974 23.0932C20.4917 22.7018 21.6099 21.8733 22.3612 20.749C23.1125 19.6248 23.4501 18.2746 23.3164 16.929C23.1828 15.5835 22.5861 14.3261 21.6284 13.3716C21.0179 12.7614 20.2797 12.2942 19.4669 12.0036C18.6541 11.713 17.787 11.6063 16.9281 11.691C16.0691 11.7757 15.2396 12.0498 14.4992 12.4936C13.7589 12.9374 13.1262 13.5398 12.6466 14.2575C12.1671 14.9752 11.8526 15.7902 11.7258 16.644C11.5991 17.4978 11.6632 18.3691 11.9136 19.1951C12.164 20.0212 12.5944 20.7814 13.1739 21.4211C13.7533 22.0609 14.4674 22.5642 15.2648 22.8948ZM11.1395 11.1395C11.9748 10.3043 12.9664 9.64171 14.0577 9.18967C15.1491 8.73762 16.3188 8.50496 17.5 8.50496C18.6812 8.50496 19.8509 8.73762 20.9423 9.18966C22.0336 9.64171 23.0252 10.3043 23.8605 11.1395C24.6957 11.9748 25.3583 12.9664 25.8103 14.0577C26.2624 15.1491 26.495 16.3188 26.495 17.5C26.495 18.6812 26.2624 19.8509 25.8103 20.9423C25.3583 22.0336 24.6957 23.0252 23.8605 23.8605C22.1736 25.5473 19.8856 26.495 17.5 26.495C15.1144 26.495 12.8264 25.5473 11.1395 23.8605C9.45265 22.1736 8.50496 19.8856 8.50496 17.5C8.50496 15.1144 9.45265 12.8264 11.1395 11.1395ZM28.49 9.84455C28.697 9.64929 28.8627 9.41449 28.9773 9.15405C29.0919 8.89361 29.1531 8.61281 29.1573 8.3283C29.1614 8.04378 29.1084 7.76133 29.0014 7.49765C28.8945 7.23398 28.7357 6.99445 28.5345 6.79324C28.3333 6.59204 28.0938 6.43325 27.8301 6.32628C27.5664 6.21931 27.2839 6.16633 26.9994 6.17047C26.7149 6.17462 26.4341 6.23581 26.1737 6.35043C25.9132 6.46504 25.6784 6.63074 25.4832 6.83773C25.1034 7.24027 24.8955 7.77497 24.9036 8.3283C24.9117 8.88163 25.1351 9.41003 25.5264 9.80134C25.9177 10.1926 26.4461 10.416 26.9994 10.4241C27.5528 10.4322 28.0875 10.2243 28.49 9.84455Z" fill="#342618"/>
+            </svg>
+          </div>
+        </div>
+        <div class="bottom-info flex flex-col p-5 text-justify">
+          <p class="pb-9">Laoreet quis egestas et enim, risus mollis. Mauris molestie integer dictumst ut commodo. Morbi fermentum fusce urna viverra fusce risus. Montes, hendrerit facilisis risus massa consequat eu elit, est accumsan. Sagittis, porta porta malesuada volutpat purus viverra facilisis duis in. Metus tempus magna at euismod. Amet diam gravida facilisis accumsan, imperdiet vitae. Accumsan, condimentum ut habitant et semper donec. Purus ac amet lorem in. Nec nisl at ac justo vel sapien. Auctor sed in ac tortor netus eleifend potenti venenatis, tincidunt. Libero diam massa convallis lectus tellus, feugiat duis in nisl. Tortor, id tempor ligula eleifend diam, ullamcorper.</p>
+          <div class="map self-center">
+            <iframe class="pb-4" src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3129.241120802868!2d-0.4848759843955511!3d38.34340088701239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1641906796871!5m2!1ses!2ses" width="375" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="more-events-container w-11/12 self-center pt-5">
+        <div class="arrows-container flex flex-row justify-between">
+          <h3 class="md:text-xl">Otros eventos:</h3>
+          <div class="arrows flex">
+            <svg width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M26.125 4.125H6.875C6.14565 4.125 5.44618 4.41473 4.93046 4.93046C4.41473 5.44618 4.125 6.14565 4.125 6.875V26.125C4.125 26.8543 4.41473 27.5538 4.93046 28.0695C5.44618 28.5853 6.14565 28.875 6.875 28.875H26.125C27.6513 28.875 28.875 27.6513 28.875 26.125V6.875C28.875 6.14565 28.5853 5.44618 28.0695 4.93046C27.5538 4.41473 26.8543 4.125 26.125 4.125ZM21.6013 22.8113L19.6487 24.75L11.3987 16.5L19.6487 8.25L21.6013 10.1887L15.29 16.5L21.6013 22.8113V22.8113Z" fill="#023E73"/>
+            </svg>
+            <svg width="34" height="33" viewBox="0 0 34 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M26.9167 4.125H7.08333C6.33189 4.125 5.61122 4.41473 5.07986 4.93046C4.54851 5.44618 4.25 6.14565 4.25 6.875V26.125C4.25 26.8543 4.54851 27.5538 5.07986 28.0695C5.61122 28.5853 6.33189 28.875 7.08333 28.875H26.9167C28.4892 28.875 29.75 27.6513 29.75 26.125V6.875C29.75 6.14565 29.4515 5.44618 28.9201 4.93046C28.3888 4.41473 27.6681 4.125 26.9167 4.125ZM13.7558 24.75L11.7442 22.8113L18.2467 16.5L11.7442 10.1887L13.7558 8.25L22.2558 16.5L13.7558 24.75Z" fill="#023E73"/>
+            </svg>
+          </div>
+
+        </div>
+        <div class="more-events p-5 md:w-full md:flex bg-pink">
+          <div class="event p-4 md:flex">
+            <div class="container-card" data-id="escuela-de-dibujo-del-consulado-martimo-terrestre">
+              <div class="photoEvent">
+              <div class="bookmark">
+                <img src="./img/icons/bookmark.svg" data-name="escuela-de-dibujo-del-consulado-martimo-terrestre">
+                </div><img src="https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_Escuela_de_dibujo_del_Consulado_Mar%C3%ADtimo_Terrestre_s6bx65.jpg">
+                <div class="tooltip">
+                  <img src="./img/icons/gratis.svg" alt="Evento GRATUITO">
+                  <span class="tooltip-text">Evento GRATUITO
+                  </span>
+                </div>
+              </div>
+              <div class="info-card">
+                <h3>Escuela de dibujo del Consulado Marítimo Terrestre</h3>
+                <p>Alicante</p>
+                <p>Del 16 DIC 2019   al 31 DIC 2022 </p>
+                <div class="icons-bar">
+                  <div>
+                    <img src="./img/icons/Museum.svg">
+                    <p>Museo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="event p-4 md:flex">
+            <div class="container-card" data-id="escuela-de-dibujo-del-consulado-martimo-terrestre">
+              <div class="photoEvent">
+              <div class="bookmark">
+                <img src="./img/icons/bookmark.svg" data-name="escuela-de-dibujo-del-consulado-martimo-terrestre">
+                </div><img src="https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_Escuela_de_dibujo_del_Consulado_Mar%C3%ADtimo_Terrestre_s6bx65.jpg">
+                <div class="tooltip">
+                  <img src="./img/icons/gratis.svg" alt="Evento GRATUITO">
+                  <span class="tooltip-text">Evento GRATUITO
+                  </span>
+                </div>
+              </div>
+              <div class="info-card">
+                <h3>Escuela de dibujo del Consulado Marítimo Terrestre</h3>
+                <p>Alicante</p>
+                <p>Del 16 DIC 2019   al 31 DIC 2022 </p>
+                <div class="icons-bar">
+                  <div>
+                    <img src="./img/icons/Museum.svg">
+                    <p>Museo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="event p-4 md:flex">
+            <div class="container-card" data-id="escuela-de-dibujo-del-consulado-martimo-terrestre">
+              <div class="photoEvent">
+              <div class="bookmark">
+                <img src="./img/icons/bookmark.svg" data-name="escuela-de-dibujo-del-consulado-martimo-terrestre">
+                </div><img src="https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_Escuela_de_dibujo_del_Consulado_Mar%C3%ADtimo_Terrestre_s6bx65.jpg">
+                <div class="tooltip">
+                  <img src="./img/icons/gratis.svg" alt="Evento GRATUITO">
+                  <span class="tooltip-text">Evento GRATUITO
+                  </span>
+                </div>
+              </div>
+              <div class="info-card">
+                <h3>Escuela de dibujo del Consulado Marítimo Terrestre</h3>
+                <p>Alicante</p>
+                <p>Del 16 DIC 2019   al 31 DIC 2022 </p>
+                <div class="icons-bar">
+                  <div>
+                    <img src="./img/icons/Museum.svg">
+                    <p>Museo</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="btn-up"
+    class="w-14 h-14 bg-dark flex justify-center items-center rounded-full fixed bottom-10 right-4 cursor-pointer border-4 border-solid border-bg-dark transition-all delay-150 scale-0 hover:bg-contrast-bg-light">
+    <img class="arrow-up" src="./img/icons/arrow.svg" alt="Volver arriba" />
+  </div>
+
+  <footer class="w-full min-h-200 py-4 bg-dark flex flex-col font-sans text-base text-bg-dark text-center">
+    <div>
+      <p class="font-bold text-lg">Desarrollado por Dapper Drake</p>
+      <p>
+        Somos alumnos de la EOI, hemos desarrollado esta web para facilitar la
+        búsqueda de eventos y fomentar el ocio en Alicante
+      </p>
+    </div>
+    <div class="flex flex-col justify-center items-center">
+      <h4>Patrocinadores:</h4>
+      <div class="container-img w-80 lg:w-4/5 bg-white px-4 rounded-full flex flex-wrap justify-evenly my-4 ">
+        <img class="max-h-12" src="./img/footer/gobesp.png" alt="Logo Gobierno de España" />
+        <img class="max-h-12" src="./img/footer/logoEoi.svg" alt="Logo Escuela de Organización Industrial" />
+        <img class="max-h-12" src="./img/footer/ue.png"
+          alt="Logo Unión Europea, Fondo Social Europeo. Iniciativa de Empleo Juvenil." />
+        <img class="max-h-12" src="./img/footer/fundonce.png" alt="Logo Fundación Once" />
+        <img class="max-h-12" src="./img/footer/garjuv.png" alt="Logo Sistema Nacional de Garantía Juvenil" />
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

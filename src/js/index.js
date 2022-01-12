@@ -388,13 +388,20 @@ function resetAndCreateEventsFiltered(listFiltered) {
 
 //Borra tarjetas repinta página de eventos
 function resetAndCreateInfoPage(){
-  const resetContent = document.querySelector(".container");
   const resetNav = document.querySelector(".container-nav")
-  resetContent.innerHTML = "";
-  resetNav.innerHTML = "FUNCIONO";
-  
-}
+  const resetContent = document.querySelector(".container");
+  const body = document.querySelector("body");
+  const createnNav = document.createElement("div");
+  const createContent = document.createElement("div")
 
+  resetNav.remove(".container-nav");
+  resetContent.remove(".container");
+
+  createnNav.classList.add("container-nav")
+  createContent.classList.add("container")
+  body.appendChild(createnNav)
+  body.appendChild(createContent)
+}
 
 // función de filtrar por fecha
 const btnEvent = document.querySelector("#submit");
