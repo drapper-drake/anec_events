@@ -184,8 +184,11 @@ function createEvent(container, listEvents) {
 function dataModal(e) {
   //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
   const idOfEvent = e.currentTarget.dataset.id;
-  createModal(idOfEvent);
+  checkEvent(idOfEvent)
+  deleteContent()
+  // createModal(idOfEvent);
 }
+/*
 function createModal(id) {
   //QUITAR EL SCROLL DEL BODY
   const body = document.querySelector("body");
@@ -270,9 +273,9 @@ function createModal(id) {
     }
   });
 
-  deleteContent()
-}
 
+}
+*/
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
   const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -378,18 +381,19 @@ function resetAndCreateEventsFiltered(listFiltered) {
   }
 }
 
-
+//Borra todo menos el header y el footer
 function deleteContent(){
   const content = document.querySelector(".container");
   const nav = document.querySelector(".container-nav");
+  const pagination = document.querySelector(".pagination")
 
   content.remove(".container");
   nav.classList.add("hidden");
-
-  createViewEvent()
+  pagination.classList.add("hidden");
 }
 
-function createViewEvent(){
+//Crea la vista del evento clickeado
+function createViewEvent(eventSelect,dateStart,dateFinal,date){
   const content = document.createElement("div");
   const main = document.querySelector("main");
 
@@ -409,12 +413,12 @@ function createViewEvent(){
   topInfo.appendChild(imgContainer);
 
   const tagImg = document.createElement("img");
-  tagImg.src = "https://www.costacruceros.com/content/dam/costa/costa-magazine/articles-magazine/beaches/malaga-beaches/malaga-spiagge_m.jpg.image.694.390.low.jpg"
+  tagImg.src = eventSelect.photoEvent
   imgContainer.appendChild(tagImg);
 
   //BOTON FAVORITOS
   let bookmarkContainer = document.createElement("div");
-  bookmarkContainer.className = "bookmark"
+  bookmarkContainer.className = "bookmarkEvent"
   let bookmark = document.createElement("img");
   bookmark.src = "./img/icons/bookmark.svg";
   bookmark.dataset.name = ""
@@ -428,7 +432,7 @@ function createViewEvent(){
 
   const titleEv = document.createElement("h2");
   titleEv.className = "title-ev";
-  titleEv.textContent = "Explorar, jugar, cocinar y disfrutar como un local";
+  titleEv.textContent = eventSelect.nameEvent;
   infoEventPage.appendChild(titleEv);
 
   //Categoría - Tipo de evento
@@ -442,7 +446,7 @@ function createViewEvent(){
   categoryContainer.appendChild(categorySvg);   //labelsSvg
 
   const categoryP = document.createElement("p");
-  categoryP.textContent = "Música"
+  categoryP.textContent = eventSelect.category
   categoryContainer.appendChild(categoryP);
 
   //Localizacion
@@ -456,7 +460,7 @@ function createViewEvent(){
   cityLocationContainer.appendChild(locationSvg);
 
   const locationP = document.createElement("p");
-  locationP.textContent = "IFA. Carretera N-340, hm 731, 03320 Elche."
+  locationP.textContent = eventSelect.site
   cityLocationContainer.appendChild(locationP);
 
 
@@ -471,7 +475,7 @@ function createViewEvent(){
   dateContainer.appendChild(dateSvg);
 
   const dateP = document.createElement("p");
-  dateP.textContent = "Del 26 de Febrero de 2022 al 27 de Febrero de 2022"
+  dateP.textContent = `Del ${dateStart}  al ${dateFinal}`;
   dateContainer.appendChild(dateP);
 
 
@@ -486,7 +490,7 @@ function createViewEvent(){
   hoursContainer.appendChild(hoursSvg);
 
   const hoursP = document.createElement("p");
-  hoursP.textContent = "De 10:30 a 21:30"
+  hoursP.textContent = date;
   hoursContainer.appendChild(hoursP);
 
   //Botón calendar + Precio evento
@@ -608,6 +612,27 @@ function createViewEvent(){
   moreEventsContainer.appendChild(moreEvents);
 
 
+}
+
+//Recibi el id del evento que hace click y lo filtra para mandarlo a crear
+function checkEvent(e){
+  let eventSelect = e;
+  console.log(e)
+  const findEvent = currentListEvents.find(e => e.id === eventSelect)
+  console.log(findEvent)
+  const dateStart = dateFormat(findEvent.dateStart)
+  const dateFinal = dateFormat(findEvent.dateFinal)
+  const date = checkHours(findEvent.hoursOpen,findEvent.hoursClose)
+  createViewEvent(findEvent,dateStart,dateFinal,date)
+}
+
+function checkHours(init,finish){
+  console.log(init,finish)
+  if(init === finish){
+    return init
+  }else {
+    return `De ${init} a las ${finish}`
+  }
 }
 
 // función de filtrar por fecha

@@ -72,6 +72,9 @@ h1{
   .bookmark {
     @apply w-12 h-12 flex justify-center items-end absolute top-0 left-0;
   }
+  .bookmarkEvent{
+    @apply w-10 h-10 flex justify-center items-end absolute top-7 left-5 md:top-6 md:left-6 lg:top-2 lg:left-1;
+  }
   .tooltip {
     @apply w-12 h-12 flex justify-center items-end absolute top-0 right-0;
   }
@@ -96,7 +99,7 @@ h1{
     @apply flex flex-col justify-around items-center md:flex-row;
   }
   .img-container {
-    @apply min-w-sm p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-none relative;
+    @apply min-w-sm p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:min-w-screen-sm xl:max-w-screen-sm relative;
   }
   .img-container img {
     @apply w-full rounded-2xl;
@@ -178,6 +181,7 @@ h1{
     @apply p-5 md:w-full md:flex;
   }
 }
+
 
 @layer utilities {
 
