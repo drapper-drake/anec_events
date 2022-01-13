@@ -755,9 +755,10 @@ const requestCalendar = (e) => {
   window.open(URL, "_blank")
 }
 
-// animación de la hamburguesa del header
+// desplegar menú de la hamburguesa
 const hamburguer = document.querySelector(".hamburguer");
 hamburguer.addEventListener("click", () => {
+  // animación de la hamburguesa
   const bar1 = document.querySelector(".bar-1");
   const bar2 = document.querySelector(".bar-2");
   const bar3 = document.querySelector(".bar-3");
@@ -766,4 +767,12 @@ hamburguer.addEventListener("click", () => {
   bar2.classList.toggle("opacity-0");
   bar3.classList.toggle("-rotate-45");
   bar3.classList.toggle("translate-y-1.5");
+  // quitar scroll del body
+  const body = document.querySelector("body");
+  body.classList.toggle("overflow-hidden");
+  // mostrar botones
+  const login = document.querySelector(".log-in");
+  login.classList.toggle("hidden");
+  const signin = document.querySelector(".sign-in");
+  signin.classList.toggle("hidden");
 });
