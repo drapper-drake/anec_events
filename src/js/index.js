@@ -2,6 +2,9 @@ import moment from 'moment';
 
 let allEvents = [];
 let currentListEvents = [];
+let activeCategory = "all";
+let listFilterDates = [];
+
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
@@ -20,8 +23,10 @@ function createAll() {
       }
       changeformatDateJSON(data);
       allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime())
-      createEvent(content, allEvents);
-
+      currentListEvents = [...allEvents];
+      const firstpagination = divideListEventForPagination(1)
+      createEvent(content, firstpagination);
+      pagination(currentListEvents)
     });
 }
 function changeformatDateJSON() {
@@ -34,6 +39,7 @@ function changeformatDateJSON() {
 }
 // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
 function createEvent(container, listEvents) {
+  // for (let position in listEvents) {
   for (let position in listEvents) {
     //Llamar función que imprime la fecha en el orden deseado
     let dateStart = dateFormat(listEvents[position].dateStart, true);
@@ -309,21 +315,7 @@ function selectedBookmark(e) {
   saveLocalStorage();
 }
 
-function filterBookmarks() {
-  let listFilteredBookmark = [];
-  for (let index in arrayBookMark) {
-    for (let position in allEvents) {
-      if (allEvents[position].id === arrayBookMark[index]) {
-        listFilteredBookmark.push(allEvents[position]);
-      }
-    }
-  }
-  resetAndCreateEventsFiltered(listFilteredBookmark);
-}
-
-
 // Función del slider de logos de patrocinadores
-
 const Sponsors = document.querySelectorAll(".container-img > img");
 
 let indexSlider = 0;
@@ -627,7 +619,8 @@ btnEvent.addEventListener("click", (e) => {
   if (start && final) {
     const dateFrom = new Date(start);
     const dateTo = new Date(final);
-    const listFilteredDate = currentListEvents.filter(event => {
+    // * He cambiado la variable por una global para que funcione con la paginación
+    listFilterDates = currentListEvents.filter(event => {
       if (event.dateFinal) {
         return (event.dateStart.getTime() >= dateFrom.getTime() && event.dateStart.getTime() <= dateTo.getTime()) ||
           (event.dateFinal.getTime() >= dateFrom.getTime() && event.dateFinal.getTime() <= dateTo.getTime()) ||
@@ -642,44 +635,109 @@ btnEvent.addEventListener("click", (e) => {
     * - Termina en el rango
     * - Dura más que el rango
     */
-    resetAndCreateEventsFiltered(listFilteredDate);
+    activeCategory = "date";
+    resetAndCreateEventsFiltered(listFilterDates);
   }
 });
 
-// Cambio de color al seleccionar en NavBar
-const divList = document.querySelectorAll(".navegation > div");
-const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
-const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded";
-divList.forEach(div => {
-  div.addEventListener("click", () => {
-    divList.forEach(div => div.className = navUnselected);
+// Funciones de cambio de estilo y filtrado por categoria
+const DivFilterCategory = document.querySelectorAll(".navegation > div");
+
+const ChangeStyleAndFilter = (div) => {
+  div.addEventListener("click", (e) => {
+    const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
+    const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer  bg-dark rounded";
+    DivFilterCategory.forEach(div => div.className = navUnselected);
+
     div.className = navSelected;
+    const idCategory = e.currentTarget.id;
+    //Cambio Color SVG
+    document.querySelectorAll(`svg >path`).forEach(path => path.classList.remove("fill-dark")); // Pasan todos a Blanco
+    document.querySelectorAll(`#icon-${idCategory} >path`).forEach(path => path.classList.add("fill-dark")) //El seleccionado pasa Azul
+    activeCategory = idCategory;
+    filterByCategory(idCategory)
   })
-})
-// reset de eventos al usar NavBar
-divList.forEach(category => category.addEventListener("click", (e) => {
-  const idCategory = e.currentTarget.id;
-  switch (idCategory) {
+}
+const filterByCategory = (category) => {
+  switch (category) {
     case "all":
-      resetAndCreateEventsFiltered(allEvents);
+      let list = [...allEvents];
+      pagination(list);
+      list = divideListEventForPagination(1, list);
+      resetAndCreateEventsFiltered(list);
       break;
     case "bookmark":
-      filterBookmarks();
+      let listBookmark = allEvents.filter(events => events.bookmark);
+      pagination(listBookmark);
+      listBookmark = divideListEventForPagination(1, listBookmark);
+      resetAndCreateEventsFiltered(listBookmark);
       break;
     default:
-      resetAndCreateEventsFiltered(allEvents.filter(events => events.category.includes(idCategory)));
+      let listCategoryEvent = allEvents.filter(events => events.category.includes(category));
+      pagination(listCategoryEvent);
+      listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
+      resetAndCreateEventsFiltered(listCategoryEvent);
       break;
   }
-}));
+}
+DivFilterCategory.forEach(ChangeStyleAndFilter);
+const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded "
+const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light "
 
-
+function pagination(listEvents) {
+  const containerNavPages = document.querySelector(".pagination");
+  while (containerNavPages.hasChildNodes()) {
+    containerNavPages.firstChild.remove();
+  }
+  const numberPages = Math.trunc(listEvents.length / 12)
+  for (let page = 0; page <= numberPages; page++) {
+    const anchor = document.createElement("a");
+    anchor.textContent = page + 1;
+    anchor.className = page === 0 ? pageSelected : pageUnSelected;
+    anchor.addEventListener("click", changePagination)
+    containerNavPages.appendChild(anchor)
+  }
+}
+function divideListEventForPagination(numberPage) {
+  let list = [];
+  switch (activeCategory) {
+    case "all":
+      list = [...allEvents];
+      break;
+    case "date":
+      list = [...listFilterDates]
+      break;
+    case "bookmark":
+      list = allEvents.filter(event => event.bookmark)
+      break;
+    default:
+      list = allEvents.filter(event => event.category.includes(activeCategory));
+  }
+  let min = 0;
+  let max = 12;
+  if (numberPage === 1) {
+    // No hace nada con las variables porque necesito que sea de 0 a 12
+  } else if (numberPage % 2 === 0) {
+    min = 12 * (numberPage - 1) + 1;
+  } else {
+    min = 12 * (numberPage - 1) - 1;
+  }
+  max = (min + max) > list.length ? list.length : min + max;
+  return list = list.slice(min, max)
+}
+function changePagination(e) {
+  document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
+  e.currentTarget.className = e.currentTarget.className === pageSelected ? pageUnSelected : pageSelected;
+  const listPagination = divideListEventForPagination(Number(e.currentTarget.textContent));
+  resetAndCreateEventsFiltered(listPagination)
+}
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
     let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
     arrayBookMark = uploadEvents;
   }
   createAll();
-  currentListEvents = allEvents;
+  // currentListEvents = allEvents;
   responsiveFooter();
 });
 
