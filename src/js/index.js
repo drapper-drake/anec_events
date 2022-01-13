@@ -264,7 +264,7 @@ function createModal(id) {
     }
   });
 
-  resetAndCreateInfoPage()
+  deleteContent()
 }
 
 // Función que convierte número del mes en nombre del mes reducido en español
@@ -386,21 +386,236 @@ function resetAndCreateEventsFiltered(listFiltered) {
   }
 }
 
-//Borra tarjetas repinta página de eventos
-function resetAndCreateInfoPage(){
-  const resetNav = document.querySelector(".container-nav")
-  const resetContent = document.querySelector(".container");
-  const body = document.querySelector("body");
-  const createnNav = document.createElement("div");
-  const createContent = document.createElement("div")
 
-  resetNav.remove(".container-nav");
-  resetContent.remove(".container");
+function deleteContent(){
+  const content = document.querySelector(".container");
+  const nav = document.querySelector(".container-nav");
 
-  createnNav.classList.add("container-nav")
-  createContent.classList.add("container")
-  body.appendChild(createnNav)
-  body.appendChild(createContent)
+  content.remove(".container");
+  nav.classList.add("hidden");
+
+  createViewEvent()
+}
+
+function createViewEvent(){
+  const content = document.createElement("div");
+  const main = document.querySelector("main");
+
+  content.className = "container";
+  main.appendChild(content);
+
+  const infoContainer = document.createElement("div");
+  infoContainer.className = "info-container";
+  content.appendChild(infoContainer);
+
+  const topInfo = document.createElement("div");
+  topInfo.className = "top-info";
+  infoContainer.appendChild(topInfo);
+
+  const imgContainer = document.createElement("div");
+  imgContainer.className = "img-container";
+  topInfo.appendChild(imgContainer);
+
+  const tagImg = document.createElement("img");
+  tagImg.src = "https://www.costacruceros.com/content/dam/costa/costa-magazine/articles-magazine/beaches/malaga-beaches/malaga-spiagge_m.jpg.image.694.390.low.jpg"
+  imgContainer.appendChild(tagImg);
+
+  //BOTON FAVORITOS
+  let bookmarkContainer = document.createElement("div");
+  bookmarkContainer.className = "bookmark"
+  let bookmark = document.createElement("img");
+  bookmark.src = "./img/icons/bookmark.svg";
+  bookmark.dataset.name = ""
+  imgContainer.appendChild(bookmarkContainer);
+  bookmarkContainer.appendChild(bookmark);
+  // bookmark.addEventListener("click", selectedBookmark)
+
+  const infoEventPage = document.createElement("div");
+  infoEventPage.className = "info-event";
+  topInfo.appendChild(infoEventPage);
+
+  const titleEv = document.createElement("h2");
+  titleEv.className = "title-ev";
+  titleEv.textContent = "Explorar, jugar, cocinar y disfrutar como un local";
+  infoEventPage.appendChild(titleEv);
+
+  //Categoría - Tipo de evento
+  const categoryContainer = document.createElement("div");
+  categoryContainer.className = "category";
+  infoEventPage.appendChild(categoryContainer);
+
+  const categorySvg = document.createElement("img");
+  categorySvg.src = "./img/icons/Music.svg";
+  categorySvg.className = "labelsSvg";
+  categoryContainer.appendChild(categorySvg);   //labelsSvg
+
+  const categoryP = document.createElement("p");
+  categoryP.textContent = "Música"
+  categoryContainer.appendChild(categoryP);
+
+  //Localizacion
+  const cityLocationContainer = document.createElement("div");
+  cityLocationContainer.className = "city-location";
+  infoEventPage.appendChild(cityLocationContainer);
+
+  const locationSvg = document.createElement("img");
+  locationSvg.src = "./img/icons/location.svg";
+  locationSvg.className = "labelsSvg";
+  cityLocationContainer.appendChild(locationSvg);
+
+  const locationP = document.createElement("p");
+  locationP.textContent = "IFA. Carretera N-340, hm 731, 03320 Elche."
+  cityLocationContainer.appendChild(locationP);
+
+
+  //Fechas
+  const dateContainer = document.createElement("div");
+  dateContainer.className = "date";
+  infoEventPage.appendChild(dateContainer);
+
+  const dateSvg = document.createElement("img");
+  dateSvg.src = "./img/icons/date.svg";
+  dateSvg.className = "labelsSvg";
+  dateContainer.appendChild(dateSvg);
+
+  const dateP = document.createElement("p");
+  dateP.textContent = "Del 26 de Febrero de 2022 al 27 de Febrero de 2022"
+  dateContainer.appendChild(dateP);
+
+
+  //Horas
+  const hoursContainer = document.createElement("div");
+  hoursContainer.className = "hours";
+  infoEventPage.appendChild(hoursContainer);
+
+  const hoursSvg = document.createElement("img");
+  hoursSvg.src = "./img/icons/Schedule.svg";
+  hoursSvg.className = "labelsSvg";
+  hoursContainer.appendChild(hoursSvg);
+
+  const hoursP = document.createElement("p");
+  hoursP.textContent = "De 10:30 a 21:30"
+  hoursContainer.appendChild(hoursP);
+
+  //Botón calendar + Precio evento
+  const buttonCalendar = document.createElement("button");
+  buttonCalendar.className = "btn-calendar";
+  buttonCalendar.textContent ="Añadir al calendario";
+  infoEventPage.appendChild(buttonCalendar);
+
+  const priceContainer = document.createElement("div");
+  priceContainer.className = "price";
+  infoEventPage.appendChild(priceContainer);
+
+  const priceSvg = document.createElement("img");
+  priceSvg.src = "./img/icons/euro.svg";
+  priceSvg.className = "priceSvg";
+  priceContainer.appendChild(priceSvg);
+
+  const priceP = document.createElement("p");
+  priceP.textContent = "Desde 10 €"
+  priceContainer.appendChild(priceP);
+
+
+  //Barra de compartir y más información
+  const shareBar = document.createElement("div");
+  shareBar.className = "share-bar";
+  infoContainer.appendChild(shareBar);
+
+  const btnMoreInfo = document.createElement("button");
+  btnMoreInfo.className = "btn-more-info";
+  btnMoreInfo.innerHTML = "Más información";
+  shareBar.appendChild(btnMoreInfo);
+
+  const shareIcon = document.createElement("div");
+  shareIcon.className = "share-icon";
+  shareBar.appendChild(shareIcon);
+
+  const shareSvg = document.createElement("img");
+  shareSvg.src = "./img/icons/Share.svg";
+  shareIcon.appendChild(shareSvg);
+
+  const shareP = document.createElement("p");
+  shareP.className = "share-text";
+  shareP.innerHTML = "Comparte con tus amigos";
+  shareIcon.appendChild(shareP);
+
+  const containerSocial = document.createElement("div");
+  containerSocial.className = "container-social";
+  shareBar.appendChild(containerSocial);
+
+  const iconTwitterSvg = document.createElement("img");
+  iconTwitterSvg.src = "./img/icons/twitter.svg";
+  containerSocial.appendChild(iconTwitterSvg);
+
+  const iconFacebooklSvg = document.createElement("img");
+  iconFacebooklSvg.src = "./img/icons/fb-icon.svg";
+  containerSocial.appendChild(iconFacebooklSvg);
+
+  const iconInstagramSvg = document.createElement("img");
+  iconInstagramSvg.src = "./img/icons/Instagram icon.svg";
+  containerSocial.appendChild(iconInstagramSvg);
+
+
+  //Parte baja de info
+  const bottomInfo = document.createElement("div");
+  bottomInfo.className ="bottom-info";
+  infoContainer.appendChild(bottomInfo);
+
+  const bottomInfoP = document.createElement("p");
+  bottomInfoP.className = "contText";
+  bottomInfoP.textContent = "Laoreet quis egestas et enim, risus mollis. Mauris molestie integer dictumst ut commodo. Morbi fermentum fusce urna viverra fusce risus. Montes, hendrerit facilisis risus massa consequat eu elit, est accumsan. Sagittis, porta porta malesuada volutpat purus viverra facilisis duis in. Metus tempus magna at euismod. Amet diam gravida facilisis accumsan, imperdiet vitae. Accumsan, condimentum ut habitant et semper donec. Purus ac amet lorem in. Nec nisl at ac justo vel sapien. Auctor sed in ac tortor netus eleifend potenti venenatis, tincidunt. Libero diam massa convallis lectus tellus, feugiat duis in nisl. Tortor, id tempor ligula eleifend diam, ullamcorper.";
+  bottomInfo.appendChild(bottomInfoP);
+
+  const map = document.createElement("div");
+  map.className = "map"
+  bottomInfo.appendChild(map);
+
+  const iframeMap = document.createElement("iframe");
+  iframeMap.className = "iframe-map";
+  iframeMap.src = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3129.241120802868!2d-0.4848759843955511!3d38.34340088701239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1641906796871!5m2!1ses!2ses";
+  iframeMap.width = "375";
+  iframeMap.height = "300";
+  iframeMap.style = "border:0";
+  iframeMap.loading="lazy";
+  iframeMap.allowfullscreen="";
+  map.appendChild(iframeMap);
+
+  // Otros eventos
+
+    // Flechas
+  const moreEventsContainer = document.createElement("div");
+  moreEventsContainer.className = "more-events-container";
+  content.appendChild(moreEventsContainer);
+
+  const arrowsContainer = document.createElement("div");
+  arrowsContainer.className = "arrows-container";
+  moreEventsContainer.appendChild(arrowsContainer);
+
+  const titleOtherEv = document.createElement("h3");
+  titleOtherEv.className = "titleOtherEv";
+  titleOtherEv.textContent = "Otros eventos:";
+  arrowsContainer.appendChild(titleOtherEv);
+
+  const arrows = document.createElement("div");
+  arrows.className = "arrows";
+  arrowsContainer.appendChild(arrows);
+
+  const arrowLeftSvg = document.createElement("img");
+  arrowLeftSvg.src = "./img/icons/arrow-left.svg";
+  arrows.appendChild(arrowLeftSvg);
+
+  const arrowRightSvg = document.createElement("img");
+  arrowRightSvg.src = "./img/icons/right-arrow.svg";
+  arrows.appendChild(arrowRightSvg);
+
+    // Tarjetas otros eventos
+
+  const moreEvents = document.createElement("div");
+  moreEvents.className = "more-events";
+  moreEventsContainer.appendChild(moreEvents);
+
+
 }
 
 // función de filtrar por fecha

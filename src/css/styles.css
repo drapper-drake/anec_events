@@ -87,5 +87,129 @@ h1{
     border-color: black transparent transparent transparent;
   }
 
+  /* New page styles*/
 
+  .info-container {
+    @apply md:border-solid md:shadow-lg;
+  }
+  .top-info {
+    @apply flex flex-col justify-around items-center md:flex-row;
+  }
+  .img-container {
+    @apply min-w-sm p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-none relative;
+  }
+  .img-container img {
+    @apply w-full rounded-2xl;
+  }
+  .info-event {
+    @apply flex flex-col w-96 gap-2 relative md:max-w-sm lg:max-w-sm;
+  }
+  .title-ev {
+    @apply text-center font-serif text-3xl font-bold p-5;
+  }
+  .category {
+    @apply flex justify-start gap-2 py-1 px-2;
+  }
+
+  .labelsSvg {
+    @apply -ml-1 w-[22px] h-[22px];
+  }
+
+  .city-location {
+    @apply flex justify-start items-center gap-2 py-1 px-2 rounded;
+  }
+  .date {
+    @apply flex justify-start items-center gap-2 py-1 px-2 rounded;
+  }
+  .hours {
+    @apply flex justify-start items-center gap-2 py-1 px-2 rounded;
+  }
+  .btn-calendar {
+    @apply mt-3.5 font-sans bg-dark self-center text-light rounded-md cursor-pointer transition-all delay-150 hover:bg-contrast-bg-light px-6 py-1;
+  }
+  .price {
+    @apply flex justify-start items-center self-start py-2 rounded;
+  }
+
+  .price img {
+    @apply relative top-1;
+  }
+
+  .share-bar {
+    @apply flex flex-col content-center justify-around h-36 mt-5 md:flex-row md:border-y md:border-neutral-300 border-opacity-5;
+  }
+  .btn-more-info {
+    @apply font-sans bg-links-cta self-center border-4 border-solid border-links-cta font-bold rounded-md cursor-pointer transition-all text-dark delay-150 duration-700 hover:bg-light hover:border-contrast-bg-light hover:text-contrast-bg-light px-4 py-1 mb-5 md:mb-0 md:order-1;
+  }
+  .share-icon {
+    @apply h-10 cursor-pointer flex flex-row justify-center items-center mb-5 md:self-center md:mb-0;
+  }
+  .share-text {
+    @apply text-bg-light text-base pl-4;
+  }
+  .container-social {
+    @apply flex flex-row justify-evenly md:self-center md:w-1/5;
+  }
+  .bottom-info {
+    @apply flex flex-col p-5 text-justify;
+  }
+  .contText {
+    @apply pb-9;
+  }
+  .map {
+    @apply self-center;
+  }
+  .iframe-map {
+    @apply pb-4;
+  }
+  .more-events-container {
+    @apply w-11/12 self-center pt-5;
+  }
+  .arrows-container {
+    @apply flex flex-row justify-between;
+  }
+  .titleOtherEv {
+    @apply md:text-xl;
+  }
+  .arrows {
+    @apply flex;
+  }
+  .more-events {
+    @apply p-5 md:w-full md:flex;
+  }
 }
+
+
+@layer utilities {
+  @variants responsive {
+      .max-w-4xs          { max-width: 8rem; }
+      .max-w-3xs          { max-width: 12rem; }
+      .max-w-2xs          { max-width: 16rem; }
+      .min-w-0             { min-width: 0rem; }
+      .min-w-none       { min-width: none; }
+      .min-w-4xs          { min-width: 8rem; }
+      .min-w-3xs          { min-width: 12rem; }
+      .min-w-2xs          { min-width: 16rem; }
+      .min-w-xs	        { min-width: 20rem; }
+      .min-w-sm	        { min-width: 24rem; }
+      .min-w-md	        { min-width: 28rem; }
+      .min-w-lg	        { min-width: 32rem; }
+      .min-w-xl	        { min-width: 36rem; }
+      .min-w-2xl	        { min-width: 42rem; }
+      .min-w-3xl	        { min-width: 48rem; }
+      .min-w-4xl	        { min-width: 56rem; }
+      .min-w-5xl	        { min-width: 64rem; }
+      .min-w-6xl	        { min-width: 72rem; }
+      .min-w-7xl	        { min-width: 80rem; }
+      .min-w-full	        { min-width: 100%; }
+      .min-w-min	        { min-width: min-content; }
+      .min-w-min	        { min-width: min-content; }
+      .min-w-prose        { min-width: 65ch; }
+      .min-w-screen-sm    { min-width: 640px; }
+      .min-w-screen-md	{ min-width: 768px; }
+      .min-w-screen-lg	{ min-width: 1024px; }
+      .min-w-screen-xl	{ min-width: 1280px; }
+      .min-w-screen-2xl	{ min-width: 1536px; }
+  }
+}
+
