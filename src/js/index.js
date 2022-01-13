@@ -537,7 +537,7 @@ function createViewEvent(){
   shareBar.appendChild(containerSocial);
 
   const iconTwitterSvg = document.createElement("img");
-  iconTwitterSvg.src = "./img/icons/twitter.svg";
+  iconTwitterSvg.src = "./img/icons/twitterBlack.svg";
   containerSocial.appendChild(iconTwitterSvg);
 
   const iconFacebooklSvg = document.createElement("img");
