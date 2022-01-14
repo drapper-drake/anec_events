@@ -128,64 +128,70 @@ function createEvent(container, listEvents) {
       charityIconContainer.appendChild(charityIconText);
     }
     // ICONOS DE CATEGORÍAS
+    //IMPROVE Crear una propiedad en eventos para añadir luego datos
+    listEvents[position].iconEvent = [];
+    listEvents[position].nameIconEvent = [];
+
+    listEvents[position].nameIcon = []
     for (let cat in listEvents[position].category) {
       let categoryIconContainer = document.createElement("div");
       let categoryIcon = document.createElement("img");
       let categoryIconInfo = document.createElement("p");
+
       switch (listEvents[position].category[cat]) {
         case "Christmas":
           categoryIconInfo.textContent = "Navidad";
           categoryIcon.src = "./img/icons/Navidad.svg";
-          listEvents[position].icon = ["./img/icons/Navidad.svg"];
-          listEvents[position].nameIcon = ["Navidad"];
+          listEvents[position].iconEvent.push("./img/icons/Navidad.svg");
+          listEvents[position].nameIconEvent.push("Navidad");
           break;
         case "Kids":
           categoryIconInfo.textContent = "Infantil";
           categoryIcon.src = "./img/icons/Kids.svg";
-          listEvents[position].icon = ["./img/icons/Kids.svg"];
-          listEvents[position].nameIcon = ["Infantil"];
+          listEvents[position].iconEvent.push("./img/icons/Kids.svg");
+          listEvents[position].nameIconEvent.push("Infantil");
           break;
         case "Play":
           categoryIconInfo.textContent = "Lúdico";
           categoryIcon.src = "./img/icons/Play.svg";
-          listEvents[position].icon = ["./img/icons/Play.svg"];
-          listEvents[position].nameIcon = ["Lúdico"];
+          listEvents[position].iconEvent.push("./img/icons/Play.svg");
+          listEvents[position].nameIconEvent.push("Lúdico");
           break;
         case "Music":
           categoryIconInfo.textContent = "Música";
           categoryIcon.src = "./img/icons/Music.svg";
-          listEvents[position].icon = ["./img/icons/Music.svg"];
-          listEvents[position].nameIcon = ["Música"];
+          listEvents[position].iconEvent.push("./img/icons/Music.svg");
+          listEvents[position].nameIconEvent.push("Música");
           break;
         case "Sports":
           categoryIconInfo.textContent = "Deporte";
           categoryIcon.src = "./img/icons/Sports.svg";
-          listEvents[position].icon = ["./img/icons/Sports.svg"];
-          listEvents[position].nameIcon = ["Deporte"];
+          listEvents[position].iconEvent.push("./img/icons/Sports.svg");
+          listEvents[position].nameIconEvent.push(["Deporte"]);
           break;
         case "Theatre":
           categoryIconInfo.textContent = "Teatro";
           categoryIcon.src = "./img/icons/Theatre.svg";
-          listEvents[position].icon = ["./img/icons/Theatre.svg"];
-          listEvents[position].nameIcon = ["Teatro"];
+          listEvents[position].iconEvent.push("./img/icons/Theatre.svg");
+          listEvents[position].nameIconEvent.push("Teatro");
           break;
         case "Party":
           categoryIconInfo.textContent = "Fiestas";
           categoryIcon.src = "./img/icons/Cocktail.svg";
-          listEvents[position].icon = ["./img/icons/Cocktail.svg"];
-          listEvents[position].nameIcon = ["Fiestas"];
+          listEvents[position].iconEvent.push("./img/icons/Cocktail.svg");
+          listEvents[position].nameIconEvent.push("Fiestas");
           break;
         case "Food":
           categoryIconInfo.textContent = "Gastronómico";
           categoryIcon.src = "./img/icons/Food.svg";
-          listEvents[position].icon = ["./img/icons/Food.svg"];
-          listEvents[position].nameIcon = ["Gastronómico"];
+          listEvents[position].iconEvent.push("./img/icons/Food.svg");
+          listEvents[position].nameIconEvent.push("Gastronómico");
           break;
         case "Museum":
           categoryIconInfo.textContent = "Museo";
           categoryIcon.src = "./img/icons/Museum.svg";
-          listEvents[position].icon = ["./img/icons/Museum.svg"];
-          listEvents[position].nameIcon = ["Museos"];
+          listEvents[position].iconEvent.push("./img/icons/Museum.svg");
+          listEvents[position].nameIconEvent.push("Museos");
           break;
         default:
           console.error(`Hay ninguna categoria con ese nombre ${listEvents[position].category[cat]}`)
@@ -460,16 +466,15 @@ function createViewEvent(eventSelect,days,date){
 
   for(let cat in eventSelect.category){
     const categorySvg = document.createElement("img");
-    categorySvg.src = eventSelect.icon[cat];
-    console.log(cat)
+    categorySvg.src = eventSelect.iconEvent[cat];
     categorySvg.className = "labelsSvg";
     categoryContainer.appendChild(categorySvg);   //labelsSvg
 
     const categoryP = document.createElement("p");
-    categoryP.textContent = eventSelect.nameIcon[cat];
+    categoryP.textContent = eventSelect.nameIconEvent[cat];
     categoryContainer.appendChild(categoryP);
-    console.log(eventSelect.icon[cat])
-    console.log(eventSelect.nameIcon[cat])
+    console.log(eventSelect.iconEvent[cat])
+    console.log(eventSelect.nameIconEvent[cat])
   }
 
   //Localizacion
@@ -640,10 +645,9 @@ function createViewEvent(eventSelect,days,date){
 //Recibi el id del evento que hace click y lo filtra para mandarlo a crear
 function checkEvent(e){
   let eventSelect = e;
-  console.log(e);
+
   const findEvent = currentListEvents.find(e => e.id === eventSelect);
-  console.log(findEvent);
-   const days = checkDate(findEvent)
+  const days = checkDate(findEvent)
 
   const date = checkHours(findEvent);
   createViewEvent(findEvent,days,date);
@@ -662,7 +666,6 @@ function checkDate(event){
     }
 
   }
-  // return `Solo el ${dateStart}`;
 }
 
 function checkHours(event){
@@ -672,13 +675,21 @@ function checkHours(event){
       return event.hoursOpen
 
     }else {
-      console.log(event.hoursOpen,event.hoursClose)
       return `De ${event.hoursOpen} a las ${event.hoursClose}`
 
     }
   }
   return `Todo el día`
 }
+
+//IMPROVE Provisional es para que puedan salir al darle click al pato y descansar del f5
+const faceDuck = document.querySelector("header div img")
+faceDuck.addEventListener("click",refreshPage)
+function refreshPage(){
+  location.reload()
+}
+
+
 
 
 // función de filtrar por fecha
