@@ -643,8 +643,9 @@ function checkEvent(e){
   console.log(e);
   const findEvent = currentListEvents.find(e => e.id === eventSelect);
   console.log(findEvent);
- const days = checkDate(findEvent);
-  const date = checkHours(findEvent.hoursOpen,findEvent.hoursClose);
+   const days = checkDate(findEvent)
+
+  const date = checkHours(findEvent);
   createViewEvent(findEvent,days,date);
 }
 
@@ -664,13 +665,19 @@ function checkDate(event){
   // return `Solo el ${dateStart}`;
 }
 
-function checkHours(init,finish){
-  console.log(init,finish)
-  if(init === finish){
-    return init
-  }else {
-    return `De ${init} a las ${finish}`
+function checkHours(event){
+  if(event.hasOwnProperty("hoursClose")){
+    if(event.hoursOpen === event.hoursClose){
+      console.log(event.hoursOpen)
+      return event.hoursOpen
+
+    }else {
+      console.log(event.hoursOpen,event.hoursClose)
+      return `De ${event.hoursOpen} a las ${event.hoursClose}`
+
+    }
   }
+  return `Todo el día`
 }
 
 
