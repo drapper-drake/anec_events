@@ -1173,19 +1173,6 @@
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641315440/anac-event/faxmbhtqrzjfwa8rrpj9.jpg"
   },
   {
-    "nameEvent": "Alejandro Sanz en Concierto",
-    "free": false,
-    "site": "Estadio Municipal Guillermo Amor. Av. Ciudad Deportiva, s/n, 03502 Benidorm.",
-    "cityLocation": "Benidorm",
-    "village": true,
-    "dateStart": "2022/07/14",
-    "hoursOpen": "20:00",
-    "category": [
-      "Music"
-    ],
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641316051/anac-event/gwgppexjkkyqaae2agtr.jpg"
-  },
-  {
     "nameEvent": "The Benidorm Elvis Fiesta 2022",
     "free": false,
     "site": "Benidorm Palace. Av. Dr. Severo Ochoa, 13, 03503 Benidorm.",
@@ -1671,6 +1658,23 @@
     ],
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642079937/Centre_Cultural_Castellut_Natura_i_Gent_-_Grup_muntanyisme_1er_trimestre_2022_qci7dp.jpg",
     "linkTickets": "https://www.centreculturalcastellut.cat/senderisme/les-rutes-del-centre/les-rutes-del-centre-2022-arranquen-a-banyeres-de-mariola"
+  },
+  {
+    "nameEvent": "Concierto Alejandro Sanz",
+    "free": false,
+    "price": 55.0,
+    "site": "Avenida de la Ciudad Deportiva, s/n 03005",
+    "cityLocation": "Benidorm",
+    "village": true,
+    "hoursOpen": "22:00",
+    "dateStart": "2022/07/14",
+    "comments": "La apertura de las puertas es a partir de las 20:00. Las entradas del 2 de Julio de 2020 y 14 de Julio de 2021 seguirán siendo válidas para la nueva fecha",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642351594/anac-event/icxhtglqvaeqchonivmi.jpg",
+    "atributionsPhoto": "Alejandr Sanz, en una imagen promocional por el corte inglés",
+    "linkTickets": "https://www.enterticket.es/eventos/concierto-manel-alicante-2022-211099"
   }
 
 

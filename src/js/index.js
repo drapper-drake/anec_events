@@ -473,8 +473,6 @@ function createViewEvent(eventSelect,days,date){
     const categoryP = document.createElement("p");
     categoryP.textContent = eventSelect.nameIconEvent[cat];
     categoryContainer.appendChild(categoryP);
-    console.log(eventSelect.iconEvent[cat])
-    console.log(eventSelect.nameIconEvent[cat])
   }
 
   //Localizacion
@@ -673,15 +671,21 @@ function checkDate(event){
 function checkHours(event){
   if(event.hasOwnProperty("hoursClose")){
     if(event.hoursOpen === event.hoursClose){
-      console.log(event.hoursOpen)
       return event.hoursOpen
 
     }else {
       return `De ${event.hoursOpen} a las ${event.hoursClose}`
+    }
+  }else {
+    for(let e in event.category){
+      if(event.category[e] === "Music"){
+        return event.hoursOpen
 
+      }else {
+        return `Todo el día`
+      }
     }
   }
-  return `Todo el día`
 }
 
 //IMPROVE Provisional es para que puedan salir al darle click al pato y descansar del f5
