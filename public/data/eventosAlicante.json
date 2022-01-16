@@ -283,6 +283,7 @@
     "cityLocation": "Alicante",
     "village": false,
     "hoursOpen": "21:00",
+    "hoursClose": "23:30",
     "dateStart": "2022/02/13",
     "comments": "El concierto se realizará con el público de pie, cumpliendo el 70% de restricción de aforo que marca la normativa de la Comunidad Valenciana, se deberá llevar la mascarilla en todo momento que no se esté consumiendo.",
     "category": [
@@ -1707,7 +1708,86 @@
     ],
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642354595/anac-event/mot3jqgj8a0ytaubxehw.jpg",
     "linkTickets": "https://entradium.com/events/jamones-con-tacones-en-sant-joan-alicante"
+  },
+  {
+    "nameEvent": "Alberto Acala",
+    "free": false,
+    "price": 10.18,
+    "site": "Calle Poeta Miguel Hernández 73, 03201",
+    "cityLocation": "Elche",
+    "village": true,
+    "hoursOpen": "20:00",
+    "dateStart": "2022/01/29",
+    "comments": "La apertura de las puertas es a partir de las 20:00. Presentarse con certificado de vacunación COVID",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642355343/anac-event/fathas92uz3ysnjvpxwz.jpg",
+    "linkTickets": "https://www.songkick.com/concerts/40139139-alberto-alcala-at-el-refugio-del-poeta"
+  },
+  {
+    "nameEvent": "Las Ninyas del Corro",
+    "free": false,
+    "price": 13.20,
+    "site": "Calle del Comercio, Polígono Industrial Babel, 03008",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "21:00",
+    "dateStart": "2022/02/11",
+    "comments": "La apertura de las puertas es a partir de las 21:00.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642355639/anac-event/cf2qharvcmsflfdnayob.jpg",
+    "linkTickets": "https://www.ticketmaster.es/event/las-ninyas-del-corro-entradas/28681?clickId=x2YQk4yQyxyIRJTV1N1caXF8UkG3JMwkP2l3Tc0&irgwc=1&utm_source=1234554-Songkick&utm_medium=affiliate&utm_campaign=1234554"
+  },
+  {
+    "nameEvent": "Concierto Rojuu",
+    "free": false,
+    "price": 15.00,
+    "site": "Sala The One - Calle del Bronce, 8, 03690 San Vicente del Raspeig",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "21:30",
+    "dateStart": "2022/03/04",
+    "comments": "La apertura de las puertas es a partir de las 20:00.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642356232/anac-event/gigzfjznjt0u55kerr3p.jpg",
+    "linkTickets": "https://www.wegow.com/es-es/conciertos/rojuu-en-alicante"
+  },
+  {
+    "nameEvent": "Mind Driller",
+    "free": false,
+    "price": 15.00,
+    "site": "Sala Babel, Calle del Comercio, Polígono Industrial Babel, 03008",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "21:00",
+    "dateStart": "2022/03/05",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642356502/anac-event/zmsizcm0xcnjyod4inwr.jpg",
+    "linkTickets": "https://www.wegow.com/es-es/compra/green-comet-fest-2022-v-aniversario-green-comet-music-agency"
+  },
+  {
+    "nameEvent": "Los Nocheros",
+    "free": false,
+    "price": 30.00,
+    "site": "Aula de la cultura, Av. Dr. Gadea, 1, 3003",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/03/08",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642356708/anac-event/hecshlegfbcr9nmnrohy.jpg",
+    "linkTickets": "https://www.entradas.com/event/los-nocheros-tour-europa-2022-aula-de-la-cultura-13993068/"
   }
+
 
 
 ]

@@ -654,7 +654,6 @@ function checkEvent(e){
 }
 
 function checkDate(event){
-  console.log(event)
   let dateIni = dateFormat(event.dateStart);
   if (event.hasOwnProperty("dateFinal")) {
     let dateF = dateFormat(event.dateFinal);
