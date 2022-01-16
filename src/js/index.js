@@ -652,6 +652,7 @@ function checkEvent(e){
   const date = checkHours(findEvent);
   const price = checkPrice(findEvent)
   createViewEvent(findEvent,days,date,price);
+  scrollUp() //Para que suba y no aparezca abajo
 }
 
 function checkDate(event){
