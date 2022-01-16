@@ -1674,7 +1674,39 @@
     ],
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642351594/anac-event/icxhtglqvaeqchonivmi.jpg",
     "atributionsPhoto": "Alejandr Sanz, en una imagen promocional por el corte inglés",
-    "linkTickets": "https://www.enterticket.es/eventos/concierto-manel-alicante-2022-211099"
+    "linkTickets": "https://www.elcorteingles.es/entradas/channels/conciertos-alejandro-sanz/performance/performance-0000087kq0000087Jr00000856L-alejandrosanz-channel"
+  },
+  {
+    "nameEvent": "Danny",
+    "free": false,
+    "price": 10.0,
+    "site": "Babel Live Stage. C. del Comercio, 3, 03008",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "22:30",
+    "dateStart": "2022/01/21",
+    "comments": "La apertura de las puertas es a partir de las 22:00.",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642354128/anac-event/iytacpe6owb6gksjy0tz.jpg",
+    "linkTickets": "https://entradium.com/events/danny-en-directo"
+  },
+  {
+    "nameEvent": "Jamones con Tacones",
+    "free": false,
+    "price": 12.0,
+    "site": "Sala Euterpe. Calle Doctor Ivorra, 34",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "22:00",
+    "dateStart": "2022/03/20",
+    "comments": "La apertura de las puertas es a partir de las 21:30. Presentarse con certificado de vacunación COVID",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642354595/anac-event/mot3jqgj8a0ytaubxehw.jpg",
+    "linkTickets": "https://entradium.com/events/jamones-con-tacones-en-sant-joan-alicante"
   }
 
 

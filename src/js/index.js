@@ -654,6 +654,7 @@ function checkEvent(e){
 }
 
 function checkDate(event){
+  console.log(event)
   let dateIni = dateFormat(event.dateStart);
   if (event.hasOwnProperty("dateFinal")) {
     let dateF = dateFormat(event.dateFinal);
@@ -664,7 +665,8 @@ function checkDate(event){
     } else {
       return `Todo el año`;
     }
-
+  }else {
+    return dateIni
   }
 }
 
