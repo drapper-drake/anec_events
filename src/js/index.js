@@ -4,7 +4,7 @@ let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
 let listFilterDates = [];
-
+let buttonCalendar;// lo pongo global para poder llamarlo luego desde una función sino se lee todo js y es null
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
@@ -522,10 +522,12 @@ function createViewEvent(eventSelect,days,date){
   hoursContainer.appendChild(hoursP);
 
   //Botón calendar + Precio evento
-  const buttonCalendar = document.createElement("button");
+  buttonCalendar = document.createElement("button");
   buttonCalendar.className = "btn-calendar";
   buttonCalendar.textContent ="Añadir al calendario";
   infoEventPage.appendChild(buttonCalendar);
+  buttonCalendar.addEventListener("click",() => requestCalendar(eventSelect));
+
 
   const priceContainer = document.createElement("div");
   priceContainer.className = "price";
@@ -642,7 +644,7 @@ function createViewEvent(eventSelect,days,date){
 
 }
 
-//Recibi el id del evento que hace click y lo filtra para mandarlo a crear
+//Recibe el id del evento que hace click y lo filtra para mandarlo a crear
 function checkEvent(e){
   let eventSelect = e;
 
@@ -823,19 +825,22 @@ window.addEventListener("DOMContentLoaded", () => {
   responsiveFooter();
 });
 
+
 const requestCalendar = (e) => {
+  console.log(e)
   e.preventDefault;
   e.stopPropagation;
-  const BtnId = e.currentTarget.dataset.name;
-  let dataEvent = currentListEvents.find((el) => el.id === BtnId);
-  let start = moment(dataEvent.dateStart).format('YYYYMMDD');
-  let end = moment(dataEvent.dateStart).add(1, "days").format('YYYYMMDD');
-  if (dataEvent.hasOwnProperty('dateFinal')) {
-    end = moment(dataEvent.dateFinal).add(1, "days").format('YYYYMMDD');
+  // const BtnId = e.currentTarget.dataset.name;
+  // let dataEvent = currentListEvents.find((el) => el.id === BtnId);
+  let start = moment(e.dateStart).format('YYYYMMDD');
+  let end = moment(e.dateStart).add(1, "days").format('YYYYMMDD');
+  if (e.hasOwnProperty('dateFinal')) {
+     end = moment(e.dateFinal).add(1, "days").format('YYYYMMDD');
   }
-  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${dataEvent.nameEvent}&location=${dataEvent.site}&dates=${start}/${end}`;
+  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${e.nameEvent}&location=${e.site}&dates=${start}/${end}`;
   window.open(URL, "_blank")
 }
+
 
 // desplegar menú de la hamburguesa
 const hamburguer = document.querySelector(".hamburguer");
