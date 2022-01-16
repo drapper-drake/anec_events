@@ -694,7 +694,11 @@ function checkHours(event){
 function checkPrice(event){
   console.log(event)
   if(!event.free){
-    return `Desde ${event.price} €`
+    if(event.hasOwnProperty("price")){
+      return `Desde ${event.price} €`
+    }else {
+      console.error(`El evento ${event.nameEvent} no tiene price`)
+    }
   }else{
     return "Gratuito"
   }
