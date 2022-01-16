@@ -417,7 +417,7 @@ function deleteContent(){
 }
 
 //Crea la vista del evento clickeado
-function createViewEvent(eventSelect,days,date){
+function createViewEvent(eventSelect,days,date,price){
   const content = document.createElement("div");
   const main = document.querySelector("main");
 
@@ -537,7 +537,7 @@ function createViewEvent(eventSelect,days,date){
   priceContainer.appendChild(priceSvg);
 
   const priceP = document.createElement("p");
-  priceP.textContent = "Desde 10 €"
+  priceP.textContent = price
   priceContainer.appendChild(priceP);
 
 
@@ -650,7 +650,8 @@ function checkEvent(e){
   const days = checkDate(findEvent)
 
   const date = checkHours(findEvent);
-  createViewEvent(findEvent,days,date);
+  const price = checkPrice(findEvent)
+  createViewEvent(findEvent,days,date,price);
 }
 
 function checkDate(event){
@@ -686,6 +687,15 @@ function checkHours(event){
         return `Todo el día`
       }
     }
+  }
+}
+
+function checkPrice(event){
+  console.log(event)
+  if(!event.free){
+    return `Desde ${event.price} €`
+  }else{
+    return "Gratuito"
   }
 }
 
