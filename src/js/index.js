@@ -550,6 +550,10 @@ function createViewEvent(eventSelect,days,date,price){
   btnMoreInfo.className = "btn-more-info";
   btnMoreInfo.innerHTML = "Más información";
   shareBar.appendChild(btnMoreInfo);
+  let UrlInfo = eventSelect.linkTickets;
+  console.log(UrlInfo);
+  window.open(UrlInfo, "_blank");
+
 
   const shareIcon = document.createElement("div");
   shareIcon.className = "share-icon";
