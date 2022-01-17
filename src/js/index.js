@@ -444,11 +444,11 @@ function createViewEvent(eventSelect,days,date,price){
   let bookmarkContainer = document.createElement("div");
   bookmarkContainer.className = "bookmarkEvent"
   let bookmark = document.createElement("img");
-  bookmark.src = "./img/icons/bookmark.svg";
-  bookmark.dataset.name = ""
+  bookmark.src = eventSelect.bookmark ? "./img/icons/bookmark-selected.svg" : "./img/icons/bookmark.svg";
+  bookmark.dataset.name = eventSelect.id
   imgContainer.appendChild(bookmarkContainer);
   bookmarkContainer.appendChild(bookmark);
-  // bookmark.addEventListener("click", selectedBookmark)
+  bookmark.addEventListener("click", selectedBookmark)
 
   const infoEventPage = document.createElement("div");
   infoEventPage.className = "info-event";
