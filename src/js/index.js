@@ -1,5 +1,5 @@
-import moment from 'moment';
-
+import moment from "moment";
+//import { createModal, createPopUpModal } from "/createModal.js"
 let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
@@ -184,13 +184,13 @@ function createEvent(container, listEvents) {
 function dataModal(e) {
   //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
   const idOfEvent = e.currentTarget.dataset.id;
-  createModal(idOfEvent);
+  createEventModal(idOfEvent);
 }
-function createModal(id) {
+
+function createPopUpModal() {
   //QUITAR EL SCROLL DEL BODY
   const body = document.querySelector("body");
   body.classList.add("overflow-hidden");
-  let dataEvent = currentListEvents.find((el) => el.id === id);
   const modalWindow = document.querySelector("main");
   // ZONA OSCURA
   let modalBox = document.createElement("div");
@@ -200,6 +200,86 @@ function createModal(id) {
   let modal = document.createElement("div");
   modal.className = "modal";
   modalBox.appendChild(modal);
+  // BOTÓN DE CIERRE
+  let closeButton = document.createElement("img");
+  closeButton.className = "close";
+  closeButton.src = "./img/icons/xmark-solid.svg";
+  closeButton.alt = "Cerrar";
+  modal.appendChild(closeButton);
+  // FUNCIONALIDAD DEL MODAL
+  closeButton.addEventListener("click", () => {
+    modalBox.remove();
+    body.classList.remove("overflow-hidden");
+  });
+  window.addEventListener("click", (e) => {
+    if (e.target == modalBox) {
+      modalBox.remove();
+      body.classList.remove("overflow-hidden");
+    }
+  });
+}
+function createRegister(modalisOpen = false) {
+  const ContentModal = document.querySelector(".modal")
+  const CloseButton = document.querySelector(".close")
+  if (modalisOpen) {
+    const register = document.querySelector(".register-form")
+    register.remove();
+  }
+  const Register = /*html*/
+    `
+  <div class= "register-form flex flex-col">
+    <p>Empieza</p>
+    <p>¿Ya tienes una cuenta creada?<a href="#" onclick ="createLogin(true)">Entra</a></p>
+    <form class= "flex flex-col">
+      <label for="name-person">Nombre</label>
+      <input type="text" name="name-person" required>
+      <label for="nickname">Nombre de Usuario</label>
+      <input type="text" name="nickname" required>
+      <label for="password">Contraseña</label>
+      <input type="password" name="password" required>
+      <label for="repeat-password">Repite la contraseña</label>
+      <input type="password" name="repeat-password" required>
+      <button>Crear Cuenta</button>
+    </form>
+    </div>
+  `
+  CloseButton.insertAdjacentHTML("beforebegin", Register)
+}
+function createLogin(modalisOpen = false) {
+  const ContentModal = document.querySelector(".modal")
+  const CloseButton = document.querySelector(".close")
+  if (modalisOpen) {
+    const register = document.querySelector(".register-form")
+    register.remove();
+  }
+  const LoginIn = /*html*/`
+  <div class= "login-form flex flex-col">
+    <p>Entra</p>
+    <p>¿Aún no tienes cuenta?<a href="#" onclick ="createRegister(true)">Registrate aqui</a></p>
+    <form class= "flex flex-col">
+      <label for="nickname">Nombre de Usuario</label>
+      <input type="text" name="nickname" required>
+      <label for="password">Contraseña</label>
+      <input type="password" name="password" required>
+      <button>Login </button>
+    </form>
+  </div>
+  `
+  CloseButton.insertAdjacentHTML("beforebegin", LoginIn)
+}
+document.querySelector(".sign-in").addEventListener("click", () => {
+  createPopUpModal()
+  createRegister();
+})
+document.querySelector(".log-in").addEventListener("click", () => {
+  createPopUpModal();
+  createLogin();
+})
+function createEventModal(id) {
+  createPopUpModal();
+  const ContentModal = document.querySelector(".modal")
+  const CloseButton = document.querySelector(".close")
+  let dataEvent = currentListEvents.find((el) => el.id === id);
   // IMAGEN
   let fatherModalImagen = document.createElement("div");
   fatherModalImagen.className = "modal-image";
@@ -210,11 +290,11 @@ function createModal(id) {
     fatherModalImagen.className = "modal-image landscape";
   }
   fatherModalImagen.appendChild(modalImage);
-  modal.appendChild(fatherModalImagen);
+  ContentModal.insertBefore(fatherModalImagen, CloseButton);
   // ZONA DE TEXTO
   let modalText = document.createElement("div");
   modalText.className = "modal-text";
-  modal.appendChild(modalText);
+  ContentModal.insertBefore(modalText, CloseButton);
   // NOMBRE
   let modalName = document.createElement("p");
   modalName.innerText = dataEvent.nameEvent;
@@ -252,23 +332,6 @@ function createModal(id) {
   btnCalendar.dataset.name = id;
   btnCalendar.addEventListener("click", requestCalendar);
   modalText.appendChild(btnCalendar);
-  // BOTÓN DE CIERRE
-  let closeButton = document.createElement("img");
-  closeButton.className = "close";
-  closeButton.src = "./img/icons/xmark-solid.svg";
-  closeButton.alt = "Cerrar";
-  modal.appendChild(closeButton);
-  // FUNCIONALIDAD DEL MODAL
-  closeButton.addEventListener("click", () => {
-    modalBox.remove();
-    body.classList.remove("overflow-hidden");
-  });
-  window.addEventListener("click", (e) => {
-    if (e.target == modalBox) {
-      modalBox.remove();
-      body.classList.remove("overflow-hidden");
-    }
-  });
 }
 
 // Función que convierte número del mes en nombre del mes reducido en español
@@ -510,10 +573,10 @@ const requestCalendar = (e) => {
   e.stopPropagation;
   const BtnId = e.currentTarget.dataset.name;
   let dataEvent = currentListEvents.find((el) => el.id === BtnId);
-  let start = moment(dataEvent.dateStart).format('YYYYMMDD');
-  let end = moment(dataEvent.dateStart).add(1, "days").format('YYYYMMDD');
-  if (dataEvent.hasOwnProperty('dateFinal')) {
-    end = moment(dataEvent.dateFinal).add(1, "days").format('YYYYMMDD');
+  let start = moment(dataEvent.dateStart).format("YYYYMMDD");
+  let end = moment(dataEvent.dateStart).add(1, "days").format("YYYYMMDD");
+  if (dataEvent.hasOwnProperty("dateFinal")) {
+    end = moment(dataEvent.dateFinal).add(1, "days").format("YYYYMMDD");
   }
   const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${dataEvent.nameEvent}&location=${dataEvent.site}&dates=${start}/${end}`;
   window.open(URL, "_blank")
