@@ -447,21 +447,28 @@ const filterByCategory = (category) => {
   }
 }
 DivFilterCategory.forEach(ChangeStyleAndFilter);
-const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded "
-const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light "
+const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded ";
+const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light ";
 
 function pagination(listEvents) {
   const containerNavPages = document.querySelector(".pagination");
   while (containerNavPages.hasChildNodes()) {
     containerNavPages.firstChild.remove();
   }
-  const numberPages = Math.trunc(listEvents.length / 12)
+  const result = listEvents.length / 12;
+  let numberPages;
+  if (result === Math.trunc(result)) {
+    // para listas que sean múltiplos de 12 (12, 24, 36...)
+    numberPages = Math.trunc(result) - 1;
+  } else {
+    numberPages = Math.trunc(result);
+  }
   for (let page = 0; page <= numberPages; page++) {
     const anchor = document.createElement("a");
     anchor.textContent = page + 1;
     anchor.className = page === 0 ? pageSelected : pageUnSelected;
-    anchor.addEventListener("click", changePagination)
-    containerNavPages.appendChild(anchor)
+    anchor.addEventListener("click", changePagination);
+    containerNavPages.appendChild(anchor);
   }
 }
 function divideListEventForPagination(numberPage) {
@@ -479,17 +486,9 @@ function divideListEventForPagination(numberPage) {
     default:
       list = allEvents.filter(event => event.category.includes(activeCategory));
   }
-  let min = 0;
-  let max = 12;
-  if (numberPage === 1) {
-    // No hace nada con las variables porque necesito que sea de 0 a 12
-  } else if (numberPage % 2 === 0) {
-    min = 12 * (numberPage - 1) + 1;
-  } else {
-    min = 12 * (numberPage - 1) - 1;
-  }
-  max = (min + max) > list.length ? list.length : min + max;
-  return list = list.slice(min, max)
+  let min = 12 * (numberPage - 1);
+  let max = (min + 11) > list.length ? list.length : min + 11;
+  return list = list.slice(min, max + 1);
 }
 function changePagination(e) {
   document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
@@ -503,7 +502,6 @@ window.addEventListener("DOMContentLoaded", () => {
     arrayBookMark = uploadEvents;
   }
   createAll();
-  // currentListEvents = allEvents;
   responsiveFooter();
 });
 
