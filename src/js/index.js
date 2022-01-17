@@ -479,17 +479,20 @@ function divideListEventForPagination(numberPage) {
     default:
       list = allEvents.filter(event => event.category.includes(activeCategory));
   }
-  let min = 0;
-  let max = 12;
-  if (numberPage === 1) {
-    // No hace nada con las variables porque necesito que sea de 0 a 12
-  } else if (numberPage % 2 === 0) {
-    min = 12 * (numberPage - 1) + 1;
-  } else {
-    min = 12 * (numberPage - 1) - 1;
-  }
-  max = (min + max) > list.length ? list.length : min + max;
-  return list = list.slice(min, max)
+  // let min = 0;
+  // let max = 12;
+  // if (numberPage === 1) {
+  //   // No hace nada con las variables porque necesito que sea de 0 a 12
+  // } else if (numberPage % 2 === 0) {
+  //   min = 12 * (numberPage - 1);
+  // } else {
+  //   min = 12 * (numberPage - 1) + 1;
+  // }
+  // max = (min + max) > list.length ? list.length : min + max;
+  // return list = list.slice(min, max);
+  let min = 12 * (numberPage - 1);
+  let max = (min + 11) > list.length ? list.length : min + 11;
+  return list = list.slice(min, max + 1);
 }
 function changePagination(e) {
   document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
@@ -503,7 +506,6 @@ window.addEventListener("DOMContentLoaded", () => {
     arrayBookMark = uploadEvents;
   }
   createAll();
-  // currentListEvents = allEvents;
   responsiveFooter();
 });
 
