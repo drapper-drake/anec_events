@@ -1,5 +1,5 @@
 import moment from "moment";
-//import { createModal, createPopUpModal } from "/createModal.js"
+import { createPopUpModal, createRegister, createLogin } from "./createModal.js"
 let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
@@ -186,95 +186,8 @@ function dataModal(e) {
   const idOfEvent = e.currentTarget.dataset.id;
   createEventModal(idOfEvent);
 }
-
-function createPopUpModal() {
-  //QUITAR EL SCROLL DEL BODY
-  const body = document.querySelector("body");
-  body.classList.add("overflow-hidden");
-  const modalWindow = document.querySelector("main");
-  // ZONA OSCURA
-  let modalBox = document.createElement("div");
-  modalBox.className = "modal-container";
-  modalWindow.appendChild(modalBox);
-  // VENTANA
-  let modal = document.createElement("div");
-  modal.className = "modal";
-  modalBox.appendChild(modal);
-  // BOTÓN DE CIERRE
-  let closeButton = document.createElement("img");
-  closeButton.className = "close";
-  closeButton.src = "./img/icons/xmark-solid.svg";
-  closeButton.alt = "Cerrar";
-  modal.appendChild(closeButton);
-  // FUNCIONALIDAD DEL MODAL
-  closeButton.addEventListener("click", () => {
-    modalBox.remove();
-    body.classList.remove("overflow-hidden");
-  });
-  window.addEventListener("click", (e) => {
-    if (e.target == modalBox) {
-      modalBox.remove();
-      body.classList.remove("overflow-hidden");
-    }
-  });
-}
-function createRegister(modalisOpen = false) {
-  const ContentModal = document.querySelector(".modal")
-  const CloseButton = document.querySelector(".close")
-  if (modalisOpen) {
-    const register = document.querySelector(".register-form")
-    register.remove();
-  }
-  const Register = /*html*/
-    `
-  <div class= "register-form flex flex-col">
-    <p>Empieza</p>
-    <p>¿Ya tienes una cuenta creada?<a href="#" onclick ="createLogin(true)">Entra</a></p>
-    <form class= "flex flex-col">
-      <label for="name-person">Nombre</label>
-      <input type="text" name="name-person" required>
-      <label for="nickname">Nombre de Usuario</label>
-      <input type="text" name="nickname" required>
-      <label for="password">Contraseña</label>
-      <input type="password" name="password" required>
-      <label for="repeat-password">Repite la contraseña</label>
-      <input type="password" name="repeat-password" required>
-      <button>Crear Cuenta</button>
-    </form>
-    </div>
-  `
-  CloseButton.insertAdjacentHTML("beforebegin", Register)
-}
-function createLogin(modalisOpen = false) {
-  const ContentModal = document.querySelector(".modal")
-  const CloseButton = document.querySelector(".close")
-  if (modalisOpen) {
-    const register = document.querySelector(".register-form")
-    register.remove();
-  }
-  const LoginIn = /*html*/`
-  <div class= "login-form flex flex-col">
-    <p>Entra</p>
-    <p>¿Aún no tienes cuenta?<a href="#" onclick ="createRegister(true)">Registrate aqui</a></p>
-    <form class= "flex flex-col">
-      <label for="nickname">Nombre de Usuario</label>
-      <input type="text" name="nickname" required>
-      <label for="password">Contraseña</label>
-      <input type="password" name="password" required>
-      <button>Login </button>
-    </form>
-  </div>
-  `
-  CloseButton.insertAdjacentHTML("beforebegin", LoginIn)
-}
-document.querySelector(".sign-in").addEventListener("click", () => {
-  createPopUpModal()
-  createRegister();
-})
-document.querySelector(".log-in").addEventListener("click", () => {
-  createPopUpModal();
-  createLogin();
-})
+// ? Como createEventModal usa currentListEvents no me deja exportar bien la función
+// IMPROVE Que no use el currentListEvents aunque se va a borrar asi que se puede omitir esto
 function createEventModal(id) {
   createPopUpModal();
   const ContentModal = document.querySelector(".modal")
@@ -334,6 +247,15 @@ function createEventModal(id) {
   modalText.appendChild(btnCalendar);
 }
 
+document.querySelector(".sign-in").addEventListener("click", () => {
+  createPopUpModal()
+  createRegister();
+})
+document.querySelector(".log-in").addEventListener("click", () => {
+  createPopUpModal();
+  createLogin();
+})
+
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
   const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -376,33 +298,6 @@ function selectedBookmark(e) {
   saveLocalStorage();
 }
 
-// Función del slider de logos de patrocinadores
-const Sponsors = document.querySelectorAll(".container-img > img");
-
-let indexSlider = 0;
-//Le añado a todas una clase que las oculta
-const hideImg = () => {
-  Sponsors.forEach((img) => img.classList.add("hidden"));
-};
-
-function nextSliderImg() {
-  if (indexSlider === 0 && Sponsors[indexSlider].className === "hidden") {
-    return Sponsors[indexSlider].classList.remove("hidden");
-  } else {
-    Sponsors[indexSlider].classList.add("hidden");
-    //Index se esta igualando a la condición del ternario
-    indexSlider = indexSlider < Sponsors.length - 1 ? indexSlider + 1 : 0;
-    Sponsors[indexSlider].classList.remove("hidden");
-  }
-}
-
-function responsiveFooter() {
-  if (window.innerWidth <= 768) {
-    hideImg();
-    nextSliderImg();
-    setInterval(nextSliderImg, 3000);
-  }
-}
 
 // BOTÓN PARA SUBIR AL INICIO DE LA WEB
 const BtnUp = document.getElementById("btn-up");
@@ -559,14 +454,7 @@ function changePagination(e) {
   const listPagination = divideListEventForPagination(Number(e.currentTarget.textContent));
   resetAndCreateEventsFiltered(listPagination)
 }
-window.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("bookmark") != null) {
-    let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
-    arrayBookMark = uploadEvents;
-  }
-  createAll();
-  responsiveFooter();
-});
+
 
 const requestCalendar = (e) => {
   e.preventDefault;
@@ -602,4 +490,12 @@ hamburguer.addEventListener("click", () => {
   login.classList.toggle("hidden");
   const signin = document.querySelector(".sign-in");
   signin.classList.toggle("hidden");
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (localStorage.getItem("bookmark") != null) {
+    let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
+    arrayBookMark = uploadEvents;
+  }
+  createAll();
 });
