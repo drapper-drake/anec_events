@@ -27,6 +27,9 @@ function createAll() {
       const firstpagination = divideListEventForPagination(1)
       createEvent(content, firstpagination);
       pagination(currentListEvents)
+
+      //IMPROVE va a buscar el evento según el parametro que le hemos pasado en la url
+      checkPathname()
     });
 }
 function changeformatDateJSON() {
@@ -144,7 +147,7 @@ function createEvent(container, listEvents) {
           categoryIcon.src = "./img/icons/Navidad.svg";
           listEvents[position].iconEvent.push("./img/icons/Navidad.svg");
           listEvents[position].nameIconEvent.push("Navidad");
-          break; 
+          break;
         case "Kids":
           categoryIconInfo.textContent = "Infantil";
           categoryIcon.src = "./img/icons/Kids.svg";
@@ -515,7 +518,7 @@ function createViewEvent(eventSelect, days, date, price) {
 
   // Flechas
   const moreEventsContainer = document.createElement("div");
-  moreEventsContainer.className = "more-events-container hidden";   // hidden!! 
+  moreEventsContainer.className = "more-events-container hidden";   // hidden!!
   content.appendChild(moreEventsContainer);
 
   const arrowsContainer = document.createElement("div");
@@ -613,10 +616,10 @@ function checkPrice(event) {
   }
 }
 
-//IMPROVE Provisional es para que puedan salir al darle click al pato y descansar del f5
 const faceDuck = document.querySelector("header div")
 faceDuck.addEventListener("click", refreshPage)
 function refreshPage() {
+  window.location.href = "/"
   location.reload()
 }
 
@@ -626,13 +629,13 @@ function socialRed(e, event) {
   switch (e.dataset.name) {
 
     case "Twitter":
-      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=https://www.anecevents.com/&hashtags=${event.category[0]},${event.cityLocation}`;
+      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=localhost:3000/${event.id}&hashtags=${event.category[0]},${event.cityLocation}`;
       break;
     case "Facebook":
-      social = `http://www.facebook.com/sharer.php?s=100&p[url]=https://www.anecevents.com/&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
+      social = `http://www.facebook.com/sharer.php?s=100&p[url]=localhost:3000/${event.id}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
       break;
     case "Email":
-      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web https://www.anecevents.com`;
+      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web localhost:3000/${event.id}`;
       break;
 
     default: console.error("ha fallado")
@@ -775,7 +778,20 @@ function changePagination(e) {
   resetAndCreateEventsFiltered(listPagination)
 }
 
+//BUG borrar ahora
+function checkPathname(){
+  if(window.location.pathname === "/"){
+    console.log(window.location)
 
+  }else {
+    console.log(window.location)
+    const ruta = window.location.pathname.slice(1)
+    console.log(ruta)
+
+    checkEvent(ruta)
+    deleteContent()
+  }
+}
 
 const requestCalendar = (e) => {
   console.log(e)
