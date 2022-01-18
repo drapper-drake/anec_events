@@ -76,7 +76,7 @@ h1{
     @apply w-12 h-12 flex justify-center items-end absolute top-0 left-0;
   }
   .bookmarkEvent{
-    @apply w-10 h-10 flex justify-center items-end absolute top-7 left-5 md:top-6 md:left-6 lg:top-2 lg:left-1;
+    @apply w-10 h-10 flex justify-center items-end absolute top-7 left-5 md:top-6 md:left-6 lg:top-2 lg:left-1 cursor-pointer;
   }
   .tooltip {
     @apply w-12 h-12 flex justify-center items-end absolute top-0 right-0;
@@ -160,7 +160,7 @@ h1{
     @apply flex flex-col p-5 text-justify;
   }
   .icon-social{
-    @apply cursor-pointer;
+    @apply cursor-pointer w-[45] h-[45];
   }
   .contText {
     @apply pb-9;

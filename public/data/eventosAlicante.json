@@ -723,7 +723,7 @@
   {
     "nameEvent": "Ruta de los Castillos del Vinalopó",
     "free": true,
-    "site": "Castillo de la Atalaya, 03400 Villena. - Castillo de Biar, 03410 Biar. - Castillo de Banyeres, 03450 Banyeres de Mariola. - Castillo de Castalla, 03420 Castalla. - Castillo de Sax, 03630 Sax. - Castillo de Elda, 03600 Elda. - Castillo de Petrer, 03610 Petrer. - Castillo de la Mola, 03600 Novelda. - Palacio de Altamimira, 03202 Elche.",
+    "site": "Castillo de la Atalaya, 03400 Villena",
     "cityLocation": "Río Vinalopó",
     "village": true,
     "dateStart": "2022/01/01",
@@ -731,6 +731,7 @@
     "category": [
       "Sports"
     ],
+    "comments": "Castillo de la Atalaya, 03400 Villena. - Castillo de Biar, 03410 Biar. - Castillo de Banyeres, 03450 Banyeres de Mariola. - Castillo de Castalla, 03420 Castalla. - Castillo de Sax, 03630 Sax. - Castillo de Elda, 03600 Elda. - Castillo de Petrer, 03610 Petrer. - Castillo de la Mola, 03600 Novelda. - Palacio de Altamimira, 03202 Elche.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641064680/Castillo_Villena_-_Ruta_castillos_Vinalop%C3%B3_dizxmn.jpg"
   },
   {
@@ -1273,7 +1274,7 @@
   {
     "nameEvent": "Benidorm Salsa Congress 2022",
     "free": false,
-    "price": 3.0,
+    "price": 93.0,
     "site": "Gran Hotel Bali. C/ del Actor Luis Prendes, 4, 03502 Benidorm.",
     "cityLocation": "Benidorm",
     "village": true,
@@ -1291,16 +1292,20 @@
   {
     "nameEvent": "Benidorm Bachata Congress 2022",
     "free": false,
+    "price": 93.0,
     "site": "Gran Hotel Bali. C/ del Actor Luis Prendes, 4, 03502 Benidorm.",
     "cityLocation": "Benidorm",
     "village": true,
+    "hoursOpen": "11:00",
+    "hoursClose": "19:00",
     "dateStart": "2022/06/27",
     "dateFinal": "2022/07/03",
     "category": [
       "Music",
       "Party"
     ],
-    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641317565/anac-event/shg4qzn4i9tggxewmgas.jpg"
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641317565/anac-event/shg4qzn4i9tggxewmgas.jpg",
+    "linkTickets": "https://www.cucumpa.com/es/22-benidorm-bachata-congress-2022"
   },
   {
     "nameEvent": "Viva Suecia en Concierto",
