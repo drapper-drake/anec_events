@@ -2339,5 +2339,203 @@
     ],
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642356708/anac-event/hecshlegfbcr9nmnrohy.jpg",
     "linkTickets": "https://www.entradas.com/event/los-nocheros-tour-europa-2022-aula-de-la-cultura-13993068/"
+  },
+  {
+    "nameEvent": "Karaoke Elusia",
+    "free": false,
+    "price": 15.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/01/28",
+    "category": [
+      "Theatre"
+    ],
+    "comments": "Anita, Sam y Cristian alquilan la sala privada de un karaoke para celebrar su graduación en el instituto. Durante la noche cantan y recrean todo lo que ha pasado en este último año. Ha sido un curso difícil para los tres. Hace meses Sam intento suicidarse lo que provocó un alud de acoso escolar en las redes sociales que, ni padres, ni profesores fueron capaces de frenar. Oriol Puig aborda temas como el bullying, la salud mental y el suicidio juvenil porque piensa que a menudo nos olvidamos del impacto que puede llegar a tener en la vida de una persona, sobre todo en la de los jóvenes cuyas personalidades todavía se están desarrollando. ¿Educamos a nuestros hijos con las herramientas adecuadas para gestionar situaciones así correctamente?",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642539213/Teatro_Arniches_-_karaoke_elusia_svfijc.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/karaoke-elusia"
+  },
+  {
+    "nameEvent": "La Llavor",
+    "free": false,
+    "price": 15.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/01/29",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "comments": "La Llavor es el nuevo proyecto musical en acústico de Xavi Aspenbass, bajista y miembro fundador de Aspencat. Una semilla que quiere brotar con pasión, fusionando la música y la poesía. Mediante las versiones de su grupo, Xavi quiere reflejar la parte más sentimental de estas canciones en una vertiente más íntima, musical y emocional. Cuenta con dos voces femeninas al frente y con una nueva banda de músicos experimentados de una gran calidad musical. Vienen reforzados por la colaboración de Manolo Miralles de Al Tall y Ximo Guardiola de Owix y por la poderosa voz en los versos del rapsoda, Joan Femenia. Se unen tres generaciones de músicos en un espectáculo poético-musical hecho para todos los públicos que pretende emocionar a través de la música y la poesia. Música y versos para agitar el espíritu.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642539214/Teatro_Arniches_-_la_llavor_yt3ubj.jpg",
+    "linkTickets": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642539214/Teatro_Arniches_-_la_llavor_yt3ubj.jpg"
+  },
+  {
+    "nameEvent": "Soc una nou",
+    "free": false,
+    "price": 6.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "12:00",
+    "dateStart": "2022/01/30",
+    "category": [
+      "Theatre",
+      "Kids"
+    ],
+    "comments": "Todo empieza cuando un niño cae de un nogal en el jardín de una abogada refunfuñona. Sorprendida, su corazón se enternece y, para poder ayudarle, alega ante el juez una antigua ley por la que cualquier fruto caído en su propiedad, le pertenece. Me llamo Omar. Mi padre era jardinero y mi madre olía a canela. A los dos se los comió el mar poco antes de llegar a la playa. Los vi desaparecer, mientras flotaban en aquella cáscara de nuez, al lado de otros desconocidos. Una historia llena de sensibilidad, humor, ternura y solidaridad. Soc una nou: cuando la huida es sinónimo de supervivencia y la diversidad muestra que las diferencias no son tales.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642539408/Teatro_Arniches_-_soc_una_nou_obgiv9.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/soc-una-nou"
+  },
+  {
+    "nameEvent": "Hoy puede ser mi gran noche",
+    "free": false,
+    "price": 15.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/04",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "comments": "Hoy puede ser mi gran noche es una fiesta teatral, una pieza cómica y musical, un ejercicio de autoficción que cuenta la fascinante historia de un cantante de orquesta en la Galicia de los 90 y su hija, que quiere ser como su padre. La actriz y la música en escena se despliegan en múltiples voces para hacer un emocionante viaje al pasado con el fin de entender esa extraña amalgama que resulta de lo que un día quisimos ser y lo que somos. Es una obra divertida, valiente y profunda, un canto a los perdedores. Una historia emocionante, un relato desgarrador donde Teatro En Vilo vuelve a mostrar toda la elocuencia de su poética teatral, la irreverencia, la ternura y el humor para acercarnos a la batalla de una mujer que se pelea entre lo extraordinario y lo ordinario, la hazaña y la derrota.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642539676/Teatro_Arniches_-_hoy_puede_ser_mi_gran_noche_azuou2.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/hoy-puede-ser-mi-gran-noche"
+  },
+  {
+    "nameEvent": "Plàstic",
+    "free": false,
+    "price": 6.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "12:00",
+    "dateStart": "2022/02/06",
+    "category": [
+      "Theatre",
+      "Kids"
+    ],
+    "comments": "Una obra sobre el cambio climático escrita para niños y pensada por adultos que creen que aún se puede cambiar el mundo. 2078. El mundo ha cambiado mucho. La comida viene en sobres, el agua se toma en pastillas, los animales han desaparecido y el paisaje es totalmente diferente. Cuatro personajes han venido a celebrar tu cumpleaños, o el tuyo, o el tuyo, o el tuyo. Cuatro amigos te han traído regalos, regalos que te ayudarán a entender cómo hemos llegado hasta aquí. Una obra para tomar conciencia y poner el foco de atención en el verdadero problema: el consumo excesivo, los hábitos alimentarios y la contaminación. ¿Quieres saber cómo será la vida en 2078?",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642540429/Teatro_Arniches_-_plastic_piqrbd.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/plastic"
+  },
+  {
+    "nameEvent": "INTRAMUR - El proceso de creación de La Mort i la Donzella",
+    "free": true,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/09",
+    "category": [
+      "Theatre"
+    ],
+    "comments": "Durante el verano de 2020, todavía en plena pandemia, la coreógrafa Asun Noales inicia el encargo realizado por el Institut Valencià de Cultura  de la creación La Mort i la Donzella (sobre la pieza de Schubert del mismo nombre). Es una producción que se lleva a cabo desde Alicante, concretamente  desde el centro L’Escorxador de Elx. Este documental narra el proceso creativo de este espectáculo de danza, que ha sido reconocido como el más importante del año a nivel nacional. Desde la idea inicial hasta el estreno en teatro, se acompaña a intérpretes y participantes en este viaje de transformación, desde la vida hacia la muerte donde se traspasa de lo visible a lo invisible. Un buena ocasión para conocer de cerca cómo se lleva a cabo una producción de danza.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642540945/Teatro_Arniches_-_Intramur_n6hr6w.png",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/intramur-el-proces-de-creacio-de-la-mort-i-la-donzella"
+  },
+  {
+    "nameEvent": "Espaldas de plata",
+    "free": false,
+    "price": 15.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/11",
+    "category": [
+      "Theatre"
+    ],
+    "comments": "Espaldas de Plata nos habla de nuestras decisiones cotidianas y de sus repercusiones en el mundo. Fontana y Walter trabajan en una agencia de publicidad encargada de la campaña de un político que ha pasado unos años en la sombra por oscuros casos de corrupción y que, ahora, vuelve a su carrera profesional, después de haber pagado por todos sus pecados. Fontana, uno de los dos creativos publicitarios, se ve empujado a aceptar algo que detesta, a cumplir unas órdenes que él nunca daría. Comete el imperdonable error de traicionar sus principios y, cuando decide reconducir la situación, cuando decide enmendarla, ya no hay marcha atrás. Una vez bato las alas en mi sofá, se desatan los tornados en Oklahoma. ¿Venderías tu alma al diablo? ¿Lo harías por un puñado de euros a fin de mes?",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642541114/Teatro_Arniches_-_espaldas_de_plata_rqc1k5.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/espaldas-de-plata-ar-c"
+  },
+  {
+    "nameEvent": "Cómo decirte, mi amor",
+    "free": false,
+    "price": 15.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/12",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "comments": "Jimena Amarillo destaca en la escena del nuevo pop español por su extraordinaria sencillez, muy diferente a otras propuestas. La clave de su éxito es la sinceridad, la forma tan empática de contar sus alegrías, penas y enamoramientos y lo fácil que resulta identificarse con sus experiencias. Las canciones incluidas en su disco Cómo decirte, mi amor cuentan una historia con principio y fin. Tienen mucho de autobiográficas. En él han colaborado: Pau Roca, músico, productor y fotógrafo valenciano, Marc Greenwood, Manu Belice, Alex Ferrer (colaborador de Morad, Shego, Marc Seguí y Sebastián Cortés entre muchos otros) y Chris Carmichael, responsable de los arreglos de cuerda en discos como Speak Now de Taylor Swift, 1972 y Nashville de Josh Rouse y otros de Owl City, Buddy Guy, Flying Colors, etc. Romanticismo sin rodeos y directo al corazón. “Pop moñas, sin complejos”-como ella misma define su música",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642541349/Teatro_Arniches_-_C%C3%B3mo_decirte_mi_amor_js4ivj.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/como-decirte-mi-amor-c"
+  },
+  {
+    "nameEvent": "Els ocells",
+    "free": false,
+    "price": 15.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/02/18",
+    "category": [
+      "Theatre"
+    ],
+    "comments": "El joven empresario Pisteter y su compañera Evelpides no pueden volver a casa. Tampoco se les ocurre ningún otro lugar donde puedan vivir la vida cómoda, relajada y libre de impuestos que anhelan. El encuentro accidental con una inocente abubilla en medio del bosque les llevará a plantearse un cambio de estrategia: ¿y si renuncian a su condición humana y se convierten en pájaros? ¿y si convencieran a las aves del mundo para crear una nueva sociedad? Los Pájaros de Aristófanes se estrenó en el año 414 a.C. y 2.500 años después de aquel estreno, La Calórica, revisita Los Pájaros para estudiar los mecanismos emocionales que hacen funcionar el populismo neo-liberal y cuestionarse los motivos de su auge en la esfera internacional. La Calòrica crea una comedia mayúscula, excesiva, a veces insoportable. Una comedia donde el humor más negro y absurdo se pone al servicio del discurso más político.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642541473/Teatro_Arniches_-_els_ocells_fzeydr.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/els-ocells"
+  },
+  {
+    "nameEvent": "Nina",
+    "free": false,
+    "price": 6.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "12:00",
+    "dateStart": "2022/02/20",
+    "category": [
+      "Theatre",
+      "Kids"
+    ],
+    "comments": "Nuestra protagonista, Nina, es una niña curiosa, despierta e irreverente a su manera. La obra describe el viaje de Nina hacia la pérdida de su esencia. Nina es la historia de una niña que se convierte en una muñeca de porcelana como metáfora de la “niña” perfecta. Se irá transformando en sus encuentros con los diferentes personajes que representan el conjunto de la sociedad. Primero, su madre la vestirá de muñeca, después de memorizar las lecciones de la escuela, sus manos se harán de porcelana. Finalmente, el beso de un príncipe blanco acabará la metamorfosis de Nina. Pero será su madre quien la liberará y ayudará a nuestra protagonista a recuperar su música interior. Un espectáculo de danza-teatro que nos habla de nuestra esencia y de nuestra fuerza para cambiar el color del mundo. Si nos dejan ser, nos sorprenderemos de lo que somos capaces de hacer.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642541630/Teatro_Arniches_-_Nina_doey5d.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/nina"
+  },
+  {
+    "nameEvent": "La señorita Doña Margarita",
+    "free": false,
+    "price": 15.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/03/04",
+    "category": [
+      "Theatre"
+    ],
+    "comments": "La señorita Doña Margarita es maestra. Autoritaria, ecologista, ególatra, violenta, sensible, cariñosa y muchas otras cosas, tratará de iniciarnos en el mundo de los adultos. El mundo de la alfabetización informática, el who is who, o reconocer que no somos nada, forma parte del bagaje que Dª Margarita quiere transmitirnos para prepararnos para la vida moderna. La educación, la llave que mejor abre las puertas. ",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642541773/Teatro_Arniches_-_La_se%C3%B1orita_do%C3%B1a_margarita_rqjanh.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/la-senorita-dona-margarita"
+  },
+  {
+    "nameEvent": "Johnny B. Zero + Badlands",
+    "free": false,
+    "price": 15.00,
+    "site": "Teatro Arniches. Av. Aguilera, 1, 03007",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:30",
+    "dateStart": "2022/03/05",
+    "category": [
+      "Theatre",
+      "Music"
+    ],
+    "comments": "Johnny B. Zero es uno de los grupos valencianos de los últimos años con una trayectoria más honesta y sólida, basada en dos pilares fundamentales: las canciones llamativas y pegadizas y la fuerte conexión con su público. Mantienen una formación un poco extravagante (bateria, sintetitzador, saxo y guitarra) y sus últimos discos han tenido una acogida muy càlida por parte de la crítica y del público. En octubre de 2020 publicaron su último disco, “Metonymy of Sound”, galardonado con el premio al major disco de rock en la III edición de los Premios Carles Santos de la Música Valenciana. La banda Badlands, grupo valenciano de country y bluegrass formado el año 2014, ha marcado su camino a través de una continua evolución; aunque su punto de partida siempre ha sido el mismo, la música americana y el country, sus límites se han ido ampliando, buscando aquello que los identifica y reinventándose para hacerlo suyo. En diciembre de 2019 presentaron su último trabajo Tornado, con la producción de Manuel Tomás (Niña Pastorí, Amaral). En diciembre de 2020, Badlands recibió el Premio a Mejor Canción  del Año en la III edición de los Premios Carles Santos de la Música Valenciana. Música que mueve el cuerpo pero también el corazón.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642541953/Teatro_Arniches_-_Johnny_b_zero_y_badlands_m2wdb9.jpg",
+    "linkTickets": "https://ivc.gva.es/es/ivc/programacion-ivc/teatre-arniches-de-alacant/johnny-b-zero-badlands"
   }
 ]
