@@ -1,10 +1,9 @@
 import moment from 'moment';
-
 let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
 let listFilterDates = [];
-
+let buttonCalendar;// lo pongo global para poder llamarlo luego desde una función sino se lee todo js y es null
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
@@ -128,46 +127,70 @@ function createEvent(container, listEvents) {
       charityIconContainer.appendChild(charityIconText);
     }
     // ICONOS DE CATEGORÍAS
+    //IMPROVE Crear una propiedad en eventos para añadir luego datos
+    listEvents[position].iconEvent = [];
+    listEvents[position].nameIconEvent = [];
+
+    listEvents[position].nameIcon = []
     for (let cat in listEvents[position].category) {
       let categoryIconContainer = document.createElement("div");
       let categoryIcon = document.createElement("img");
       let categoryIconInfo = document.createElement("p");
+
       switch (listEvents[position].category[cat]) {
         case "Christmas":
           categoryIconInfo.textContent = "Navidad";
           categoryIcon.src = "./img/icons/Navidad.svg";
+          listEvents[position].iconEvent.push("./img/icons/Navidad.svg");
+          listEvents[position].nameIconEvent.push("Navidad");
           break;
         case "Kids":
           categoryIconInfo.textContent = "Infantil";
           categoryIcon.src = "./img/icons/Kids.svg";
+          listEvents[position].iconEvent.push("./img/icons/Kids.svg");
+          listEvents[position].nameIconEvent.push("Infantil");
           break;
         case "Play":
           categoryIconInfo.textContent = "Lúdico";
           categoryIcon.src = "./img/icons/Play.svg";
+          listEvents[position].iconEvent.push("./img/icons/Play.svg");
+          listEvents[position].nameIconEvent.push("Lúdico");
           break;
         case "Music":
           categoryIconInfo.textContent = "Música";
           categoryIcon.src = "./img/icons/Music.svg";
+          listEvents[position].iconEvent.push("./img/icons/Music.svg");
+          listEvents[position].nameIconEvent.push("Música");
           break;
         case "Sports":
           categoryIconInfo.textContent = "Deporte";
           categoryIcon.src = "./img/icons/Sports.svg";
+          listEvents[position].iconEvent.push("./img/icons/Sports.svg");
+          listEvents[position].nameIconEvent.push(["Deporte"]);
           break;
         case "Theatre":
           categoryIconInfo.textContent = "Teatro";
           categoryIcon.src = "./img/icons/Theatre.svg";
+          listEvents[position].iconEvent.push("./img/icons/Theatre.svg");
+          listEvents[position].nameIconEvent.push("Teatro");
           break;
         case "Party":
           categoryIconInfo.textContent = "Fiestas";
           categoryIcon.src = "./img/icons/Cocktail.svg";
+          listEvents[position].iconEvent.push("./img/icons/Cocktail.svg");
+          listEvents[position].nameIconEvent.push("Fiestas");
           break;
         case "Food":
           categoryIconInfo.textContent = "Gastronómico";
           categoryIcon.src = "./img/icons/Food.svg";
+          listEvents[position].iconEvent.push("./img/icons/Food.svg");
+          listEvents[position].nameIconEvent.push("Gastronómico");
           break;
         case "Museum":
           categoryIconInfo.textContent = "Museo";
           categoryIcon.src = "./img/icons/Museum.svg";
+          listEvents[position].iconEvent.push("./img/icons/Museum.svg");
+          listEvents[position].nameIconEvent.push("Museos");
           break;
         default:
           console.error(`Hay ninguna categoria con ese nombre ${listEvents[position].category[cat]}`)
@@ -184,8 +207,11 @@ function createEvent(container, listEvents) {
 function dataModal(e) {
   //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
   const idOfEvent = e.currentTarget.dataset.id;
-  createModal(idOfEvent);
+  checkEvent(idOfEvent)
+  deleteContent()
+  // createModal(idOfEvent);
 }
+/*
 function createModal(id) {
   //QUITAR EL SCROLL DEL BODY
   const body = document.querySelector("body");
@@ -269,8 +295,10 @@ function createModal(id) {
       body.classList.remove("overflow-hidden");
     }
   });
-}
 
+
+}
+*/
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
   const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -375,6 +403,354 @@ function resetAndCreateEventsFiltered(listFiltered) {
     createEvent(resetContent, listFiltered);
   }
 }
+
+//Borra todo menos el header y el footer
+function deleteContent() {
+  const content = document.querySelector(".container");
+  const nav = document.querySelector(".container-nav");
+  const pagination = document.querySelector(".pagination")
+
+  content.remove(".container");
+  nav.classList.add("hidden");
+  pagination.classList.add("hidden");
+}
+
+//Crea la vista del evento clickeado
+function createViewEvent(eventSelect, days, date, price) {
+  const content = document.createElement("div");
+  const main = document.querySelector("main");
+
+  content.className = "container";
+  main.appendChild(content);
+
+  const infoContainer = document.createElement("div");
+  infoContainer.className = "info-container";
+  content.appendChild(infoContainer);
+
+  const topInfo = document.createElement("div");
+  topInfo.className = "top-info";
+  infoContainer.appendChild(topInfo);
+
+  const imgContainer = document.createElement("div");
+  imgContainer.className = "img-container";
+  topInfo.appendChild(imgContainer);
+
+  const tagImg = document.createElement("img");
+  tagImg.src = eventSelect.photoEvent
+  imgContainer.appendChild(tagImg);
+
+  //BOTON FAVORITOS
+  let bookmarkContainer = document.createElement("div");
+  bookmarkContainer.className = "bookmarkEvent"
+  let bookmark = document.createElement("img");
+  bookmark.src = eventSelect.bookmark ? "./img/icons/bookmark-selected.svg" : "./img/icons/bookmark.svg";
+  bookmark.dataset.name = eventSelect.id
+  imgContainer.appendChild(bookmarkContainer);
+  bookmarkContainer.appendChild(bookmark);
+  bookmark.addEventListener("click", selectedBookmark)
+
+  const infoEventPage = document.createElement("div");
+  infoEventPage.className = "info-event";
+  topInfo.appendChild(infoEventPage);
+
+  const titleEv = document.createElement("h2");
+  titleEv.className = "title-ev";
+  titleEv.textContent = eventSelect.nameEvent;
+  infoEventPage.appendChild(titleEv);
+
+  //Categoría - Tipo de evento
+  const categoryContainer = document.createElement("div");
+  categoryContainer.className = "category";
+  infoEventPage.appendChild(categoryContainer);
+
+  for (let cat in eventSelect.category) {
+    const categorySvg = document.createElement("img");
+    categorySvg.src = eventSelect.iconEvent[cat];
+    categorySvg.className = "labelsSvg";
+    categoryContainer.appendChild(categorySvg);   //labelsSvg
+
+    const categoryP = document.createElement("p");
+    categoryP.textContent = eventSelect.nameIconEvent[cat];
+    categoryContainer.appendChild(categoryP);
+  }
+
+  //Localizacion
+  const cityLocationContainer = document.createElement("div");
+  cityLocationContainer.className = "city-location";
+  infoEventPage.appendChild(cityLocationContainer);
+
+  const locationSvg = document.createElement("img");
+  locationSvg.src = "./img/icons/location.svg";
+  locationSvg.className = "labelsSvg";
+  cityLocationContainer.appendChild(locationSvg);
+
+  const locationP = document.createElement("p");
+  locationP.textContent = eventSelect.site
+  cityLocationContainer.appendChild(locationP);
+
+
+  //Fechas
+  const dateContainer = document.createElement("div");
+  dateContainer.className = "date";
+  infoEventPage.appendChild(dateContainer);
+
+  const dateSvg = document.createElement("img");
+  dateSvg.src = "./img/icons/date.svg";
+  dateSvg.className = "labelsSvg";
+  dateContainer.appendChild(dateSvg);
+
+  const dateP = document.createElement("p");
+  dateP.textContent = days;
+  dateContainer.appendChild(dateP);
+
+
+  //Horas
+  const hoursContainer = document.createElement("div");
+  hoursContainer.className = "hours";
+  infoEventPage.appendChild(hoursContainer);
+
+  const hoursSvg = document.createElement("img");
+  hoursSvg.src = "./img/icons/Schedule.svg";
+  hoursSvg.className = "labelsSvg";
+  hoursContainer.appendChild(hoursSvg);
+
+  const hoursP = document.createElement("p");
+  hoursP.textContent = date;
+  hoursContainer.appendChild(hoursP);
+
+  //Botón calendar + Precio evento
+  buttonCalendar = document.createElement("button");
+  buttonCalendar.className = "btn-calendar";
+  buttonCalendar.textContent = "Añadir al calendario";
+  infoEventPage.appendChild(buttonCalendar);
+  buttonCalendar.addEventListener("click", () => requestCalendar(eventSelect));
+
+
+  const priceContainer = document.createElement("div");
+  priceContainer.className = "price";
+  infoEventPage.appendChild(priceContainer);
+
+  const priceSvg = document.createElement("img");
+  priceSvg.src = "./img/icons/euro.svg";
+  priceSvg.className = "priceSvg";
+  priceContainer.appendChild(priceSvg);
+
+  const priceP = document.createElement("p");
+  priceP.textContent = price
+  priceContainer.appendChild(priceP);
+
+
+  //Barra de compartir y más información
+  const shareBar = document.createElement("div");
+  shareBar.className = "share-bar";
+  infoContainer.appendChild(shareBar);
+
+  const btnMoreInfo = document.createElement("button");
+  btnMoreInfo.className = "btn-more-info";
+  btnMoreInfo.innerHTML = "Más información";
+  shareBar.appendChild(btnMoreInfo);
+  let UrlInfo = eventSelect.linkTickets;
+
+  //añadido porque si no se ejecuta al momento
+  btnMoreInfo.addEventListener("click", () => {
+    window.open(UrlInfo, "_blank");
+  })
+
+
+  const shareIcon = document.createElement("div");
+  shareIcon.className = "share-icon";
+  shareBar.appendChild(shareIcon);
+
+  const shareSvg = document.createElement("img");
+  shareSvg.src = "./img/icons/Share.svg";
+  shareIcon.appendChild(shareSvg);
+
+  const shareP = document.createElement("p");
+  shareP.className = "share-text";
+  shareP.innerHTML = "Comparte con tus amigos";
+  shareIcon.appendChild(shareP);
+
+  const containerSocial = document.createElement("div");
+  containerSocial.className = "container-social";
+  shareBar.appendChild(containerSocial);
+
+  const iconTwitterSvg = document.createElement("img");
+  iconTwitterSvg.src = "./img/icons/twitterBlack.svg";
+  iconTwitterSvg.className = "icon-social";
+  iconTwitterSvg.dataset.name = "Twitter";
+  containerSocial.appendChild(iconTwitterSvg);
+
+  const iconFacebooklSvg = document.createElement("img");
+  iconFacebooklSvg.src = "./img/icons/fb-icon.svg";
+  iconFacebooklSvg.className = "icon-social";
+  iconFacebooklSvg.dataset.name = "Facebook"
+  containerSocial.appendChild(iconFacebooklSvg);
+
+
+  const iconCorreoSvg = document.createElement("img");
+  iconCorreoSvg.src = "./img/icons/email-icon.svg";
+  iconCorreoSvg.className = "icon-social";
+  iconCorreoSvg.dataset.name = "Email";
+  containerSocial.appendChild(iconCorreoSvg);
+
+  // const iconInstagramSvg = document.createElement("img");
+  // iconInstagramSvg.src = "./img/icons/Instagram icon.svg";
+  // containerSocial.appendChild(iconInstagramSvg);
+
+
+  //Parte baja de info
+  const bottomInfo = document.createElement("div");
+  bottomInfo.className = "bottom-info";
+  infoContainer.appendChild(bottomInfo);
+
+  const bottomInfoP = document.createElement("p");
+  bottomInfoP.className = "contText";
+  bottomInfoP.textContent = eventSelect.comments;
+  bottomInfo.appendChild(bottomInfoP);
+
+  const map = document.createElement("div");
+  map.className = "map"
+  bottomInfo.appendChild(map);
+
+  const iframeMap = document.createElement("iframe");
+  iframeMap.className = "iframe-map";
+  iframeMap.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&q=${eventSelect.site}`;
+  iframeMap.width = "375";
+  iframeMap.height = "300";
+  iframeMap.style = "border:0";
+  iframeMap.loading = "lazy";
+  iframeMap.allowfullscreen = "";
+  map.appendChild(iframeMap);
+
+  // Otros eventos
+
+  // Flechas
+  const moreEventsContainer = document.createElement("div");
+  moreEventsContainer.className = "more-events-container";
+  content.appendChild(moreEventsContainer);
+
+  const arrowsContainer = document.createElement("div");
+  arrowsContainer.className = "arrows-container";
+  moreEventsContainer.appendChild(arrowsContainer);
+
+  const titleOtherEv = document.createElement("h3");
+  titleOtherEv.className = "titleOtherEv";
+  titleOtherEv.textContent = "Otros eventos:";
+  arrowsContainer.appendChild(titleOtherEv);
+
+  const arrows = document.createElement("div");
+  arrows.className = "arrows";
+  arrowsContainer.appendChild(arrows);
+
+  const arrowLeftSvg = document.createElement("img");
+  arrowLeftSvg.src = "./img/icons/arrow-left.svg";
+  arrows.appendChild(arrowLeftSvg);
+
+  const arrowRightSvg = document.createElement("img");
+  arrowRightSvg.src = "./img/icons/right-arrow.svg";
+  arrows.appendChild(arrowRightSvg);
+
+  // Tarjetas otros eventos
+
+  const moreEvents = document.createElement("div");
+  moreEvents.className = "more-events";
+  moreEventsContainer.appendChild(moreEvents);
+
+
+}
+
+//Recibe el id del evento que hace click y lo filtra para mandarlo a crear
+function checkEvent(e) {
+  let eventSelect = e;
+
+  const findEvent = currentListEvents.find(e => e.id === eventSelect);
+  const days = checkDate(findEvent)
+
+  const date = checkHours(findEvent);
+  const price = checkPrice(findEvent)
+  createViewEvent(findEvent, days, date, price);
+  scrollUp() //Para que suba y no aparezca abajo
+
+  const iconSocial = document.querySelectorAll(".icon-social")
+  iconSocial.forEach((button) => button.addEventListener("click", () => socialRed(button, findEvent)))
+
+}
+
+function checkDate(event) {
+  let dateIni = dateFormat(event.dateStart);
+  if (event.hasOwnProperty("dateFinal")) {
+    let dateF = dateFormat(event.dateFinal);
+    let resultado = allYear(dateIni, dateF)
+    if (!resultado) {
+      return `Del ${dateIni}  al ${dateF}`;
+    } else {
+      return `Todo el año`;
+    }
+  } else {
+    return dateIni
+  }
+}
+
+function checkHours(event) {
+  if (event.hasOwnProperty("hoursClose")) {
+    if (event.hoursOpen === event.hoursClose) {
+      return event.hoursOpen
+
+    } else {
+      return `De ${event.hoursOpen} a las ${event.hoursClose}`
+    }
+  } else {
+    for (let e in event.category) {
+      if (event.category[e] === "Music") {
+        return event.hoursOpen
+
+      } else {
+        return `Todo el día`
+      }
+    }
+  }
+}
+
+function checkPrice(event) {
+  if (!event.free) {
+    if (event.hasOwnProperty("price")) {
+      return `Desde ${event.price} €`
+    } else {
+      console.error(`El evento ${event.nameEvent} no tiene price`)
+    }
+  } else {
+    return "Gratuito"
+  }
+}
+
+//IMPROVE Provisional es para que puedan salir al darle click al pato y descansar del f5
+const faceDuck = document.querySelector("header div img")
+faceDuck.addEventListener("click", refreshPage)
+function refreshPage() {
+  location.reload()
+}
+
+//Funcion compartir en redes sociales
+function socialRed(e, event) {
+  let social;
+  switch (e.dataset.name) {
+
+    case "Twitter":
+      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=https://www.anecevents.com/&hashtags=${event.category[0]},${event.cityLocation}`;
+      break;
+    case "Facebook":
+      social = `http://www.facebook.com/sharer.php?s=100&p[url]=https://www.anecevents.com/&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
+      break;
+    case "Email":
+      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web https://www.anecevents.com`;
+      break;
+
+    default: console.error("ha fallado")
+  }
+  window.open(social, "_blank");
+
+}
+
 
 // función de filtrar por fecha
 const btnEvent = document.querySelector("#submit");
@@ -505,19 +881,22 @@ window.addEventListener("DOMContentLoaded", () => {
   responsiveFooter();
 });
 
+
 const requestCalendar = (e) => {
+  console.log(e)
   e.preventDefault;
   e.stopPropagation;
-  const BtnId = e.currentTarget.dataset.name;
-  let dataEvent = currentListEvents.find((el) => el.id === BtnId);
-  let start = moment(dataEvent.dateStart).format('YYYYMMDD');
-  let end = moment(dataEvent.dateStart).add(1, "days").format('YYYYMMDD');
-  if (dataEvent.hasOwnProperty('dateFinal')) {
-    end = moment(dataEvent.dateFinal).add(1, "days").format('YYYYMMDD');
+  // const BtnId = e.currentTarget.dataset.name;
+  // let dataEvent = currentListEvents.find((el) => el.id === BtnId);
+  let start = moment(e.dateStart).format('YYYYMMDD');
+  let end = moment(e.dateStart).add(1, "days").format('YYYYMMDD');
+  if (e.hasOwnProperty('dateFinal')) {
+    end = moment(e.dateFinal).add(1, "days").format('YYYYMMDD');
   }
-  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${dataEvent.nameEvent}&location=${dataEvent.site}&dates=${start}/${end}`;
+  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${e.nameEvent}&location=${e.site}&dates=${start}/${end}`;
   window.open(URL, "_blank")
 }
+
 
 // desplegar menú de la hamburguesa
 const hamburguer = document.querySelector(".hamburguer");
