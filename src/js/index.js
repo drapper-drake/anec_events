@@ -550,6 +550,13 @@ function createViewEvent(eventSelect, days, date, price) {
   btnMoreInfo.className = "btn-more-info";
   btnMoreInfo.innerHTML = "Más información";
   shareBar.appendChild(btnMoreInfo);
+  let UrlInfo = eventSelect.linkTickets;
+
+  //añadido porque si no se ejecuta al momento
+  btnMoreInfo.addEventListener("click", () => {
+    window.open(UrlInfo, "_blank");
+  })
+
 
   const shareIcon = document.createElement("div");
   shareIcon.className = "share-icon";
@@ -570,15 +577,26 @@ function createViewEvent(eventSelect, days, date, price) {
 
   const iconTwitterSvg = document.createElement("img");
   iconTwitterSvg.src = "./img/icons/twitterBlack.svg";
+  iconTwitterSvg.className = "icon-social";
+  iconTwitterSvg.dataset.name = "Twitter";
   containerSocial.appendChild(iconTwitterSvg);
 
   const iconFacebooklSvg = document.createElement("img");
   iconFacebooklSvg.src = "./img/icons/fb-icon.svg";
+  iconFacebooklSvg.className = "icon-social";
+  iconFacebooklSvg.dataset.name = "Facebook"
   containerSocial.appendChild(iconFacebooklSvg);
 
-  const iconInstagramSvg = document.createElement("img");
-  iconInstagramSvg.src = "./img/icons/Instagram icon.svg";
-  containerSocial.appendChild(iconInstagramSvg);
+
+  const iconCorreoSvg = document.createElement("img");
+  iconCorreoSvg.src = "./img/icons/email-icon.svg";
+  iconCorreoSvg.className = "icon-social";
+  iconCorreoSvg.dataset.name = "Email";
+  containerSocial.appendChild(iconCorreoSvg);
+
+  // const iconInstagramSvg = document.createElement("img");
+  // iconInstagramSvg.src = "./img/icons/Instagram icon.svg";
+  // containerSocial.appendChild(iconInstagramSvg);
 
 
   //Parte baja de info
@@ -653,6 +671,10 @@ function checkEvent(e) {
   const price = checkPrice(findEvent)
   createViewEvent(findEvent, days, date, price);
   scrollUp() //Para que suba y no aparezca abajo
+
+  const iconSocial = document.querySelectorAll(".icon-social")
+  iconSocial.forEach((button) => button.addEventListener("click",() => socialRed(button, findEvent)))
+
 }
 
 function checkDate(event) {
@@ -660,7 +682,11 @@ function checkDate(event) {
   if (event.hasOwnProperty("dateFinal")) {
     let dateF = dateFormat(event.dateFinal);
     let resultado = allYear(dateIni, dateF)
+<<<<<<< HEAD
     console.log(event, "resultado", resultado)
+=======
+
+>>>>>>> d4b1cc5347eaf81ba80a153d2a282f6829efc2f8
     if (!resultado) {
       return `Del ${dateIni}  al ${dateF}`;
     } else {
@@ -691,10 +717,17 @@ function checkHours(event) {
   }
 }
 
+<<<<<<< HEAD
 function checkPrice(event) {
   console.log(event)
   if (!event.free) {
     if (event.hasOwnProperty("price")) {
+=======
+function checkPrice(event){
+
+  if(!event.free){
+    if(event.hasOwnProperty("price")){
+>>>>>>> d4b1cc5347eaf81ba80a153d2a282f6829efc2f8
       return `Desde ${event.price} €`
     } else {
       console.error(`El evento ${event.nameEvent} no tiene price`)
@@ -711,7 +744,26 @@ function refreshPage() {
   location.reload()
 }
 
+//Funcion compartir en redes sociales
+function socialRed(e, event){
+  let social;
+  switch(e.dataset.name){
 
+    case "Twitter":
+      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=https://www.anecevents.com/&hashtags=${event.category[0]},${event.cityLocation}`;
+      break;
+    case "Facebook":
+      social = `http://www.facebook.com/sharer.php?s=100&p[url]=https://www.anecevents.com/&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
+      break;
+    case "Email":
+      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web https://www.anecevents.com`;
+      break;
+
+    default: console.error("ha fallado")
+  }
+    window.open(social, "_blank");
+
+}
 
 
 // función de filtrar por fecha

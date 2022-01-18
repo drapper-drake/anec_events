@@ -156,6 +156,9 @@ h1{
   .bottom-info {
     @apply flex flex-col p-5 text-justify;
   }
+  .icon-social{
+    @apply cursor-pointer;
+  }
   .contText {
     @apply pb-9;
   }
