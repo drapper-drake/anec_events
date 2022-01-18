@@ -690,7 +690,7 @@ const DivFilterCategory = document.querySelectorAll(".navegation > div");
 const ChangeStyleAndFilter = (div) => {
   div.addEventListener("click", (e) => {
     const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
-    const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer  bg-dark rounded";
+    const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer font-bold bg-dark rounded";
     DivFilterCategory.forEach(div => div.className = navUnselected);
 
     div.className = navSelected;
