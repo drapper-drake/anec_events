@@ -1,5 +1,4 @@
 import moment from 'moment';
-
 let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
@@ -673,7 +672,7 @@ function checkEvent(e) {
   scrollUp() //Para que suba y no aparezca abajo
 
   const iconSocial = document.querySelectorAll(".icon-social")
-  iconSocial.forEach((button) => button.addEventListener("click",() => socialRed(button, findEvent)))
+  iconSocial.forEach((button) => button.addEventListener("click", () => socialRed(button, findEvent)))
 
 }
 
@@ -682,11 +681,7 @@ function checkDate(event) {
   if (event.hasOwnProperty("dateFinal")) {
     let dateF = dateFormat(event.dateFinal);
     let resultado = allYear(dateIni, dateF)
-<<<<<<< HEAD
     console.log(event, "resultado", resultado)
-=======
-
->>>>>>> d4b1cc5347eaf81ba80a153d2a282f6829efc2f8
     if (!resultado) {
       return `Del ${dateIni}  al ${dateF}`;
     } else {
@@ -717,17 +712,10 @@ function checkHours(event) {
   }
 }
 
-<<<<<<< HEAD
 function checkPrice(event) {
   console.log(event)
   if (!event.free) {
     if (event.hasOwnProperty("price")) {
-=======
-function checkPrice(event){
-
-  if(!event.free){
-    if(event.hasOwnProperty("price")){
->>>>>>> d4b1cc5347eaf81ba80a153d2a282f6829efc2f8
       return `Desde ${event.price} €`
     } else {
       console.error(`El evento ${event.nameEvent} no tiene price`)
@@ -745,9 +733,9 @@ function refreshPage() {
 }
 
 //Funcion compartir en redes sociales
-function socialRed(e, event){
+function socialRed(e, event) {
   let social;
-  switch(e.dataset.name){
+  switch (e.dataset.name) {
 
     case "Twitter":
       social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=https://www.anecevents.com/&hashtags=${event.category[0]},${event.cityLocation}`;
@@ -761,7 +749,7 @@ function socialRed(e, event){
 
     default: console.error("ha fallado")
   }
-    window.open(social, "_blank");
+  window.open(social, "_blank");
 
 }
 
