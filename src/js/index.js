@@ -619,8 +619,7 @@ function checkPrice(event) {
 const faceDuck = document.querySelector("header div")
 faceDuck.addEventListener("click", refreshPage)
 function refreshPage() {
-  window.location.href = "/"
-  location.reload()
+  window.location.pathname = "/"
 }
 
 //Funcion compartir en redes sociales
@@ -632,7 +631,8 @@ function socialRed(e, event) {
       social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=localhost:3000/${event.id}&hashtags=${event.category[0]},${event.cityLocation}`;
       break;
     case "Facebook":
-      social = `http://www.facebook.com/sharer.php?s=100&p[url]=localhost:3000/${event.id}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
+      // social = `http://www.facebook.com/sharer.php?s=100&p[url]=localhost:3000/${event.id}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
+      social = `http://www.facebook.com/sharer.php?u=localhost:3000/${event.id}&t=evento`;
       break;
     case "Email":
       social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web localhost:3000/${event.id}`;
