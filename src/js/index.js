@@ -406,7 +406,7 @@ function resetAndCreateEventsFiltered(listFiltered) {
 }
 
 //Borra todo menos el header y el footer
-function deleteContent(){
+function deleteContent() {
   const content = document.querySelector(".container");
   const nav = document.querySelector(".container-nav");
   const pagination = document.querySelector(".pagination")
@@ -417,7 +417,7 @@ function deleteContent(){
 }
 
 //Crea la vista del evento clickeado
-function createViewEvent(eventSelect,days,date,price){
+function createViewEvent(eventSelect, days, date, price) {
   const content = document.createElement("div");
   const main = document.querySelector("main");
 
@@ -464,7 +464,7 @@ function createViewEvent(eventSelect,days,date,price){
   categoryContainer.className = "category";
   infoEventPage.appendChild(categoryContainer);
 
-  for(let cat in eventSelect.category){
+  for (let cat in eventSelect.category) {
     const categorySvg = document.createElement("img");
     categorySvg.src = eventSelect.iconEvent[cat];
     categorySvg.className = "labelsSvg";
@@ -522,9 +522,9 @@ function createViewEvent(eventSelect,days,date,price){
   //Botón calendar + Precio evento
   buttonCalendar = document.createElement("button");
   buttonCalendar.className = "btn-calendar";
-  buttonCalendar.textContent ="Añadir al calendario";
+  buttonCalendar.textContent = "Añadir al calendario";
   infoEventPage.appendChild(buttonCalendar);
-  buttonCalendar.addEventListener("click",() => requestCalendar(eventSelect));
+  buttonCalendar.addEventListener("click", () => requestCalendar(eventSelect));
 
 
   const priceContainer = document.createElement("div");
@@ -583,7 +583,7 @@ function createViewEvent(eventSelect,days,date,price){
 
   //Parte baja de info
   const bottomInfo = document.createElement("div");
-  bottomInfo.className ="bottom-info";
+  bottomInfo.className = "bottom-info";
   infoContainer.appendChild(bottomInfo);
 
   const bottomInfoP = document.createElement("p");
@@ -597,17 +597,17 @@ function createViewEvent(eventSelect,days,date,price){
 
   const iframeMap = document.createElement("iframe");
   iframeMap.className = "iframe-map";
-  iframeMap.src = "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3129.241120802868!2d-0.4848759843955511!3d38.34340088701239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses!2ses!4v1641906796871!5m2!1ses!2ses";
+  iframeMap.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&q=${eventSelect.site}`;
   iframeMap.width = "375";
   iframeMap.height = "300";
   iframeMap.style = "border:0";
-  iframeMap.loading="lazy";
-  iframeMap.allowfullscreen="";
+  iframeMap.loading = "lazy";
+  iframeMap.allowfullscreen = "";
   map.appendChild(iframeMap);
 
   // Otros eventos
 
-    // Flechas
+  // Flechas
   const moreEventsContainer = document.createElement("div");
   moreEventsContainer.className = "more-events-container";
   content.appendChild(moreEventsContainer);
@@ -633,7 +633,7 @@ function createViewEvent(eventSelect,days,date,price){
   arrowRightSvg.src = "./img/icons/right-arrow.svg";
   arrows.appendChild(arrowRightSvg);
 
-    // Tarjetas otros eventos
+  // Tarjetas otros eventos
 
   const moreEvents = document.createElement("div");
   moreEvents.className = "more-events";
@@ -643,7 +643,7 @@ function createViewEvent(eventSelect,days,date,price){
 }
 
 //Recibe el id del evento que hace click y lo filtra para mandarlo a crear
-function checkEvent(e){
+function checkEvent(e) {
   let eventSelect = e;
 
   const findEvent = currentListEvents.find(e => e.id === eventSelect);
@@ -651,63 +651,63 @@ function checkEvent(e){
 
   const date = checkHours(findEvent);
   const price = checkPrice(findEvent)
-  createViewEvent(findEvent,days,date,price);
+  createViewEvent(findEvent, days, date, price);
   scrollUp() //Para que suba y no aparezca abajo
 }
 
-function checkDate(event){
+function checkDate(event) {
   let dateIni = dateFormat(event.dateStart);
   if (event.hasOwnProperty("dateFinal")) {
     let dateF = dateFormat(event.dateFinal);
     let resultado = allYear(dateIni, dateF)
-    console.log(event,"resultado",resultado)
+    console.log(event, "resultado", resultado)
     if (!resultado) {
       return `Del ${dateIni}  al ${dateF}`;
     } else {
       return `Todo el año`;
     }
-  }else {
+  } else {
     return dateIni
   }
 }
 
-function checkHours(event){
-  if(event.hasOwnProperty("hoursClose")){
-    if(event.hoursOpen === event.hoursClose){
+function checkHours(event) {
+  if (event.hasOwnProperty("hoursClose")) {
+    if (event.hoursOpen === event.hoursClose) {
       return event.hoursOpen
 
-    }else {
+    } else {
       return `De ${event.hoursOpen} a las ${event.hoursClose}`
     }
-  }else {
-    for(let e in event.category){
-      if(event.category[e] === "Music"){
+  } else {
+    for (let e in event.category) {
+      if (event.category[e] === "Music") {
         return event.hoursOpen
 
-      }else {
+      } else {
         return `Todo el día`
       }
     }
   }
 }
 
-function checkPrice(event){
+function checkPrice(event) {
   console.log(event)
-  if(!event.free){
-    if(event.hasOwnProperty("price")){
+  if (!event.free) {
+    if (event.hasOwnProperty("price")) {
       return `Desde ${event.price} €`
-    }else {
+    } else {
       console.error(`El evento ${event.nameEvent} no tiene price`)
     }
-  }else{
+  } else {
     return "Gratuito"
   }
 }
 
 //IMPROVE Provisional es para que puedan salir al darle click al pato y descansar del f5
 const faceDuck = document.querySelector("header div img")
-faceDuck.addEventListener("click",refreshPage)
-function refreshPage(){
+faceDuck.addEventListener("click", refreshPage)
+function refreshPage() {
   location.reload()
 }
 
@@ -822,9 +822,9 @@ function divideListEventForPagination(numberPage) {
   if (numberPage === 1) {
     // No hace nada con las variables porque necesito que sea de 0 a 12
   } else if (numberPage % 2 === 0) {
-    min = 12 * (numberPage - 1) + 1;
+    min = 12 * (numberPage - 1);
   } else {
-    min = 12 * (numberPage - 1) - 1;
+    min = 12 * (numberPage - 1) + 1;
   }
   max = (min + max) > list.length ? list.length : min + max;
   return list = list.slice(min, max)
@@ -855,7 +855,7 @@ const requestCalendar = (e) => {
   let start = moment(e.dateStart).format('YYYYMMDD');
   let end = moment(e.dateStart).add(1, "days").format('YYYYMMDD');
   if (e.hasOwnProperty('dateFinal')) {
-     end = moment(e.dateFinal).add(1, "days").format('YYYYMMDD');
+    end = moment(e.dateFinal).add(1, "days").format('YYYYMMDD');
   }
   const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${e.nameEvent}&location=${e.site}&dates=${start}/${end}`;
   window.open(URL, "_blank")
