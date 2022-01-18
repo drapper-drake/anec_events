@@ -144,53 +144,53 @@ function createEvent(container, listEvents) {
           categoryIcon.src = "./img/icons/Navidad.svg";
           listEvents[position].iconEvent.push("./img/icons/Navidad.svg");
           listEvents[position].nameIconEvent.push("Navidad");
-          break;
+          break; 
         case "Kids":
           categoryIconInfo.textContent = "Infantil";
           categoryIcon.src = "./img/icons/Kids.svg";
-          listEvents[position].iconEvent.push("./img/icons/Kids.svg");
+          listEvents[position].iconEvent.push("./img/icons/Kids-dark.svg");
           listEvents[position].nameIconEvent.push("Infantil");
           break;
         case "Play":
           categoryIconInfo.textContent = "Lúdico";
           categoryIcon.src = "./img/icons/Play.svg";
-          listEvents[position].iconEvent.push("./img/icons/Play.svg");
+          listEvents[position].iconEvent.push("./img/icons/Play-dark.svg");
           listEvents[position].nameIconEvent.push("Lúdico");
           break;
         case "Music":
           categoryIconInfo.textContent = "Música";
           categoryIcon.src = "./img/icons/Music.svg";
-          listEvents[position].iconEvent.push("./img/icons/Music.svg");
+          listEvents[position].iconEvent.push("./img/icons/Music-dark.svg");
           listEvents[position].nameIconEvent.push("Música");
           break;
         case "Sports":
           categoryIconInfo.textContent = "Deporte";
           categoryIcon.src = "./img/icons/Sports.svg";
-          listEvents[position].iconEvent.push("./img/icons/Sports.svg");
+          listEvents[position].iconEvent.push("./img/icons/Sports-dark.svg");
           listEvents[position].nameIconEvent.push(["Deporte"]);
           break;
         case "Theatre":
           categoryIconInfo.textContent = "Teatro";
           categoryIcon.src = "./img/icons/Theatre.svg";
-          listEvents[position].iconEvent.push("./img/icons/Theatre.svg");
+          listEvents[position].iconEvent.push("./img/icons/Theatre-dark.svg");
           listEvents[position].nameIconEvent.push("Teatro");
           break;
         case "Party":
           categoryIconInfo.textContent = "Fiestas";
           categoryIcon.src = "./img/icons/Cocktail.svg";
-          listEvents[position].iconEvent.push("./img/icons/Cocktail.svg");
+          listEvents[position].iconEvent.push("./img/icons/Cocktail-dark.svg");
           listEvents[position].nameIconEvent.push("Fiestas");
           break;
         case "Food":
           categoryIconInfo.textContent = "Gastronómico";
           categoryIcon.src = "./img/icons/Food.svg";
-          listEvents[position].iconEvent.push("./img/icons/Food.svg");
+          listEvents[position].iconEvent.push("./img/icons/Food-dark.svg");
           listEvents[position].nameIconEvent.push("Gastronómico");
           break;
         case "Museum":
           categoryIconInfo.textContent = "Museo";
           categoryIcon.src = "./img/icons/Museum.svg";
-          listEvents[position].iconEvent.push("./img/icons/Museum.svg");
+          listEvents[position].iconEvent.push("./img/icons/Museum-dark.svg");
           listEvents[position].nameIconEvent.push("Museos");
           break;
         default:
@@ -443,12 +443,7 @@ function createViewEvent(eventSelect, days, date, price) {
   btnMoreInfo.className = "btn-more-info";
   btnMoreInfo.innerHTML = "Más información";
   shareBar.appendChild(btnMoreInfo);
-  let UrlInfo = eventSelect.linkTickets;
-
-  //añadido porque si no se ejecuta al momento
-  btnMoreInfo.addEventListener("click", () => {
-    window.open(UrlInfo, "_blank");
-  })
+  hasLinkTickets(eventSelect,btnMoreInfo);
 
 
   const shareIcon = document.createElement("div");
@@ -482,7 +477,7 @@ function createViewEvent(eventSelect, days, date, price) {
 
 
   const iconCorreoSvg = document.createElement("img");
-  iconCorreoSvg.src = "./img/icons/email-icon.svg";
+  iconCorreoSvg.src = "./img/icons/Email-icon.svg";
   iconCorreoSvg.className = "icon-social";
   iconCorreoSvg.dataset.name = "Email";
   containerSocial.appendChild(iconCorreoSvg);
@@ -520,7 +515,7 @@ function createViewEvent(eventSelect, days, date, price) {
 
   // Flechas
   const moreEventsContainer = document.createElement("div");
-  moreEventsContainer.className = "more-events-container";
+  moreEventsContainer.className = "more-events-container hidden";   // hidden!! 
   content.appendChild(moreEventsContainer);
 
   const arrowsContainer = document.createElement("div");
@@ -586,6 +581,7 @@ function checkDate(event) {
 }
 
 function checkHours(event) {
+  console.log(event)
   if (event.hasOwnProperty("hoursClose")) {
     if (event.hoursOpen === event.hoursClose) {
       return event.hoursOpen
@@ -610,7 +606,7 @@ function checkPrice(event) {
     if (event.hasOwnProperty("price")) {
       return `Desde ${event.price} €`
     } else {
-      console.error(`El evento ${event.nameEvent} no tiene price`)
+      return `No disponible`
     }
   } else {
     return "Gratuito"
@@ -618,7 +614,7 @@ function checkPrice(event) {
 }
 
 //IMPROVE Provisional es para que puedan salir al darle click al pato y descansar del f5
-const faceDuck = document.querySelector("header div img")
+const faceDuck = document.querySelector("header div")
 faceDuck.addEventListener("click", refreshPage)
 function refreshPage() {
   location.reload()
@@ -643,8 +639,20 @@ function socialRed(e, event) {
   }
   window.open(social, "_blank");
 
-}
+};
 
+// tiene link a tickets
+function hasLinkTickets(event,btnMoreInfo) {
+  if (!event.hasOwnProperty("linkTickets")){
+    btnMoreInfo.classList.add("invisible");
+  }else{
+    //añadido porque si no se ejecuta al momento
+    btnMoreInfo.addEventListener("click", () => {
+    let UrlInfo = event.linkTickets;
+    window.open(UrlInfo, "_blank");
+  })
+  }
+};
 
 // función de filtrar por fecha
 const btnEvent = document.querySelector("#submit");
