@@ -29,70 +29,6 @@ export function createPopUpModal() {
     }
   });
 }
-// ESTA FUNCIÓN CREA CADA VENTANA MODAL
-export function dataModal(e) {
-  //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
-  const idOfEvent = e.currentTarget.dataset.id;
-  createEventModal(idOfEvent);
-}
-export function createEventModal(id) {
-  createPopUpModal();
-  const ContentModal = document.querySelector(".modal")
-  const CloseButton = document.querySelector(".close")
-  let dataEvent = currentListEvents.find((el) => el.id === id);
-  // IMAGEN
-  let fatherModalImagen = document.createElement("div");
-  fatherModalImagen.className = "modal-image";
-  let modalImage = document.createElement("img");
-  modalImage.src = dataEvent.photoEvent;
-  // añadimos la clase "landscape" al modal de imágenes apaisadas
-  if (modalImage.naturalWidth > modalImage.naturalHeight) {
-    fatherModalImagen.className = "modal-image landscape";
-  }
-  fatherModalImagen.appendChild(modalImage);
-  ContentModal.insertBefore(fatherModalImagen, CloseButton);
-  // ZONA DE TEXTO
-  let modalText = document.createElement("div");
-  modalText.className = "modal-text";
-  ContentModal.insertBefore(modalText, CloseButton);
-  // NOMBRE
-  let modalName = document.createElement("p");
-  modalName.innerText = dataEvent.nameEvent;
-  modalText.appendChild(modalName);
-  // LUGAR
-  let modalPlace = document.createElement("p");
-  modalPlace.innerText = dataEvent.site;
-  modalText.appendChild(modalPlace);
-  // FECHA
-  let modalDate = document.createElement("p");
-  let dateStartModal = dateFormat(dataEvent.dateStart);
-  modalDate.innerText = dateStartModal;
-
-  // FECHA FINAL
-  if (dataEvent.hasOwnProperty("dateFinal")) {
-    let dateFinalModal = dateFormat(dataEvent.dateFinal);
-    modalDate.innerText = `Del ${dateStartModal} al ${dateFinalModal}`;
-  }
-  modalText.appendChild(modalDate);
-  // DESCRIPCIÓN
-  if (dataEvent.hasOwnProperty("comments")) {
-    let description = document.createElement("p");
-    if (dataEvent.comments.length > 174) {
-      description.innerText = dataEvent.comments.substring(0, 173) + "...";
-    } else {
-      description.innerText = dataEvent.comments;
-    }
-    modalText.appendChild(description);
-  }
-  //BOTÓN ADD CALENDAR
-  let btnCalendar = document.createElement("a");
-  btnCalendar.className = "btn-addCalendar py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
-  btnCalendar.textContent = "Añadir al calendario";
-  btnCalendar.target = "blank"
-  btnCalendar.dataset.name = id;
-  btnCalendar.addEventListener("click", requestCalendar);
-  modalText.appendChild(btnCalendar);
-}
 
 export function createRegister(modalisOpen = false) {
   const CloseButton = document.querySelector(".close")
@@ -100,6 +36,7 @@ export function createRegister(modalisOpen = false) {
     const register = document.querySelector(".register-form")
     register.remove();
   }
+  const btnCta = "sign-in  md:block h-16 md:h-12 text-bg-dark-80 md:text-bg-dark font-sans text-lg md:bg-contrast-bg-dark md:border-solid md:rounded-2xl p-2.5 cursor-pointer md:duration-700 md:hover:bg-light md:hover:border-contrast-bg-light md:hover:text-contrast-bg-light"
   const Register = /*html*/`
   <div class= "register-form flex flex-col">
     <p>Empieza</p>
@@ -113,12 +50,13 @@ export function createRegister(modalisOpen = false) {
       <input type="password" name="password" required>
       <label for="repeat-password">Repite la contraseña</label>
       <input type="password" name="repeat-password" required>
-      <button>Crear Cuenta</button>
+      <button class="${btnCta}"  onclick="submit()">Crear Cuenta</button>
     </form>
     </div>
   `
   CloseButton.insertAdjacentHTML("beforebegin", Register)
 }
+document.addEventListener('click', submit)
 export function createLogin(modalisOpen = false) {
   const CloseButton = document.querySelector(".close")
   if (modalisOpen) {

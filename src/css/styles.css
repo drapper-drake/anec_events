@@ -11,6 +11,9 @@ h1{
 
 
 @layer components {
+  input {
+    @apply m-1 w-40 cursor-pointer text-neutral-600 text-sm rounded border-2 border-solid border-dark
+  }
   .modal-container {
     @apply w-full h-screen bg-neutral-900 bg-opacity-70 flex justify-center items-center fixed top-0 left-0 z-[3];
   }

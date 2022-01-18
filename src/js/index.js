@@ -4,7 +4,6 @@ let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
 let listFilterDates = [];
-
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
 function createAll() {
   // se importa el json, se parsea y almacena en data
