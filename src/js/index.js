@@ -638,7 +638,9 @@ function socialRed(e, event) {
       social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic + event.id}`;
       break;
 
-    default: console.error("ha fallado")
+    default:
+      social = "https://www.anecevents.com/"
+      break;
   }
   window.open(social, "_blank");
 
