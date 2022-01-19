@@ -144,7 +144,7 @@ function createEvent(container, listEvents) {
           categoryIcon.src = "./img/icons/Navidad.svg";
           listEvents[position].iconEvent.push("./img/icons/Navidad.svg");
           listEvents[position].nameIconEvent.push("Navidad");
-          break; 
+          break;
         case "Kids":
           categoryIconInfo.textContent = "Infantil";
           categoryIcon.src = "./img/icons/Kids.svg";
@@ -443,7 +443,7 @@ function createViewEvent(eventSelect, days, date, price) {
   btnMoreInfo.className = "btn-more-info";
   btnMoreInfo.innerHTML = "Más información";
   shareBar.appendChild(btnMoreInfo);
-  hasLinkTickets(eventSelect,btnMoreInfo);
+  hasLinkTickets(eventSelect, btnMoreInfo);
 
 
   const shareIcon = document.createElement("div");
@@ -515,7 +515,7 @@ function createViewEvent(eventSelect, days, date, price) {
 
   // Flechas
   const moreEventsContainer = document.createElement("div");
-  moreEventsContainer.className = "more-events-container hidden";   // hidden!! 
+  moreEventsContainer.className = "more-events-container hidden";   // hidden!!
   content.appendChild(moreEventsContainer);
 
   const arrowsContainer = document.createElement("div");
@@ -642,15 +642,15 @@ function socialRed(e, event) {
 };
 
 // tiene link a tickets
-function hasLinkTickets(event,btnMoreInfo) {
-  if (!event.hasOwnProperty("linkTickets")){
+function hasLinkTickets(event, btnMoreInfo) {
+  if (!event.hasOwnProperty("linkTickets")) {
     btnMoreInfo.classList.add("invisible");
-  }else{
+  } else {
     //añadido porque si no se ejecuta al momento
     btnMoreInfo.addEventListener("click", () => {
-    let UrlInfo = event.linkTickets;
-    window.open(UrlInfo, "_blank");
-  })
+      let UrlInfo = event.linkTickets;
+      window.open(UrlInfo, "_blank");
+    })
   }
 };
 
@@ -679,7 +679,8 @@ btnEvent.addEventListener("click", (e) => {
     * - Termina en el rango
     * - Dura más que el rango
     */
-    activeCategory = "date";
+    // activeCategory = "date";
+    clearPagination();
     resetAndCreateEventsFiltered(listFilterDates);
   }
 });
@@ -727,12 +728,15 @@ const filterByCategory = (category) => {
 DivFilterCategory.forEach(ChangeStyleAndFilter);
 const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded ";
 const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light ";
-
-function pagination(listEvents) {
+function clearPagination() {
   const containerNavPages = document.querySelector(".pagination");
   while (containerNavPages.hasChildNodes()) {
     containerNavPages.firstChild.remove();
   }
+}
+function pagination(listEvents) {
+  const containerNavPages = document.querySelector(".pagination");
+  clearPagination();
   const result = listEvents.length / 12;
   let numberPages;
   if (result === Math.trunc(result)) {
@@ -755,9 +759,6 @@ function divideListEventForPagination(numberPage) {
     case "all":
       list = [...allEvents];
       break;
-    case "date":
-      list = [...listFilterDates]
-      break;
     case "bookmark":
       list = allEvents.filter(event => event.bookmark)
       break;
@@ -772,7 +773,8 @@ function changePagination(e) {
   document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
   e.currentTarget.className = e.currentTarget.className === pageSelected ? pageUnSelected : pageSelected;
   const listPagination = divideListEventForPagination(Number(e.currentTarget.textContent));
-  resetAndCreateEventsFiltered(listPagination)
+  scrollUp();
+  resetAndCreateEventsFiltered(listPagination);
 }
 
 
