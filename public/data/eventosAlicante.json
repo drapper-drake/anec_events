@@ -2644,7 +2644,7 @@
       "Music"
     ],
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642591894/anac-event/xwzupu3ticpboyi6b1pl.jpg",
-    "linkTickets": "https://lasuperagenda.com/eventos/alicante/conciertos/concierto-skating-polly-alicante/"
+    "linkTickets": "https://www.wegow.com/es-es/compra/skating-polly-en-alicante#a_aid=lasuperagenda"
   },
   {
     "nameEvent": "Serrat: El vicio de cantar 1965-2022",
@@ -2660,7 +2660,7 @@
     ],
     "comments": "Joan Manuel Serrat regresa a los escenarios con una última gira: «EL VICIO DE CANTAR 1965-2022», con la que quiere despedirse personalmente del público con el que ha compartido vida y canciones durante más de medio siglo.",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642592457/anac-event/dg0pofjrekhnvkhpmiyg.jpg",
-    "linkTickets": "https://lasuperagenda.com/eventos/alicante/conciertos/concierto-de-serrat-el-vicio-de-cantar-1965-2022-en-alicante/"
+    "linkTickets": "https://www.elcorteingles.es/entradas/conciertos/entradas-joan-manuel-serrat-el-vicio-de-cantar-1965-2022-alicante-alacant/?utm_source=awin&utm_medium=affiliates&utm_campaign=448415&awc=13034_1642594574_4dab5e7e773271c8b688bc4f727c29ae"
   },
   {
     "nameEvent": "Luzia: Cirque du Soleil",
@@ -2677,6 +2677,54 @@
     ],
     "comments": "El Circo del Sol, presenta: LUZIA. Este espectáculo se inspira de la gente, de los lugares y de las historias que definen México. Haga un viaje a través del imaginario mexicano, desde el folklore de antaño al paisaje urbano de nuestros días. LUZIA, del Cirque du Soleil, le transporta a un México imaginario, en un soñar despierto, dónde la «luz» alimenta el espíritu y la «lluvia» sosiega el alma. Con una serie surrealista de sorpresas visuales y de números acrobáticos que quitan el aliento… LUZIA bebe de la tradición y de la modernidad para transponer en el escenario los múltiples lugares, rostros y sonidos de México.",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642592759/anac-event/zockwdloyx6qrjx4adai.jpg",
-    "linkTickets": "https://lasuperagenda.com/eventos/alicante/espectaculos/luzia-cirque-du-soleil-en-alicante/"
+    "linkTickets": "https://www.elcorteingles.es/entradas/teatro/entradas-cirque-du-soleil-luzia-alicante-alacant/?utm_source=awin&utm_medium=affiliates&utm_campaign=448415&awc=13034_1642594550_ac7a45bbd7284ed30655062e861e20d0"
+  },
+  {
+    "nameEvent": "Experiencia Verema Alicante 2022",
+    "free": false,
+    "site": "Hotel Alicante Golf",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "12:00",
+    "hoursClose": "21:00",
+    "dateStart": "2022/10/17",
+    "category": [
+      "Food"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642593845/anac-event/tjroguvgf8xm5bgsyud8.png",
+    "linkTickets": "https://www.verema.com/eventos/92-experiencia-verema-alicante-2022"
+  },
+  {
+    "nameEvent": "Hipnosis y Mentalismo de Toni Pons",
+    "free": false,
+    "site": "Kinépolis Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "20:00",
+    "hoursClose": "21:40",
+    "dateStart": "2022/03/12",
+    "category": [
+      "Theatre"
+    ],
+    "comments": "Más de 100.000 espectadores y 10.000 hipnotizados han vivido ya esta alucinante experiencia, que va más allá de un espectáculo. Toni Pons te mantendrá literalmente pegado a la butaca sin pestañear durante casi dos horas de acción, risas y asombro. Considerado como un referente en el mundo del hipnotismo y mentalismo, siempre ha apostado por la autenticidad, la honestidad y el respeto como principios fundamentales en todos sus espectáculos. Sólo participan voluntarios del público y nadie es ridiculizado en ningún momento. Si participas, vivirás y disfrutarás auténticas experiencias hipnóticas, positivas y tan reales como en el más profundo de tus sueños, llevándote de regalo un increíble estado de empoderamiento personal. No hay compinches, no hay actores, no hay acuerdos previos con nadie… y esa autenticidad convierte cada espectáculo en algo absolutamente apasionante, sin que existan dos funciones iguales… Nadie sabe hasta donde se llegará hoy! Tú decides si deseas ver o participar.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642594274/anac-event/t9h3hg3jumi7vxfimkrt.jpg",
+    "linkTickets": "https://kinepolis.es/eventos/hipnosis-y-mentalismo-de-toni-pons?utm_source=culturacv&utm_medium=web&utm_campaign=ctry:ESES_name:hipnosisymentalismodetonipons_prod:hipnosisymentalismodetonipons_type:conversion_pc:E200AltCont_event:_cine:_con:agenda"
+  },
+  {
+    "nameEvent": "Concierto FSO - Fénix La Gira",
+    "free": false,
+    "price": 43.0,
+    "site": "Auditorio de la Diputación de Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "19:00",
+    "hoursClose": "22:00",
+    "dateStart": "2022/03/06",
+    "category": [
+      "Music"
+    ],
+    "comments": "La FILM SYMPHONY ORCHESTRA (FSO) vuelve a Alicante con un concierto de su gira ‘FÉNIX’ el 6 de marzo de 2022. Un emocionante espectáculo en torno a la mejor música de cine que representa el resurgir de la vida, del arte y de la cultura. Un zarpazo, un rugido, un espectacular viaje musical a través de las bandas sonoras más icónicas que el séptimo arte nos ha dejado. De la mano de la orquesta más peliculera y de su carismático director, Constantino Martínez-Orts escucharás peliculones como GLADIATOR, EL CÓDIGO DA VINCI, LA BELLA Y LA BESTIA, MATRIX o EL SEÑOR DE LOS ANILLOS, series de actualidad como THE MANDALORIAN o LOS BRIDGERTONS, y clásicos como WEST SIDE STORY, LA VIDA ES BELLA o EL EQUIPO A entre muchos otros.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642594857/anac-event/nmdgd7fsmnddrd3tdjue.jpg",
+    "linkTickets": "https://checkoutentradas.elcorteingles.es/open?t=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2VJUCI6Ijg3LjIxNy4yMTAuMjQ1IiwiaWF0IjoxNjQyNTk1MDYwLCJleHAiOjE2NDI1OTY4NjAsImF1ZCI6ImJldGl4In0.3d8M4OosGfXnKwBY1bUtjZfVU0vrr-tPqFhHt3XoqXs#/checkout/product/00-000889T/event/00-000887a/show/00-0001jGI"
   }
 ]
