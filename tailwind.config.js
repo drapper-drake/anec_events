@@ -4,6 +4,7 @@ module.exports = {
     extend: {},
     //He puesto la primera config de screens
     screens: {
+      xs: "320px",//Porque no se tienen en cuenta los moviles pequeños
       sm: "480px",
       md: "768px",
       lg: "976px",
