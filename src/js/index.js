@@ -616,7 +616,10 @@ btnEvent.addEventListener("click", (e) => {
   let start = document.querySelector("#start").value;
   let final = document.querySelector("#final").value;
   if (start && final) {
-    const dateFrom = new Date(start);
+    const today = new Date(start);
+    const yesterday = new Date(today.getTime() - 86400000);
+    // esto soluciona el bug del día inicial
+    const dateFrom = yesterday;
     const dateTo = new Date(final);
     // * He cambiado la variable por una global para que funcione con la paginación
     listFilterDates = currentListEvents.filter(event => {
