@@ -27,6 +27,9 @@ function createAll() {
       const firstpagination = divideListEventForPagination(1)
       createEvent(content, firstpagination);
       pagination(currentListEvents)
+
+      //IMPROVE va a buscar el evento según el parametro que le hemos pasado en la url
+      checkPathname()
     });
 }
 function changeformatDateJSON() {
@@ -611,29 +614,31 @@ function checkPrice(event) {
   }
 }
 
-//IMPROVE Provisional es para que puedan salir al darle click al pato y descansar del f5
 const faceDuck = document.querySelector("header div")
 faceDuck.addEventListener("click", refreshPage)
 function refreshPage() {
-  location.reload()
+  window.location.pathname = "/"
 }
 
 //Funcion compartir en redes sociales
 function socialRed(e, event) {
   let social;
+  const urlDinamic = window.location.href
   switch (e.dataset.name) {
 
     case "Twitter":
-      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=https://www.anecevents.com/&hashtags=${event.category[0]},${event.cityLocation}`;
+      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic + event.id}&hashtags=${event.category[0]},${event.cityLocation}`;
       break;
     case "Facebook":
-      social = `http://www.facebook.com/sharer.php?s=100&p[url]=https://www.anecevents.com/&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
+      social = `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
       break;
     case "Email":
-      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web https://www.anecevents.com`;
+      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic + event.id}`;
       break;
 
-    default: console.error("ha fallado")
+    default:
+      social = "https://www.anecevents.com/"
+      break;
   }
   window.open(social, "_blank");
 
@@ -775,7 +780,20 @@ function changePagination(e) {
   resetAndCreateEventsFiltered(listPagination);
 }
 
+//BUG borrar ahora
+function checkPathname() {
+  if (window.location.pathname === "/") {
+    console.log(window.location)
 
+  } else {
+    console.log(window.location)
+    const ruta = window.location.pathname.slice(1)
+    console.log(ruta)
+
+    checkEvent(ruta)
+    deleteContent()
+  }
+}
 
 const requestCalendar = (e) => {
   console.log(e)
