@@ -144,7 +144,7 @@ function createEvent(container, listEvents) {
           categoryIcon.src = "./img/icons/Navidad.svg";
           listEvents[position].iconEvent.push("./img/icons/Navidad.svg");
           listEvents[position].nameIconEvent.push("Navidad");
-          break; 
+          break;
         case "Kids":
           categoryIconInfo.textContent = "Infantil";
           categoryIcon.src = "./img/icons/Kids.svg";
@@ -515,7 +515,7 @@ function createViewEvent(eventSelect, days, date, price) {
 
   // Flechas
   const moreEventsContainer = document.createElement("div");
-  moreEventsContainer.className = "more-events-container hidden";   // hidden!! 
+  moreEventsContainer.className = "more-events-container hidden";   // hidden!!
   content.appendChild(moreEventsContainer);
 
   const arrowsContainer = document.createElement("div");
@@ -587,17 +587,15 @@ function checkHours(event) {
       return event.hoursOpen
 
     } else {
-      return `De ${event.hoursOpen} a las ${event.hoursClose}`
+      return `De ${event.hoursOpen} a ${event.hoursClose}`
     }
   } else {
-    for (let e in event.category) {
-      if (event.category[e] === "Music") {
+      if (event.hasOwnProperty("hoursOpen")) {
         return event.hoursOpen
-
       } else {
+
         return `Todo el día`
       }
-    }
   }
 }
 
