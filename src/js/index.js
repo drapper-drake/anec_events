@@ -1,37 +1,45 @@
 import moment from "moment";
+import { listSrcCategories } from "./listSrcTitlesCategories.js"
 import { createPopUpModal, createRegister, createLogin } from "./createModal.js"
 let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
 let listFilterDates = [];
 let buttonCalendar;// lo pongo global para poder llamarlo luego desde una función sino se lee todo js y es null
+function createFirstPage() {
+  const content = document.querySelector(".container");
+  const firstpagination = divideListEventForPagination(1)
+  createEvent(content, firstpagination);
+  pagination(currentListEvents)
+}
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
-function createAll() {
+function fetchJSON() {
   // se importa el json, se parsea y almacena en data
   fetch("/data/eventosAlicante.json")
     .then((response) => response.json())
     .then((data) => {
       // data es un array de eventos
-      const content = document.querySelector(".container");
-      for (let evento in data) {
+      for (let event of data) {
         //Es un generador de Id basados en el nombre del evento
-        let idEvent = data[evento].nameEvent;
+        let idEvent = event.nameEvent;
         idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-        data[evento].bookmark = arrayBookMark.includes(idEvent);
-        data[evento].id = idEvent;
-        allEvents.push(data[evento]);
+        event.bookmark = arrayBookMark.includes(idEvent);
+        event.id = idEvent;
+        allEvents.push(event);
       }
       changeformatDateJSON(data);
       allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime())
       currentListEvents = [...allEvents];
-      const firstpagination = divideListEventForPagination(1)
-      createEvent(content, firstpagination);
-      pagination(currentListEvents)
-
-      //IMPROVE va a buscar el evento según el parametro que le hemos pasado en la url
-      checkPathname()
-    });
+      const urlParams = new URLSearchParams(window.location.search);
+      const ruta = urlParams.get('event');
+      if (ruta != null) {
+        deleteContent();
+        return goToParams(ruta);
+      }
+      createFirstPage()
+    })
 }
+
 function changeformatDateJSON() {
   for (let index in allEvents) {
     allEvents[index].dateStart = new Date(allEvents[index].dateStart);
@@ -131,75 +139,14 @@ function createEvent(container, listEvents) {
       charityIconContainer.appendChild(charityIconText);
     }
     // ICONOS DE CATEGORÍAS
-    //IMPROVE Crear una propiedad en eventos para añadir luego datos
-    listEvents[position].iconEvent = [];
-    listEvents[position].nameIconEvent = [];
-
-    listEvents[position].nameIcon = []
     for (let cat in listEvents[position].category) {
       let categoryIconContainer = document.createElement("div");
       let categoryIcon = document.createElement("img");
       let categoryIconInfo = document.createElement("p");
+      // ? ListSrcCategories es un objeto con cada tipo de categoria y toda su info
+      categoryIconInfo.textContent = listSrcCategories[listEvents[position].category[cat]].nameIconEvent || console.error("Esta categoria no existe", listEvents[position].category[cat]);
+      categoryIcon.src = listSrcCategories[listEvents[position].category[cat]].iconEvent;
 
-      switch (listEvents[position].category[cat]) {
-        case "Christmas":
-          categoryIconInfo.textContent = "Navidad";
-          categoryIcon.src = "./img/icons/Navidad.svg";
-          listEvents[position].iconEvent.push("./img/icons/Navidad.svg");
-          listEvents[position].nameIconEvent.push("Navidad");
-          break;
-        case "Kids":
-          categoryIconInfo.textContent = "Infantil";
-          categoryIcon.src = "./img/icons/Kids.svg";
-          listEvents[position].iconEvent.push("./img/icons/Kids-dark.svg");
-          listEvents[position].nameIconEvent.push("Infantil");
-          break;
-        case "Play":
-          categoryIconInfo.textContent = "Lúdico";
-          categoryIcon.src = "./img/icons/Play.svg";
-          listEvents[position].iconEvent.push("./img/icons/Play-dark.svg");
-          listEvents[position].nameIconEvent.push("Lúdico");
-          break;
-        case "Music":
-          categoryIconInfo.textContent = "Música";
-          categoryIcon.src = "./img/icons/Music.svg";
-          listEvents[position].iconEvent.push("./img/icons/Music-dark.svg");
-          listEvents[position].nameIconEvent.push("Música");
-          break;
-        case "Sports":
-          categoryIconInfo.textContent = "Deporte";
-          categoryIcon.src = "./img/icons/Sports.svg";
-          listEvents[position].iconEvent.push("./img/icons/Sports-dark.svg");
-          listEvents[position].nameIconEvent.push(["Deporte"]);
-          break;
-        case "Theatre":
-          categoryIconInfo.textContent = "Teatro";
-          categoryIcon.src = "./img/icons/Theatre.svg";
-          listEvents[position].iconEvent.push("./img/icons/Theatre-dark.svg");
-          listEvents[position].nameIconEvent.push("Teatro");
-          break;
-        case "Party":
-          categoryIconInfo.textContent = "Fiestas";
-          categoryIcon.src = "./img/icons/Cocktail.svg";
-          listEvents[position].iconEvent.push("./img/icons/Cocktail-dark.svg");
-          listEvents[position].nameIconEvent.push("Fiestas");
-          break;
-        case "Food":
-          categoryIconInfo.textContent = "Gastronómico";
-          categoryIcon.src = "./img/icons/Food.svg";
-          listEvents[position].iconEvent.push("./img/icons/Food-dark.svg");
-          listEvents[position].nameIconEvent.push("Gastronómico");
-          break;
-        case "Museum":
-          categoryIconInfo.textContent = "Museo";
-          categoryIcon.src = "./img/icons/Museum.svg";
-          listEvents[position].iconEvent.push("./img/icons/Museum-dark.svg");
-          listEvents[position].nameIconEvent.push("Museos");
-          break;
-        default:
-          console.error(`Hay ninguna categoria con ese nombre ${listEvents[position].category[cat]}`)
-          break;
-      }
       bar.appendChild(categoryIconContainer);
       categoryIconContainer.appendChild(categoryIcon);
       categoryIconContainer.appendChild(categoryIconInfo);
@@ -360,14 +307,13 @@ function createViewEvent(eventSelect, days, date, price) {
   categoryContainer.className = "category";
   infoEventPage.appendChild(categoryContainer);
 
-  for (let cat in eventSelect.category) {
+  for (let category of eventSelect.category) {
     const categorySvg = document.createElement("img");
-    categorySvg.src = eventSelect.iconEvent[cat];
+    categorySvg.src = listSrcCategories[category].iconEventDark;
     categorySvg.className = "labelsSvg";
     categoryContainer.appendChild(categorySvg);   //labelsSvg
-
     const categoryP = document.createElement("p");
-    categoryP.textContent = eventSelect.nameIconEvent[cat];
+    categoryP.textContent = listSrcCategories[category].nameIconEvent;
     categoryContainer.appendChild(categoryP);
   }
 
@@ -560,6 +506,7 @@ function checkEvent(e) {
 
   const date = checkHours(findEvent);
   const price = checkPrice(findEvent)
+  history.pushState("", "", `?event=${eventSelect}`)
   createViewEvent(findEvent, days, date, price);
   scrollUp() //Para que suba y no aparezca abajo
 
@@ -584,7 +531,6 @@ function checkDate(event) {
 }
 
 function checkHours(event) {
-  console.log(event)
   if (event.hasOwnProperty("hoursClose")) {
     if (event.hoursOpen === event.hoursClose) {
       return event.hoursOpen
@@ -593,12 +539,12 @@ function checkHours(event) {
       return `De ${event.hoursOpen} a ${event.hoursClose}`
     }
   } else {
-      if (event.hasOwnProperty("hoursOpen")) {
-        return event.hoursOpen
-      } else {
+    if (event.hasOwnProperty("hoursOpen")) {
+      return event.hoursOpen
+    } else {
 
-        return `Todo el día`
-      }
+      return `Todo el día`
+    }
   }
 }
 
@@ -617,7 +563,7 @@ function checkPrice(event) {
 const faceDuck = document.querySelector("header div")
 faceDuck.addEventListener("click", refreshPage)
 function refreshPage() {
-  window.location.pathname = "/"
+  window.location = `${window.location.origin}`
 }
 
 //Funcion compartir en redes sociales
@@ -627,13 +573,13 @@ function socialRed(e, event) {
   switch (e.dataset.name) {
 
     case "Twitter":
-      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic + event.id}&hashtags=${event.category[0]},${event.cityLocation}`;
+      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic}&hashtags=${event.category[0]},${event.cityLocation}`;
       break;
     case "Facebook":
-      social = `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
+      social = `http://www.facebook.com/sharer.php?s=100&[url]=${urlDinamic}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
       break;
     case "Email":
-      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic + event.id}`;
+      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic}`;
       break;
 
     default:
@@ -780,23 +726,22 @@ function changePagination(e) {
   resetAndCreateEventsFiltered(listPagination);
 }
 
-//BUG borrar ahora
-function checkPathname() {
-  if (window.location.pathname === "/") {
-    console.log(window.location)
 
-  } else {
-    console.log(window.location)
-    const ruta = window.location.pathname.slice(1)
-    console.log(ruta)
+function goToParams(route) {
+  const findEvent = currentListEvents.find(e => e.id === route);
+  const days = checkDate(findEvent)
 
-    checkEvent(ruta)
-    deleteContent()
-  }
+  const date = checkHours(findEvent);
+  const price = checkPrice(findEvent)
+  createViewEvent(findEvent, days, date, price);
+  scrollUp() //Para que suba y no aparezca abajo
+
+  const iconSocial = document.querySelectorAll(".icon-social")
+  iconSocial.forEach((button) => button.addEventListener("click", () => socialRed(button, findEvent)))
+
 }
 
 const requestCalendar = (e) => {
-  console.log(e)
   e.preventDefault;
   e.stopPropagation;
   let start = moment(e.dateStart).format('YYYYMMDD');
@@ -836,5 +781,5 @@ window.addEventListener("DOMContentLoaded", () => {
     let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
     arrayBookMark = uploadEvents;
   }
-  createAll();
+  fetchJSON();
 });
