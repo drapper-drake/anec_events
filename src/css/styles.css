@@ -94,21 +94,23 @@
   }
 
   /* New page styles*/
-
+  .container-info-page {
+    @apply md:shadow-2xl mb-8 text-lg  py-3.5;
+  }
   .info-container {
-    @apply md:border-solid md:shadow-lg;
+    @apply md:border-solid;
   }
   .top-info {
-    @apply flex flex-col justify-around items-center md:flex-row;
+    @apply flex flex-col  justify-around items-center md:flex-row;
   }
   .img-container {
-    @apply min-w-sm p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:min-w-screen-sm xl:max-w-screen-sm relative;
+    @apply p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:min-w-screen-sm xl:max-w-screen-sm relative;
   }
   .img-container img {
     @apply w-full rounded-2xl;
   }
   .info-event {
-    @apply flex flex-col w-96 gap-2 relative md:max-w-sm lg:max-w-sm;
+    @apply flex flex-col  gap-2 relative md:max-w-sm lg:max-w-sm;
   }
   .title-ev {
     @apply text-center font-serif text-3xl font-bold p-5;
@@ -148,10 +150,10 @@
     @apply font-sans bg-links-cta self-center border-4 border-solid border-links-cta font-bold rounded-md cursor-pointer transition-all text-dark delay-150 duration-700 hover:bg-light hover:border-contrast-bg-light hover:text-contrast-bg-light px-4 py-1 mb-5 md:mb-0 md:order-1;
   }
   .share-icon {
-    @apply h-10 cursor-pointer flex flex-row justify-center items-center mb-5 md:self-center md:mb-0;
+    @apply h-10  flex flex-row justify-center items-center mb-5 md:self-center md:mb-0 ;
   }
   .share-text {
-    @apply text-bg-light text-base pl-4;
+    @apply text-bg-light text-base pl-4 font-bold ;
   }
   .container-social {
     @apply flex flex-row justify-evenly md:self-center md:w-1/5;
@@ -160,7 +162,7 @@
     @apply flex flex-col p-5 text-justify;
   }
   .icon-social{
-    @apply cursor-pointer w-[45] h-[45];
+    @apply cursor-pointer;
   }
   .contText {
     @apply pb-9;

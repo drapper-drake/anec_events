@@ -56,7 +56,6 @@ export function createRegister(modalisOpen = false) {
   `
   CloseButton.insertAdjacentHTML("beforebegin", Register)
 }
-document.addEventListener('click', submit)
 export function createLogin(modalisOpen = false) {
   const CloseButton = document.querySelector(".close")
   if (modalisOpen) {

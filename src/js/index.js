@@ -258,13 +258,23 @@ function deleteContent() {
   nav.classList.add("hidden");
   pagination.classList.add("hidden");
 }
-
+function sizeOfIframe() {
+  let sizeIframe = "375"
+  if (screen.width <= 428) {
+    sizeIframe = `${screen.width - 40}`
+  } else if (screen.width >= 768 && screen.width < 976) {
+    sizeIframe = `600`
+  } else if (screen.width >= 976) {
+    sizeIframe = `900`
+  }
+  return sizeIframe;
+}
 //Crea la vista del evento clickeado
 function createViewEvent(eventSelect, days, date, price) {
   const content = document.createElement("div");
   const main = document.querySelector("main");
 
-  content.className = "container";
+  content.className = "container container-info-page";
   main.appendChild(content);
 
   const infoContainer = document.createElement("div");
@@ -431,11 +441,6 @@ function createViewEvent(eventSelect, days, date, price) {
   iconCorreoSvg.dataset.name = "Email";
   containerSocial.appendChild(iconCorreoSvg);
 
-  // const iconInstagramSvg = document.createElement("img");
-  // iconInstagramSvg.src = "./img/icons/Instagram icon.svg";
-  // containerSocial.appendChild(iconInstagramSvg);
-
-
   //Parte baja de info
   const bottomInfo = document.createElement("div");
   bottomInfo.className = "bottom-info";
@@ -453,8 +458,9 @@ function createViewEvent(eventSelect, days, date, price) {
   const iframeMap = document.createElement("iframe");
   iframeMap.className = "iframe-map";
   iframeMap.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&q=${eventSelect.site}`;
-  iframeMap.width = "375";
-  iframeMap.height = "300";
+
+  iframeMap.width = sizeOfIframe();
+  iframeMap.height = (screen.width >= 968) ? "400" : "300";
   iframeMap.style = "border:0";
   iframeMap.loading = "lazy";
   iframeMap.allowfullscreen = "";
@@ -752,7 +758,6 @@ const requestCalendar = (e) => {
   const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${e.nameEvent}&location=${e.site}&dates=${start}/${end}`;
   window.open(URL, "_blank")
 }
-
 
 // desplegar menú de la hamburguesa
 const hamburguer = document.querySelector(".hamburguer");
