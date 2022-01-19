@@ -250,7 +250,7 @@
     ],
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1639927802/anac-event/cayhnfryfjvksthu1st3.jpg",
     "linkTickets": "https://www.enterticket.es/eventos/concierto-delaossa-alicante-2022-327878"
-  },
+    },
   {
     "nameEvent": "Concierto Zetazen",
     "free": false,
@@ -2356,7 +2356,7 @@
     },
     {
       "nameEvent": "Creer es Poder, Toni Bright (I Festival de Magia)",
-      "free": true,
+      "free": false,
       "site": "Teatro Principal de Alicante, Plaza Ruperto Chapí, s/n, 03001 Alicante.",
       "cityLocation": "Alicante",
       "village": false,
@@ -2370,7 +2370,7 @@
       },
       {
         "nameEvent": "El último mago majo, Héctor Sansegundo (I Festival de Magia)",
-        "free": true,
+        "free": false,
         "site": "Teatro Principal de Alicante, Plaza Ruperto Chapí, s/n, 03001 Alicante.",
         "cityLocation": "Alicante",
         "village": false,
