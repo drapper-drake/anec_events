@@ -446,7 +446,7 @@ function createViewEvent(eventSelect, days, date, price) {
   btnMoreInfo.className = "btn-more-info";
   btnMoreInfo.innerHTML = "Más información";
   shareBar.appendChild(btnMoreInfo);
-  hasLinkTickets(eventSelect,btnMoreInfo);
+  hasLinkTickets(eventSelect, btnMoreInfo);
 
 
   const shareIcon = document.createElement("div");
@@ -625,16 +625,17 @@ function refreshPage() {
 //Funcion compartir en redes sociales
 function socialRed(e, event) {
   let social;
+  const urlDinamic = window.location.href
   switch (e.dataset.name) {
 
     case "Twitter":
-      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=localhost:3000/${event.id}&hashtags=${event.category[0]},${event.cityLocation}`;
+      social = `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic + event.id}&hashtags=${event.category[0]},${event.cityLocation}`;
       break;
     case "Facebook":
-      social = `http://www.facebook.com/sharer.php?s=100&p[url]=https://www.anecevents.com/&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
+      social = `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`;
       break;
     case "Email":
-      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web localhost:3000/${event.id}`;
+      social = `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic + event.id}`;
       break;
 
     default: console.error("ha fallado")
@@ -644,15 +645,15 @@ function socialRed(e, event) {
 };
 
 // tiene link a tickets
-function hasLinkTickets(event,btnMoreInfo) {
-  if (!event.hasOwnProperty("linkTickets")){
+function hasLinkTickets(event, btnMoreInfo) {
+  if (!event.hasOwnProperty("linkTickets")) {
     btnMoreInfo.classList.add("invisible");
-  }else{
+  } else {
     //añadido porque si no se ejecuta al momento
     btnMoreInfo.addEventListener("click", () => {
-    let UrlInfo = event.linkTickets;
-    window.open(UrlInfo, "_blank");
-  })
+      let UrlInfo = event.linkTickets;
+      window.open(UrlInfo, "_blank");
+    })
   }
 };
 
@@ -778,11 +779,11 @@ function changePagination(e) {
 }
 
 //BUG borrar ahora
-function checkPathname(){
-  if(window.location.pathname === "/"){
+function checkPathname() {
+  if (window.location.pathname === "/") {
     console.log(window.location)
 
-  }else {
+  } else {
     console.log(window.location)
     const ruta = window.location.pathname.slice(1)
     console.log(ruta)
