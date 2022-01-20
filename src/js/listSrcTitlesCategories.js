@@ -16,7 +16,7 @@ export const listSrcCategories = {
   "Music": {
     iconEvent: "./img/icons/Music.svg",
     iconEventDark: "./img/icons/Music-dark.svg",
-    nameIconEvent: "Infantil"
+    nameIconEvent: "Música"
   },
   "Sports": {
     iconEvent: "./img/icons/Sports.svg",
