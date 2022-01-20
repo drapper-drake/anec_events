@@ -1,6 +1,7 @@
 import moment from "moment";
 import { listSrcCategories } from "./listSrcTitlesCategories.js"
 import { createPopUpModal, createRegister, createLogin } from "./createModal.js"
+import { notFound } from "./404NotFound.js"
 let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
@@ -220,9 +221,9 @@ BtnUp.addEventListener("click", scrollUp);
 // Funcion que cuando hay scroll hace una animacion para subir al top
 function scrollUp() {
   let currentScroll = document.documentElement.scrollTop;
-  if (currentScroll > 0) {
+  if (currentScroll > 10) {
     window.requestAnimationFrame(scrollUp);
-    window.scrollTo(0, currentScroll - (currentScroll / 8));
+    window.scrollTo(0, currentScroll - (currentScroll / 10));
   }
 }
 
@@ -242,6 +243,7 @@ function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
   if (listFiltered.length === [].length) {
+    // IMPROVE Pagina de no encontrar eventos
     console.error("No hay eventos ni página de 404");
   } else {
     createEvent(resetContent, listFiltered);
@@ -259,6 +261,7 @@ function deleteContent() {
   pagination.classList.add("hidden");
 }
 function sizeOfIframe() {
+  // IMPROVE Cuando hace resize de una pantalla que también disminuya pero se haria con un addevent listener "resize"
   let sizeIframe = "375"
   if (screen.width <= 428) {
     sizeIframe = `${screen.width - 40}`
@@ -727,15 +730,21 @@ function changePagination(e) {
 
 function goToParams(route) {
   const findEvent = currentListEvents.find(e => e.id === route);
-  const days = checkDate(findEvent)
+  if (findEvent) {
+    const days = checkDate(findEvent)
 
-  const date = checkHours(findEvent);
-  const price = checkPrice(findEvent)
-  createViewEvent(findEvent, days, date, price);
-  scrollUp() //Para que suba y no aparezca abajo
+    const date = checkHours(findEvent);
+    const price = checkPrice(findEvent)
+    createViewEvent(findEvent, days, date, price);
+    scrollUp() //Para que suba y no aparezca abajo
 
-  const iconSocial = document.querySelectorAll(".icon-social")
-  iconSocial.forEach((button) => button.addEventListener("click", () => socialRed(button, findEvent)))
+    const iconSocial = document.querySelectorAll(".icon-social")
+    iconSocial.forEach((button) => button.addEventListener("click", () => socialRed(button, findEvent)))
+  } else {
+    // IMPROVE Pagina de no encontrar eventos
+    notFound();
+  }
+
 
 }
 

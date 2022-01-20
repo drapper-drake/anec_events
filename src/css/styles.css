@@ -9,6 +9,9 @@
   text-shadow: 5px 0 0 #0B3762;
 }
 
+.page-404{
+  min-height: calc(100vh - 310px)
+}
 
 @layer components {
   .info-notFound{
