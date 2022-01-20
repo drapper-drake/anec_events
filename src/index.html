@@ -11,31 +11,47 @@
   <title>Ànec Events</title>
 </head>
 
-<body class="w-full flex flex-col min-h-screen m-0 bg-light">
+<body class="w-fulflex flex-col min-h-screen m-0 bg-light pt-40">
+
   <header
-    class="w-full h-[450px] bg-[url('/img/Pato-de-pie-mobile.png')] bg-no-repeat bg-center flex justify-center items-center md:bg-[url('/img/sitting-4.png')] md:justify-around ">
-    <div class="w-min h-min relative text-center font-sans">
-      <div class="w-[400px] md:w-[600px] h-[330px] flex flex-col justify-between items-center relative">
-        <h1 class="text-links-cta  text-left text-7xl font-bold absolute -top-4">
-          Ànec Events
-        </h1>
-        <h2
-          class="description-header w-2/3 text-dark font-sans font-bold translate-x-[1/2] md:text-bg-dark md:font-normal md:translate-x-10 text-4xl absolute top-56 md:top-40 ">
-          Eventos para todos en Alicante
-        </h2>
+    class="fixed top-0 z-[2] w-full h-20 md:h-32 bg-bg-dark-80 flex justify-around drop-shadow-[0_8px_10px_rgba(0,0,0,0.25)]">
+    <div class="ml-2.5 flex justify-center items-center gap-4 md:ml-0 cursor-pointer">
+      <img class="w-12 h-12 md:w-16 md:h-16" src="./img/Favicon.png" alt="Logo">
+      <h1 class="name-web font-cursive text-4xl text-links-cta md:text-6xl">Ànec events</h1>
+    </div>
+    <div class="log-in relative px-6 justify-center items-center gap-4 hidden">
+      <button class="hamburguer md:hidden text-neutral-500 w-10 h-10 relative focus:outline-none bg-white">
+        <span class="sr-only">Abrir menú</span>
+        <div class="flex flex-col w-5 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+          <span aria-hidden="true"
+            class="bar-1 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out -translate-y-1.5"></span>
+          <span aria-hidden="true"
+            class="bar-2 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out"></span>
+          <span aria-hidden="true"
+            class="bar-3 block absolute h-0.5 w-5 bg-bg-light transition duration-500 ease-in-out translate-y-1.5"></span>
+        </div>
+      </button>
+      <div class="hidden fixed top-20 md:top-0 left-0 w-full md:w-52  flex-col justify-center md:flex-row md:justify-center md:items-center md:gap-4 md:relative
+      bg-light md:bg-opacity-0 drop-shadow-[0_8px_10px_rgba(0,0,0,0.25)]">
+        <button
+          class="log-in hidden md:block h-20 md:h-12 text-bg-light md:text-bg-dark font-sans text-lg cursor-pointer border-b md:border-b-0">Entrar</button>
+        <button
+          class="sign-in hidden md:block h-16 px-2 md:h-12  text-dark font-sans text-lg md:bg-contrast-bg-dark md:border-solid md:rounded-2xl p-2.5
+        cursor-pointer md:duration-700 md:hover:bg-light md:hover:border-contrast-bg-light md:hover:text-contrast-bg-light">Crear
+          cuenta</button>
       </div>
     </div>
-  </header>
 
+  </header>
   <div class="container-nav w-full flex flex-col justify-center text-bg-dark">
     <div
-      class="navegation ml-1 flex justify-start gap-3 md:flex-row overflow-x-scroll overflow-hidden lg:justify-center xl:overflow-x-hidden">
+      class="navegation ml-1 flex justify-start font-bold gap-3 md:flex-row overflow-x-scroll lg:justify-center xl:overflow-x-hidden">
       <div id="all"
         class="flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded">
         <p>Todos</p>
       </div>
-      <div id="bookmark" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded">
-        <svg class="w-6 h-6 mr-1" width="25" height="22" viewBox="0 0 25 22" fill="none"
+      <div id="bookmark" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold">
+        <svg id="icon-bookmark" class="w-6 h-6 mr-1" width="25" height="22" viewBox="0 0 25 22" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M12.12 18.643L12 18.7629L11.868 18.643C6.168 13.4757 2.4 10.0589 2.4 6.594C2.4 4.19618 4.2 2.39782 6.6 2.39782C8.448 2.39782 10.248 3.59673 10.884 5.22725H13.116C13.752 3.59673 15.552 2.39782 17.4 2.39782C19.8 2.39782 21.6 4.19618 21.6 6.594C21.6 10.0589 17.832 13.4757 12.12 18.643ZM17.4 0C15.312 0 13.308 0.971117 12 2.49373C10.692 0.971117 8.688 0 6.6 0C2.904 0 0 2.88937 0 6.594C0 11.1139 4.08 14.8185 10.26 20.4174L12 22L13.74 20.4174C19.92 14.8185 24 11.1139 24 6.594C24 2.88937 21.096 0 17.4 0Z"
@@ -43,8 +59,8 @@
         </svg>
         <p>Favoritos</p>
       </div>
-      <div id="Sports" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded">
-        <svg class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
+      <div id="Sports" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold">
+        <svg id="icon-Sports" class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M22.6474 49.8885C16.8531 49.3489 11.4308 46.7971 7.32206 42.6761C-2.44069 32.9138 -2.44069 17.0841 7.32206 7.32174C17.0848 -2.44058 32.9152 -2.44058 42.6779 7.32174C52.4407 17.0841 52.4407 32.9138 42.6779 42.6761C40.1752 45.1842 37.1668 47.1302 33.853 48.3847C30.5393 49.6391 26.9963 50.173 23.46 49.951C23.1878 49.9904 22.9103 49.969 22.6474 49.8885V49.8885ZM46.058 22.134C45.5234 18.1637 43.8718 14.427 41.2954 11.3592L27.6501 24.9989L30.3701 27.7189C33.0002 25.5939 35.9303 24.4489 38.7228 23.6989C40.3479 23.264 41.9629 22.949 43.4405 22.6665L43.4805 22.6565C44.398 22.4815 45.2555 22.314 46.0555 22.134H46.058ZM46.2305 25.9339C45.5655 26.0739 44.893 26.2039 44.2305 26.3339L44.1955 26.3389C42.6879 26.6314 41.1904 26.9214 39.6979 27.3214C37.3153 27.9614 35.0452 28.8614 33.0427 30.3913L41.2929 38.6412C44.295 35.0657 46.0309 30.5982 46.2305 25.9339V25.9339ZM30.3826 33.0338C28.6951 35.1887 27.7826 37.5487 27.1401 39.9661C26.8275 41.1411 26.5875 42.2861 26.345 43.4461L26.135 44.4336C26.01 45.0336 25.8725 45.6361 25.7225 46.236C30.4612 46.0816 35.0109 44.3412 38.6428 41.2936L30.3826 33.0338V33.0338ZM21.8999 46.0235C22.1049 45.2986 22.2849 44.5086 22.4699 43.6486L22.6624 42.7311C22.9074 41.5586 23.175 40.2811 23.515 39.0012C24.2675 36.1812 25.42 33.1588 27.7151 30.3663L25 27.6514L11.3572 41.2936C14.3639 43.8188 18.0146 45.4567 21.8999 46.0235V46.0235ZM22.3499 24.9989L19.3199 21.9715C16.5348 24.3264 13.6197 25.6214 10.9071 26.5364C9.78962 26.9164 8.66459 27.2414 7.62956 27.5439C7.23205 27.6589 6.84704 27.7689 6.47953 27.8789C5.60451 28.1439 4.80199 28.3989 4.06947 28.6814C4.70944 32.3518 6.30851 35.7879 8.70459 38.6412L22.3499 24.9989ZM5.40701 24.2864L6.66204 23.9189C7.683 23.6297 8.69744 23.318 9.70461 22.984C12.0647 22.184 14.4247 21.134 16.6573 19.309L8.70709 11.3567C5.54038 15.1288 3.78731 19.8865 3.74946 24.8114C4.29948 24.6239 4.85699 24.4514 5.40701 24.2864V24.2864ZM11.3572 8.70422L19.3099 16.6566C21.1349 14.4241 22.1874 12.0642 22.9849 9.7042C23.3375 8.66672 23.6275 7.66924 23.92 6.65925V6.65675C24.045 6.24176 24.1625 5.82677 24.29 5.40678C24.455 4.85679 24.625 4.2993 24.8125 3.74931C19.8877 3.78645 15.1298 5.53855 11.3572 8.70422V8.70422ZM26.54 10.9042C25.6225 13.6166 24.33 16.5341 21.9724 19.319L25 22.349L38.6428 8.70422C35.7894 6.30824 32.3532 4.70924 28.6826 4.0693C28.4001 4.80179 28.1451 5.60177 27.8826 6.47926L27.5451 7.62924C27.2451 8.66422 26.92 9.7867 26.54 10.9042Z"
@@ -52,8 +68,8 @@
         </svg>
         <p>Deporte</p>
       </div>
-      <div id="Kids" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded">
-        <svg class="w-6 h-6 mr-1" width="60" height="50" viewBox="0 0 60 50" fill="none"
+      <div id="Kids" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold">
+        <svg id="icon-Kids" class="w-6 h-6 mr-1" width="60" height="50" viewBox="0 0 60 50" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M19.6667 6.66764C19.6859 7.55589 19.5392 8.4393 19.2351 9.26593C18.9311 10.0926 18.4759 10.8458 17.8962 11.4813C17.3166 12.1167 16.6242 12.6217 15.8598 12.9664C15.0954 13.3112 14.2744 13.4888 13.445 13.4888C12.6157 13.4888 11.7946 13.3112 11.0302 12.9664C10.2658 12.6217 9.57347 12.1167 8.99383 11.4813C8.4142 10.8458 7.95898 10.0926 7.65493 9.26593C7.35089 8.4393 7.20415 7.55589 7.22335 6.66764C7.25007 4.9186 7.91741 3.25089 9.08145 2.02413C10.2455 0.797372 11.813 0.109863 13.4459 0.109863C15.0788 0.109863 16.6463 0.797372 17.8103 2.02413C18.9743 3.25089 19.6417 4.9186 19.6684 6.66764H19.6667Z"
@@ -73,8 +89,8 @@
         </svg>
         <p>Infantil</p>
       </div>
-      <div id="Food" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded">
-        <svg class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
+      <div id="Food" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold">
+        <svg id="icon-Food" class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M14.053 7.8125C13.1161 7.8125 12.4915 8.75 12.4915 9.375V17.1875H9.36866V9.375C9.36866 8.4375 8.74408 7.8125 7.80722 7.8125C6.87035 7.8125 6.24577 8.75 6.24577 9.375V17.1875H3.12289V9.375C3.12289 8.4375 2.49831 7.8125 1.56144 7.8125C0.624577 7.8125 0 8.75 0 9.375V19.6875C0 22.5 2.18602 24.6875 4.68433 25V46.875C4.68433 48.75 5.93349 50 7.80722 50C9.68095 50 10.9301 48.75 10.9301 46.875V25C13.4284 24.6875 15.6144 22.5 15.6144 19.6875V9.375C15.6144 8.75 14.9899 7.8125 14.053 7.8125ZM20.2988 9.375V28.125H23.4217V46.875C23.4217 48.75 24.6708 50 26.5445 50C28.4183 50 29.6674 48.75 29.6674 46.875V0C24.3585 0 20.2988 4.0625 20.2988 9.375ZM42.159 6.25C37.7869 6.25 34.3518 10.9375 34.3518 16.5625C34.0395 20.3125 35.9132 23.75 39.0361 25.9375V46.875C39.0361 48.75 40.2852 50 42.159 50C44.0327 50 45.2819 48.75 45.2819 46.875V25.9375C48.4047 23.75 50.2785 20.3125 49.9662 16.5625C49.9662 10.9375 46.531 6.25 42.159 6.25Z"
@@ -82,8 +98,8 @@
         </svg>
         <p>Gastrónomico</p>
       </div>
-      <div id="Music" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded">
-        <svg class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
+      <div id="Music" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold">
+        <svg id="icon-Music" class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M48.8906 0.567208C48.545 0.316753 48.1425 0.142702 47.7137 0.0582703C47.2849 -0.0261613 46.8409 -0.0187528 46.4157 0.0799331L15.6447 7.22277C15.0205 7.36763 14.4664 7.70208 14.0704 8.17293C13.6745 8.64379 13.4594 9.22403 13.4594 9.82142V32.8905C11.5618 32.1217 9.44757 31.9423 7.43124 32.3788C5.41492 32.8154 3.60423 33.8446 2.2685 35.3134C0.932772 36.7822 0.143375 38.6122 0.0177273 40.531C-0.10792 42.4499 0.436896 44.3552 1.57114 45.9634C2.70538 47.5717 4.36844 48.797 6.31295 49.4572C8.25746 50.1173 10.3795 50.177 12.3635 49.6273C14.3475 49.0776 16.0874 47.948 17.3244 46.4064C18.5613 44.8649 19.2293 42.9937 19.229 41.0713V22.6272L44.2304 16.8236V25.7477C42.3328 24.9789 40.2186 24.7994 38.2022 25.236C36.1859 25.6725 34.3752 26.7017 33.0395 28.1706C31.7038 29.6394 30.9144 31.4693 30.7887 33.3882C30.6631 35.3071 31.2079 37.2123 32.3421 38.8206C33.4764 40.4288 35.1394 41.6542 37.084 42.3143C39.0285 42.9745 41.1505 43.0341 43.1345 42.4845C45.1185 41.9348 46.8584 40.8052 48.0954 39.2636C49.3323 37.722 50.0003 35.8509 50 33.9285V2.67858C50.0001 2.27151 49.9002 1.86977 49.7079 1.50391C49.5157 1.13806 49.2361 0.817706 48.8906 0.567208ZM9.61306 44.6427C8.85232 44.6427 8.10866 44.4333 7.47613 44.0408C6.84359 43.6484 6.35059 43.0906 6.05947 42.438C5.76835 41.7854 5.69218 41.0673 5.84059 40.3746C5.989 39.6818 6.35534 39.0454 6.89326 38.5459C7.43119 38.0465 8.11654 37.7063 8.86267 37.5685C9.60879 37.4307 10.3822 37.5014 11.085 37.7717C11.7878 38.0421 12.3886 38.4998 12.8112 39.0871C13.2338 39.6745 13.4594 40.3649 13.4594 41.0713C13.4583 42.0182 13.0527 42.926 12.3316 43.5955C11.6105 44.265 10.6328 44.6417 9.61306 44.6427ZM19.229 17.1049V11.9129L44.2304 6.10938V11.3013L19.229 17.1049ZM40.3841 37.4999C39.6233 37.4999 38.8797 37.2904 38.2471 36.898C37.6146 36.5056 37.1216 35.9478 36.8305 35.2952C36.5393 34.6426 36.4632 33.9245 36.6116 33.2317C36.76 32.5389 37.1263 31.9026 37.6643 31.4031C38.2022 30.9036 38.8875 30.5635 39.6337 30.4257C40.3798 30.2879 41.1532 30.3586 41.856 30.6289C42.5588 30.8992 43.1596 31.357 43.5822 31.9443C44.0048 32.5316 44.2304 33.2221 44.2304 33.9285C44.2293 34.8753 43.8237 35.7831 43.1026 36.4527C42.3815 37.1222 41.4038 37.4988 40.3841 37.4999Z"
@@ -91,8 +107,8 @@
         </svg>
         <p>Música</p>
       </div>
-      <div id="Theatre" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded">
-        <svg class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
+      <div id="Theatre" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold">
+        <svg id="icon-Theatre" class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M3.84615 0C3.84615 0 0 0 0 3.84615V23.6846C0 30.3385 1.36154 38.4615 13.4615 38.4615H15.3846V26.9231L5.76923 30.7692C5.76923 30.7692 5.76923 21.1538 15.3846 21.1538V15.3846C15.3846 12.6615 15.7192 10.3077 17.3077 8.55769C18.7731 6.94231 21.1731 3.71923 27.5231 6.74615L30.7692 8.85769V3.84615C30.7692 3.84615 30.7692 0 26.9231 0C24.2 0 19.3154 3.84615 15.3846 3.84615C11.4538 3.84615 6.87308 0 3.84615 0ZM7.69231 7.69231C8.71237 7.69231 9.69066 8.09753 10.4119 8.81882C11.1332 9.54011 11.5385 10.5184 11.5385 11.5385C11.5385 12.5585 11.1332 13.5368 10.4119 14.2581C9.69066 14.9794 8.71237 15.3846 7.69231 15.3846C6.67224 15.3846 5.69396 14.9794 4.97267 14.2581C4.25137 13.5368 3.84615 12.5585 3.84615 11.5385C3.84615 10.5184 4.25137 9.54011 4.97267 8.81882C5.69396 8.09753 6.67224 7.69231 7.69231 7.69231V7.69231ZM23.0769 11.5385C23.0769 11.5385 19.2308 11.5385 19.2308 15.3846V34.6154C19.2308 42.3077 23.0769 50 34.6154 50C46.1538 50 50 42.3077 50 34.6154V15.3846C50 11.5385 46.1538 11.5385 46.1538 11.5385C43.4308 11.5385 38.5462 15.3846 34.6154 15.3846C30.6846 15.3846 26.1038 11.5385 23.0769 11.5385ZM26.9231 19.2308C27.9431 19.2308 28.9214 19.636 29.6427 20.3573C30.364 21.0786 30.7692 22.0569 30.7692 23.0769C30.7692 24.097 30.364 25.0753 29.6427 25.7966C28.9214 26.5179 27.9431 26.9231 26.9231 26.9231C25.903 26.9231 24.9247 26.5179 24.2034 25.7966C23.4821 25.0753 23.0769 24.097 23.0769 23.0769C23.0769 22.0569 23.4821 21.0786 24.2034 20.3573C24.9247 19.636 25.903 19.2308 26.9231 19.2308V19.2308ZM42.3077 19.2308C43.3278 19.2308 44.306 19.636 45.0273 20.3573C45.7486 21.0786 46.1538 22.0569 46.1538 23.0769C46.1538 24.097 45.7486 25.0753 45.0273 25.7966C44.306 26.5179 43.3278 26.9231 42.3077 26.9231C41.2876 26.9231 40.3093 26.5179 39.5881 25.7966C38.8668 25.0753 38.4615 24.097 38.4615 23.0769C38.4615 22.0569 38.8668 21.0786 39.5881 20.3573C40.3093 19.636 41.2876 19.2308 42.3077 19.2308V19.2308ZM25 34.6154H44.2308C44.2308 34.6154 44.2308 44.2308 34.6154 44.2308C25 44.2308 25 34.6154 25 34.6154Z"
@@ -100,8 +116,8 @@
         </svg>
         <p>Teatro</p>
       </div>
-      <div id="Museum" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded">
-        <svg class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
+      <div id="Museum" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold">
+        <svg id="icon-Museum" class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M8.61458 17.5H12.6937L13.3208 40H8.07187L8.61458 17.5V17.5ZM5.20833 41.25H44.7917V43.75H47.9167V47.5H50V50H0V47.5H2.08333V43.75H5.20833V41.25ZM46.875 11.015L25.0021 0L3.125 11.015V12.5H46.875V11.015V11.015ZM7.29167 13.75H42.7083V16.25H7.29167V13.75ZM37.225 17.5H41.3021L41.9344 40H36.6781L37.225 17.5ZM27.6917 17.5H31.7687L32.3937 40H27.1427L27.6917 17.5V17.5ZM18.1562 17.5H22.2344L22.8552 40H17.6062L18.1562 17.5V17.5Z"
@@ -109,8 +125,8 @@
         </svg>
         <p>Museos</p>
       </div>
-      <div id="Party" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded">
-        <svg class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
+      <div id="Party" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold">
+        <svg id="icon-Party" class="w-6 h-6 mr-1" width="50" height="50" viewBox="0 0 50 50" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M45.6 1.41308C45.4966 1.34225 45.3951 1.28809 45.2936 1.23185C44.0507 0.52102 42.6666 0.151981 41.2624 0.156954H41.2471C39.7109 0.159526 38.2021 0.598775 36.8702 1.43116C35.5383 2.26353 34.4295 3.46013 33.6537 4.90232L33.6308 4.94815C33.0029 6.12553 32.6222 7.43945 32.5162 8.79569L32.5143 8.83111H14.1295L12.0727 3.43788C11.6109 2.21709 10.7642 1.21533 9.68451 0.612481C8.60485 0.009628 7.36299 -0.154835 6.18189 0.148621L6.21636 0.140288L0 1.67764L0.384932 3.52329L6.60129 1.98594C7.37464 1.79422 8.18538 1.90532 8.89086 2.29968C9.59634 2.69404 10.1514 3.3464 10.4583 4.14198L10.4659 4.16698L12.2508 8.83319H0.57644L20.0969 30.0665V45.6129C15.5639 45.9629 12.4365 47.5961 12.4365 49.6229V50H31.2503V49.6229C31.2503 47.5981 28.1172 45.9566 23.59 45.6129V30.0665L35.6225 16.9782C35.9997 17.3261 36.421 17.649 36.8653 17.9323L36.9075 17.9573C38.9199 19.2021 41.3035 19.5299 43.5375 18.8692C45.7715 18.2084 47.6742 16.6127 48.83 14.4307C49.9858 12.2488 50.3007 9.65793 49.7059 7.22422C49.1111 4.79052 47.6549 2.71181 45.6556 1.44224L45.6134 1.41725L45.6 1.41308ZM47.5132 8.71862L42.737 8.7332L45.1136 4.23364C46.4115 5.32274 47.2704 6.9171 47.5094 8.68112L47.5132 8.71862ZM43.6103 3.28373L41.2336 7.79579L38.8321 3.31081C39.5998 2.96653 40.4225 2.79095 41.2528 2.7942C42.1012 2.7942 42.9113 2.97334 43.6524 3.3004L43.6103 3.28373ZM35.7374 6.26052C36.1548 5.47102 36.6872 4.8065 37.3173 4.27113L37.3307 4.26072L39.7322 8.7457L34.9675 8.76028C35.0747 7.82495 35.3467 6.9792 35.7527 6.22719L35.7374 6.25844V6.26052ZM6.43085 11.4704H13.2505L14.1888 13.9431H8.70597L6.43085 11.4704ZM34.9541 13.9452H33.3971V13.9577H16.0599L15.1215 11.485H37.2101L34.9541 13.9452ZM38.8704 16.0825L41.2471 11.5704L43.6486 16.0554C42.9342 16.3845 42.1031 16.5762 41.2317 16.5762C40.3814 16.5762 39.5694 16.3949 38.8283 16.0637L38.8704 16.0804V16.0825ZM46.7433 13.1203C46.3399 13.8877 45.8041 14.5632 45.1653 15.1097L45.1519 15.1201L42.7504 10.6351L47.5151 10.6226C47.4048 11.5128 47.1376 12.3715 46.728 13.1515L46.7453 13.1182L46.7433 13.1203Z"
@@ -118,8 +134,8 @@
         </svg>
         <p>Fiestas</p>
       </div>
-      <div id="Play" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded">
-        <svg class="w-6 h-6 mr-1" width="60" height="50" viewBox="0 0 60 50" fill="none"
+      <div id="Play" class="flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold">
+        <svg id="icon-Play" class="w-6 h-6 mr-1" width="60" height="50" viewBox="0 0 60 50" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <path
             d="M58.3903 23.4882C55.7389 9.86947 51.7487 2.60064 45.8296 0.615131C44.5854 0.200487 43.2947 -0.00666404 41.9981 0.00016341C40.2843 0.00016341 38.7917 0.474526 37.2128 0.977294C35.3102 1.58374 33.1489 2.27256 29.9974 2.27256C26.846 2.27256 24.6834 1.58516 22.777 0.978714C21.1969 0.474526 19.7056 0.00016341 17.9967 0.00016341C16.6559 -0.00511862 15.321 0.201373 14.0303 0.613711C8.14242 2.5907 4.15469 9.85669 1.46453 23.4797C-1.42813 38.1395 -0.00430084 47.3953 5.45726 49.5427C6.20591 49.8425 6.99361 49.9971 7.7874 50C11.5289 50 14.529 46.4593 16.5792 43.5606C18.8955 40.2798 21.6069 38.6153 29.9974 38.6153C37.4916 38.6153 40.593 39.77 43.2719 43.5606C44.9558 45.9438 46.5471 47.6111 48.1347 48.6607C50.2461 50.0554 52.3562 50.365 54.4051 49.5654C57.6328 48.3142 59.4829 45.0064 59.9054 39.7316C60.2267 35.6867 59.7316 30.3736 58.3903 23.4882ZM23.9971 22.7241H19.9969V27.2689C19.9969 27.8716 19.7861 28.4496 19.411 28.8758C19.0359 29.3019 18.5272 29.5413 17.9967 29.5413C17.4663 29.5413 16.9575 29.3019 16.5824 28.8758C16.2073 28.4496 15.9966 27.8716 15.9966 27.2689V22.7241H11.9964C11.4659 22.7241 10.9572 22.4847 10.5821 22.0586C10.207 21.6324 9.99628 21.0544 9.99628 20.4517C9.99628 19.8491 10.207 19.2711 10.5821 18.8449C10.9572 18.4188 11.4659 18.1793 11.9964 18.1793H15.9966V13.6345C15.9966 13.0319 16.2073 12.4539 16.5824 12.0277C16.9575 11.6016 17.4663 11.3621 17.9967 11.3621C18.5272 11.3621 19.0359 11.6016 19.411 12.0277C19.7861 12.4539 19.9969 13.0319 19.9969 13.6345V18.1793H23.9971C24.5275 18.1793 25.0363 18.4188 25.4114 18.8449C25.7865 19.2711 25.9972 19.8491 25.9972 20.4517C25.9972 21.0544 25.7865 21.6324 25.4114 22.0586C25.0363 22.4847 24.5275 22.7241 23.9971 22.7241ZM34.4977 23.2922C34.0032 23.2922 33.5198 23.1256 33.1087 22.8135C32.6975 22.5014 32.3771 22.0578 32.1879 21.5387C31.9986 21.0197 31.9491 20.4486 32.0456 19.8976C32.1421 19.3466 32.3802 18.8405 32.7298 18.4432C33.0795 18.046 33.525 17.7754 34.0099 17.6658C34.4949 17.5562 34.9976 17.6125 35.4544 17.8275C35.9113 18.0425 36.3018 18.4065 36.5765 18.8736C36.8512 19.3408 36.9978 19.8899 36.9978 20.4517C36.9978 21.2051 36.7344 21.9276 36.2656 22.4603C35.7967 22.993 35.1608 23.2922 34.4977 23.2922V23.2922ZM39.998 29.5413C39.5033 29.5413 39.0196 29.3745 38.6084 29.0621C38.1971 28.7497 37.8766 28.3056 37.6876 27.7862C37.4985 27.2667 37.4494 26.6953 37.5464 26.1441C37.6433 25.5929 37.8821 25.0867 38.2324 24.6898C38.5826 24.2928 39.0287 24.0228 39.5141 23.914C39.9995 23.8053 40.5024 23.8625 40.9591 24.0786C41.4158 24.2947 41.8059 24.6599 42.0798 25.1279C42.3538 25.596 42.4994 26.1458 42.4981 26.7079C42.4965 27.46 42.2324 28.1807 41.7637 28.7119C41.295 29.243 40.66 29.5413 39.998 29.5413V29.5413ZM39.998 17.0431C39.5035 17.0431 39.0201 16.8765 38.609 16.5644C38.1978 16.2523 37.8774 15.8087 37.6882 15.2897C37.4989 14.7706 37.4494 14.1995 37.5459 13.6485C37.6424 13.0975 37.8805 12.5914 38.2301 12.1941C38.5798 11.7969 39.0253 11.5263 39.5103 11.4167C39.9952 11.3071 40.4979 11.3634 40.9548 11.5784C41.4116 11.7934 41.8021 12.1574 42.0768 12.6245C42.3515 13.0917 42.4981 13.6408 42.4981 14.2026C42.4981 14.956 42.2347 15.6785 41.7659 16.2112C41.297 16.7439 40.6611 17.0431 39.998 17.0431ZM45.4983 23.2922C45.0038 23.2922 44.5205 23.1256 44.1093 22.8135C43.6982 22.5014 43.3777 22.0578 43.1885 21.5387C42.9993 21.0197 42.9497 20.4486 43.0462 19.8976C43.1427 19.3466 43.3808 18.8405 43.7304 18.4432C44.0801 18.046 44.5256 17.7754 45.0106 17.6658C45.4955 17.5562 45.9982 17.6125 46.4551 17.8275C46.9119 18.0425 47.3024 18.4065 47.5771 18.8736C47.8518 19.3408 47.9985 19.8899 47.9985 20.4517C47.9985 21.2051 47.7351 21.9276 47.2662 22.4603C46.7973 22.993 46.1614 23.2922 45.4983 23.2922V23.2922Z"
@@ -138,42 +154,56 @@
         <input
           class="m-1 w-40 cursor-pointer text-neutral-600 text-sm text-right rounded border-2 border-solid border-dark"
           type="date" id="final" required>
-        <button
-          class="m-1 w-20 font-sans font-bold cursor-pointer rounded text-dark bg-links-cta border-2 border-solid border-links-cta shadow-md hover:bg-light hover:border-dark"
-          id="submit">Buscar</button>
+        <button class="m-1 w-20 font-sans font-bold cursor-pointer rounded text-dark bg-links-cta border-2 border-solid border-links-cta shadow-md
+          hover:bg-light hover:border-dark" id="submit">Buscar</button>
       </form>
     </div>
   </div>
 
-  <main class="flex justify-center">
+  <main class="mb-5 flex flex-col items-center md:mb-0">
     <div class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-lg p-10 gap-10 lg:gap-x-8">
     </div>
-
+    <div class="pagination flex flex-row flex-wrap justify-center gap-2 p-6"></div>
   </main>
   <div id="btn-up"
     class="w-14 h-14 bg-dark flex justify-center items-center rounded-full fixed bottom-10 right-4 cursor-pointer border-4 border-solid border-bg-dark transition-all delay-150 scale-0 hover:bg-contrast-bg-light">
     <img class="arrow-up" src="./img/icons/arrow.svg" alt="Volver arriba" />
   </div>
-  <footer class="w-full min-h-200 py-4 bg-dark flex flex-col font-sans text-base text-bg-dark text-center">
-    <div>
-      <p class="font-bold text-lg">Desarrollado por Dapper Drake</p>
-      <p>
-        Somos alumnos de la EOI, hemos desarrollado esta web para facilitar la
-        búsqueda de eventos y fomentar el ocio en Alicante
-      </p>
-    </div>
-    <div class="flex flex-col justify-center items-center">
-      <h4>Patrocinadores:</h4>
-      <div class="container-img w-80 lg:w-4/5 bg-white px-4 rounded-full flex flex-wrap justify-evenly my-4 ">
-        <img class="max-h-12" src="./img/footer/gobesp.png" alt="Logo Gobierno de España" />
-        <img class="max-h-12" src="./img/footer/logoEoi.svg" alt="Logo Escuela de Organización Industrial" />
-        <img class="max-h-12" src="./img/footer/ue.png"
-          alt="Logo Unión Europea, Fondo Social Europeo. Iniciativa de Empleo Juvenil." />
-        <img class="max-h-12" src="./img/footer/fundonce.png" alt="Logo Fundación Once" />
-        <img class="max-h-12" src="./img/footer/garjuv.png" alt="Logo Sistema Nacional de Garantía Juvenil" />
+
+  <footer class="w-full py-4 bg-dark flex flex-col font-sans text-sm md:text-base text-bg-dark text-center gap-4">
+    <div
+      class="flex flex-col justify-between items-center gap-6 md:flex-row md:justify-around md:items-baseline md:gap-0">
+      <div class="w-48 flex flex-col gap-4">
+        <p>Síguenos</p>
+        <div class="flex justify-around">
+          <a href="https://twitter.com/anecevents" target="_blank">
+            <img class="w-8 h-8" src="./img/icons/twitter.svg" alt="Twitter">
+          </a>
+          <a href="https://www.facebook.com/%C3%80nec-Events-111784064715714" target="_blank">
+            <img class="w-8 h-8" src="./img/icons/facebook.svg" alt="Facebook">
+          </a>
+          <a href="https://www.instagram.com/anecevents" target="_blank">
+            <img class="w-8 h-8" src="./img/icons/instagram.svg" alt="Instagram">
+          </a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-4">
+        <p>Contáctanos</p>
+        <a href="mailto:eoidapperdrake@gmail.com">
+          eoidapperdrake@gmail.com</a>
+      </div>
+      <div class="flex flex-col gap-4">
+        <a href="./privacy/privacy.html">Aviso Legal</a>
+        <a href="./cookies/cookies.html">Política de cookies</a>
       </div>
     </div>
+    <div class=" flex flex-wrap justify-center items-center mb-2 gap-2">
+      <img class="w-4 h-4" src="./img/Favicon.png" alt="Logo">
+      <p>Ànec Events.</p>
+      <p>Desarrollado por Dapper Drake</p>
+    </div>
   </footer>
+
 </body>
 
 </html>

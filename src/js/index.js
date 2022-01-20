@@ -1,29 +1,46 @@
-import moment from 'moment';
-
+import moment from "moment";
+import { listSrcCategories } from "./listSrcTitlesCategories.js"
+import { createPopUpModal, createRegister, createLogin } from "./createModal.js"
+import { notFound, clearMain } from "./404NotFound.js"
 let allEvents = [];
 let currentListEvents = [];
+let activeCategory = "all";
+let listFilterDates = [];
+let buttonCalendar;// lo pongo global para poder llamarlo luego desde una función sino se lee todo js y es null
+function createFirstPage() {
+  const content = document.querySelector(".container");
+  const firstpagination = divideListEventForPagination(1)
+  createEvent(content, firstpagination);
+  pagination(currentListEvents)
+}
 // ESTA FUNCIÓN IMPORTA DATOS DEL JSON Y LLAMA AL RESTO DE FUNCIONES
-function createAll() {
+function fetchJSON() {
   // se importa el json, se parsea y almacena en data
   fetch("/data/eventosAlicante.json")
     .then((response) => response.json())
     .then((data) => {
       // data es un array de eventos
-      const content = document.querySelector(".container");
-      for (let evento in data) {
+      for (let event of data) {
         //Es un generador de Id basados en el nombre del evento
-        let idEvent = data[evento].nameEvent;
+        let idEvent = event.nameEvent;
         idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-        data[evento].bookmark = arrayBookMark.includes(idEvent);
-        data[evento].id = idEvent;
-        allEvents.push(data[evento]);
+        event.bookmark = arrayBookMark.includes(idEvent);
+        event.id = idEvent;
+        allEvents.push(event);
       }
       changeformatDateJSON(data);
       allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime())
-      createEvent(content, allEvents);
-
-    });
+      currentListEvents = [...allEvents];
+      const urlParams = new URLSearchParams(window.location.search);
+      const ruta = urlParams.get('event');
+      if (ruta != null) {
+        deleteContent();
+        return goToParams(ruta);
+      }
+      createFirstPage()
+    })
 }
+
 function changeformatDateJSON() {
   for (let index in allEvents) {
     allEvents[index].dateStart = new Date(allEvents[index].dateStart);
@@ -34,6 +51,7 @@ function changeformatDateJSON() {
 }
 // ESTA FUNCIÓN CREA CADA TARJETA DE EVENTO
 function createEvent(container, listEvents) {
+  // for (let position in listEvents) {
   for (let position in listEvents) {
     //Llamar función que imprime la fecha en el orden deseado
     let dateStart = dateFormat(listEvents[position].dateStart, true);
@@ -126,47 +144,10 @@ function createEvent(container, listEvents) {
       let categoryIconContainer = document.createElement("div");
       let categoryIcon = document.createElement("img");
       let categoryIconInfo = document.createElement("p");
-      switch (listEvents[position].category[cat]) {
-        case "Christmas":
-          categoryIconInfo.textContent = "Navidad";
-          categoryIcon.src = "./img/icons/Navidad.svg";
-          break;
-        case "Kids":
-          categoryIconInfo.textContent = "Infantil";
-          categoryIcon.src = "./img/icons/Kids.svg";
-          break;
-        case "Play":
-          categoryIconInfo.textContent = "Lúdico";
-          categoryIcon.src = "./img/icons/Play.svg";
-          break;
-        case "Music":
-          categoryIconInfo.textContent = "Música";
-          categoryIcon.src = "./img/icons/Music.svg";
-          break;
-        case "Sports":
-          categoryIconInfo.textContent = "Deporte";
-          categoryIcon.src = "./img/icons/Sports.svg";
-          break;
-        case "Theatre":
-          categoryIconInfo.textContent = "Teatro";
-          categoryIcon.src = "./img/icons/Theatre.svg";
-          break;
-        case "Party":
-          categoryIconInfo.textContent = "Fiestas";
-          categoryIcon.src = "./img/icons/Cocktail.svg";
-          break;
-        case "Food":
-          categoryIconInfo.textContent = "Gastronómico";
-          categoryIcon.src = "./img/icons/Food.svg";
-          break;
-        case "Museum":
-          categoryIconInfo.textContent = "Museo";
-          categoryIcon.src = "./img/icons/Museum.svg";
-          break;
-        default:
-          console.error(`Hay ninguna categoria con ese nombre ${listEvents[position].category[cat]}`)
-          break;
-      }
+      // ? ListSrcCategories es un objeto con cada tipo de categoria y toda su info
+      categoryIconInfo.textContent = listSrcCategories[listEvents[position].category[cat]].nameIconEvent || console.error("Esta categoria no existe", listEvents[position].category[cat]);
+      categoryIcon.src = listSrcCategories[listEvents[position].category[cat]].iconEvent;
+
       bar.appendChild(categoryIconContainer);
       categoryIconContainer.appendChild(categoryIcon);
       categoryIconContainer.appendChild(categoryIconInfo);
@@ -178,92 +159,17 @@ function createEvent(container, listEvents) {
 function dataModal(e) {
   //La e selecciona el ID del evento y lo pasa a createModal para generar el modal.
   const idOfEvent = e.currentTarget.dataset.id;
-  createModal(idOfEvent);
+  checkEvent(idOfEvent)
+  deleteContent()
 }
-function createModal(id) {
-  //QUITAR EL SCROLL DEL BODY
-  const body = document.querySelector("body");
-  body.classList.add("overflow-hidden");
-  let dataEvent = currentListEvents.find((el) => el.id === id);
-  const modalWindow = document.querySelector("main");
-  // ZONA OSCURA
-  let modalBox = document.createElement("div");
-  modalBox.className = "modal-container";
-  modalWindow.appendChild(modalBox);
-  // VENTANA
-  let modal = document.createElement("div");
-  modal.className = "modal";
-  modalBox.appendChild(modal);
-  // IMAGEN
-  let fatherModalImagen = document.createElement("div");
-  fatherModalImagen.className = "modal-image";
-  let modalImage = document.createElement("img");
-  modalImage.src = dataEvent.photoEvent;
-  // añadimos la clase "landscape" al modal de imágenes apaisadas
-  if (modalImage.naturalWidth > modalImage.naturalHeight) {
-    fatherModalImagen.className = "modal-image landscape";
-  }
-  fatherModalImagen.appendChild(modalImage);
-  modal.appendChild(fatherModalImagen);
-  // ZONA DE TEXTO
-  let modalText = document.createElement("div");
-  modalText.className = "modal-text";
-  modal.appendChild(modalText);
-  // NOMBRE
-  let modalName = document.createElement("p");
-  modalName.innerText = dataEvent.nameEvent;
-  modalText.appendChild(modalName);
-  // LUGAR
-  let modalPlace = document.createElement("p");
-  modalPlace.innerText = dataEvent.site;
-  modalText.appendChild(modalPlace);
-  // FECHA
-  let modalDate = document.createElement("p");
-  let dateStartModal = dateFormat(dataEvent.dateStart);
-  modalDate.innerText = dateStartModal;
-
-  // FECHA FINAL
-  if (dataEvent.hasOwnProperty("dateFinal")) {
-    let dateFinalModal = dateFormat(dataEvent.dateFinal);
-    modalDate.innerText = `Del ${dateStartModal} al ${dateFinalModal}`;
-  }
-  modalText.appendChild(modalDate);
-  // DESCRIPCIÓN
-  if (dataEvent.hasOwnProperty("comments")) {
-    let description = document.createElement("p");
-    if (dataEvent.comments.length > 174) {
-      description.innerText = dataEvent.comments.substring(0, 173) + "...";
-    } else {
-      description.innerText = dataEvent.comments;
-    }
-    modalText.appendChild(description);
-  }
-  //BOTÓN ADD CALENDAR
-  let btnCalendar = document.createElement("a");
-  btnCalendar.className = "btn-addCalendar py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
-  btnCalendar.textContent = "Añadir al calendario";
-  btnCalendar.target = "blank"
-  btnCalendar.dataset.name = id;
-  btnCalendar.addEventListener("click", requestCalendar);
-  modalText.appendChild(btnCalendar);
-  // BOTÓN DE CIERRE
-  let closeButton = document.createElement("img");
-  closeButton.className = "close";
-  closeButton.src = "./img/icons/xmark-solid.svg";
-  closeButton.alt = "Cerrar";
-  modal.appendChild(closeButton);
-  // FUNCIONALIDAD DEL MODAL
-  closeButton.addEventListener("click", () => {
-    modalBox.remove();
-    body.classList.remove("overflow-hidden");
-  });
-  window.addEventListener("click", (e) => {
-    if (e.target == modalBox) {
-      modalBox.remove();
-      body.classList.remove("overflow-hidden");
-    }
-  });
-}
+document.querySelector(".sign-in").addEventListener("click", () => {
+  createPopUpModal()
+  createRegister();
+})
+document.querySelector(".log-in").addEventListener("click", () => {
+  createPopUpModal();
+  createLogin();
+})
 
 // Función que convierte número del mes en nombre del mes reducido en español
 function dateFormat(month, dateShort = false) {
@@ -307,47 +213,6 @@ function selectedBookmark(e) {
   saveLocalStorage();
 }
 
-function filterBookmarks() {
-  let listFilteredBookmark = [];
-  for (let index in arrayBookMark) {
-    for (let position in allEvents) {
-      if (allEvents[position].id === arrayBookMark[index]) {
-        listFilteredBookmark.push(allEvents[position]);
-      }
-    }
-  }
-  resetAndCreateEventsFiltered(listFilteredBookmark);
-}
-
-
-// Función del slider de logos de patrocinadores
-
-const Sponsors = document.querySelectorAll(".container-img > img");
-
-let indexSlider = 0;
-//Le añado a todas una clase que las oculta
-const hideImg = () => {
-  Sponsors.forEach((img) => img.classList.add("hidden"));
-};
-
-function nextSliderImg() {
-  if (indexSlider === 0 && Sponsors[indexSlider].className === "hidden") {
-    return Sponsors[indexSlider].classList.remove("hidden");
-  } else {
-    Sponsors[indexSlider].classList.add("hidden");
-    //Index se esta igualando a la condición del ternario
-    indexSlider = indexSlider < Sponsors.length - 1 ? indexSlider + 1 : 0;
-    Sponsors[indexSlider].classList.remove("hidden");
-  }
-}
-
-function responsiveFooter() {
-  if (window.innerWidth <= 768) {
-    hideImg();
-    nextSliderImg();
-    setInterval(nextSliderImg, 3000);
-  }
-}
 
 // BOTÓN PARA SUBIR AL INICIO DE LA WEB
 const BtnUp = document.getElementById("btn-up");
@@ -356,9 +221,9 @@ BtnUp.addEventListener("click", scrollUp);
 // Funcion que cuando hay scroll hace una animacion para subir al top
 function scrollUp() {
   let currentScroll = document.documentElement.scrollTop;
-  if (currentScroll > 0) {
+  if (currentScroll > 10) {
     window.requestAnimationFrame(scrollUp);
-    window.scrollTo(0, currentScroll - (currentScroll / 8));
+    window.scrollTo(0, currentScroll - (currentScroll / 10));
   }
 }
 
@@ -377,12 +242,365 @@ window.onscroll = () => {
 function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
+  clearMain()
   if (listFiltered.length === [].length) {
-    console.error("No hay eventos ni página de 404");
+    // IMPROVE Pagina de no encontrar eventos
+    notFound(false);
   } else {
     createEvent(resetContent, listFiltered);
   }
 }
+
+//Borra todo menos el header y el footer
+function deleteContent() {
+  const content = document.querySelector(".container");
+  const nav = document.querySelector(".container-nav");
+  const pagination = document.querySelector(".pagination")
+
+  content.remove(".container");
+  nav.classList.add("hidden");
+  pagination.classList.add("hidden");
+}
+function sizeOfIframe() {
+  // IMPROVE Cuando hace resize de una pantalla que también disminuya pero se haria con un addevent listener "resize"
+  let sizeIframe = "375"
+  if (screen.width <= 428) {
+    sizeIframe = `${screen.width - 40}`
+  } else if (screen.width >= 768 && screen.width < 976) {
+    sizeIframe = `600`
+  } else if (screen.width >= 976) {
+    sizeIframe = `900`
+  }
+  return sizeIframe;
+}
+//Crea la vista del evento clickeado
+function createViewEvent(eventSelect, days, date, price) {
+  const content = document.createElement("div");
+  const main = document.querySelector("main");
+
+  content.className = "container container-info-page";
+  main.appendChild(content);
+
+  const infoContainer = document.createElement("div");
+  infoContainer.className = "info-container";
+  content.appendChild(infoContainer);
+
+  const topInfo = document.createElement("div");
+  topInfo.className = "top-info";
+  infoContainer.appendChild(topInfo);
+
+  const imgContainer = document.createElement("div");
+  imgContainer.className = "img-container";
+  topInfo.appendChild(imgContainer);
+
+  const tagImg = document.createElement("img");
+  tagImg.src = eventSelect.photoEvent
+  imgContainer.appendChild(tagImg);
+
+  //BOTON FAVORITOS
+  let bookmarkContainer = document.createElement("div");
+  bookmarkContainer.className = "bookmarkEvent"
+  let bookmark = document.createElement("img");
+  bookmark.src = eventSelect.bookmark ? "./img/icons/bookmark-selected.svg" : "./img/icons/bookmark.svg";
+  bookmark.dataset.name = eventSelect.id
+  imgContainer.appendChild(bookmarkContainer);
+  bookmarkContainer.appendChild(bookmark);
+  bookmark.addEventListener("click", selectedBookmark)
+
+  const infoEventPage = document.createElement("div");
+  infoEventPage.className = "info-event";
+  topInfo.appendChild(infoEventPage);
+
+  const titleEv = document.createElement("h2");
+  titleEv.className = "title-ev";
+  titleEv.textContent = eventSelect.nameEvent;
+  infoEventPage.appendChild(titleEv);
+
+  //Categoría - Tipo de evento
+  const categoryContainer = document.createElement("div");
+  categoryContainer.className = "category";
+  infoEventPage.appendChild(categoryContainer);
+
+  for (let category of eventSelect.category) {
+    const categorySvg = document.createElement("img");
+    categorySvg.src = listSrcCategories[category].iconEventDark;
+    categorySvg.className = "labelsSvg";
+    categoryContainer.appendChild(categorySvg);   //labelsSvg
+    const categoryP = document.createElement("p");
+    categoryP.textContent = listSrcCategories[category].nameIconEvent;
+    categoryContainer.appendChild(categoryP);
+  }
+
+  //Localizacion
+  const cityLocationContainer = document.createElement("div");
+  cityLocationContainer.className = "city-location";
+  infoEventPage.appendChild(cityLocationContainer);
+
+  const locationSvg = document.createElement("img");
+  locationSvg.src = "./img/icons/location.svg";
+  locationSvg.className = "labelsSvg";
+  cityLocationContainer.appendChild(locationSvg);
+
+  const locationP = document.createElement("p");
+  locationP.textContent = eventSelect.site
+  cityLocationContainer.appendChild(locationP);
+
+
+  //Fechas
+  const dateContainer = document.createElement("div");
+  dateContainer.className = "date";
+  infoEventPage.appendChild(dateContainer);
+
+  const dateSvg = document.createElement("img");
+  dateSvg.src = "./img/icons/date.svg";
+  dateSvg.className = "labelsSvg";
+  dateContainer.appendChild(dateSvg);
+
+  const dateP = document.createElement("p");
+  dateP.textContent = days;
+  dateContainer.appendChild(dateP);
+
+
+  //Horas
+  const hoursContainer = document.createElement("div");
+  hoursContainer.className = "hours";
+  infoEventPage.appendChild(hoursContainer);
+
+  const hoursSvg = document.createElement("img");
+  hoursSvg.src = "./img/icons/Schedule.svg";
+  hoursSvg.className = "labelsSvg";
+  hoursContainer.appendChild(hoursSvg);
+
+  const hoursP = document.createElement("p");
+  hoursP.textContent = date;
+  hoursContainer.appendChild(hoursP);
+
+  //Botón calendar + Precio evento
+  buttonCalendar = document.createElement("button");
+  buttonCalendar.className = "btn-calendar";
+  buttonCalendar.textContent = "Añadir al calendario";
+  infoEventPage.appendChild(buttonCalendar);
+  buttonCalendar.addEventListener("click", () => requestCalendar(eventSelect));
+
+
+  const priceContainer = document.createElement("div");
+  priceContainer.className = "price";
+  infoEventPage.appendChild(priceContainer);
+
+  const priceSvg = document.createElement("img");
+  priceSvg.src = "./img/icons/euro.svg";
+  priceSvg.className = "priceSvg";
+  priceContainer.appendChild(priceSvg);
+
+  const priceP = document.createElement("p");
+  priceP.textContent = price
+  priceContainer.appendChild(priceP);
+
+
+  //Barra de compartir y más información
+  const shareBar = document.createElement("div");
+  shareBar.className = "share-bar";
+  infoContainer.appendChild(shareBar);
+
+  const btnMoreInfo = document.createElement("button");
+  btnMoreInfo.className = "btn-more-info";
+  btnMoreInfo.innerHTML = "Más información";
+  shareBar.appendChild(btnMoreInfo);
+  hasLinkTickets(eventSelect, btnMoreInfo);
+
+
+  const shareIcon = document.createElement("div");
+  shareIcon.className = "share-icon";
+  shareBar.appendChild(shareIcon);
+
+  const shareSvg = document.createElement("img");
+  shareSvg.src = "./img/icons/Share.svg";
+  shareIcon.appendChild(shareSvg);
+
+  const shareP = document.createElement("p");
+  shareP.className = "share-text";
+  shareP.innerHTML = "Comparte con tus amigos";
+  shareIcon.appendChild(shareP);
+
+  const containerSocial = document.createElement("div");
+  containerSocial.className = "container-social";
+  shareBar.appendChild(containerSocial);
+
+  const iconTwitterSvg = document.createElement("img");
+  iconTwitterSvg.src = "./img/icons/twitterBlack.svg";
+  iconTwitterSvg.className = "icon-social";
+  iconTwitterSvg.dataset.name = "Twitter";
+  containerSocial.appendChild(iconTwitterSvg);
+
+  const iconFacebooklSvg = document.createElement("img");
+  iconFacebooklSvg.src = "./img/icons/fb-icon.svg";
+  iconFacebooklSvg.className = "icon-social";
+  iconFacebooklSvg.dataset.name = "Facebook"
+  containerSocial.appendChild(iconFacebooklSvg);
+
+
+  const iconCorreoSvg = document.createElement("img");
+  iconCorreoSvg.src = "./img/icons/Email-icon.svg";
+  iconCorreoSvg.className = "icon-social";
+  iconCorreoSvg.dataset.name = "Email";
+  containerSocial.appendChild(iconCorreoSvg);
+
+  //Parte baja de info
+  const bottomInfo = document.createElement("div");
+  bottomInfo.className = "bottom-info";
+  infoContainer.appendChild(bottomInfo);
+
+  const bottomInfoP = document.createElement("p");
+  bottomInfoP.className = "contText";
+  bottomInfoP.textContent = eventSelect.comments;
+  bottomInfo.appendChild(bottomInfoP);
+
+  const map = document.createElement("div");
+  map.className = "map"
+  bottomInfo.appendChild(map);
+
+  const iframeMap = document.createElement("iframe");
+  iframeMap.className = "iframe-map";
+  iframeMap.src = `https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&q=${eventSelect.site}`;
+
+  iframeMap.width = sizeOfIframe();
+  iframeMap.height = (screen.width >= 968) ? "400" : "300";
+  iframeMap.style = "border:0";
+  iframeMap.loading = "lazy";
+  iframeMap.allowfullscreen = "";
+  map.appendChild(iframeMap);
+
+  // Otros eventos
+
+  // Flechas
+  const moreEventsContainer = document.createElement("div");
+  moreEventsContainer.className = "more-events-container hidden";   // hidden!!
+  content.appendChild(moreEventsContainer);
+
+  const arrowsContainer = document.createElement("div");
+  arrowsContainer.className = "arrows-container";
+  moreEventsContainer.appendChild(arrowsContainer);
+
+  const titleOtherEv = document.createElement("h3");
+  titleOtherEv.className = "titleOtherEv";
+  titleOtherEv.textContent = "Otros eventos:";
+  arrowsContainer.appendChild(titleOtherEv);
+
+  const arrows = document.createElement("div");
+  arrows.className = "arrows";
+  arrowsContainer.appendChild(arrows);
+
+  const arrowLeftSvg = document.createElement("img");
+  arrowLeftSvg.src = "./img/icons/arrow-left.svg";
+  arrows.appendChild(arrowLeftSvg);
+
+  const arrowRightSvg = document.createElement("img");
+  arrowRightSvg.src = "./img/icons/right-arrow.svg";
+  arrows.appendChild(arrowRightSvg);
+
+  // Tarjetas otros eventos
+
+  const moreEvents = document.createElement("div");
+  moreEvents.className = "more-events";
+  moreEventsContainer.appendChild(moreEvents);
+
+
+}
+
+//Recibe el id del evento que hace click y lo filtra para mandarlo a crear
+function checkEvent(e) {
+  let eventSelect = e;
+
+  const findEvent = currentListEvents.find(e => e.id === eventSelect);
+  const days = checkDate(findEvent)
+
+  const date = checkHours(findEvent);
+  const price = checkPrice(findEvent)
+  history.pushState("", "", `?event=${eventSelect}`)
+  createViewEvent(findEvent, days, date, price);
+  scrollUp() //Para que suba y no aparezca abajo
+
+  const iconSocial = document.querySelectorAll(".icon-social")
+  iconSocial.forEach((button) => button.addEventListener("click", () => socialRed(button, findEvent)))
+
+}
+
+function checkDate(event) {
+  let dateIni = dateFormat(event.dateStart);
+  if (event.hasOwnProperty("dateFinal")) {
+    let dateF = dateFormat(event.dateFinal);
+    let resultado = allYear(dateIni, dateF)
+    if (!resultado) {
+      return `Del ${dateIni}  al ${dateF}`;
+    } else {
+      return `Todo el año`;
+    }
+  } else {
+    return dateIni
+  }
+}
+
+function checkHours(event) {
+  if (event.hasOwnProperty("hoursClose")) {
+    if (event.hoursOpen === event.hoursClose) {
+      return event.hoursOpen
+
+    } else {
+      return `De ${event.hoursOpen} a ${event.hoursClose}`
+    }
+  } else {
+    if (event.hasOwnProperty("hoursOpen")) {
+      return event.hoursOpen
+    } else {
+
+      return `Todo el día`
+    }
+  }
+}
+
+function checkPrice(event) {
+  if (!event.free) {
+    if (event.hasOwnProperty("price")) {
+      return `Desde ${event.price} €`
+    } else {
+      return `No disponible`
+    }
+  } else {
+    return "Gratuito"
+  }
+}
+
+const faceDuck = document.querySelector("header div")
+faceDuck.addEventListener("click", refreshPage)
+function refreshPage() {
+  window.location = `${window.location.origin}`
+}
+
+//Funcion compartir en redes sociales
+function socialRed(e, event) {
+  const urlDinamic = window.location.href
+  const ShareURL = {
+    Twitter: `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic}&hashtags=${event.category[0]},${event.cityLocation}`,
+    Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`,
+    Email: `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic}`
+  }
+  const social = ShareURL[e.dataset.name]
+  window.open(social, "_blank");
+
+};
+
+// tiene link a tickets
+function hasLinkTickets(event, btnMoreInfo) {
+  if (!event.hasOwnProperty("linkTickets")) {
+    btnMoreInfo.classList.add("invisible");
+  } else {
+    //añadido porque si no se ejecuta al momento
+    btnMoreInfo.addEventListener("click", () => {
+      let UrlInfo = event.linkTickets;
+      window.open(UrlInfo, "_blank");
+    })
+  }
+};
 
 // función de filtrar por fecha
 const btnEvent = document.querySelector("#submit");
@@ -391,9 +609,13 @@ btnEvent.addEventListener("click", (e) => {
   let start = document.querySelector("#start").value;
   let final = document.querySelector("#final").value;
   if (start && final) {
-    const dateFrom = new Date(start);
+    const today = new Date(start);
+    const yesterday = new Date(today.getTime() - 86400000);
+    // esto soluciona el bug del día inicial
+    const dateFrom = yesterday;
     const dateTo = new Date(final);
-    const listFilteredDate = currentListEvents.filter(event => {
+    // * He cambiado la variable por una global para que funcione con la paginación
+    listFilterDates = currentListEvents.filter(event => {
       if (event.dateFinal) {
         return (event.dateStart.getTime() >= dateFrom.getTime() && event.dateStart.getTime() <= dateTo.getTime()) ||
           (event.dateFinal.getTime() >= dateFrom.getTime() && event.dateFinal.getTime() <= dateTo.getTime()) ||
@@ -408,57 +630,163 @@ btnEvent.addEventListener("click", (e) => {
     * - Termina en el rango
     * - Dura más que el rango
     */
-    resetAndCreateEventsFiltered(listFilteredDate);
+    // activeCategory = "date";
+    clearPagination();
+    resetAndCreateEventsFiltered(listFilterDates);
   }
 });
 
-// Cambio de color al seleccionar en NavBar
-const divList = document.querySelectorAll(".navegation > div");
-const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
-const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded";
-divList.forEach(div => {
-  div.addEventListener("click", () => {
-    divList.forEach(div => div.className = navUnselected);
+// Funciones de cambio de estilo y filtrado por categoria
+const DivFilterCategory = document.querySelectorAll(".navegation > div");
+
+const ChangeStyleAndFilter = (div) => {
+  div.addEventListener("click", (e) => {
+    const navSelected = "flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded";
+    const navUnselected = "flex justify-center items-center py-1 px-2 cursor-pointer font-bold bg-dark rounded";
+    DivFilterCategory.forEach(div => div.className = navUnselected);
+
     div.className = navSelected;
+    const idCategory = e.currentTarget.id;
+    //Cambio Color SVG
+    document.querySelectorAll(`svg >path`).forEach(path => path.classList.remove("fill-dark")); // Pasan todos a Blanco
+    document.querySelectorAll(`#icon-${idCategory} >path`).forEach(path => path.classList.add("fill-dark")) //El seleccionado pasa Azul
+    activeCategory = idCategory;
+    filterByCategory(idCategory)
   })
-})
-// reset de eventos al usar NavBar
-divList.forEach(category => category.addEventListener("click", (e) => {
-  const idCategory = e.currentTarget.id;
-  switch (idCategory) {
+}
+const filterByCategory = (category) => {
+  switch (category) {
     case "all":
-      resetAndCreateEventsFiltered(allEvents);
+      let list = [...allEvents];
+      pagination(list);
+      list = divideListEventForPagination(1, list);
+      resetAndCreateEventsFiltered(list);
       break;
     case "bookmark":
-      filterBookmarks();
+      let listBookmark = allEvents.filter(events => events.bookmark);
+      pagination(listBookmark);
+      listBookmark = divideListEventForPagination(1, listBookmark);
+      resetAndCreateEventsFiltered(listBookmark);
       break;
     default:
-      resetAndCreateEventsFiltered(allEvents.filter(events => events.category.includes(idCategory)));
+      let listCategoryEvent = allEvents.filter(events => events.category.includes(category));
+      pagination(listCategoryEvent);
+      listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
+      resetAndCreateEventsFiltered(listCategoryEvent);
       break;
   }
-}));
+}
+DivFilterCategory.forEach(ChangeStyleAndFilter);
+const pageSelected = "px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded ";
+const pageUnSelected = "px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light ";
+function clearPagination() {
+  const containerNavPages = document.querySelector(".pagination");
+  while (containerNavPages.hasChildNodes()) {
+    containerNavPages.firstChild.remove();
+  }
+}
+function pagination(listEvents) {
+  const containerNavPages = document.querySelector(".pagination");
+  clearPagination();
+  const result = listEvents.length / 12;
+  let numberPages;
+  if (result === Math.trunc(result)) {
+    // para listas que sean múltiplos de 12 (12, 24, 36...)
+    numberPages = Math.trunc(result) - 1;
+  } else {
+    numberPages = Math.trunc(result);
+  }
+  for (let page = 0; page <= numberPages; page++) {
+    const anchor = document.createElement("a");
+    anchor.textContent = page + 1;
+    anchor.className = page === 0 ? pageSelected : pageUnSelected;
+    anchor.addEventListener("click", changePagination);
+    containerNavPages.appendChild(anchor);
+  }
+}
+function divideListEventForPagination(numberPage) {
+  let list = [];
+  switch (activeCategory) {
+    case "all":
+      list = [...allEvents];
+      break;
+    case "bookmark":
+      list = allEvents.filter(event => event.bookmark)
+      break;
+    default:
+      list = allEvents.filter(event => event.category.includes(activeCategory));
+  }
+  let min = 12 * (numberPage - 1);
+  let max = (min + 11) > list.length ? list.length : min + 11;
+  return list = list.slice(min, max + 1);
+}
+function changePagination(e) {
+  document.querySelectorAll(".pagination a").forEach(a => a.className = pageUnSelected);
+  e.currentTarget.className = e.currentTarget.className === pageSelected ? pageUnSelected : pageSelected;
+  const listPagination = divideListEventForPagination(Number(e.currentTarget.textContent));
+  scrollUp();
+  resetAndCreateEventsFiltered(listPagination);
+}
 
+
+function goToParams(route) {
+  const findEvent = currentListEvents.find(e => e.id === route);
+  if (findEvent) {
+    const days = checkDate(findEvent)
+
+    const date = checkHours(findEvent);
+    const price = checkPrice(findEvent)
+    createViewEvent(findEvent, days, date, price);
+    scrollUp() //Para que suba y no aparezca abajo
+
+    const iconSocial = document.querySelectorAll(".icon-social")
+    iconSocial.forEach((button) => button.addEventListener("click", () => socialRed(button, findEvent)))
+  } else {
+    // IMPROVE Pagina de no encontrar eventos
+    notFound();
+  }
+
+
+}
+
+const requestCalendar = (e) => {
+  e.preventDefault;
+  e.stopPropagation;
+  let start = moment(e.dateStart).format('YYYYMMDD');
+  let end = moment(e.dateStart).add(1, "days").format('YYYYMMDD');
+  if (e.hasOwnProperty('dateFinal')) {
+    end = moment(e.dateFinal).add(1, "days").format('YYYYMMDD');
+  }
+  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${e.nameEvent}&location=${e.site}&dates=${start}/${end}`;
+  window.open(URL, "_blank")
+}
+
+// desplegar menú de la hamburguesa
+const hamburguer = document.querySelector(".hamburguer");
+hamburguer.addEventListener("click", () => {
+  // animación de la hamburguesa
+  const bar1 = document.querySelector(".bar-1");
+  const bar2 = document.querySelector(".bar-2");
+  const bar3 = document.querySelector(".bar-3");
+  bar1.classList.toggle("rotate-45");
+  bar1.classList.toggle("-translate-y-1.5");
+  bar2.classList.toggle("opacity-0");
+  bar3.classList.toggle("-rotate-45");
+  bar3.classList.toggle("translate-y-1.5");
+  // quitar scroll del body
+  const body = document.querySelector("body");
+  body.classList.toggle("overflow-hidden");
+  // mostrar botones
+  const login = document.querySelector(".log-in");
+  login.classList.toggle("hidden");
+  const signin = document.querySelector(".sign-in");
+  signin.classList.toggle("hidden");
+});
 
 window.addEventListener("DOMContentLoaded", () => {
   if (localStorage.getItem("bookmark") != null) {
     let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
     arrayBookMark = uploadEvents;
   }
-  createAll();
-  currentListEvents = allEvents;
-  responsiveFooter();
+  fetchJSON();
 });
-
-const requestCalendar = (e) => {
-  e.preventDefault;
-  e.stopPropagation;
-  const BtnId = e.currentTarget.dataset.name;
-  let dataEvent = currentListEvents.find((el) => el.id === BtnId);
-  let start = moment(dataEvent.dateStart).format('YYYYMMDD');
-  let end = moment(dataEvent.dateStart).add(1, "days").format('YYYYMMDD');
-  if (dataEvent.hasOwnProperty('dateFinal')) {
-    end = moment(dataEvent.dateFinal).add(1, "days").format('YYYYMMDD');
-  }
-  const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${dataEvent.nameEvent}&location=${dataEvent.site}&dates=${start}/${end}`;
-  window.open(URL, "_blank")
-}
