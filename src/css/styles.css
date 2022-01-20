@@ -110,7 +110,7 @@
     @apply flex flex-col  justify-around items-center md:flex-row;
   }
   .img-container {
-    @apply p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:min-w-screen-sm xl:max-w-screen-sm relative;
+    @apply p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-screen-sm relative;
   }
   .img-container img {
     @apply w-full rounded-2xl;

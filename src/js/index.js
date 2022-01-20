@@ -1,7 +1,7 @@
 import moment from "moment";
 import { listSrcCategories } from "./listSrcTitlesCategories.js"
 import { createPopUpModal, createRegister, createLogin } from "./createModal.js"
-import { notFound } from "./404NotFound.js"
+import { notFound, clearMain } from "./404NotFound.js"
 let allEvents = [];
 let currentListEvents = [];
 let activeCategory = "all";
@@ -242,9 +242,10 @@ window.onscroll = () => {
 function resetAndCreateEventsFiltered(listFiltered) {
   const resetContent = document.querySelector(".container");
   resetContent.innerHTML = "";
+  clearMain()
   if (listFiltered.length === [].length) {
     // IMPROVE Pagina de no encontrar eventos
-    console.error("No hay eventos ni página de 404");
+    notFound(false);
   } else {
     createEvent(resetContent, listFiltered);
   }
