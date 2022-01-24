@@ -57,28 +57,20 @@ export default {
         this.arrayBookMark = uploadEvents;
       }
     },
+    saveLocalStorage() {
+      localStorage.setItem("bookmark", JSON.stringify(this.arrayBookMark))
+    },
     selectedBookmark(event) {
-      console.log(event, 'el event')
-      const bookmarkSelected = "/img/icons/bookmark-selected.svg";
-      const bookmarkNormal = "/img/icons/bookmark.svg";
-      const idBookmark = event.path[1].currentTarget.dataset.name;
-      console.log(idBookmark, 'idbookmark')
-      let index = this.allEvents.findIndex((el) => el.id === idBookmark);
+      let index = this.allEvents.findIndex((el) => el.id === event);
       this.allEvents[index].bookmark = !this.allEvents[index].bookmark;
       if (this.allEvents[index].bookmark === true) {
-        e.currentTarget.src = bookmarkSelected;
-        this.arrayBookMark.push(idBookmark)
-      } else if (allEvents[index].bookmark === false) {
-        e.currentTarget.src = bookmarkNormal;
-        let indexB = this.arrayBookMark.findIndex((el) => el === idBookmark);
+        this.arrayBookMark.push(event)
+      } else if (this.allEvents[index].bookmark === false) {
+        let indexB = this.arrayBookMark.findIndex((el) => el === event);
         this.arrayBookMark.splice(indexB, 1);
       }
-      saveLocalStorage();
+      this.saveLocalStorage();
     },
-    saveLocalStorage() {
-      localStorage.setItem("bookmark", JSON.stringify(arrayBookMark))
-    },
-
     changeformatDateJSON() {
       for (let event of this.allEvents) {
         event.dateStart = new Date(event.dateStart);

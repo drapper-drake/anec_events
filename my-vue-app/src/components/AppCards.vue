@@ -58,7 +58,7 @@ export default {
       <div
         class="bookmark"
         :data-name="event.id"
-        @click.stop="this.$emit('selectedBookmark', $event)"
+        @click.stop="this.$emit('selectedBookmark', event.id)"
       >
         <img v-if="event.bookmark" src="/../img/icons/bookmark-selected.svg" />
         <img v-else src="/../img/icons/bookmark.svg" />
