@@ -195,6 +195,7 @@ let arrayBookMark = [];
 //Functions for LocalStorage
 const saveLocalStorage = () => localStorage.setItem("bookmark", JSON.stringify(arrayBookMark));
 
+
 function selectedBookmark(e) {
   e.stopPropagation();
   const bookmarkSelected = "/img/icons/bookmark-selected.svg";

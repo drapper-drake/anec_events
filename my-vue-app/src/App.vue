@@ -1,0 +1,122 @@
+<script>
+import AppHeader from './components/AppHeader.vue'
+import AppFooter from './components/AppFooter.vue'
+import AppCards from './components/AppCards.vue'
+import { listSrcCategories } from "./listSrcTitlesCategories";
+export default {
+  data() {
+    return {
+      allEvents: [],
+      currentListEvents: [],
+      arrayBookMark: [],
+      listSrcCategories,
+    }
+  },
+  components: {
+    AppHeader,
+    AppCards,
+    AppFooter,
+  },
+
+  methods: {
+    fetchJSON() {
+      // se importa el json, se parsea y almacena en data
+      fetch('/data/eventosAlicante.json')
+        .then((response) => response.json())
+        .then((data) => {
+          // data es un array de eventos
+          for (let event of data) {
+            //Es un generador de Id basados en el nombre del evento
+            let idEvent = event.nameEvent;
+            idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
+            event.bookmark = this.arrayBookMark.includes(idEvent);
+            event.id = idEvent;
+            this.allEvents.push(event);
+          }
+          this.currentListEvents = [...this.allEvents];
+
+          this.changeformatDateJSON();
+          this.allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
+          this.currentListEvents = [...this.allEvents];
+          /*
+          const urlParams = new URLSearchParams(window.location.search);
+          const ruta = urlParams.get('event');
+          if (ruta != null) {
+            deleteContent();
+            return goToParams(ruta);
+          }
+          createFirstPage()
+          */
+          //console.log(data);
+        })
+    },
+
+    checkLocalStorage() {
+      if (localStorage.getItem("bookmark") != null) {
+        let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
+        this.arrayBookMark = uploadEvents;
+      }
+    },
+    selectedBookmark(event) {
+      console.log(event, 'el event')
+      const bookmarkSelected = "/img/icons/bookmark-selected.svg";
+      const bookmarkNormal = "/img/icons/bookmark.svg";
+      const idBookmark = event.path[1].currentTarget.dataset.name;
+      console.log(idBookmark, 'idbookmark')
+      let index = this.allEvents.findIndex((el) => el.id === idBookmark);
+      this.allEvents[index].bookmark = !this.allEvents[index].bookmark;
+      if (this.allEvents[index].bookmark === true) {
+        e.currentTarget.src = bookmarkSelected;
+        this.arrayBookMark.push(idBookmark)
+      } else if (allEvents[index].bookmark === false) {
+        e.currentTarget.src = bookmarkNormal;
+        let indexB = this.arrayBookMark.findIndex((el) => el === idBookmark);
+        this.arrayBookMark.splice(indexB, 1);
+      }
+      saveLocalStorage();
+    },
+    saveLocalStorage() {
+      localStorage.setItem("bookmark", JSON.stringify(arrayBookMark))
+    },
+
+    changeformatDateJSON() {
+      for (let event of this.allEvents) {
+        event.dateStart = new Date(event.dateStart);
+        if (event.hasOwnProperty("dateFinal")) {
+          event.dateFinal = new Date(event.dateFinal);
+        }
+      }
+    },
+
+
+  },
+
+  mounted() {
+    this.checkLocalStorage();
+    this.fetchJSON();
+
+  }
+}
+
+</script>
+
+<template>
+  <AppHeader />
+  <main class="mb-5 flex flex-col items-center md:mb-0">
+    <div
+      class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-lg p-10 gap-10 lg:gap-x-8"
+    >
+      <AppCards
+        :allEvents="allEvents"
+        :currentListEvents="currentListEvents"
+        :arrayBookMark="arrayBookMark"
+        :listSrcCategories="listSrcCategories"
+        @selectedBookmark="selectedBookmark"
+      />
+    </div>
+  </main>
+  <AppFooter />
+</template>
+
+<style>
+</style>
