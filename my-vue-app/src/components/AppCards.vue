@@ -54,12 +54,7 @@ export default {
 <template>
   <div v-for=" event in allEvents" :key="event" class="container-card">
     <div class="photoEvent">
-      <!-- ! No funciona el e.currentTarget -->
-      <div
-        class="bookmark"
-        :data-name="event.id"
-        @click.stop="this.$emit('selectedBookmark', event.id)"
-      >
+      <div class="bookmark" @click.stop="this.$emit('selectedBookmark', event.id)">
         <img v-if="event.bookmark" src="/../img/icons/bookmark-selected.svg" />
         <img v-else src="/../img/icons/bookmark.svg" />
       </div>

@@ -14,8 +14,20 @@
 }
 
 @layer components {
+  .filter-selected{
+    @apply flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded;
+  }
+  .filter-unselected{
+    @apply flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold;
+  }
+  .page-selected{
+    @apply px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded;
+  }
+  .page-unselected{
+    @apply px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light;
+  }
   .info-notFound{
-    @apply text-2xl font-bold text-dark mb-3
+    @apply text-2xl font-bold text-dark mb-3;
   }
   input {
     @apply m-1 w-40 cursor-pointer text-neutral-600 text-sm rounded border-2 border-solid border-dark;
