@@ -45,6 +45,13 @@ export default {
       return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
     },
   },
+
+  computed: {
+    arrayEvents() {
+      return this.allEvents;
+    }
+  }
+
 }
 /*this.$emit("hover");   */
 /*@click="$emit('click')   */
@@ -52,16 +59,21 @@ export default {
 /*v-on:change="$emit('change', $event.target.checked)" */
 </script>
 <template>
-  <div v-for=" event in allEvents" :key="event" class="container-card">
+  <div
+    @click="this.$router.push({ name: 'event', params: { id: event.id } })"
+    v-for=" event in arrayEvents"
+    :key="event"
+    class="container-card"
+  >
     <div class="photoEvent">
       <div class="bookmark" @click.stop="this.$emit('selectedBookmark', event.id)">
-        <img v-if="event.bookmark" src="/../img/icons/bookmark-selected.svg" />
-        <img v-else src="/../img/icons/bookmark.svg" />
+        <img v-if="event.bookmark" src="/img/icons/bookmark-selected.svg" />
+        <img v-else src="/img/icons/bookmark.svg" />
       </div>
       <img :src="event.photoEvent" />
       <div class="tooltip">
-        <img v-if="event.free" src="/../img/icons/gratis.svg" alt="Evento GRATUITO" />
-        <img v-else src="/../img/icons/Pago-euro.svg" alt="Evento de PAGO" />
+        <img v-if="event.free" src="/img/icons/gratis.svg" alt="Evento GRATUITO" />
+        <img v-else src="/img/icons/Pago-euro.svg" alt="Evento de PAGO" />
         <span v-if="event.free" class="tooltip-text">Evento GRATUITO</span>
         <span v-else class="tooltip-text">Evento de PAGO</span>
       </div>
@@ -74,7 +86,7 @@ export default {
       <!--  //! P -->
       <div class="icons-bar">
         <div v-if="event.charity">
-          <img src="/../img/icons/Charity.svg" />
+          <img src="/img/icons/Charity.svg" />
           <p>Benéfico</p>
         </div>
         <div v-for="category in event.category">

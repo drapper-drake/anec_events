@@ -1,7 +1,7 @@
 <script></script>
 
 <template>
-  <main class="flex justify-center items-center py-6">
+  <main class="flex justify-center items-center pb-6">
     <div class="w-11/12 md:w-4/6 justify-center items-center">
       <h1 class="my-4 text-3xl font-bold">Política de cookies</h1>
 

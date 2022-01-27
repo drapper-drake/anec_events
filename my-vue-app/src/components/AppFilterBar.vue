@@ -84,7 +84,10 @@ export default {
     >
       <div
         @click="ChangeStyleAndFilter('all')"
-        :class="{ 'filter-selected': filterCategory.all, 'filter-unselected': !filterCategory.all }"
+        :class="[
+          filterCategory.all ? 'filter-selected' : ' ',
+          'clase-fija'
+        ]"
       >
         <p>Todos</p>
       </div>
