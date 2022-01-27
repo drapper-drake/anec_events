@@ -108,7 +108,11 @@ export default {
           @selectedBookmark="selectedBookmark"
         />
       </div>
-      <AppPagination :activeCategory="activeCategory" :allEvents="allEvents" />
+      <AppPagination
+        v-if="allEvents.length > 0"
+        :activeCategory="activeCategory"
+        :allEvents="allEvents"
+      />
     </main>
   </div>
 </template>

@@ -18,7 +18,6 @@ export default {
         return {
             numberPages: 0,
             showPagination: false,
-            allEventsProps: this.allEvents, //De esta manera llega el dato antes)
         }
     },
     // page-selected y page-unselected ya estan en .css
@@ -34,8 +33,6 @@ export default {
             const containerNavPages = document.querySelector(".pagination");
             while (containerNavPages.hasChildNodes()) {
                 containerNavPages.firstChild.remove();
-
-
             }
 
             // Código paginación index.js
@@ -46,17 +43,15 @@ export default {
             // const containerNavPages = document.querySelector(".pagination");
             // clearPagination();
             // const result = 96 / 12; // ? Aqui divides todo el array de eventos en elementos de 12
-            const listAllEvents = this.allEvents.length // ? Aqui divides todo el array de eventos en elementos de 12
+            const listAllEvents = this.allEvents.length; // ? Aqui divides todo el array de eventos en elementos de 12
             const result = listAllEvents / 12;
             //let numberPages;//? El numero de las págins depende de si coincide con multiplo de 12
             if (result === Math.trunc(result)) {
                 // para listas que sean múltiplos de 12 (12, 24, 36...)
                 this.numberPages = Math.trunc(result) - 1; //? Si es multiplo se resta 1
                 this.showPagination = true;
-                console.log(this.numberPages);
             } else {
                 this.numberPages = Math.trunc(result);
-                console.log(this.numberPages);
                 this.showPagination = true;
             }// ? El bucle For de acontinuacion lo podriais hacer con vue que generase tantos elementos como numero de paginas
             // ? y que esta función solo devuelva el número de páginas que puede tener la página.
@@ -68,6 +63,7 @@ export default {
             //     containerNavPages.appendChild(anchor);
             // }
             // this.numberPages=
+            return this.numberPages;
         },
         divideListEventForPagination(numberPage) {
             let list = [];
@@ -91,12 +87,11 @@ export default {
             const listPagination = divideListEventForPagination(Number(e.currentTarget.textContent));
             scrollUp();
             resetAndCreateEventsFiltered(listPagination);
-        }
+        },
     },
 
-    mounted() {
+    created() {
         this.pagination();
-
     },
 };
 
@@ -108,9 +103,8 @@ export default {
     <h1>La paginacion va aqui</h1>
     <!-- La clase de css pagination sobra en vue -->
     <div v-if="showPagination" class="pagination flex flex-row flex-wrap justify-center gap-2 p-6">
-        <div v-for=" pages of allEventsProps" :key="pages">
-            <button class="page-unselected">{{ pages }}</button>
+        <div v-for=" (n, index) in this.numberPages">
+            <button class="page-unselected">{{ n, index }}</button>
         </div>
     </div>
 </template>
-
