@@ -60,7 +60,7 @@ export default {
 </script>
 <template>
   <div
-    @click="this.$router.push({ name: 'event', params: { id: event.id } })"
+    @click="this.$router.push({ name: 'event', params: { id: event.id }, query: { eventCurrent: JSON.stringify(event) } })"
     v-for=" event in arrayEvents"
     :key="event"
     class="container-card"

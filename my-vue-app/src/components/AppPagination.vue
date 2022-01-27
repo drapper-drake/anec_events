@@ -18,6 +18,7 @@ export default {
         return {
             numberPages: 0,
             showPagination: false,
+            allEventsProps: this.allEvents, //De esta manera llega el dato antes)
         }
     },
     // page-selected y page-unselected ya estan en .css
@@ -93,7 +94,7 @@ export default {
         }
     },
 
-    created() {
+    mounted() {
         this.pagination();
 
     },
@@ -107,7 +108,7 @@ export default {
     <h1>La paginacion va aqui</h1>
     <!-- La clase de css pagination sobra en vue -->
     <div v-if="showPagination" class="pagination flex flex-row flex-wrap justify-center gap-2 p-6">
-        <div v-for=" pages of numberPages" :key="pages">
+        <div v-for=" pages of allEventsProps" :key="pages">
             <button class="page-unselected">{{ pages }}</button>
         </div>
     </div>

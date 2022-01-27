@@ -88,38 +88,14 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      eventID: JSON.parse(this.$route.query.eventCurrent),
       allEvents: [],
       arrayBookMark: [],
-      eventID: null,
       listSrcCategories,
     }
   },
 
   methods: {
-    fetchJSON() {
-      // se importa el json, se parsea y almacena en data
-      fetch('/data/eventosAlicante.json')
-        .then((response) => response.json())
-        .then((data) => {
-          // data es un array de eventos
-          for (let event of data) {
-            //Es un generador de Id basados en el nombre del evento
-            let idEvent = event.nameEvent;
-            idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-            event.bookmark = this.arrayBookMark.includes(idEvent);
-            event.id = idEvent;
-            this.allEvents.push(event);
-          }
-          this.currentListEvents = [...this.allEvents];
-
-          this.changeformatDateJSON();
-          this.allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
-          this.currentListEvents = [...this.allEvents];
-
-          this.filterEvent(this.id)
-
-        })
-    },
 
     saveLocalStorage() {
       localStorage.setItem("bookmark", JSON.stringify(this.arrayBookMark))
@@ -136,20 +112,12 @@ export default {
       this.saveLocalStorage();
     },
 
-    changeformatDateJSON() {
-      for (let event of this.allEvents) {
-        event.dateStart = new Date(event.dateStart);
-        if (event.hasOwnProperty("dateFinal")) {
-          event.dateFinal = new Date(event.dateFinal);
-        }
+    changeformatDateJSON(event) {
+      event.dateStart = new Date(event.dateStart);
+      if (event.hasOwnProperty("dateFinal")) {
+        event.dateFinal = new Date(event.dateFinal);
       }
     },
-
-    filterEvent(id) {
-      this.eventID = this.allEvents.find(e => e.id === id)
-      console.log(this.eventID)
-    },
-
 
     dateFormat(month, dateShort = false) {
       const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
@@ -210,10 +178,10 @@ export default {
 
   },
   created() {
-    this.fetchJSON();
+    this.changeformatDateJSON(this.eventID);
+    console.log(this.eventID, 'esta vacio');
 
   },
-
 
 }
 </script>
