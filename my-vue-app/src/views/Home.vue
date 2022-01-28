@@ -4,6 +4,7 @@ import AppCards from '@/components/AppCards.vue'
 import { listSrcCategories } from "@/listSrcTitlesCategories";
 import AppFilterBar from "@/components/AppFilterBar.vue";
 import AppPagination from "@/components/AppPagination.vue";
+import LoadingSpinner from "@/components/LoadingSpinner.vue";
 
 export default {
   data() {
@@ -18,7 +19,8 @@ export default {
   components: {
     AppCards,
     AppFilterBar,
-    AppPagination
+    AppPagination,
+    LoadingSpinner
   },
 
   methods: {
@@ -113,6 +115,7 @@ export default {
         :activeCategory="activeCategory"
         :allEvents="allEvents"
       />
+      <LoadingSpinner v-else />
     </main>
   </div>
 </template>

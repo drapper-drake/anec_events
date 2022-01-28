@@ -11,8 +11,9 @@ module.exports = {
       xl: "1440px",
     },
     colors: {
+      "transparent": 'transparent',
       "purple": "#3f3cbb",
-      "light":" #f2f2f2",
+      "light": " #f2f2f2",
       "dark": "#0b3762",
       "bg-light": "#342618",
       "bg-dark-80": "#0b3662e0",

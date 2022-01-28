@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="eventID != undefined">
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div class="container container-info-page">
         <div class="info-container">
@@ -16,7 +16,7 @@
             <div class="info-event">
               <h2 class="title-ev">{{ eventID.nameEvent }}</h2>
               <div v-for="category in eventID.category" class="category">
-                <img :src="listSrcCategories[category].iconEvent" class="labelsSvg" />
+                <img :src="listSrcCategories[category].iconEventDark" class="labelsSvg" />
                 <p>{{ category }}</p>
               </div>
               <div class="city-location">
@@ -35,20 +35,38 @@
               <button @click="requestCalendar(eventID)" class="btn-calendar">Añadir al calendario</button>
               <div class="price">
                 <img src="/img/icons/euro.svg" class="priceSvg" />
-                <p>Gratuito</p>
+                <p>{{ this.checkPrice(eventID) }}</p>
               </div>
             </div>
           </div>
           <div class="share-bar">
-            <button class="btn-more-info">Más información</button>
+            <a
+              v-if="eventID.hasOwnProperty('linkTickets')"
+              class="btn-more-info"
+              :href="eventID.linkTickets"
+              target="_blank"
+            >Más información</a>
+
             <div class="share-icon">
               <img src="/img/icons/Share.svg" />
               <p class="share-text">Comparte con tus amigos</p>
             </div>
             <div class="container-social">
-              <img src="/img/icons/twitterBlack.svg" class="icon-social" data-name="Twitter" />
-              <img src="/img/icons/fb-icon.svg" class="icon-social" data-name="Facebook" />
-              <img src="/img/icons/Email-icon.svg" class="icon-social" data-name="Email" />
+              <img
+                @click="socialRed(eventID, 'Twitter')"
+                src="/img/icons/twitterBlack.svg"
+                class="icon-social"
+              />
+              <img
+                @click="socialRed(eventID, 'Facebook')"
+                src="/img/icons/fb-icon.svg"
+                class="icon-social"
+              />
+              <img
+                @click="socialRed(eventID, 'Email')"
+                src="/img/icons/Email-icon.svg"
+                class="icon-social"
+              />
             </div>
           </div>
           <div class="bottom-info">
@@ -56,9 +74,9 @@
             <div class="map">
               <iframe
                 class="iframe-map"
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&amp;q=MUBAG. C/ Gravina 13-15, 03002 Alicante."
-                width="900"
-                height="400"
+                :src="`https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&q=${eventID.site}`"
+                :width="widthIframe"
+                :height="heighIframe"
                 loading="lazy"
                 style="border: 0px;"
               ></iframe>
@@ -78,13 +96,16 @@
       </div>
     </main>
   </div>
+  <LoadingSpinner v-else />
 </template>
 
 <script>
+import dayjs from 'dayjs';
 import { listSrcCategories } from "@/listSrcTitlesCategories";
+import LoadingSpinner from '@/components/LoadingSpinner.vue';
 
 export default {
-  name: 'event',
+  name: "event",
   data() {
     return {
       id: this.$route.params.id,
@@ -92,33 +113,34 @@ export default {
       allEvents: [],
       arrayBookMark: [],
       listSrcCategories,
+      priceEvent: "",
+      heighIframe: 300,
+      widthIframe: screen.width >= 976 ? 900 : (screen.width >= 768 && screen.width < 976) ? 600 : `${screen.width - 50}`
     }
   },
-
   methods: {
-
     saveLocalStorage() {
-      localStorage.setItem("bookmark", JSON.stringify(this.arrayBookMark))
+      localStorage.setItem("bookmark", JSON.stringify(this.arrayBookMark));
     },
     selectedBookmark(event) {
       let index = this.allEvents.findIndex((el) => el.id === event);
       this.allEvents[index].bookmark = !this.allEvents[index].bookmark;
       if (this.allEvents[index].bookmark === true) {
-        this.arrayBookMark.push(event)
-      } else if (this.allEvents[index].bookmark === false) {
+        this.arrayBookMark.push(event);
+      }
+      else if (this.allEvents[index].bookmark === false) {
         let indexB = this.arrayBookMark.findIndex((el) => el === event);
         this.arrayBookMark.splice(indexB, 1);
       }
       this.saveLocalStorage();
     },
-
     changeformatDateJSON(event) {
       event.dateStart = new Date(event.dateStart);
       if (event.hasOwnProperty("dateFinal")) {
         event.dateFinal = new Date(event.dateFinal);
       }
-    },
 
+    },
     dateFormat(month, dateShort = false) {
       const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
       let monthFormat = monthNames[month.getMonth()];
@@ -128,60 +150,80 @@ export default {
       }
       return `${month.getDate()} ${monthFormat} ${year} `;
     },
-
     dateText(event) {
       let dateStart = this.dateFormat(event.dateStart, true);
       let dateF = this.dateFormat(event.dateFinal, true);
       let resultado = this.allYear(dateStart, dateF);
       if (!resultado) {
         return `Del ${dateStart} al ${dateF}`;
-      } else {
-        return 'Todo el año';
+      }
+      else {
+        return "Todo el año";
       }
     },
     allYear(dateFrom, dateTo) {
-      let dateFromNoYear = dateFrom.substr(0, 5)
-      let dateToNoYear = dateTo.substr(0, 6)
+      let dateFromNoYear = dateFrom.substr(0, 5);
+      let dateToNoYear = dateTo.substr(0, 6);
       return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
     },
-
-
     checkHours(event) {
       if (event.hasOwnProperty("hoursClose")) {
         if (event.hoursOpen === event.hoursClose) {
-          return event.hoursOpen
-
-        } else {
-          return `De ${event.hoursOpen} a ${event.hoursClose}`
+          return event.hoursOpen;
         }
-      } else {
+        else {
+          return `De ${event.hoursOpen} a ${event.hoursClose}`;
+        }
+      }
+      else {
         if (event.hasOwnProperty("hoursOpen")) {
-          return event.hoursOpen
-        } else {
-
-          return `Todo el día`
+          return event.hoursOpen;
+        }
+        else {
+          return `Todo el día`;
         }
       }
     },
-
     requestCalendar(e) {
       e.preventDefault;
       e.stopPropagation;
-      let start = moment(e.dateStart).format('YYYYMMDD');
-      let end = moment(e.dateStart).add(1, "days").format('YYYYMMDD');
-      if (e.hasOwnProperty('dateFinal')) {
-        end = moment(e.dateFinal).add(1, "days").format('YYYYMMDD');
+      let start = dayjs(e.dateStart).format("YYYYMMDD");
+      let end = dayjs(e.dateStart).add(1, "days").format("YYYYMMDD");
+      if (e.hasOwnProperty("dateFinal")) {
+        end = dayjs(e.dateFinal).add(1, "days").format("YYYYMMDD");
       }
       const URL = `https://calendar.google.com/calendar/u/0/r/eventedit?text=${e.nameEvent}&location=${e.site}&dates=${start}/${end}`;
-      window.open(URL, "_blank")
+      window.open(URL, "_blank");
+    },
+    checkPrice(event) {
+      let price = "El supuesto precio";
+      if (!event.free) {
+        if (event.hasOwnProperty("price")) {
+          price = `Desde ${event.price} €`;
+        }
+        else {
+          price = `No disponible`;
+        }
+      }
+      else {
+        price = "Gratuito";
+      }
+      return price;
+    },
+    socialRed(event, social) {
+      const urlDinamic = window.location.href
+      const ShareURL = {
+        Twitter: `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic}&hashtags=${event.category[0]},${event.cityLocation}`,
+        Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`,
+        Email: `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic}`
+      }
+      window.open(ShareURL[social], "_blank");
     }
-
   },
   created() {
     this.changeformatDateJSON(this.eventID);
-    console.log(this.eventID, 'esta vacio');
-
   },
+  components: { LoadingSpinner },
 
 }
 </script>
