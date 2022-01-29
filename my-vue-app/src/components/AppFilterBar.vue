@@ -20,37 +20,31 @@ export default {
       }
     }
   },
-  props: {
-    allEvents: {
-      type: Array,
-      required: true,
-    },
-  },
 
   methods: {
     filterByCategory(category) {
       switch (category) {
         case "all":
-          let list = [...this.allEvents];
+          let list = [...this.$store.state.allEvents];
+          this.$store.dispatch('showAll', list);
           // pagination(list);
           // list = divideListEventForPagination(1, list);
-          resetAndCreateEventsFiltered(list);
           break;
         case "bookmark":
-          let listBookmark = this.allEvents.filter(events => events.bookmark);
+          let listBookmark = this.$store.state.allEvents.filter(events => events.bookmark);
           // pagination(listBookmark);
           // listBookmark = divideListEventForPagination(1, listBookmark);
-          resetAndCreateEventsFiltered(listBookmark);
+          this.$store.dispatch('showFilteredEvents', listBookmark);
           break;
         default:
-          let listCategoryEvent = this.allEvents.filter(events => events.category.includes(category));
+          let listCategoryEvent = this.$store.state.allEvents.filter(events => events.category.includes(category));
           // pagination(listCategoryEvent);
           // listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
-          resetAndCreateEventsFiltered(listCategoryEvent);
+          this.$store.dispatch('showFilteredEvents', listCategoryEvent);
           break;
       }
     },
-    ChangeStyleAndFilter(category) {
+    changeStyleAndFilter(category) {
       this.filterCategory[category] = !this.filterCategory[category];
       this.checkStateCategory();
       // ? DivFilterCategory.forEach(div => div.className = "filter-unselected");
@@ -72,9 +66,6 @@ export default {
 
       }
     },
-    resetAndCreateEventsFiltered() {
-
-    }
     //     function resetAndCreateEventsFiltered(listFiltered) {
     //   const resetContent = document.querySelector(".container");
     //   resetContent.innerHTML = "";
@@ -96,16 +87,16 @@ export default {
       class="navegation ml-1 flex justify-start font-bold gap-3 md:flex-row overflow-x-scroll lg:justify-center xl:overflow-x-hidden"
     >
       <div
-        @click="ChangeStyleAndFilter('all')"
+        @click="changeStyleAndFilter('all')"
         :class="[
-          filterCategory.all ? 'filter-selected' : ' ',
+          filterCategory.all ? 'filter-selected' : 'filter-unselected',
           'clase-fija'
         ]"
       >
         <p>Todos</p>
       </div>
       <div
-        @click="ChangeStyleAndFilter('bookmark')"
+        @click="changeStyleAndFilter('bookmark')"
         :class="{ 'filter-selected': filterCategory.bookmark, 'filter-unselected': !filterCategory.bookmark }"
       >
         <svg
@@ -125,7 +116,7 @@ export default {
         <p>Favoritos</p>
       </div>
       <div
-        @click="ChangeStyleAndFilter('sports')"
+        @click="changeStyleAndFilter('Sports')"
         :class="{ 'filter-selected': filterCategory.sports, 'filter-unselected': !filterCategory.sports }"
       >
         <svg
@@ -145,7 +136,7 @@ export default {
         <p>Deporte</p>
       </div>
       <div
-        @click="ChangeStyleAndFilter('kids')"
+        @click="changeStyleAndFilter('Kids')"
         :class="{ 'filter-selected': filterCategory.kids, 'filter-unselected': !filterCategory.kids }"
       >
         <svg
@@ -191,7 +182,7 @@ export default {
         <p>Infantil</p>
       </div>
       <div
-        @click="ChangeStyleAndFilter('food')"
+        @click="changeStyleAndFilter('Food')"
         :class="{ 'filter-selected': filterCategory.food, 'filter-unselected': !filterCategory.food }"
       >
         <svg
@@ -211,7 +202,7 @@ export default {
         <p>Gastrónomico</p>
       </div>
       <div
-        @click="ChangeStyleAndFilter('music')"
+        @click="changeStyleAndFilter('Music')"
         :class="{ 'filter-selected': filterCategory.music, 'filter-unselected': !filterCategory.music }"
       >
         <svg
@@ -231,7 +222,7 @@ export default {
         <p>Música</p>
       </div>
       <div
-        @click="ChangeStyleAndFilter('theatre')"
+        @click="changeStyleAndFilter('Theatre')"
         :class="{ 'filter-selected': filterCategory.theatre, 'filter-unselected': !filterCategory.theatre }"
       >
         <svg
@@ -251,7 +242,7 @@ export default {
         <p>Teatro</p>
       </div>
       <div
-        @click="ChangeStyleAndFilter('museum')"
+        @click="changeStyleAndFilter('Museum')"
         :class="{ 'filter-selected': filterCategory.museum, 'filter-unselected': !filterCategory.museum }"
       >
         <svg
@@ -271,7 +262,7 @@ export default {
         <p>Museos</p>
       </div>
       <div
-        @click="ChangeStyleAndFilter('party')"
+        @click="changeStyleAndFilter('Party')"
         :class="{ 'filter-selected': filterCategory.party, 'filter-unselected': !filterCategory.party }"
       >
         <svg
@@ -291,7 +282,7 @@ export default {
         <p>Fiestas</p>
       </div>
       <div
-        @click="ChangeStyleAndFilter('play')"
+        @click="changeStyleAndFilter('Play')"
         :class="{ 'filter-selected': filterCategory.play, 'filter-unselected': !filterCategory.play }"
       >
         <svg

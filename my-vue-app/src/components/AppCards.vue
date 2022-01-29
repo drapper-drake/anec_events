@@ -2,14 +2,14 @@
 export default {
   emits: ['selectedBookmark'],
   props: {
-    allEvents: {
-      type: Array,
-      required: true,
-    },
-    currentListEvents: {
-      type: Array,
-      required: true,
-    },
+    // allEvents: {
+    //   type: Array,
+    //   required: true,
+    // },
+    // currentListEvents: {
+    //   type: Array,
+    //   required: true,
+    // },
     arrayBookMark: {
       type: Array,
       required: true,
@@ -61,7 +61,7 @@ export default {
 <template>
   <div
     @click="this.$router.push({ name: 'event', params: { id: event.id }, query: { eventCurrent: JSON.stringify(event) } })"
-    v-for=" event in arrayEvents"
+    v-for=" event in this.$store.state.currentListEvents"
     :key="event"
     class="container-card"
   >

@@ -16,6 +16,9 @@ const store = createStore({
     },
     TOGGLE_BOOKMARK(state, index) {
       state.allEvents[index].bookmark = !state.allEvents[index].bookmark;
+    },
+    SHOW_FILTERED_EVENTS(state, filteredList) {
+      state.currentListEvents = filteredList;
     }
   },
   actions: {
@@ -27,6 +30,9 @@ const store = createStore({
     },
     toggleBookmark({ commit }, index) {
       commit('TOGGLE_BOOKMARK', index);
+    },
+    showFilteredEvents({ commit }, filteredList) {
+      commit('SHOW_FILTERED_EVENTS', filteredList);
     }
   }
 });

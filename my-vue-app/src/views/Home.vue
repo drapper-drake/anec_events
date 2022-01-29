@@ -108,8 +108,6 @@ export default {
         class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-lg p-10 gap-10 lg:gap-x-8"
       >
         <AppCards
-          :allEvents="this.$store.state.allEvents"
-          :currentListEvents="this.$store.state.currentListEvents"
           :arrayBookMark="arrayBookMark"
           :listSrcCategories="listSrcCategories"
           @selectedBookmark="selectedBookmark"
