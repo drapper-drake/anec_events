@@ -9,8 +9,8 @@ import LoadingSpinner from "@/components/LoadingSpinner.vue";
 export default {
   data() {
     return {
-      allEvents: [],
-      currentListEvents: [],
+      // allEvents: [],
+      // currentListEvents: [],
       arrayBookMark: [],
       listSrcCategories,
       activeCategory: "all", //? Esto es posible cambiarlo a un objeto pero queda verlo
@@ -29,6 +29,7 @@ export default {
       fetch('/data/eventosAlicante.json')
         .then((response) => response.json())
         .then((data) => {
+          let fetchedEvents = [];
           // data es un array de eventos
           for (let event of data) {
             //Es un generador de Id basados en el nombre del evento
@@ -36,13 +37,17 @@ export default {
             idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
             event.bookmark = this.arrayBookMark.includes(idEvent);
             event.id = idEvent;
-            this.allEvents.push(event);
+            fetchedEvents.push(event);
           }
-          this.currentListEvents = [...this.allEvents];
+          // this.currentListEvents = [...this.allEvents];
 
-          this.changeformatDateJSON();
-          this.allEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
-          this.currentListEvents = [...this.allEvents];
+          this.changeformatDateJSON(fetchedEvents);
+          fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
+
+          this.$store.dispatch('fetchEvents', fetchedEvents);
+          this.$store.dispatch('showAll', fetchedEvents);
+
+          // this.currentListEvents = [...this.allEvents];
           /*
           const urlParams = new URLSearchParams(window.location.search);
           const ruta = urlParams.get('event');
@@ -66,18 +71,18 @@ export default {
       localStorage.setItem("bookmark", JSON.stringify(this.arrayBookMark))
     },
     selectedBookmark(event) {
-      let index = this.allEvents.findIndex((el) => el.id === event);
-      this.allEvents[index].bookmark = !this.allEvents[index].bookmark;
-      if (this.allEvents[index].bookmark === true) {
+      let index = this.$store.state.allEvents.findIndex((el) => el.id === event);
+      this.$store.dispatch('toggleBookmark', index);
+      if (this.$store.state.allEvents[index].bookmark === true) {
         this.arrayBookMark.push(event)
-      } else if (this.allEvents[index].bookmark === false) {
+      } else if (this.$store.state.allEvents[index].bookmark === false) {
         let indexB = this.arrayBookMark.findIndex((el) => el === event);
         this.arrayBookMark.splice(indexB, 1);
       }
       this.saveLocalStorage();
     },
-    changeformatDateJSON() {
-      for (let event of this.allEvents) {
+    changeformatDateJSON(list) {
+      for (let event of list) {
         event.dateStart = new Date(event.dateStart);
         if (event.hasOwnProperty("dateFinal")) {
           event.dateFinal = new Date(event.dateFinal);
@@ -97,23 +102,23 @@ export default {
 
 <template>
   <div id="home">
-    <AppFilterBar :activeCategory="activeCategory" />
+    <AppFilterBar :allEvents="this.$store.state.allEvents" />
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div
         class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-lg p-10 gap-10 lg:gap-x-8"
       >
         <AppCards
-          :allEvents="allEvents"
-          :currentListEvents="currentListEvents"
+          :allEvents="this.$store.state.allEvents"
+          :currentListEvents="this.$store.state.currentListEvents"
           :arrayBookMark="arrayBookMark"
           :listSrcCategories="listSrcCategories"
           @selectedBookmark="selectedBookmark"
         />
       </div>
       <AppPagination
-        v-if="allEvents.length > 0"
+        v-if="this.$store.state.allEvents.length > 0"
         :activeCategory="activeCategory"
-        :allEvents="allEvents"
+        :allEvents="this.$store.state.allEvents"
       />
       <LoadingSpinner v-else />
     </main>

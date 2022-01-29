@@ -21,8 +21,8 @@ export default {
     }
   },
   props: {
-    activeCategory: {
-      type: String,
+    allEvents: {
+      type: Array,
       required: true,
     },
   },
@@ -31,33 +31,32 @@ export default {
     filterByCategory(category) {
       switch (category) {
         case "all":
-          let list = [...allEvents];
+          let list = [...this.allEvents];
           // pagination(list);
           // list = divideListEventForPagination(1, list);
           resetAndCreateEventsFiltered(list);
           break;
         case "bookmark":
-          let listBookmark = allEvents.filter(events => events.bookmark);
+          let listBookmark = this.allEvents.filter(events => events.bookmark);
           // pagination(listBookmark);
           // listBookmark = divideListEventForPagination(1, listBookmark);
           resetAndCreateEventsFiltered(listBookmark);
           break;
         default:
-          let listCategoryEvent = allEvents.filter(events => events.category.includes(category));
+          let listCategoryEvent = this.allEvents.filter(events => events.category.includes(category));
           // pagination(listCategoryEvent);
           // listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
           resetAndCreateEventsFiltered(listCategoryEvent);
           break;
       }
     },
-    ChangeStyleAndFilter(category, id) {
+    ChangeStyleAndFilter(category) {
       this.filterCategory[category] = !this.filterCategory[category];
       this.checkStateCategory();
       // ? DivFilterCategory.forEach(div => div.className = "filter-unselected");
-      const idCategory = id;
       //Cambio Color SVG
-      activeCategory = idCategory;
-      this.filterByCategory(idCategory);
+      // activeCategory = idCategory;
+      this.filterByCategory(category);
     },
     checkStateCategory() {
       if (this.filterCategory.all) {
@@ -73,6 +72,20 @@ export default {
 
       }
     },
+    resetAndCreateEventsFiltered() {
+
+    }
+    //     function resetAndCreateEventsFiltered(listFiltered) {
+    //   const resetContent = document.querySelector(".container");
+    //   resetContent.innerHTML = "";
+    //   clearMain()
+    //   if (listFiltered.length === [].length) {
+    //     // IMPROVE Pagina de no encontrar eventos
+    //     notFound(false);
+    //   } else {
+    //     createEvent(resetContent, listFiltered);
+    //   }
+    // }
   }
 }
 </script>
