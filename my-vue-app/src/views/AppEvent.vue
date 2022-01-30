@@ -13,9 +13,11 @@
             </div>
             <div class="info-event">
               <h2 class="title-ev">{{ eventID.nameEvent }}</h2>
-              <div v-for="category in eventID.category" class="category">
-                <img :src="listSrcCategories[category].iconEventDark" class="labelsSvg" />
-                <p>{{ category }}</p>
+              <div class="flex">
+                <div v-for="category in eventID.category" class="category">
+                  <img :src="listSrcCategories[category].iconEventDark" class="labelsSvg" />
+                  <p>{{ category }}</p>
+                </div>
               </div>
               <div class="city-location">
                 <img src="/img/icons/location.svg" class="labelsSvg" />
