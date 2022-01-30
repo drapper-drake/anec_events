@@ -6,11 +6,9 @@
           <div class="top-info">
             <div class="img-container">
               <img :src="eventID.photoEvent" />
-              <div class="bookmarkEvent">
-                <img
-                  src="/img/icons/bookmark.svg"
-                  data-name="la-generacin-figurativa-premios-para-la-creacin-de-un-museo"
-                />
+              <div @click="selectedBookmark(this.eventID.id)" class="bookmarkEvent">
+                <img v-if="eventID.bookmark" src="/img/icons/bookmark-selected.svg" />
+                <img v-else src="/img/icons/bookmark.svg" />
               </div>
             </div>
             <div class="info-event">
@@ -109,7 +107,7 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      eventID: JSON.parse(this.$route.query.eventCurrent),
+      eventID: null,
       allEvents: [],
       arrayBookMark: [],
       listSrcCategories,
@@ -119,28 +117,28 @@ export default {
     }
   },
   methods: {
+
+    getEventByID() {
+      this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
+      this.eventID = this.eventID[0];
+    },
+
     saveLocalStorage() {
       localStorage.setItem("bookmark", JSON.stringify(this.arrayBookMark));
     },
+
     selectedBookmark(event) {
-      let index = this.allEvents.findIndex((el) => el.id === event);
-      this.allEvents[index].bookmark = !this.allEvents[index].bookmark;
-      if (this.allEvents[index].bookmark === true) {
-        this.arrayBookMark.push(event);
-      }
-      else if (this.allEvents[index].bookmark === false) {
+      let index = this.$store.state.allEvents.findIndex((el) => el.id === event);
+      this.$store.dispatch('toggleBookmark', index);
+      if (this.$store.state.allEvents[index].bookmark === true) {
+        this.arrayBookMark.push(event)
+      } else if (this.$store.state.allEvents[index].bookmark === false) {
         let indexB = this.arrayBookMark.findIndex((el) => el === event);
         this.arrayBookMark.splice(indexB, 1);
       }
       this.saveLocalStorage();
     },
-    changeformatDateJSON(event) {
-      event.dateStart = new Date(event.dateStart);
-      if (event.hasOwnProperty("dateFinal")) {
-        event.dateFinal = new Date(event.dateFinal);
-      }
 
-    },
     dateFormat(month, dateShort = false) {
       const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
       let monthFormat = monthNames[month.getMonth()];
@@ -221,7 +219,7 @@ export default {
     }
   },
   created() {
-    this.changeformatDateJSON(this.eventID);
+    this.getEventByID();
   },
   components: { LoadingSpinner },
 

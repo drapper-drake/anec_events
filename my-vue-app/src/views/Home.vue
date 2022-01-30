@@ -9,8 +9,6 @@ import LoadingSpinner from "@/components/LoadingSpinner.vue";
 export default {
   data() {
     return {
-      // allEvents: [],
-      // currentListEvents: [],
       arrayBookMark: [],
       listSrcCategories,
       activeCategory: "all", //? Esto es posible cambiarlo a un objeto pero queda verlo
@@ -67,9 +65,11 @@ export default {
         this.arrayBookMark = uploadEvents;
       }
     },
+
     saveLocalStorage() {
       localStorage.setItem("bookmark", JSON.stringify(this.arrayBookMark))
     },
+
     selectedBookmark(event) {
       let index = this.$store.state.allEvents.findIndex((el) => el.id === event);
       this.$store.dispatch('toggleBookmark', index);
@@ -81,6 +81,7 @@ export default {
       }
       this.saveLocalStorage();
     },
+
     changeformatDateJSON(list) {
       for (let event of list) {
         event.dateStart = new Date(event.dateStart);
