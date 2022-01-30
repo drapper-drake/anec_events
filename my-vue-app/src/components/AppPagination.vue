@@ -4,10 +4,10 @@ export default {
         activeCategory: {
             type: String,
         },
-        pageSelection: {
-            type: String,
-            default: "page-unselected",
-        }
+        // pageSelection: {
+        //     type: String,
+        //     default: "page-unselected",
+        // }
     },
 
     data() {
@@ -39,7 +39,7 @@ export default {
             // const containerNavPages = document.querySelector(".pagination");
             // clearPagination();
             // const result = 96 / 12; // ? Aqui divides todo el array de eventos en elementos de 12
-            const listAllEvents = this.$store.state.allEvents.length; // ? Aqui divides todo el array de eventos en elementos de 12
+            const listAllEvents = this.$store.state.currentListEvents.length; // ? Aqui divides todo el array de eventos en elementos de 12
             const result = listAllEvents / 12;
             //let numberPages;//? El numero de las págins depende de si coincide con multiplo de 12
             if (result === Math.trunc(result)) {
@@ -88,7 +88,7 @@ export default {
 
     created() {
         this.pagination();
-    },
+    }
 };
 
 

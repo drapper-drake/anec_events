@@ -114,7 +114,7 @@ export default {
         />
       </div>
       <AppPagination
-        v-if="this.$store.state.allEvents.length > 0"
+        v-if="this.$store.state.currentListEvents.length > 0"
         :activeCategory="activeCategory"
       />
       <LoadingSpinner v-else />
