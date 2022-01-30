@@ -25,6 +25,11 @@ const routes = [
     name: 'privacy',
     component: Privacy,
   },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'page404',
+    component: () => import('../views/Page404.vue')
+ }
 ]
 
 const router = createRouter({

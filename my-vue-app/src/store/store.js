@@ -4,12 +4,14 @@ const store = createStore({
   state() {
     return {
       allEvents: [],
-      currentListEvents: []
+      currentListEvents: [],
+      activeLoanding: true,
     }
   },
   mutations: {
     FETCH_EVENTS(state, fetchedList) {
       state.allEvents = fetchedList;
+      state.activeLoanding = false;
     },
     SHOW_ALL(state, allList) {
       state.currentListEvents = allList;
