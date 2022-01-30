@@ -67,7 +67,7 @@ export default {
 
 <template>
   <div id="home">
-    <AppFilterBar />
+    <AppFilterBar class />
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div
         class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-lg p-10 gap-10 lg:gap-x-8"
@@ -82,6 +82,7 @@ export default {
         v-if="this.$store.state.currentListEvents.length > 0"
         :activeCategory="activeCategory"
       />
+
       <LoadingSpinner v-else />
     </main>
   </div>
