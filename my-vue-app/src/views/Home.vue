@@ -5,6 +5,7 @@ import { listSrcCategories } from "@/listSrcTitlesCategories";
 import AppFilterBar from "@/components/AppFilterBar.vue";
 import AppPagination from "@/components/AppPagination.vue";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
+import AppFilterDate from "../components/AppFilterDate.vue";
 
 export default {
   data() {
@@ -18,7 +19,8 @@ export default {
     AppCards,
     AppFilterBar,
     AppPagination,
-    LoadingSpinner
+    LoadingSpinner,
+    AppFilterDate
   },
 
   methods: {
@@ -68,6 +70,7 @@ export default {
 <template>
   <div id="home">
     <AppFilterBar class />
+    <AppFilterDate />
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div
         class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-lg p-10 gap-10 lg:gap-x-8"
