@@ -1,10 +1,6 @@
 <script>
 export default {
     props: {
-        allEvents: {
-            type: Array,
-            required: true,
-        },
         activeCategory: {
             type: String,
         },
@@ -43,17 +39,17 @@ export default {
             // const containerNavPages = document.querySelector(".pagination");
             // clearPagination();
             // const result = 96 / 12; // ? Aqui divides todo el array de eventos en elementos de 12
-            const listAllEvents = this.allEvents.length; // ? Aqui divides todo el array de eventos en elementos de 12
+            const listAllEvents = this.$store.state.allEvents.length; // ? Aqui divides todo el array de eventos en elementos de 12
             const result = listAllEvents / 12;
             //let numberPages;//? El numero de las págins depende de si coincide con multiplo de 12
             if (result === Math.trunc(result)) {
                 // para listas que sean múltiplos de 12 (12, 24, 36...)
                 this.numberPages = Math.trunc(result) - 1; //? Si es multiplo se resta 1
-                this.showPagination = true;
             } else {
                 this.numberPages = Math.trunc(result);
-                this.showPagination = true;
-            }// ? El bucle For de acontinuacion lo podriais hacer con vue que generase tantos elementos como numero de paginas
+            }
+            this.showPagination = true;
+            // ? El bucle For de acontinuacion lo podriais hacer con vue que generase tantos elementos como numero de paginas
             // ? y que esta función solo devuelva el número de páginas que puede tener la página.
             // for (let page = 0; page <= numberPages; page++) {
             //     const anchor = document.createElement("a");

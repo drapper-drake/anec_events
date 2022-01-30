@@ -102,7 +102,7 @@ export default {
 
 <template>
   <div id="home">
-    <AppFilterBar :allEvents="this.$store.state.allEvents" />
+    <AppFilterBar />
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div
         class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 text-lg p-10 gap-10 lg:gap-x-8"
@@ -116,7 +116,6 @@ export default {
       <AppPagination
         v-if="this.$store.state.allEvents.length > 0"
         :activeCategory="activeCategory"
-        :allEvents="this.$store.state.allEvents"
       />
       <LoadingSpinner v-else />
     </main>
