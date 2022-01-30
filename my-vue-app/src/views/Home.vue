@@ -22,42 +22,6 @@ export default {
   },
 
   methods: {
-    fetchJSON() {
-      // se importa el json, se parsea y almacena en data
-      fetch('/data/eventosAlicante.json')
-        .then((response) => response.json())
-        .then((data) => {
-          let fetchedEvents = [];
-          // data es un array de eventos
-          for (let event of data) {
-            //Es un generador de Id basados en el nombre del evento
-            let idEvent = event.nameEvent;
-            idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-            event.bookmark = this.arrayBookMark.includes(idEvent);
-            event.id = idEvent;
-            fetchedEvents.push(event);
-          }
-          // this.currentListEvents = [...this.allEvents];
-
-          this.changeformatDateJSON(fetchedEvents);
-          fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
-
-          this.$store.dispatch('fetchEvents', fetchedEvents);
-          this.$store.dispatch('showAll', fetchedEvents);
-
-          // this.currentListEvents = [...this.allEvents];
-          /*
-          const urlParams = new URLSearchParams(window.location.search);
-          const ruta = urlParams.get('event');
-          if (ruta != null) {
-            deleteContent();
-            return goToParams(ruta);
-          }
-          createFirstPage()
-          */
-          //console.log(data);
-        })
-    },
 
     checkLocalStorage() {
       if (localStorage.getItem("bookmark") != null) {
@@ -93,10 +57,10 @@ export default {
   },
 
   mounted() {
-    this.checkLocalStorage();
+    // this.checkLocalStorage(); //* Estoy probando porque es mejor que esto ya lo haga cuando se haga el fetch y deje todo listo
   },
   created() {
-    this.fetchJSON();
+    this.$store.dispatch('fetchEvents');
   },
 }
 </script>

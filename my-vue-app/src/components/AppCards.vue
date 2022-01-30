@@ -2,14 +2,6 @@
 export default {
   emits: ['selectedBookmark'],
   props: {
-    // allEvents: {
-    //   type: Array,
-    //   required: true,
-    // },
-    // currentListEvents: {
-    //   type: Array,
-    //   required: true,
-    // },
     arrayBookMark: {
       type: Array,
       required: true,

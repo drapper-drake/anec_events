@@ -1,5 +1,5 @@
 <template>
-  <div v-if="eventID != undefined">
+  <div v-if="checkLengthState != undefined">
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div class="container container-info-page">
         <div class="info-container">
@@ -121,6 +121,8 @@ export default {
     getEventByID() {
       this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
       this.eventID = this.eventID[0];
+      console.log(this.eventID)
+      console.log(this.$store.state)
     },
 
     saveLocalStorage() {
@@ -218,9 +220,18 @@ export default {
       window.open(ShareURL[social], "_blank");
     }
   },
-  created() {
-    this.getEventByID();
+
+  computed: {
+    checkLengthState() {
+      if (this.$store.state.allEvents) {
+        this.$store.dispatch('fetchEvents');
+        this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
+        this.eventID = this.eventID[0];
+      }
+      return this.eventID
+    }
   },
+
   components: { LoadingSpinner },
 
 }
