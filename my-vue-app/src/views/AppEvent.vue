@@ -16,7 +16,7 @@
               <div class="flex">
                 <div v-for="category in eventID.category" class="category">
                   <img :src="listSrcCategories[category].iconEventDark" class="labelsSvg" />
-                  <p>{{ category }}</p>
+                  <p>{{ listSrcCategories[category].nameIconEvent }}</p>
                 </div>
               </div>
               <div class="city-location">
