@@ -2738,8 +2738,8 @@
     "free": false,
     "price": 38,
     "site": "Teatro Río, Plaça Sant Vicent, 0, 03440 Ibi, Alicante",
-    "cityLocation": "Alicante",
-    "village": false,
+    "cityLocation": "Ibi",
+    "village": true,
     "hoursOpen": "21:00",
     "hoursClose": "22:30",
     "dateStart": "2022/04/02",
@@ -2749,5 +2749,41 @@
     "comments": "Cuando vi a mi hijo caminar por primera vez después de meses de caídas, de intentos fallidos, de golpes y vuelta a probar,  entendí que un día todos fuimos esa fuerza que el tiempo hace que olvidemos.Los niños son los seres más auténticos que te puedes encontrar, son salvajes, son la ternura en su esencia y están llenos de una verdad insultante, no tienen miedo a equivocarse, son libres y expresivos y todo lo que hacen está repleto de arte. Si miras a un niño entiendes casi todo lo que fuiste y hace un tiempo que no te permites ser. Esta gira es el resultado de ver crecer a mi hijo, es el resultado de mi crecimiento a su lado, es todos esos sonidos y melodías que intentan darle forma a lo que he sentido y me ha inspirado de él y de la vida a través de él. Es un encuentro con el niño que no pude ser y hubiera soñado ser. Es un homenaje a esos seres que son tan libres como un pájaro libre. Esta gira está llena de dinosaurios, calamares robóticos, máquinas del tiempo, pianos voladores y mimos bilingües, este disco es eso que yo había olvidado y que es tan poderoso; la Magia de encontrar cada día y cada senda fascinantes, traigan lo que traigan.",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643624853/anac-event/orwyv2s8ctlqaongygzm.png",
     "linkTickets": "https://aramalikian.entradas.plus/entradas/concierto-ara-malikian-ibi-2022?_ga=2.166894263.86932489.1643623624-1888835327.1643623624"
+  },
+  {
+    "nameEvent": "III Edición Jornadas Gastronómicas Tapa Cofrade",
+    "free": false,
+    "price": 4,
+    "site": "Restaurante Chapeau, Calle General O´Donnell, 17, 03003 Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "11:00",
+    "hoursClose": "24:00",
+    "dateStart": "2022/03/04",
+    "dateFinal": "2022/04/08",
+    "category": [
+      "Food"
+    ],
+    "comments": "La “Tapa Cofrade” se servirá desde el 4 de marzo hasta el 8 de abril. Para la elaboración de la Tapa Cofrade no se tendrán en cuenta las restricciones de no incluir ni carnes ni embutidos, al no estar restringida su disponibilidad a los viernes cuaresmales. Los participantes podrán ofrecer su Tapa Cofrade o bien todos los días que dura el evento, o bien sólo en alguno de los días a su elección (en la ficha hay un apartado donde hay que indicarlo). Los únicos requisitos para poder participar son que el establecimiento esté asociado a APEHA y al corriente de pago. El establecimiento interesado ha de cumplimentar la ficha de inscripción que se adjunta, detallando la Tapa Cofrade con la que participará, teniendo en cuenta que la tapa se debe servir con una caña o quinto de cerveza, y ambas cosas tendrán un precio conjunto de 4 euros (IVA incluido). Y es imprescindible especificar si la tapa es apta para celíacos o se les puede adaptar (ya que hay un numeroso grupo de celíacos interesados en este evento). En esta edición se realizará en las redes sociales de APEHA un concurso entre los clientes para que voten a su tapa favorita. Se incentivará la participación con premios para los clientes que voten. La tapa más votada recibirá un diploma que certifique haber sido la tapa preferida por el público.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1643635816/Jornadas_Gastron%C3%B3micas_Tapa_Cofrade_-_Alicante_-_Recortado_j8b5e8.png",
+    "linkTickets": "https://www.alicantehosteleria.com/inscripcion-jornadas-de-cuaresma-tapa-y-menus-viernes"
+  },
+  {
+    "nameEvent": "III Edición Menús viernes de Cuaresma",
+    "free": false,
+    "price": 10,
+    "site": "ToBar Tapas, Calle Poeta Campos Vasallo, 31, 03004 Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "11:00",
+    "hoursClose": "24:00",
+    "dateStart": "2022/03/04",
+    "dateFinal": "2022/04/08",
+    "category": [
+      "Food"
+    ],
+    "comments": "En 2022 la Cuaresma dura desde el miércoles 2 de marzo hasta el jueves 14 de abril, y los “Menús viernes de Cuaresma” se servirán sólo los viernes 4, 11, 18, 25 de marzo, 1 y 8 de abril. Debéis tener en cuenta para la elaboración de los platos típicos de los viernes de Cuaresma, que los ingredientes no pueden incluir ni carnes ni embutidos. Sí que están admitidos todo tipo de pescados, verduras y legumbres; así como los dulces, que se convierten en el plato estrella (gracias a que los lácteos y los huevos, que en un principio estaban prohibidos, hace tiempo que fueron excluidos de las restricciones del ayuno pascual). Los platos de Cuaresma suelen ser consistentes y con gran capacidad de saciar el apetito, para evitar la tentación de comer carne. Los restaurantes participantes podrán ofrecer su menú o bien en los seis viernes cuaresmales, o bien sólo en alguno de los viernes a su elección (en la ficha hay un apartado donde hay que indicarlo). Los únicos requisitos para poder participar son que el establecimiento esté asociado a APEHA y al corriente de pago. El restaurante interesado ha de cumplimentar la ficha de inscripción que se adjunta, detallando el menú con el que participará: serán menús con un precio libre indicándolo  con IVA incluido, por la austeridad que requiere este periodo; quedando a decisión del establecimiento si el precio incluye la bebida o no. El menú consistirá en entrantes (en el número que se considere oportuno), un plato principal típico de Cuaresma, y postre. Y es imprescindible especificar si el menú es apto para celíacos o se les puede adaptar (ya que hay un numeroso grupo de celíacos interesados en este evento).",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1643635815/Jornadas_Gastron%C3%B3micas_Viernes_de_cuaresma_-_Alicante_-_Recortado_edwple.png",
+    "linkTickets": "https://www.alicantehosteleria.com/inscripcion-jornadas-de-cuaresma-tapa-y-menus-viernes"
   }
 ]
