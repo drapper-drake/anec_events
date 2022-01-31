@@ -68,13 +68,8 @@ export default {
 </script>
 
 <template>
-<<<<<<< HEAD
   <div id="home">
     <AppFilterBar />
-=======
-  <div id="home" class="w-full page-404">
-    <AppFilterBar class />
->>>>>>> 2fb250066305e9de201fe5499fdd2048d5e25607
     <AppFilterDate />
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div
