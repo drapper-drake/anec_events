@@ -6,6 +6,8 @@ const store = createStore({
       allEvents: [],
       currentListEvents: [],
       activeLoanding: true,
+      showPagination: false,
+      pagedList: []
     }
   },
   mutations: {
@@ -21,6 +23,12 @@ const store = createStore({
     },
     SHOW_FILTERED_EVENTS(state, filteredList) {
       state.currentListEvents = filteredList;
+    },
+    SHOW_PAGINATION(state, boolean) {
+      state.showPagination = boolean;
+    },
+    SHOW_PAGE_LIST(state, list) {
+      state.pagedList = list;
     }
   },
   actions: {
@@ -64,6 +72,12 @@ const store = createStore({
     },
     showFilteredEvents({ commit }, filteredList) {
       commit('SHOW_FILTERED_EVENTS', filteredList);
+    },
+    showPagination({ commit }, boolean) {
+      commit('SHOW_PAGINATION', boolean);
+    },
+    showPageList({ commit }, list) {
+      commit('SHOW_PAGE_LIST', list);
     }
   }
 });

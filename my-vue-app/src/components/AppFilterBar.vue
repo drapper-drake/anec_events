@@ -14,10 +14,10 @@ export default {
         Party: false,
         Play: false
       },
-      category: {
-        selected: "filter-selected",
-        unselected: "filter-unselected",
-      }
+      // category: {
+      //   selected: "filter-selected",
+      //   unselected: "filter-unselected",
+      // }
     }
   },
 
