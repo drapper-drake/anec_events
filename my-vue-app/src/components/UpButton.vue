@@ -21,7 +21,6 @@ export default {
     window.onscroll = () => {
       this.scroll = document.documentElement.scrollTop;
       this.className = this.scroll > 500 ? "scale-100" : "scale-0";
-      console.log('mounted')
     }
   },
 
