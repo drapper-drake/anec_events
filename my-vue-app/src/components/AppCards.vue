@@ -35,8 +35,13 @@ export default {
       let dateFromNoYear = dateFrom.substr(0, 5)
       let dateToNoYear = dateTo.substr(0, 6)
       return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
-    },
+    }
   },
+
+  mounted() {
+    window.scrollTo(0, 0)
+  },
+
 
   computed: {
     arrayEvents() {
