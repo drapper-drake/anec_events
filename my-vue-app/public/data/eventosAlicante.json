@@ -2732,5 +2732,22 @@
     "comments": "La FILM SYMPHONY ORCHESTRA (FSO) vuelve a Alicante con un concierto de su gira ‘FÉNIX’ el 6 de marzo de 2022. Un emocionante espectáculo en torno a la mejor música de cine que representa el resurgir de la vida, del arte y de la cultura. Un zarpazo, un rugido, un espectacular viaje musical a través de las bandas sonoras más icónicas que el séptimo arte nos ha dejado. De la mano de la orquesta más peliculera y de su carismático director, Constantino Martínez-Orts escucharás peliculones como GLADIATOR, EL CÓDIGO DA VINCI, LA BELLA Y LA BESTIA, MATRIX o EL SEÑOR DE LOS ANILLOS, series de actualidad como THE MANDALORIAN o LOS BRIDGERTONS, y clásicos como WEST SIDE STORY, LA VIDA ES BELLA o EL EQUIPO A entre muchos otros.",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642594857/anac-event/nmdgd7fsmnddrd3tdjue.jpg",
     "linkTickets": "https://checkoutentradas.elcorteingles.es/open?t=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzb3VyY2VJUCI6Ijg3LjIxNy4yMTAuMjQ1IiwiaWF0IjoxNjQyNTk1MDYwLCJleHAiOjE2NDI1OTY4NjAsImF1ZCI6ImJldGl4In0.3d8M4OosGfXnKwBY1bUtjZfVU0vrr-tPqFhHt3XoqXs#/checkout/product/00-000889T/event/00-000887a/show/00-0001jGI"
+  },
+  {
+    "nameEvent": "Concierto FSO - Ara Malikian",
+    "free": false,
+    "price": 38,
+    "site": "Teatro Río, Plaça Sant Vicent, 0, 03440 Ibi, Alicante",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "21:00",
+    "hoursClose": "22:30",
+    "dateStart": "2022/04/02",
+    "category": [
+      "Music"
+    ],
+    "comments": "Cuando vi a mi hijo caminar por primera vez después de meses de caídas, de intentos fallidos, de golpes y vuelta a probar,  entendí que un día todos fuimos esa fuerza que el tiempo hace que olvidemos.Los niños son los seres más auténticos que te puedes encontrar, son salvajes, son la ternura en su esencia y están llenos de una verdad insultante, no tienen miedo a equivocarse, son libres y expresivos y todo lo que hacen está repleto de arte. Si miras a un niño entiendes casi todo lo que fuiste y hace un tiempo que no te permites ser. Esta gira es el resultado de ver crecer a mi hijo, es el resultado de mi crecimiento a su lado, es todos esos sonidos y melodías que intentan darle forma a lo que he sentido y me ha inspirado de él y de la vida a través de él. Es un encuentro con el niño que no pude ser y hubiera soñado ser. Es un homenaje a esos seres que son tan libres como un pájaro libre. Esta gira está llena de dinosaurios, calamares robóticos, máquinas del tiempo, pianos voladores y mimos bilingües, este disco es eso que yo había olvidado y que es tan poderoso; la Magia de encontrar cada día y cada senda fascinantes, traigan lo que traigan.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643624853/anac-event/orwyv2s8ctlqaongygzm.png",
+    "linkTickets": "https://aramalikian.entradas.plus/entradas/concierto-ara-malikian-ibi-2022?_ga=2.166894263.86932489.1643623624-1888835327.1643623624"
   }
 ]
