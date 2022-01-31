@@ -27,6 +27,7 @@ export default {
         case "all":
           let list = [...this.$store.state.allEvents];
           this.$store.dispatch('showAll', list);
+          this.$store.dispatch('divideList', 1);
           // pagination(list);
           // list = divideListEventForPagination(1, list);
           break;
@@ -35,12 +36,14 @@ export default {
           // pagination(listBookmark);
           // listBookmark = divideListEventForPagination(1, listBookmark);
           this.$store.dispatch('showFilteredEvents', listBookmark);
+          this.$store.dispatch('divideList', 1);
           break;
         default:
           let listCategoryEvent = this.$store.state.allEvents.filter(events => events.category.includes(category));
           // pagination(listCategoryEvent);
           // listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
           this.$store.dispatch('showFilteredEvents', listCategoryEvent);
+          this.$store.dispatch('divideList', 1);
           break;
       }
     },

@@ -27,7 +27,7 @@ const store = createStore({
     SHOW_PAGINATION(state, boolean) {
       state.showPagination = boolean;
     },
-    SHOW_PAGE_LIST(state, list) {
+    DIVIDE_LIST(state, list) {
       state.pagedList = list;
     }
   },
@@ -78,6 +78,13 @@ const store = createStore({
     },
     showPageList({ commit }, list) {
       commit('SHOW_PAGE_LIST', list);
+    },
+    divideList({ commit }, pageNumber) {
+      let list = [];
+      let min = 12 * (pageNumber - 1);
+      let max = (min + 11) > store.state.currentListEvents ? store.state.currentListEvents.length : min + 11;
+      list = store.state.currentListEvents.slice(min, max + 1);
+      commit('DIVIDE_LIST', list);
     }
   }
 });

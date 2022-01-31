@@ -63,6 +63,7 @@ export default {
         * - Dura más que el rango
         */
         this.$store.dispatch('showFilteredEvents', listFilterDates);
+        this.$store.dispatch('divideList', 1);
       }
     }
   }

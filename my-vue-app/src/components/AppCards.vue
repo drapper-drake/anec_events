@@ -58,7 +58,7 @@ export default {
 <template>
   <div
     @click="this.$router.push({ name: 'event', params: { id: event.id } })"
-    v-for=" event in this.$store.state.currentListEvents"
+    v-for=" event in this.$store.state.pagedList"
     :key="event"
     class="container-card"
   >
