@@ -222,6 +222,9 @@ export default {
       window.open(ShareURL[social], "_blank");
     }
   },
+  mounted() {
+    window.scrollTo(0, 0)
+  },
 
   computed: {
     checkLengthState() {

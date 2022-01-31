@@ -22,13 +22,14 @@ export default {
       this.scroll = document.documentElement.scrollTop;
       this.className = this.scroll > 500 ? "scale-100" : "scale-0";
     }
-  }
+  },
+
 }
 </script>
 
 <template>
   <div
-    @click="this.scrollUp"
+    @click="scrollUp"
     class="w-14 h-14 bg-dark flex justify-center items-center rounded-full fixed bottom-10 right-4 cursor-pointer border-4 border-solid border-bg-dark transition-all delay-150 hover:bg-contrast-bg-light"
     :class="className"
   >
