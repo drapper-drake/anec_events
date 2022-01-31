@@ -1,5 +1,5 @@
 <template>
-  <div v-if="checkLengthState != undefined">
+  <div v-if="checkLengthState !== undefined">
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div class="container container-info-page">
         <div class="info-container">
@@ -225,11 +225,11 @@ export default {
 
   computed: {
     checkLengthState() {
-      if (this.$store.state.allEvents) {
+      if (this.$store.state.allEvents.length === 0) {
         this.$store.dispatch('fetchEvents');
-        this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
-        this.eventID = this.eventID[0];
       }
+      this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
+      this.eventID = this.eventID[0];
       return this.eventID
     }
   },

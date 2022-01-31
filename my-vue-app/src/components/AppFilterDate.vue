@@ -62,7 +62,6 @@ export default {
         * - Termina en el rango
         * - Dura más que el rango
         */
-        console.log(listFilterDates)
         this.$store.dispatch('showFilteredEvents', listFilterDates);
       }
     }
