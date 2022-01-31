@@ -225,11 +225,11 @@ export default {
 
   computed: {
     checkLengthState() {
-      if (this.$store.state.allEvents) {
+      if (this.$store.state.allEvents.length === 0) {
         this.$store.dispatch('fetchEvents');
-        this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
-        this.eventID = this.eventID[0];
       }
+      this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
+      this.eventID = this.eventID[0];
       return this.eventID
     }
   },
