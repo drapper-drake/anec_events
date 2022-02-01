@@ -83,8 +83,8 @@ const FORMAT_EVENT_JSON=
     },
     //Si es indefinido o temporal
     "isTemporal": { // ! No se ha incorporado aún
-      type: Date,
-      format: "AAAA/MM/DD",
+      type: Boolean,
+      format: true,
       required: true,
     },
      //Qué día empieza el evento o si es solo un día
@@ -131,7 +131,6 @@ const FORMAT_EVENT_JSON=
       required: false
     },
 //OTROS DATOS AÑADIDOS QUE NO SE UTILIZAN
- //URL de la información del evento
     "companyT": {
       type: String,
       required: false
