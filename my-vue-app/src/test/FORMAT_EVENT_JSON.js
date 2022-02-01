@@ -42,7 +42,6 @@ export const FORMAT_EVENT_JSON =
     type: Boolean,
     required: false, //Actualmente no se esta utilizando
   },
-
   //Qué día empieza el evento o si es solo un día
   "dateStart": {
     type: Date,
@@ -86,25 +85,7 @@ export const FORMAT_EVENT_JSON =
     type: String,
     required: false
   },
-  //OTROS DATOS AÑADIDOS QUE NO SE UTILIZAN
-  //URL de la información del evento
-  "companyT": {
-    type: String,
-    required: false
-  },
-  "cast": {
-    type: String,
-    required: false
-  },
-  "atributionsPhoto": {
-    type: String,
-    required: false
-  },
-  "atributionsLink": {
-    type: String,
-    required: false
-  },
-  //? DATOS QUE TIENE QUE GENERAR EL JAVASCRIPT
+  //* DATOS QUE TIENE QUE GENERAR EL JAVASCRIPT
   "id": {
     type: String,
     required: true,
@@ -116,7 +97,7 @@ export const FORMAT_EVENT_JSON =
     default: BookMarkLocalStorage().includes(this.id)
   }
 }
-function BookMarkLocalStorage(ID_Item = "bookmark") {
+export function BookMarkLocalStorage(ID_Item = "bookmark") {
   const EVENTS_BOOKMARKED = [];
   if (localStorage.getItem(ID_Item) != null) {
     EVENTS_BOOKMARKED = JSON.parse(localStorage.getItem("bookmark"));

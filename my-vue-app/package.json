@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "rm -rf dist && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest",
+    "watch": "jest --watchAll",
+    "coverage": "jest --collectCoverage"
   },
   "dependencies": {
     "axios": "^0.24.0",
