@@ -1,65 +1,46 @@
 <script>
 export default {
-    props: {
-        activeCategory: {
-            type: String,
-        },
-        //     pageSelection: {
-        //         type: String,
-        //         default: "page-unselected",
-        //     }
-    },
-
     data() {
         return {
             numberPages: 0,
+            pageSelection: []
         }
     },
-    // page-selected y page-unselected ya estan en .css
     methods: {
-        clearPagination() {
-            while (containerNavPages.hasChildNodes()) {
-                containerNavPages.firstChild.remove();
-            }
+        initialPage() {
+            this.pageSelection = Array(this.numberPages).fill("page-unselected");
+            this.pageSelection[0] = "page-selected";
         },
-        // pagination(allEvents) { },
-        delete() {
-            this.clearPagination();
-            const containerNavPages = document.querySelector(".pagination");
-            while (containerNavPages.hasChildNodes()) {
-                containerNavPages.firstChild.remove();
-            }
-
-            // Código paginación index.js
-
+        setPage(numberPage) {
+            this.pageSelection.fill("page-unselected");
+            this.pageSelection[numberPage - 1] = "page-selected";
         },
-
         pagination() {
-            // const containerNavPages = document.querySelector(".pagination");
-            // clearPagination();
-            // const result = 96 / 12; // ? Aqui divides todo el array de eventos en elementos de 12
-            const listAllEvents = this.$store.state.currentListEvents.length; // ? Aqui divides todo el array de eventos en elementos de 12
+            // ? Aqui divides todo el array de eventos en elementos de 12
+            const listAllEvents = this.$store.state.currentListEvents.length;
             const result = listAllEvents / 12;
-            //let numberPages;//? El numero de las págins depende de si coincide con multiplo de 12
+            //? El numero de las páginas depende de si coincide con multiplo de 12
             if (result === Math.trunc(result)) {
                 // para listas que sean múltiplos de 12 (12, 24, 36...)
                 this.numberPages = Math.trunc(result);
             } else {
                 this.numberPages = Math.trunc(result) + 1;
             }
+
             this.$store.dispatch('showPagination', true);
             return this.numberPages;
+        },
+        changePage(pageNumber) {
+            this.setPage(pageNumber);
+            this.$store.dispatch('divideList', pageNumber);
         }
     },
-
     created() {
         this.pagination();
+        this.initialPage();
         this.$store.dispatch('divideList', 1);
     }
 };
-
-
-
 </script>
 
 <template>
@@ -68,10 +49,7 @@ export default {
         class="flex flex-row flex-wrap justify-center gap-2 p-6"
     >
         <div v-for="number in pagination()">
-            <button
-                class="page-unselected"
-                @click="$store.dispatch('divideList', number)"
-            >{{ number }}</button>
+            <button :class="pageSelection[number - 1]" @click="changePage(number)">{{ number }}</button>
         </div>
     </div>
 </template>
