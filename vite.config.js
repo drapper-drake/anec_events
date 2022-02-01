@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue'
 const path = require('path')
 
 // https://vitejs.dev/config/
+//This is magic
 export default defineConfig({
   build: {
     outDir: "./dist",
@@ -19,7 +20,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
-      'x': path.resolve(__dirname, './public')
     }
   },
   plugins: [vue()],

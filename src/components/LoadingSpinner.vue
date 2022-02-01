@@ -27,12 +27,12 @@ export default {
         <p class="info-notFound text-center">{{ this.randomNumber() }}</p>
         <img
           class
-          src="x/img/404NotFound/404-notFound.svg"
+          src="/img/404NotFound/404-notFound.svg"
           alt="404 No hemos encontrado la página que buscabas"
         />
         <img
           class="max-h-44 bottom-0 right-10 absolute"
-          src="x/img/404NotFound/Pato-404-zapatos.svg"
+          src="/img/404NotFound/Pato-404-zapatos.svg"
           alt
         />
       </div>
