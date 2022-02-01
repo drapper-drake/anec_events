@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --emptyOutDir",
+    "build": "rm -rf dist && vite build",
     "preview": "vite preview",
     "test": "jest",
     "watch": "jest --watchAll",

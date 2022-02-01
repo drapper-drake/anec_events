@@ -42,7 +42,7 @@ const store = createStore({
             //Es un generador de Id basados en el nombre del evento
             let idEvent = event.nameEvent;
             idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-            const arrayBookMark = [];
+            let arrayBookMark = [];
             if (localStorage.getItem("bookmark") != null) {
               let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
               arrayBookMark = uploadEvents;
