@@ -4,13 +4,25 @@ const path = require('path')
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  build: {
+    outDir: "../dist",
+    assetsDir: "./",
+    cssCodeSplit: false
+  },
+  optimizeDeps: {
+    include: [
+      'vue',
+      'vue-router',
+      'vuex',
+    ]
+  },
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
+      'x': path.resolve(__dirname, './public')
     }
   },
   plugins: [vue()],
-
 })
 
 
