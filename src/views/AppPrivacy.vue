@@ -1,4 +1,10 @@
-<script></script>
+<script>
+export default {
+  mounted() {
+    window.scrollTo(0, 0)
+  }
+}
+</script>
 
 <template>
   <main class="flex justify-center items-center pb-6">
