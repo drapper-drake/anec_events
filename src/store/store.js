@@ -42,13 +42,13 @@ const store = createStore({
             //Es un generador de Id basados en el nombre del evento
             let idEvent = event.nameEvent;
             idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
+            const arrayBookMark = [];
             if (localStorage.getItem("bookmark") != null) {
               let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
-              this.arrayBookMark = uploadEvents;
+              arrayBookMark = uploadEvents;
             }
-            event.bookmark = this.arrayBookMark.includes(idEvent);
+            event.bookmark = arrayBookMark.includes(idEvent);
             event.id = idEvent;
-
             //hace directamente la función changeformadData
             event.dateStart = new Date(event.dateStart);
             if (event.hasOwnProperty("dateFinal")) {
