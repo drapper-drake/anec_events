@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "rm -rf dist && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest",
+    "watch": "jest --watchAll",
+    "coverage": "jest --collectCoverage"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -21,6 +24,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.0.0",
     "autoprefixer": "^10.4.2",
+    "jest": "^27.4.7",
     "moment": "^2.29.1",
     "netlify-cli": "^8.6.2",
     "postcss": "^8.4.5",
