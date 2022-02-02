@@ -50,10 +50,7 @@ export default {
   }
 
 }
-/*this.$emit("hover");   */
-/*@click="$emit('click')   */
-/*@submit.prevent="this.$emit('createTask')"> */
-/*v-on:change="$emit('change', $event.target.checked)" */
+
 </script>
 <template>
   <div

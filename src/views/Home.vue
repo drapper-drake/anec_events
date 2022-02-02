@@ -6,6 +6,7 @@ import AppFilterBar from "@/components/AppFilterBar.vue";
 import AppPagination from "@/components/AppPagination.vue";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import AppFilterDate from "../components/AppFilterDate.vue";
+// import PruebaPagination from "../components/PruebaPagination.vue";
 
 export default {
   data() {
@@ -19,7 +20,8 @@ export default {
     AppFilterBar,
     AppPagination,
     LoadingSpinner,
-    AppFilterDate
+    AppFilterDate,
+    // PruebaPagination
   },
 
   methods: {
@@ -82,6 +84,7 @@ export default {
         />
       </div>
       <AppPagination v-if="this.$store.state.currentListEvents.length > 0" />
+      <!-- <PruebaPagination v-if="this.$store.state.currentListEvents.length > 0" /> -->
       <LoadingSpinner v-else />
     </main>
   </div>

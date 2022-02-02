@@ -7,7 +7,8 @@ const store = createStore({
       currentListEvents: [],
       activeLoanding: true,
       showPagination: false,
-      pagedList: []
+      pagedList: [],
+      pageId: 0
     }
   },
   mutations: {
@@ -29,6 +30,9 @@ const store = createStore({
     },
     DIVIDE_LIST(state, list) {
       state.pagedList = list;
+    },
+    SET_PAGE_ID(state, id){
+      state.pageId = id;
     }
   },
   actions: {
@@ -85,6 +89,7 @@ const store = createStore({
       let max = (min + 11) > store.state.currentListEvents ? store.state.currentListEvents.length : min + 11;
       list = store.state.currentListEvents.slice(min, max + 1);
       commit('DIVIDE_LIST', list);
+      commit('SET_PAGE_ID', pageNumber);
     }
   }
 });

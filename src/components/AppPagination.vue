@@ -1,11 +1,17 @@
 <script>
+import ChevronLeft from "@/components/ChevronLeft.vue"
+import ChevronRigth from "@/components/ChevronRigth.vue"
 export default {
     data() {
         return {
             numberPages: 0,
             pageSelection: []
         }
-    },
+    }, 
+    components: {
+    ChevronLeft,
+    ChevronRigth
+  },
     methods: {
         initialPage() {
             this.pageSelection = Array(this.numberPages).fill("page-unselected");
@@ -34,6 +40,7 @@ export default {
             this.setPage(pageNumber);
             this.$store.dispatch('divideList', pageNumber);
             window.scrollTo(0, 0);
+        this.$router.push({ name: 'home', query: { p: pageNumber } })
         }
     },
     watch: {
@@ -41,10 +48,12 @@ export default {
             this.initialPage();
         }
     },
+
     created() {
         this.pagination();
         this.initialPage();
         this.$store.dispatch('divideList', 1);
+        this.$router.push({ query: { p: this.$store.state.pageId } })
     }
 };
 </script>
