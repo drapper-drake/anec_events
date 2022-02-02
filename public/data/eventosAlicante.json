@@ -465,8 +465,9 @@
     "category": [
       "Museum"
     ],
+    "comments": "El discurso de la exposición Mujeres. Entre Renoir y Sorolla aborda el rico universo femenino de finales del siglo XIX y comienzos del XX que constituye uno de los momentos más sugerentes de la historia del arte, motivado en buena medida por los numerosos cambios sociales y económicos de los que la mujer comienza a ser partícipe y protagonista.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641059944/MUBAG_-_Mujeres._Entre_Renoir_y_Sorolla_vu3bk8.jpg",
-    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+    "linkTickets": "http://www.mubag.es/mujeres-entre-renoir-y-sorolla/"
   },
   {
     "nameEvent": "Alicante. Paraje exótico. La mirada de Didier Petit de Meurville",
@@ -477,12 +478,13 @@
     "hoursOpen": "10:00",
     "hoursClose": "20:00",
     "dateStart": "2021/08/10",
-    "dateFinal": "2022/12/31",
+    "dateFinal": "2022/01/09",
     "category": [
       "Museum"
     ],
+    "comments": "La muestra está compuesta por veinticinco obras inéditas de Didier Petit de Meurville (Fond des Nègres, Haití 1793-Biarritz, Francia 1873), vicecónsul francés en Alicante de 1848 a 1857. De su labor como diplomático destaca la creación de una línea de barcos de vapor que favoreció la emigración y el comercio españoles con Argelia e impulsó el negocio del bacalao que había sido, hasta el momento, monopolio de los ingleses. Su cariño e implicación con Alicante lo demuestra brindando ayuda a los enfermos en la epidemia de cólera de 1854.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060101/MUBAG_-_Alicante._Paraje_ex%C3%B3tico._La_mirada_de_Didier_Petit_de_Meurville_wz3xos.jpg",
-    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+    "linkTickets": "http://www.mubag.es/alicante-paraje-exotico-la-mirada-de-didier-petit-de-meurville-1793-1873/"
   },
   {
     "nameEvent": "En consonancia. Emilio Varela y sus contemporáneos",
@@ -497,8 +499,9 @@
     "category": [
       "Museum"
     ],
+    "comments": "La exposición En consonancia. Emilio Varela y sus contemporáneos está formada por 61 obras en total, procedentes tanto de la colección de la Diputación de Alicante como de cesiones de otras instituciones como el Museo Nacional Centro de Arte Reina Sofía, el Banco Sabadell, el Ayuntamiento de Alicante, la Fundación Caja Mediterráneo y la Fundación Cultural Frax.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060232/MUBAG_-_En_consonancia._Emilio_Varela_y_sus_contempor%C3%A1neos_clpvo6.jpg",
-    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+    "linkTickets": "http://www.mubag.es/en-consonancia-emilio-varela-y-sus-contemporaneos/"
   },
   {
     "nameEvent": "La ventana del arte",
@@ -513,8 +516,9 @@
     "category": [
       "Museum"
     ],
+    "comments": "La ventana del arte es un ciclo dedicado a difundir a artistas con una trayectoria de reconocido prestigio y presentes en la colección de la Diputación de Alicante, con la muestra de obra creada recientemente y que se incorpora a los fondos para completar estas carreras artísticas de figuras claves del panorama cultural alicantino de los años 80 a los 2000.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060354/MUBAG_-_La_ventana_del_arte_azjt8p.jpg",
-    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+    "linkTickets": "http://www.mubag.es/la-ventana-del-arte/"
   },
   {
     "nameEvent": "A estudio. Piezas para nuevos discursos",
@@ -529,8 +533,9 @@
     "category": [
       "Museum"
     ],
+    "comments": "La exposición A estudio. Piezas para nuevos discursos, está formada por doce obras, la mayoría hasta ahora no expuestas en el Mubag, fruto de adquisiciones, donaciones y depósitos que han configurado a lo largo de su historia la colección de la Diputación de Alicante.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_A_estudio._Piezas_para_nuevos_discursos_t1wdhz.jpg",
-    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+    "linkTickets": "http://www.mubag.es/a-estudio-piezas-para-nuevos-discursos/"
   },
   {
     "nameEvent": "La generación figurativa. Premios para la creación de un museo",
@@ -545,8 +550,9 @@
     "category": [
       "Museum"
     ],
+    "comments": "La generación figurativa. Premios para la creación de un museo recoge la obra premiada en los Concursos Nacionales y Provinciales de Pintura que convocara la Diputación de Alicante entre 1952 y 1960. Los primeros premios de cada categoría, nacional y provincial, pasaban a ser propiedad de la Diputación. La finalidad principal de estos concursos era que estas obras se unieran al fondo existente y crear un museo de Bellas Artes con arte español.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_La_generaci%C3%B3n_figurativa._Premios_para_la_creaci%C3%B3n_de_un_museo_xemexh.jpg",
-    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+    "linkTickets": "http://www.mubag.es/la-generacion-figurativa-premios-para-la-creacion-de-un-museo/"
   },
   {
     "nameEvent": "Del informalismo a la abstracción mediterránea",
@@ -561,8 +567,9 @@
     "category": [
       "Museum"
     ],
+    "comments": "El MUBAG recupera como espacio expositivo la amplia galería de la planta baja, antiguo zaguán del palacio, para mostrar piezas del siglo XX de la colección artística de la Diputación de Alicante bajo el título Del informalismo a la abstracción mediterránea. Se han seleccionado dieciocho obras, realizadas de los años 60 a finales de los 80, por artistas españoles de gran proyección internacional que apostaron por transformar el arte, con el empleo de originales materiales y con la creación de nuevos lenguajes.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_Del_informalismo_a_la_abstracci%C3%B3n_mediterr%C3%A1nea_a7ztsm.jpg",
-    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+    "linkTickets": "http://www.mubag.es/del-informalismo-a-la-abstraccion-mediterranea/"
   },
   {
     "nameEvent": "Escuela de dibujo del Consulado Marítimo Terrestre",
@@ -577,8 +584,9 @@
     "category": [
       "Museum"
     ],
+    "comments": "La exposición que presentamos recupera a grandes pintores que desarrollaron su carrera entre los últimos años del siglo XVIII y la primera mitad del siglo XIX. Artistas cuyos inicios están vinculados a la Escuela de Dibujo del Consulado Marítimo y Terrestre, primera formación oficial relacionada con las bellas artes en Alicante, que inició sus pasos bajo la dirección de Vicente Suárez Ordóñez, instaurador del neoclasicismo en la escuela.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060841/MUBAG_-_Escuela_de_dibujo_del_Consulado_Mar%C3%ADtimo_Terrestre_s6bx65.jpg",
-    "linkTickets": "http://www.mubag.es/visita-el-museo/informacion-al-visitante/"
+    "linkTickets": "http://www.mubag.es/escuela-de-dibujo-del-consulado-maritimo-y-terrestre/"
   },
   {
     "nameEvent": "Refugios Antiaéreos de la Guerra Civil",
