@@ -3,6 +3,7 @@
     <form @submit.prevent="filterDate(dateEvent)" class="flex flex-col items-center md:flex-row">
       <label class="m-1 w-24 font-sans font-bold text-sm text-bg-light" for="start">Desde el día:</label>
       <input
+        id="start"
         class="m-1 w-40 cursor-pointer text-neutral-600 text-sm text-right rounded border-2 border-solid border-dark"
         type="date"
         v-model="dateEvent.dateStart"
@@ -10,6 +11,7 @@
       />
       <label class="m-1 w-24 font-sans font-bold text-sm text-bg-light" for="final">Hasta el día:</label>
       <input
+        id="final"
         class="m-1 w-40 cursor-pointer text-neutral-600 text-sm text-right rounded border-2 border-solid border-dark"
         type="date"
         required
