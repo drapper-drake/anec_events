@@ -1,10 +1,18 @@
 <script>
+import ChevronRigth from "@/components/ChevronRigth.vue"
+import ChevronLeft from "@/components/ChevronLeft.vue"
+
+
 export default {
     data() {
         return {
             numberPages: 0,
             pageSelection: []
         }
+    },
+    components: {
+        ChevronLeft,
+        ChevronRigth,
     },
     methods: {
         initialPage() {
@@ -54,8 +62,10 @@ export default {
         v-if="this.$store.state.showPagination"
         class="flex flex-row flex-wrap justify-center gap-2 p-6"
     >
+        <ChevronLeft class="page-unselected" @click="changePage(1)" />
         <div v-for="number in pagination()">
             <button :class="pageSelection[number - 1]" @click="changePage(number)">{{ number }}</button>
         </div>
+        <ChevronRigth class="page-unselected" @click="changePage(this.pagination())" />
     </div>
 </template>
