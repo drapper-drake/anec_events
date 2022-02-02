@@ -11,8 +11,7 @@ export default {
   data() {
     return {
       arrayBookMark: [],
-      listSrcCategories,
-      activeCategory: "all", //? Esto es posible cambiarlo a un objeto pero queda verlo
+      listSrcCategories
     }
   },
   components: {
@@ -82,10 +81,7 @@ export default {
           @selectedBookmark="selectedBookmark"
         />
       </div>
-      <AppPagination
-        v-if="this.$store.state.currentListEvents.length > 0"
-        :activeCategory="activeCategory"
-      />
+      <AppPagination v-if="this.$store.state.currentListEvents.length > 0" />
       <LoadingSpinner v-else />
     </main>
   </div>

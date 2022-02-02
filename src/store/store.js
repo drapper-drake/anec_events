@@ -49,7 +49,7 @@ const store = createStore({
             }
             event.bookmark = arrayBookMark.includes(idEvent);
             event.id = idEvent;
-            //hace directamente la función changeformadData
+            //hace directamente la función changeFormatData
             event.dateStart = new Date(event.dateStart);
             if (event.hasOwnProperty("dateFinal")) {
               event.dateFinal = new Date(event.dateFinal);

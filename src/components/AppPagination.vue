@@ -35,6 +35,11 @@ export default {
             this.$store.dispatch('divideList', pageNumber);
         }
     },
+    watch: {
+        numberPages() {
+            this.initialPage();
+        }
+    },
     created() {
         this.pagination();
         this.initialPage();

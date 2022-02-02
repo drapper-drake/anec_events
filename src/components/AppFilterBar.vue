@@ -13,11 +13,7 @@ export default {
         Museum: false,
         Party: false,
         Play: false
-      },
-      // category: {
-      //   selected: "filter-selected",
-      //   unselected: "filter-unselected",
-      // }
+      }
     }
   },
 
@@ -28,20 +24,14 @@ export default {
           let list = [...this.$store.state.allEvents];
           this.$store.dispatch('showAll', list);
           this.$store.dispatch('divideList', 1);
-          // pagination(list);
-          // list = divideListEventForPagination(1, list);
           break;
         case "bookmark":
           let listBookmark = this.$store.state.allEvents.filter(events => events.bookmark);
-          // pagination(listBookmark);
-          // listBookmark = divideListEventForPagination(1, listBookmark);
           this.$store.dispatch('showFilteredEvents', listBookmark);
           this.$store.dispatch('divideList', 1);
           break;
         default:
           let listCategoryEvent = this.$store.state.allEvents.filter(events => events.category.includes(category));
-          // pagination(listCategoryEvent);
-          // listCategoryEvent = divideListEventForPagination(1, listCategoryEvent);
           this.$store.dispatch('showFilteredEvents', listCategoryEvent);
           this.$store.dispatch('divideList', 1);
           break;
@@ -52,37 +42,8 @@ export default {
         this.filterCategory[property] = false;
       }
       this.filterCategory[category] = true;
-      // this.checkStateCategory();
-      // ? DivFilterCategory.forEach(div => div.className = "filter-unselected");
-      //Cambio Color SVG
-      // activeCategory = idCategory;
       this.filterByCategory(category);
-    },
-    // checkStateCategory() {
-    //   if (this.filterCategory.all) {
-    //     this.filterCategory.all = false;
-    //   }
-    //   const allCategoriesSelected = this.filterCategory.sports && this.filterCategory.kids && this.filterCategory.food && this.filterCategory.music && this.filterCategory.theatre && this.filterCategory.museum && this.filterCategory.party && this.filterCategory.play
-    //   if (allCategoriesSelected) {
-    //     for (let property in this.filterCategory) {
-    //       this.filterCategory[property] = false;
-    //     }
-    //     this.filterCategory.bookmark = false;
-    //     this.filterCategory.all = true;
-
-    //   }
-    // },
-    //     function resetAndCreateEventsFiltered(listFiltered) {
-    //   const resetContent = document.querySelector(".container");
-    //   resetContent.innerHTML = "";
-    //   clearMain()
-    //   if (listFiltered.length === [].length) {
-    //     // IMPROVE Pagina de no encontrar eventos
-    //     notFound(false);
-    //   } else {
-    //     createEvent(resetContent, listFiltered);
-    //   }
-    // }
+    }
   }
 }
 </script>
