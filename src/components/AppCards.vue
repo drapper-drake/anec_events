@@ -73,7 +73,7 @@ export default {
       </div>
     </div>
     <div class="info-card">
-      <h3>{{ event.nameEvent }}</h3>
+      <h2>{{ event.nameEvent }}</h2>
       <p>{{ event.cityLocation }}</p>
       <p v-if="event.dateFinal">{{ this.dateText(event) }}</p>
       <p v-else>Solo el {{ this.dateFormat(event.dateStart, true) }}</p>
