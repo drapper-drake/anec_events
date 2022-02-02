@@ -33,6 +33,7 @@ export default {
         changePage(pageNumber) {
             this.setPage(pageNumber);
             this.$store.dispatch('divideList', pageNumber);
+            window.scrollTo(0, 0);
         }
     },
     watch: {
