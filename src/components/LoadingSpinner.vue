@@ -16,7 +16,7 @@ export default {
 </script>
 <template>
   <div class="flex justify-center w-full">
-    <div v-if="this.$store.state.activeLoanding" class="h-screen">
+    <div v-if="this.$store.state.activeLoading" class="h-screen">
       <div class="spinner"></div>
     </div>
     <div

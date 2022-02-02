@@ -2,7 +2,6 @@
 import AppHeader from '@/components/AppHeader.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import UpButton from '@/components/UpButton.vue'
-
 </script>
 
 
@@ -14,6 +13,3 @@ import UpButton from '@/components/UpButton.vue'
     <AppFooter />
   </div>
 </template>
-
-<style>
-</style>

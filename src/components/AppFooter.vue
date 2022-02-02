@@ -1,5 +1,3 @@
-<script></script>
-
 <template>
   <footer
     class="w-full py-4 bg-dark flex flex-col font-sans text-sm md:text-base text-bg-dark text-center gap-4"
@@ -39,5 +37,3 @@
     </div>
   </footer>
 </template>
-
-<style></style>

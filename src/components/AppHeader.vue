@@ -1,4 +1,9 @@
 <script>
+export default {
+  created() {
+    this.$store.dispatch('fetchEvents');
+  }
+}
 </script>
 
 <template>
@@ -47,8 +52,3 @@
     </div>
   </header>
 </template>
-
-
-<style scoped></style>
-
-

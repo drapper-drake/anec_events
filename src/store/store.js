@@ -5,7 +5,7 @@ const store = createStore({
     return {
       allEvents: [],
       currentListEvents: [],
-      activeLoanding: true,
+      activeLoading: true,
       showPagination: false,
       pagedList: [],
       pageId: 0
@@ -14,7 +14,7 @@ const store = createStore({
   mutations: {
     FETCH_EVENTS(state, fetchedList) {
       state.allEvents = fetchedList;
-      state.activeLoanding = false;
+      state.activeLoading = false;
     },
     SHOW_ALL(state, allList) {
       state.currentListEvents = allList;
@@ -31,7 +31,7 @@ const store = createStore({
     DIVIDE_LIST(state, list) {
       state.pagedList = list;
     },
-    SET_PAGE_ID(state, id){
+    SET_PAGE_ID(state, id) {
       state.pageId = id;
     }
   },

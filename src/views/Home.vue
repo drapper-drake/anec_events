@@ -61,10 +61,7 @@ export default {
 
   mounted() {
     // this.checkLocalStorage(); //* Estoy probando porque es mejor que esto ya lo haga cuando se haga el fetch y deje todo listo
-  },
-  created() {
-    this.$store.dispatch('fetchEvents');
-  },
+  }
 }
 </script>
 
