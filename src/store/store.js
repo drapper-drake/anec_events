@@ -39,7 +39,7 @@ const store = createStore({
   },
   actions: {
     fetchEvents({ commit }) {
-      fetch('/data/eventosAlicante.json')
+      fetch("/data/eventosAlicante.json")
         .then((response) => response.json())
         .then((data) => {
           let fetchedEvents = [];
@@ -50,6 +50,8 @@ const store = createStore({
             idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
             event.bookmark = getBookMarkLocalStorage().includes(idEvent);
             event.id = idEvent;
+            //Reajusta el tamaño de las imágenes de las tarjetas desde la URL
+            event.photoEvent = event.photoEvent.replace("upload", "upload/w_500").replace("jpg", "webp"); 
             //hace directamente la función changeFormatData
             event.dateStart = new Date(event.dateStart);
             if (event.hasOwnProperty("dateFinal")) {
@@ -64,34 +66,34 @@ const store = createStore({
             }
           }
           fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
-          console.warn('Todos los console.error de eventos son intencionados, hay que recordar quitarlos para producción')
-          commit('FETCH_EVENTS', fetchedEvents);
-          commit('SHOW_ALL', fetchedEvents);
+          console.warn("Todos los console.error de eventos son intencionados, hay que recordar quitarlos para producción")
+          commit("FETCH_EVENTS", fetchedEvents);
+          commit("SHOW_ALL", fetchedEvents);
 
         })
     },
     showAll({ commit }, allList) {
-      commit('SHOW_ALL', allList);
+      commit("SHOW_ALL", allList);
     },
     toggleBookmark({ commit }, index) {
-      commit('TOGGLE_BOOKMARK', index);
+      commit("TOGGLE_BOOKMARK", index);
     },
     showFilteredEvents({ commit }, filteredList) {
-      commit('SHOW_FILTERED_EVENTS', filteredList);
+      commit("SHOW_FILTERED_EVENTS", filteredList);
     },
     showPagination({ commit }, boolean) {
-      commit('SHOW_PAGINATION', boolean);
+      commit("SHOW_PAGINATION", boolean);
     },
     showPageList({ commit }, list) {
-      commit('SHOW_PAGE_LIST', list);
+      commit("SHOW_PAGE_LIST", list);
     },
     divideList({ commit }, pageNumber) {
       let list = [];
       let min = 12 * (pageNumber - 1);
       let max = (min + 11) > store.state.currentListEvents ? store.state.currentListEvents.length : min + 11;
       list = store.state.currentListEvents.slice(min, max + 1);
-      commit('DIVIDE_LIST', list);
-      commit('SET_PAGE_ID', pageNumber);
+      commit("DIVIDE_LIST", list);
+      commit("SET_PAGE_ID", pageNumber);
     }
   }
 });

@@ -64,7 +64,7 @@ export default {
         <img v-if="event.bookmark" src="/img/icons/bookmark-selected.svg" />
         <img v-else src="/img/icons/bookmark.svg" />
       </div>
-      <img :src="event.photoEvent" />
+      <img :src="event.photoEvent" :alt="event.nameEvent" />
       <div class="tooltip">
         <img v-if="event.free" src="/img/icons/gratis.svg" alt="Evento GRATUITO" />
         <img v-else src="/img/icons/Pago-euro.svg" alt="Evento de PAGO" />
@@ -77,7 +77,6 @@ export default {
       <p>{{ event.cityLocation }}</p>
       <p v-if="event.dateFinal">{{ this.dateText(event) }}</p>
       <p v-else>Solo el {{ this.dateFormat(event.dateStart, true) }}</p>
-      <!--  //! P -->
       <div class="icons-bar">
         <div v-if="event.charity">
           <img src="/img/icons/Charity.svg" />
