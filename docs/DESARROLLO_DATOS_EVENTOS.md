@@ -9,6 +9,7 @@
   - [1. No hay una subida automática de los eventos.](#1-no-hay-una-subida-automática-de-los-eventos)
   - [2. No tienen ID único.](#2-no-tienen-id-único)
   - [3. El formato no sea el correcto por una errata.](#3-el-formato-no-sea-el-correcto-por-una-errata)
+    - [¿Cómo hacer que evalue los datos requeridos?](#cómo-hacer-que-evalue-los-datos-requeridos)
   - [4. La datos no están ordenados cronológicamente](#4-la-datos-no-están-ordenados-cronológicamente)
   - [5. Los eventos que duran todo el año ocupan las primeras páginas.](#5-los-eventos-que-duran-todo-el-año-ocupan-las-primeras-páginas)
   - [6. Eventos caducados](#6-eventos-caducados)
@@ -151,13 +152,15 @@ const FORMAT_EVENT_JSON=
 ```
 ```Javascript
 const IMG_DEFAULT = {
-"sports":"URL",
-"sports":"URL",
-"sports":"URL",
-"sports":"URL",
-"sports":"URL",
-"sports":"URL",
-"sports":"URL"
+  "Christmas": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702830/anac-event/n09ohrh26ibjrdkcl0hn.jpg",
+  "Kids": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702188/anac-event/sc9em1zyhi9eb7vxstww.jpg",
+  "Play": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702830/anac-event/n09ohrh26ibjrdkcl0hn.jpg",
+  "Music": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702565/anac-event/vs0qyxhhmddcmohbjcey.jpg",
+  "Sports": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641986533/anac-event/krtwgwvgh8yb099xuenn.jpg",
+  "Theatre": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702467/anac-event/ywwnxmyxfcz4zherp5uc.jpg",
+  "Party": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702188/anac-event/zgzbobpjjys002ppjp2z.jpg",
+  "Food": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702346/anac-event/ygitsiwf0idmvvcvo28a.jpg",
+  "Museum": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643703039/anac-event/qkktbvgyyjcm2l4clwiz.jpg"
 }
 ```
 
@@ -279,7 +282,14 @@ const eventWrongDate ={
   checkProperty(eventWrong.nameEvent)     --> (false)
   checkProperty(eventDateWrong.dateFinal) --> (true)
   checkProperty(eventWrong.categories)    --> (true)
-
+```
+### ¿Cómo hacer que evalue los datos requeridos?
+Para poder decidir esto hay que examinar que se quiere hacer:
+- Que los datos mínimos de los eventos estén y se encuentren en el formato necesario
+- Que los datos mínimos estén y si se encuentran más datos que también no requeridos también esten correctos
+- En las funciones que formatean el dato habría que ver que devuelven
+-
+```
   Para todas que todas las categorias necesarias esten bien.
   checkRequired(event)      --> (true)
   checkRequired(eventWrong) --> (false)
