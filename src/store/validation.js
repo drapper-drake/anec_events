@@ -83,7 +83,7 @@ const FORMAT_EVENT_JSON =
   }
 }
 export function getBookMarkLocalStorage(ID_Item = "bookmark") {
-  const EVENTS_BOOKMARKED = [];
+  let EVENTS_BOOKMARKED = [];
   if (localStorage.getItem(ID_Item) != null) {
     EVENTS_BOOKMARKED = JSON.parse(localStorage.getItem("bookmark"));
   }
