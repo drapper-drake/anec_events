@@ -3,6 +3,7 @@ import Home from '@/views/Home.vue'
 import Cookies from '@/views/AppCookies.vue'
 import Privacy from '@/views/AppPrivacy.vue'
 import Event from '@/views/AppEvent.vue'
+import Robots from '@/views/GoRobots.vue'
 
 const routes = [
   {
@@ -27,7 +28,8 @@ const routes = [
   },
   {
     path: '/robots.txt',
-    name: 'robots'
+    name: 'robots',
+    component: Robots,
   },
   {
     path: '/:pathMatch(.*)*',
