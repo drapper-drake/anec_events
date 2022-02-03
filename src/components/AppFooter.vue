@@ -8,13 +8,17 @@
       <div class="w-48 flex flex-col gap-4">
         <p>Síguenos</p>
         <div class="flex justify-around">
-          <a href="https://twitter.com/anecevents" target="_blank">
+          <a href="https://twitter.com/anecevents" target="_blank" rel="noopener">
             <img class="w-8 h-8" src="/img/icons/twitter.svg" alt="Twitter" />
           </a>
-          <a href="https://www.facebook.com/%C3%80nec-Events-111784064715714" target="_blank">
+          <a
+            href="https://www.facebook.com/%C3%80nec-Events-111784064715714"
+            target="_blank"
+            rel="noopener"
+          >
             <img class="w-8 h-8" src="/img/icons/facebook.svg" alt="Facebook" />
           </a>
-          <a href="https://www.instagram.com/anecevents" target="_blank">
+          <a href="https://www.instagram.com/anecevents" target="_blank" rel="noopener">
             <img class="w-8 h-8" src="/img/icons/instagram.svg" alt="Instagram" />
           </a>
         </div>
