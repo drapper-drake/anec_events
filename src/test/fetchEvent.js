@@ -1,5 +1,3 @@
-const { eventOutDate } = require("./event-data-test");
-
 const IMG_DEFAULT = {
   "Christmas": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702830/anac-event/n09ohrh26ibjrdkcl0hn.jpg",
   "Kids": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702188/anac-event/sc9em1zyhi9eb7vxstww.jpg",
@@ -106,24 +104,14 @@ function BookMarkLocalStorage(ID_Item = "bookmark") {
   }
   return EVENTS_BOOKMARKED;
 }
-function addComplementaryData() {
-  return;
-}
+
 // Si lo ha podido hacer con exito devuelve el evento? o un true
 function checkFormatData(event, property) {
   let Type_Category_Event = ''
   if (property === 'dateStart' || property === 'dateFinal') {
     const dateEvent = new Date(event[property])
     Type_Category_Event = dateEvent.constructor.name
-  }
-  // else if (property === 'price') {
-  //   console.log(event[property])
-  //   const parseNumber = isNaN(event[property])
-  //     ? event[property]
-  //     : Number(event[property])
-  //   Type_Category_Event = parseNumber.constructor.name
-  // }
-  else {
+  } else {
     Type_Category_Event = event[property].constructor.name
   }
   const Correct_Type = FORMAT_EVENT_JSON[property]['type'].name;
@@ -136,7 +124,7 @@ function hasAllPropsValidFormat(event) {
       const isValid = checkFormatData(event, property)
       listForCheckProps.push(isValid) // ? Para hacer un array si todas las propìedades tienen el formato necesario
     } else if (!event[property] && property.required) {
-      //!No borrar es para desarrollo
+      // ! No borrar es para desarrollo
       // console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
       return false;
     }
@@ -163,38 +151,39 @@ function isCurrentEventActive(eventCurrent) {
   }
   return false;
 }
-
-
-function fetchEvents(url) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      let fetchedEvents = [];
-      // data es un array de eventos
-      for (let event of data) {
-        //Es un generador de Id basados en el nombre del evento
-        let idEvent = event.nameEvent;
-        idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-        if (localStorage.getItem("bookmark") != null) {
-          let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
-          this.arrayBookMark = uploadEvents;
-        }
-        event.bookmark = this.arrayBookMark.includes(idEvent);
-        event.id = idEvent;
-        //hace directamente la función changeformadData
-        event.dateStart = new Date(event.dateStart);
-        if (event.hasOwnProperty("dateFinal")) {
-          event.dateFinal = new Date(event.dateFinal);
-        }
-        if (hasAllPropsValidFormat(event) && isCurrentEventActive(event)) {
-          fetchedEvents.push(event);
-        } else {
-          console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
-        }
+let arrayBookMark = [];
+function parseFetch(list) {
+  let fetchedEvents = [];
+  console.log(list)
+  for (let event of list) {
+    //Es un generador de Id basados en el nombre del evento
+    let idEvent = event.nameEvent;
+    idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
+    // if (localStorage.getItem("bookmark") != null) {
+    //   let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
+    //   this.arrayBookMark = uploadEvents;
+    // }
+    event.bookmark = arrayBookMark.includes(idEvent);
+    event.id = idEvent;
+    //hace directamente la función changeformadData
+    event.dateStart = new Date(event.dateStart);
+    if (event.hasOwnProperty("dateFinal")) {
+      event.dateFinal = new Date(event.dateFinal);
+    }
+    if (hasAllPropsValidFormat(event)) {
+      if (isCurrentEventActive(event)) {
+        fetchedEvents.push(event);
       }
-      fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
-    })
+    } else {
+      console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
+    }
+  }
+  fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
+  return fetchedEvents;
 }
+
+
+
 module.exports = {
-  fetchEvents, checkAndCorrectData: checkFormatData, IMG_DEFAULT, isCurrentEventActive, hasAllPropsValidFormat, addComplementaryData
+  parseFetch, checkAndCorrectData: checkFormatData, IMG_DEFAULT, isCurrentEventActive, hasAllPropsValidFormat
 }

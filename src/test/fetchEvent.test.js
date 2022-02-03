@@ -1,8 +1,10 @@
-const { fetchEvents, hasAllPropsValidFormat, isCurrentEventActive, checkAndCorrectData: checkFormatData } = require('./fetchEvent');
+const { parseFetch, hasAllPropsValidFormat, isCurrentEventActive, checkAndCorrectData: checkFormatData } = require('./fetchEvent');
 const { event, eventWrong, eventWrongDate, eventInRangeDate, eventOutDate } = require('./event-data-test');
+const { listEvent } = require('./mocks/fake-list-events')
+const { responseCorrect } = require('./mocks/response-correct')
 
 describe('Comprobación de requeridos y formato del evento, sin cambiar el dato', () => {
-  test('Si el nombre del evento esta bien', () => {//Hacer pequeños array de eventos para los test
+  test('Si el nombre del evento esta bien', () => {
     expect(checkFormatData(event, 'nameEvent')).toBeTruthy();
   })
   test('Si el nombre del evento esta mal', () => {
@@ -20,11 +22,6 @@ describe('Comprobación de requeridos y formato del evento, sin cambiar el dato'
   test('Si el precio esta mal', () => {
     expect(checkFormatData(eventWrong, 'price')).toBeFalsy();
   })
-  // ! Aqui yo estoy forzando a que entre cuando no tiene ese dato
-  // ! Por lo que el test estaría mal
-  // test('Si no existen fechas para el evento', () => {
-  //   expect(checkFormatData(eventWrongDate, 'dateStart')).toBeFalsy();
-  // })
   test('Si a la fecha le falta un 0', () => {
     expect(checkFormatData(eventWrong, 'dateStart')).toBeTruthy();
   })
@@ -53,4 +50,8 @@ describe('Comprobación de que el evento no haya pasado el día actual', () => {
   })
 })
 
-//Falta comprobar que una vez ejecutados todos estos eventos no se carga ninguno más de lo necesario
+describe('Comprobar que no se introducen los datos ', () => {
+  test('Un array formateado con datos erroneos y validos', () => {
+    expect(parseFetch(listEvent)).toBe(responseCorrect);
+  });
+})

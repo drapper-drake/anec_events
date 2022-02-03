@@ -1,4 +1,4 @@
-[
+const listEvent = [
   {
     "nameEvent": "evento 1",
     "free": false,
@@ -88,7 +88,7 @@
     "linkTickets": "link"
   },
   {
-    "nameEvent": "evento 4 todo el año",
+    "nameEvent": "evento 4, todo el año",
     "free": true,
     "price": 10.0,
     "site": "Dirección.",
@@ -122,3 +122,4 @@
     "linkTickets": "link"
   }
 ]
+module.exports = { listEvent }
