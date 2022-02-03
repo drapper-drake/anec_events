@@ -63,10 +63,12 @@ export default {
         v-if="this.$store.state.showPagination"
         class="flex flex-row flex-wrap justify-center gap-2 p-6"
     >
-        <ChevronLeft class="page-unselected" @click="changePage(1)" />
-        <div v-for="number in pagination()">
-            <button :class="pageSelection[number - 1]" @click="changePage(number)">{{ number }}</button>
+        <ChevronLeft class="page-unselected h-[50px]" @click="changePage(1)" />
+        <div class="w-[200px] flex bg-purple overflow-x-scroll">
+            <div v-for="number in pagination()">
+                <button :class="pageSelection[number - 1]" @click="changePage(number)">{{ number }}</button>
+            </div>
         </div>
-        <ChevronRigth class="page-unselected" @click="changePage(this.pagination())" />
+        <ChevronRigth class="page-unselected h-[50px]" @click="changePage(this.pagination())" />
     </div>
 </template>
