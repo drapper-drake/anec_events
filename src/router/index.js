@@ -26,9 +26,13 @@ const routes = [
     component: Privacy,
   },
   {
+    path: '/robots.txt',
+    name: 'robots'
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'page404',
-    component: () => import('../views/Page404.vue')
+    component: () => import('../views/Page404.vue'),
  }
 ]
 
