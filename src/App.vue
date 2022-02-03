@@ -6,7 +6,7 @@ import UpButton from '@/components/UpButton.vue'
 
 
 <template>
-  <div class="w-full flex flex-col min-h-screen bg-light pt-40">
+  <div class="w-full flex flex-col h-screen bg-light pt-40">
     <AppHeader />
     <router-view></router-view>
     <UpButton />
