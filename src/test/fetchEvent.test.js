@@ -52,6 +52,6 @@ describe('Comprobación de que el evento no haya pasado el día actual', () => {
 
 describe('Comprobar que no se introducen los datos ', () => {
   test('Un array formateado con datos erroneos y validos', () => {
-    expect(parseFetch(listEvent)).toBe(responseCorrect);
+    expect(parseFetch(listEvent)).toEqual(responseCorrect);
   });
 })

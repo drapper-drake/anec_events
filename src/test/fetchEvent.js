@@ -119,13 +119,12 @@ function checkFormatData(event, property) {
 }
 function hasAllPropsValidFormat(event) {
   let listForCheckProps = [];
-  for (property in FORMAT_EVENT_JSON) {
+  for (let property in FORMAT_EVENT_JSON) {
     if (event[property]) {
       const isValid = checkFormatData(event, property)
       listForCheckProps.push(isValid) // ? Para hacer un array si todas las propìedades tienen el formato necesario
-    } else if (!event[property] && property.required) {
-      // ! No borrar es para desarrollo
-      // console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
+    } else if (event[property] === undefined && property.required) {
+      console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
       return false;
     }
   }
@@ -154,7 +153,6 @@ function isCurrentEventActive(eventCurrent) {
 let arrayBookMark = [];
 function parseFetch(list) {
   let fetchedEvents = [];
-  console.log(list)
   for (let event of list) {
     //Es un generador de Id basados en el nombre del evento
     let idEvent = event.nameEvent;
@@ -170,15 +168,15 @@ function parseFetch(list) {
     if (event.hasOwnProperty("dateFinal")) {
       event.dateFinal = new Date(event.dateFinal);
     }
-    if (hasAllPropsValidFormat(event)) {
-      if (isCurrentEventActive(event)) {
-        fetchedEvents.push(event);
-      }
-    } else {
+    if (hasAllPropsValidFormat(event) === true && isCurrentEventActive(event) === true) {
+      fetchedEvents.push(event);
+    }
+    else {
       console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
     }
   }
   fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
+  console.info(fetchedEvents)
   return fetchedEvents;
 }
 
