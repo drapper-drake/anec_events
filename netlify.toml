@@ -3,7 +3,3 @@
   to = "/index.html"
   status = 200
 
-[[redirects]]
-  from = "/robot.txt"
-  to = "/robot.txt"
-  status = 200

@@ -63,7 +63,7 @@
     @apply w-full h-40 relative;
   }
   .photoEvent > img {
-    @apply w-full h-full object-cover rounded-tl-2xl rounded-tr-2xl;
+    @apply  object-cover rounded-tl-2xl rounded-tr-2xl;
   }
 
   .info-card {
