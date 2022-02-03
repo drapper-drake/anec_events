@@ -64,7 +64,7 @@ export default {
         class="flex flex-row flex-wrap justify-center gap-2 p-6"
     >
         <ChevronLeft class="page-unselected h-[42px]" @click="changePage(1)" />
-        <div class="container-pagination w-[100px] md:w-[200px] flex bg-purple overflow-x-scroll">
+        <div class="container-pagination w-[100px] md:w-[200px] flex overflow-x-scroll">
             <div v-for="number in pagination()">
                 <button :class="pageSelection[number - 1]" @click="changePage(number)">{{ number }}</button>
             </div>
