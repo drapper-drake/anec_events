@@ -64,7 +64,7 @@ export default {
         class="flex flex-row flex-wrap justify-center gap-2 p-6"
     >
         <ChevronLeft class="page-unselected h-[42px]" @click="changePage(1)" />
-        <div class="w-[100px] md:w-[200px] flex bg-purple overflow-x-scroll">
+        <div class="container-pagination w-[100px] md:w-[200px] flex bg-purple overflow-x-scroll">
             <div v-for="number in pagination()">
                 <button :class="pageSelection[number - 1]" @click="changePage(number)">{{ number }}</button>
             </div>
@@ -72,3 +72,17 @@ export default {
         <ChevronRigth class="page-unselected h-[42px]" @click="changePage(this.pagination())" />
     </div>
 </template>
+
+<style scoped>
+.container-pagination::-webkit-scrollbar-track {
+    height: 5px;
+    background-color: #f2f2f2;
+}
+.container-pagination::-webkit-scrollbar {
+    height: 10px;
+}
+.container-pagination::-webkit-scrollbar-thumb {
+    background-color: #ffa438; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+}
+</style>
