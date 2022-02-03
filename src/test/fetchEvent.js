@@ -179,9 +179,37 @@ function parseFetch(list) {
   console.info(fetchedEvents)
   return fetchedEvents;
 }
-
+function fetchEvents(url) {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      let fetchedEvents = [];
+      // data es un array de eventos
+      for (let event of data) {
+        //Es un generador de Id basados en el nombre del evento
+        let idEvent = event.nameEvent;
+        idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
+        event.id = idEvent;
+        // event.bookmark = getBookMarkLocalStorage().includes(idEvent);
+        event.bookmark = arrayBookMark.includes(idEvent);
+        //hace directamente la función changeformadData
+        event.dateStart = new Date(event.dateStart);
+        if (event.hasOwnProperty("dateFinal")) {
+          event.dateFinal = new Date(event.dateFinal);
+        }
+        if (hasAllPropsValidFormat(event) === true && isCurrentEventActive(event) === true) {
+          fetchedEvents.push(event);
+        }
+        else {
+          console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
+        }
+      }
+      fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
+      return fetchedEvents;
+    })
+}
 
 
 module.exports = {
-  parseFetch, checkAndCorrectData: checkFormatData, IMG_DEFAULT, isCurrentEventActive, hasAllPropsValidFormat
+  fetchEvents, parseFetch, checkAndCorrectData: checkFormatData, IMG_DEFAULT, isCurrentEventActive, hasAllPropsValidFormat
 }
