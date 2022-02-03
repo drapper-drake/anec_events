@@ -51,7 +51,7 @@ const store = createStore({
             event.bookmark = getBookMarkLocalStorage().includes(idEvent);
             event.id = idEvent;
             //Reajusta el tamaño de las imágenes de las tarjetas desde la URL
-            event.photoEvent = event.photoEvent.replace("upload", "upload/w_500").replace("jpg", "webp"); 
+            event.photoEvent = event.photoEvent.replace("upload", "upload/w_500").replace("jpg", "webp");
             //hace directamente la función changeFormatData
             event.dateStart = new Date(event.dateStart);
             if (event.hasOwnProperty("dateFinal")) {
@@ -62,11 +62,11 @@ const store = createStore({
             }
             else {
               // ! Hay que quitarlo para producción
-              console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
+              // console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
             }
           }
           fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
-          console.warn("Todos los console.error de eventos son intencionados, hay que recordar quitarlos para producción")
+          // console.warn("Todos los console.error de eventos son intencionados, hay que recordar quitarlos para producción")
           commit("FETCH_EVENTS", fetchedEvents);
           commit("SHOW_ALL", fetchedEvents);
 
