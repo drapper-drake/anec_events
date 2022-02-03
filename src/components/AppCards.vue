@@ -61,8 +61,8 @@ export default {
   >
     <div class="photoEvent">
       <div class="bookmark" @click.stop="this.$emit('selectedBookmark', event.id)">
-        <img v-if="event.bookmark" src="/img/icons/bookmark-selected.svg" />
-        <img v-else src="/img/icons/bookmark.svg" />
+        <img v-if="event.bookmark" src="/img/icons/bookmark-selected.svg" alt="Añadir a favoritos" />
+        <img v-else src="/img/icons/bookmark.svg" alt="Añadir a favoritos" />
       </div>
       <img :src="event.photoEvent" :alt="event.nameEvent" />
       <div class="tooltip">
@@ -83,7 +83,10 @@ export default {
           <p>Benéfico</p>
         </div>
         <div v-for="category in event.category">
-          <img :src="listSrcCategories[category].iconEvent" />
+          <img
+            :src="listSrcCategories[category].iconEvent"
+            :alt="listSrcCategories[category].nameIconEvent"
+          />
           <p>{{ listSrcCategories[category].nameIconEvent }}</p>
         </div>
       </div>

@@ -1,6 +1,6 @@
 <script>
 import ChevronLeft from "@/components/ChevronLeft.vue"
-import ChevronRigth from "@/components/ChevronRigth.vue"
+import ChevronRight from "@/components/ChevronRight.vue"
 export default {
     data() {
         return {
@@ -10,7 +10,7 @@ export default {
     },
     components: {
         ChevronLeft,
-        ChevronRigth
+        ChevronRight
     },
     methods: {
         initialPage() {
@@ -67,6 +67,6 @@ export default {
         <div v-for="number in pagination()">
             <button :class="pageSelection[number - 1]" @click="changePage(number)">{{ number }}</button>
         </div>
-        <ChevronRigth class="page-unselected" @click="changePage(this.pagination())" />
+        <ChevronRight class="page-unselected" @click="changePage(this.pagination())" />
     </div>
 </template>

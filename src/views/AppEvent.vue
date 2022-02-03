@@ -6,8 +6,16 @@
           <div class="top-info">
             <div class="img-container">
               <img :src="eventID.photoEvent" />
-              <div @click="selectedBookmark(this.eventID.id)" class="bookmarkEvent">
-                <img v-if="eventID.bookmark" src="/img/icons/bookmark-selected.svg" />
+              <div
+                @click="selectedBookmark(this.eventID.id)"
+                class="bookmarkEvent"
+                alt="Añadir a favoritos"
+              >
+                <img
+                  v-if="eventID.bookmark"
+                  src="/img/icons/bookmark-selected.svg"
+                  alt="Añadir a favoritos"
+                />
                 <img v-else src="/img/icons/bookmark.svg" />
               </div>
             </div>
@@ -15,7 +23,11 @@
               <h2 class="title-ev">{{ eventID.nameEvent }}</h2>
               <div class="flex">
                 <div v-for="category in eventID.category" class="category">
-                  <img :src="listSrcCategories[category].iconEventDark" class="labelsSvg" />
+                  <img
+                    :src="listSrcCategories[category].iconEventDark"
+                    class="labelsSvg"
+                    :alt="listSrcCategories[category].nameIconEvent"
+                  />
                   <p>{{ listSrcCategories[category].nameIconEvent }}</p>
                 </div>
               </div>
@@ -56,16 +68,19 @@
                 @click="socialRed(eventID, 'Twitter')"
                 src="/img/icons/twitterBlack.svg"
                 class="icon-social"
+                alt="Compartir en Twitter"
               />
               <img
                 @click="socialRed(eventID, 'Facebook')"
                 src="/img/icons/fb-icon.svg"
                 class="icon-social"
+                alt="Compartir en Facebook"
               />
               <img
                 @click="socialRed(eventID, 'Email')"
                 src="/img/icons/Email-icon.svg"
                 class="icon-social"
+                alt="Enviar por correo"
               />
             </div>
           </div>
@@ -73,6 +88,7 @@
             <p class="contText"></p>
             <div class="map">
               <iframe
+                :title="eventID.site"
                 class="iframe-map"
                 :src="`https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&q=${eventID.site}`"
                 :width="widthIframe"
@@ -82,16 +98,6 @@
               ></iframe>
             </div>
           </div>
-        </div>
-        <div class="more-events-container hidden">
-          <div class="arrows-container">
-            <h3 class="titleOtherEv">Otros eventos:</h3>
-            <div class="arrows">
-              <img src="/img/icons/arrow-left.svg" />
-              <img src="/img/icons/right-arrow.svg" />
-            </div>
-          </div>
-          <div class="more-events"></div>
         </div>
       </div>
     </main>
