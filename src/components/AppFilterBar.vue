@@ -56,6 +56,7 @@ export default {
       <button
         @click="changeStyleAndFilter('all')"
         :class="[filterCategory.all ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.all ? 'page' : 'false']"
       >
         <p>Todos</p>
       </button>
@@ -63,6 +64,7 @@ export default {
       <button
         @click="changeStyleAndFilter('bookmark')"
         :class="[filterCategory.bookmark ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.bookmark ? 'page' : 'false']"
       >
         <svg
           class="w-6 h-6 mr-1"
@@ -75,6 +77,7 @@ export default {
           <path
             d="M12.12 18.643L12 18.7629L11.868 18.643C6.168 13.4757 2.4 10.0589 2.4 6.594C2.4 4.19618 4.2 2.39782 6.6 2.39782C8.448 2.39782 10.248 3.59673 10.884 5.22725H13.116C13.752 3.59673 15.552 2.39782 17.4 2.39782C19.8 2.39782 21.6 4.19618 21.6 6.594C21.6 10.0589 17.832 13.4757 12.12 18.643ZM17.4 0C15.312 0 13.308 0.971117 12 2.49373C10.692 0.971117 8.688 0 6.6 0C2.904 0 0 2.88937 0 6.594C0 11.1139 4.08 14.8185 10.26 20.4174L12 22L13.74 20.4174C19.92 14.8185 24 11.1139 24 6.594C24 2.88937 21.096 0 17.4 0Z"
             :class="[filterCategory.bookmark ? 'fill-dark' : 'fill-light']"
+            :aria-current="[filterCategory.bookmark ? 'page' : 'false']"
           />
         </svg>
         <p>Favoritos</p>
@@ -82,6 +85,7 @@ export default {
       <button
         @click="changeStyleAndFilter('Sports')"
         :class="[filterCategory.Sports ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.Sports ? 'page' : 'false']"
       >
         <svg
           class="w-6 h-6 mr-1"
@@ -101,6 +105,7 @@ export default {
       <button
         @click="changeStyleAndFilter('Kids')"
         :class="[filterCategory.Kids ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.Kids ? 'page' : 'false']"
       >
         <svg
           class="w-6 h-6 mr-1"
@@ -143,6 +148,7 @@ export default {
       <button
         @click="changeStyleAndFilter('Food')"
         :class="[filterCategory.Food ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.Food ? 'page' : 'false']"
       >
         <svg
           class="w-6 h-6 mr-1"
@@ -162,6 +168,7 @@ export default {
       <button
         @click="changeStyleAndFilter('Music')"
         :class="[filterCategory.Music ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.Music ? 'page' : 'false']"
       >
         <svg
           class="w-6 h-6 mr-1"
@@ -181,6 +188,7 @@ export default {
       <button
         @click="changeStyleAndFilter('Theatre')"
         :class="[filterCategory.Theatre ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.Theatre ? 'page' : 'false']"
       >
         <svg
           class="w-6 h-6 mr-1"
@@ -200,6 +208,7 @@ export default {
       <button
         @click="changeStyleAndFilter('Museum')"
         :class="[filterCategory.Museum ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.Museum ? 'page' : 'false']"
       >
         <svg
           class="w-6 h-6 mr-1"
@@ -219,6 +228,7 @@ export default {
       <button
         @click="changeStyleAndFilter('Party')"
         :class="[filterCategory.Party ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.Party ? 'page' : 'false']"
       >
         <svg
           class="w-6 h-6 mr-1"
@@ -238,6 +248,7 @@ export default {
       <button
         @click="changeStyleAndFilter('Play')"
         :class="[filterCategory.Play ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[filterCategory.Play ? 'page' : 'false']"
       >
         <svg
           class="w-6 h-6 mr-1"
