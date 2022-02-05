@@ -19,10 +19,7 @@ export default {
     <div v-if="this.$store.state.activeLoading" class="h-screen">
       <div class="spinner"></div>
     </div>
-    <div
-      v-else
-      class="not-found relative w-11/12 md:w-9/12 mx-auto pb-6 lg:w-96 lg:m-0 lg:px-14 xl:w-2/5"
-    >
+    <div v-else class="not-found relative w-11/12 md:w-9/12 mx-auto pb-6 lg:m-0 lg:px-14 xl:w-2/5">
       <div>
         <p class="info-notFound text-center">{{ this.randomNumber() }}</p>
         <img
