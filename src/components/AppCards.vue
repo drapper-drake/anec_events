@@ -61,8 +61,12 @@ export default {
   >
     <div class="photoEvent">
       <div class="bookmark" @click.stop="this.$emit('selectedBookmark', event.id)">
-        <img v-if="event.bookmark" src="/img/icons/bookmark-selected.svg" alt="Añadir a favoritos" />
-        <img v-else src="/img/icons/bookmark.svg" alt="Añadir a favoritos" />
+        <button>
+          <img
+            :src="[event.bookmark ? '/img/icons/bookmark-selected.svg' : '/img/icons/bookmark.svg']"
+            alt="Añadir a favoritos"
+          />
+        </button>
       </div>
       <img :src="event.photoEvent" :alt="event.nameEvent" class="w-[316px] h-[160px]" />
       <div class="tooltip">
