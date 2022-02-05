@@ -3011,5 +3011,48 @@
     "comments": "En este curso vamos a exponer las oportunidades que ofrece el podcasting como herramienta de comunicación. Veremos de forma práctica cómo elaborar un podcast desde cero, con los requerimientos de equipo técnico básico para comenzar a grabar un podcast con una inversión económica mínima. Además, expondremos estrategias de marketing online para promocionar el podcast. Finalmente, veremos cómo podemos hacer crecer la audiencia de nuestro podcast para ganar mayor visibilidad, así como las estrategias de monetización existentes para conseguir ingresos con nuestro contenido.",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092035/Universidad_de_Alicante_-_Curso_de_introducci%C3%B3n_al_podcasting_mimlrz.jpg",
     "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/curso-de-introduccion-al-podcasting.html"
+  },
+  {
+    "nameEvent": "Jornadas de El Plat de Calent",
+    "free": false,
+    "site": "Camí l'Institut & Carrer a Llargues, 03590 Altea, Alicante",
+    "cityLocation": "Altea",
+    "village": true,
+    "dateStart": "2022/02/18",
+    "dateFinal": "2022/02/27",
+    "category": [
+      "Food"
+    ],
+    "comments": "Los amantes de la buena gastronomía están de enhorabuena. Del 18 al 27 de Febrero podrán disfrutar de unos menús de comida mediterránea con productos de la zona.Un año más estás jornadas consolidan que la gastronomía de Altea sigue de moda, en este caso son 10 restaurantes de los mejores fogones de la localidad: La clau, Casa Vital, La Maja, Ca Pere, Melitón jardín, Mallol, Asambra, Mister X, El cantó de Palasiet y Bon Vent.Además de degustar los menús de la Jornada también podrás participar valorando y accediendo así al sorteo de numerosos premios.Por supuesto toda la información acerca de menús y restaurantes participantes la tendrás muy pronto disponible en la App gratuita de Gastroeventos.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/c_scale,h_350/v1644096949/anac-event/hunte5n2gfjun7ilqnqf.jpg",
+    "linkTickets": "http://www.gastroeventos.com/noticia_Detalle.php?id=560"
+  },
+  {
+    "nameEvent": "San Valentín en Restaurante Mallol",
+    "free": false,
+    "site": "Calle Ctra. -V, 80, 03599 Altea la Vella, Alicante",
+    "cityLocation": "Altea",
+    "village": true,
+    "dateStart": "2022/02/12",
+    "category": [
+      "Food"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1644097644/anac-event/axrsjhnwuerlqynflxip.jpg",
+    "linkTickets": "http://www.gastroeventos.com/noticia_Detalle.php?id=559"
+  },
+  {
+    "nameEvent": "Bodegas Volver",
+    "free": false,
+    "price": 20,
+    "site": "Ctra de Pinoso a Fortuna s/n 03650, Alicante",
+    "cityLocation": "Alicante",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Food"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1644098738/anac-event/fsk06rsbry80nhzlwksj.webp",
+    "linkTickets": "https://www.groupon.es/deals/bodegas-volver-s-l#merchant-map-header"
   }
 ]
