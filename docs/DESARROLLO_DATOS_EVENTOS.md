@@ -64,7 +64,7 @@ const FORMAT_EVENT_JSON=
     },
     //Precio del evento
     "price": {
-      type: Boolean,
+      type: Number,
       required: false, //Creo que no todos los eventos quede pago lo tienen.
     },
     //Ubicación donde acontece el evento
