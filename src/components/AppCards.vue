@@ -64,7 +64,7 @@ export default {
         <img v-if="event.bookmark" src="/img/icons/bookmark-selected.svg" alt="Añadir a favoritos" />
         <img v-else src="/img/icons/bookmark.svg" alt="Añadir a favoritos" />
       </div>
-      <img :src="event.photoEvent" :alt="event.nameEvent" class="w-[316px] h-[160px]" />
+      <img :src="event.photoEvent" :alt="event.nameEvent" class="w-full h-[160px]" />
       <div class="tooltip">
         <img v-if="event.free" src="/img/icons/gratis.svg" alt="Evento GRATUITO" />
         <img v-else src="/img/icons/Pago-euro.svg" alt="Evento de PAGO" />
