@@ -2,18 +2,7 @@
 export default {
   data() {
     return {
-      filterCategory: {
-        all: true,
-        bookmark: false,
-        Sports: false,
-        Kids: false,
-        Food: false,
-        Music: false,
-        Theatre: false,
-        Museum: false,
-        Party: false,
-        Play: false
-      }
+      filterCategory: this.$store.state.filterCategory
     }
   },
 

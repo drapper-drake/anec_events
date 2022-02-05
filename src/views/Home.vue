@@ -6,7 +6,6 @@ import AppFilterBar from "@/components/AppFilterBar.vue";
 import AppPagination from "@/components/AppPagination.vue";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import AppFilterDate from "../components/AppFilterDate.vue";
-// import PruebaPagination from "../components/PruebaPagination.vue";
 
 export default {
   data() {
@@ -21,7 +20,6 @@ export default {
     AppPagination,
     LoadingSpinner,
     AppFilterDate,
-    // PruebaPagination
   },
 
   methods: {

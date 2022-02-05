@@ -10,7 +10,19 @@ const store = createStore({
       activeLoading: true,
       showPagination: false,
       pagedList: [],
-      pageId: 0
+      pageId: 0,
+      filterCategory: {
+        all: true,
+        bookmark: false,
+        Sports: false,
+        Kids: false,
+        Food: false,
+        Music: false,
+        Theatre: false,
+        Museum: false,
+        Party: false,
+        Play: false
+      }
     }
   },
   mutations: {
