@@ -3054,5 +3054,53 @@
     ],
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1644098738/anac-event/fsk06rsbry80nhzlwksj.webp",
     "linkTickets": "https://www.groupon.es/deals/bodegas-volver-s-l#merchant-map-header"
+  },
+  {
+    "nameEvent": "Domingos de Carretera",
+    "free": false,
+    "price": 15,
+    "hoursOpen": "9:00",
+    "site": "Indian de la carretera de Ocaña y Indian Laseda. Av. Locutor Vicente Hipólito, 39, 03540 Alicante",
+    "cityLocation": "Alicante",
+    "village": true,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Sports"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1644100202/anac-event/z0euqo70lp6moyda21q3.jpg",
+    "linkTickets": "https://entradas1.tomaticket.es/es/events/domingos-de-carretera"
+  },
+  {
+    "nameEvent": "Copity-La Ruta de Laseda",
+    "free": false,
+    "price": 15,
+    "hoursOpen": "9:00",
+    "site": "Laseda Gastro Village. Avenida Locutor Vicente Hipólito, 39.",
+    "cityLocation": "Alicante",
+    "village": false,
+    "dateStart": "2022/01/01",
+    "dateFinal": "2022/12/31",
+    "category": [
+      "Food"
+    ],
+    "comments": "Domingos. Copity, Pepito Brillo, La Bendita, Xeven, Fiera y Las terrazas de Palmer unen fuerzas para traerte una ruta de tapeo y tardeo que arranca todos los domingos desde las 12h donde podrás disfrutar d1 tapa + 1 consumición en Xeven.1 tapa + 1 consumición en La Bendita.1 tapa + 1 consumición en Pepito Brillo.1 tapa + 1 consumición en Fiera.Arroz + 1 consumición + Postre en Las Terrazas de Palmer.1 copa en Copity.En total disfrutarás de 5 consumiciones + 4 tapas + arroz + postre + copa.Entrada anticipada para los 50 primeros: 15€.Después, entrada anticipada hasta el día antes de la celebración de La Ruta: 18€.Entrada en taquilla: 20€.Consumo en terraza, ubicación según disponibilidad.Horario de comidas: de 12h a 15h.Parking gratuito 24h.Laseda Gastro Village.",
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/c_scale,h_350/v1644100676/anac-event/bg9mhxxsw5lf3toadi8o.png",
+    "linkTickets": "https://entradas1.tomaticket.es/es/events/copity-la-ruta-de-laseda/sessions/27-02-2022-12-00-laseda-gastro-village"
+  },
+  {
+    "nameEvent": "Nito Serrano y Lapurasangre",
+    "free": false,
+    "price": 12,
+    "hoursOpen": "20:30",
+    "site": "El Refugio del Poeta, Poeta Miguel Hernandez, 73, 3201 ELCHE",
+    "cityLocation": "Elche",
+    "village": true,
+    "dateStart": "2022/03/26",
+    "category": [
+      "Music"
+    ],
+    "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1644101176/anac-event/z0aqvmknx5zjsaczmfr1.jpg",
+    "linkTickets": "https://www.entradas.com/event/nito-serrano-y-la-purasangre-el-refugio-del-poeta-14632067/"
   }
 ]
