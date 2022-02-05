@@ -2793,5 +2793,223 @@
     "comments": "En 2022 la Cuaresma dura desde el miércoles 2 de marzo hasta el jueves 14 de abril, y los “Menús viernes de Cuaresma” se servirán sólo los viernes 4, 11, 18, 25 de marzo, 1 y 8 de abril. Debéis tener en cuenta para la elaboración de los platos típicos de los viernes de Cuaresma, que los ingredientes no pueden incluir ni carnes ni embutidos. Sí que están admitidos todo tipo de pescados, verduras y legumbres; así como los dulces, que se convierten en el plato estrella (gracias a que los lácteos y los huevos, que en un principio estaban prohibidos, hace tiempo que fueron excluidos de las restricciones del ayuno pascual). Los platos de Cuaresma suelen ser consistentes y con gran capacidad de saciar el apetito, para evitar la tentación de comer carne. Los restaurantes participantes podrán ofrecer su menú o bien en los seis viernes cuaresmales, o bien sólo en alguno de los viernes a su elección (en la ficha hay un apartado donde hay que indicarlo). Los únicos requisitos para poder participar son que el establecimiento esté asociado a APEHA y al corriente de pago. El restaurante interesado ha de cumplimentar la ficha de inscripción que se adjunta, detallando el menú con el que participará: serán menús con un precio libre indicándolo  con IVA incluido, por la austeridad que requiere este periodo; quedando a decisión del establecimiento si el precio incluye la bebida o no. El menú consistirá en entrantes (en el número que se considere oportuno), un plato principal típico de Cuaresma, y postre. Y es imprescindible especificar si el menú es apto para celíacos o se les puede adaptar (ya que hay un numeroso grupo de celíacos interesados en este evento).",
     "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1643635815/Jornadas_Gastron%C3%B3micas_Viernes_de_cuaresma_-_Alicante_-_Recortado_edwple.png",
     "linkTickets": "https://www.alicantehosteleria.com/inscripcion-jornadas-de-cuaresma-tapa-y-menus-viernes"
+  },
+  {
+    "nameEvent": "Curso de Fotografía Creativa",
+    "free": false,
+    "price": 65,
+    "site": "Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "13:00",
+    "dateStart": "2022/02/26",
+    "dateFinal": "2022/05/28",
+    "category": [
+      "Play"
+    ],
+    "comments": "En este curso aprenderemos a mirar la realidad de una manera creativa y a mejorar el manejo de nuestra cámara fotográfica. A través de ejercicios prácticos y visionados de fotografías resolveremos dudas de técnica fotográfica y aprenderemos a realizar mejores fotografías en diferentes contextos y situaciones.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092034/Universidad_de_Alicante_-_Curso_Fotograf%C3%ADa_Creativa_przlw7.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/curso-de-fotografia-creativa.html"
+  },
+  {
+    "nameEvent": "Taller de Pintura Gestual",
+    "free": false,
+    "price": 70,
+    "site": "Sede Universitaria Ciudad de Alicante. Av. de Ramón y Cajal, 4, 03001 Alicante.",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "10:00",
+    "hoursClose": "13:00",
+    "dateStart": "2022/03/07",
+    "dateFinal": "2022/05/30",
+    "category": [
+      "Play"
+    ],
+    "comments": "Objetivos del curso: Vencer los miedos, tener más seguridad y valentía, pintar con rapidez para conseguir formas y colores que jamás podíamos imaginar. Sorprendernos en cada pincelada con la huella de nuestro gesto cargado de nuestra energía.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092035/Universidad_de_Alicante_-_Taller_de_Pintura_Gestual_ngxzgt.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/taller-de-pintura-gestual.html"
+  },
+  {
+    "nameEvent": "Cómo se escribe un Thriller. Las reglas del juego",
+    "free": false,
+    "price": 65,
+    "site": "Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "16:00",
+    "hoursClose": "19:00",
+    "dateStart": "2022/03/03",
+    "dateFinal": "2022/05/26",
+    "category": [
+      "Play"
+    ],
+    "comments": "Cada clase constará de una sesión práctica de taller literario y una teórico-histórica para el conocimiento del género negro-criminal. Cada alumno/a elegirá desde el primer día un planteamiento argumental y, sobre esa base, avanzará durante cada sesión en la escritura de su relato. Se trata de que, a lo largo del curso-taller, se consigan las bases y la metodología para ejercitar los distintos aspectos narrativos en la escritura de un relato criminal.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092311/Universidad_de_Alicante_-_C%C3%B3mo_se_escribe_un_thriller._Las_reglas_del_juego_p21sox.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/como-se-escribe-un-thriller-las-reglas-del-juego.html"
+  },
+  {
+    "nameEvent": "Cine en versión original en Sede San Fernando",
+    "free": false,
+    "price": 50,
+    "site": "Sede San Fernando, 03001 Alicante.",
+    "cityLocation": "Alicante",
+    "village": false,
+    "hoursOpen": "18:30",
+    "dateStart": "2022/02/17",
+    "dateFinal": "2022/05/19",
+    "category": [
+      "Play"
+    ],
+    "comments": "Este ciclo de cine, con presentación previa del film a cargo de un experto y debate posterior con los asistentes, pretende profundizar en los entresijos del Séptimo Arte y cubrir un vacío de la Universidad de Alicante, que no cuenta con estudios superiores en este ámbito.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092035/Universidad_de_Alicante_-_Cine_en_versi%C3%B3n_original_xwipcm.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/cine-en-version-original-en-sede-san-fernando.html"
+  },
+  {
+    "nameEvent": "Vídeo digital para dummies del siglo XXI",
+    "free": false,
+    "price": 40,
+    "site": "Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "19:00",
+    "dateStart": "2022/02/25",
+    "dateFinal": "2022/03/18",
+    "category": [
+      "Play"
+    ],
+    "comments": "Con el curso los alumnos obtendrán los conocimientos mínimos necesarios para crear una pieza básica audiovisual en una computadora. Se introducirá a todo el proceso que conlleva la realización de una breve pieza de video, desde la grabación del material desde cualquier soporte básico, cámara, móvil, tablet, etc. al uso básico del software de edición, cómo editar el material grabado y la correcta exportación del video.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092035/Universidad_de_Alicante_-_Edicion_de_v%C3%ADdeo_para_dummies_ol0iws.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/video-digital-para-dummies-del-siglo-xxi.html"
+  },
+  {
+    "nameEvent": "El collage como ténica creativa",
+    "free": false,
+    "price": 60,
+    "site": "MUA. Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "14:00",
+    "dateStart": "2022/03/05",
+    "dateFinal": "2022/04/09",
+    "category": [
+      "Play"
+    ],
+    "comments": "El collage como técnica creativa manual de fácil acceso a la complejidad de la imagen gráfica. Inicialmente a partir de papeles y material impreso, cúter, tijeras y pegamento, se realizan ejercicios de corta ejecución. Aprenderemos conceptos de comunicación visual mediante la experimentación. Posteriormente irán incorporándose materiales y conceptos a la medida individual de cada persona. Desarrollaremos así de manera grata y productiva, nuestra creatividad personal a nivel gráfico y conceptual. Es un curso al que puede acceder en general cualquier persona con inquietud artística y en particular estudiantes relacionados con la imagen visual gráfica.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092035/Universidad_de_Alicante_-_El_collage_como_t%C3%A9cnica_creativa_clstx6.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/el-collage-como-tecnica-creativa-de-expresion-y-creatividad.html"
+  },
+  {
+    "nameEvent": "Percusión latina",
+    "free": false,
+    "price": 60,
+    "site": "Paraninfo de la Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "19:00",
+    "hoursClose": "20:30",
+    "dateStart": "2022/03/08",
+    "dateFinal": "2022/05/24",
+    "category": [
+      "Play",
+      "Music"
+    ],
+    "comments": "El objetivo es que el alumno, tenga una primera toma de contacto con la percusión latina y afro-cubana, para que,  a partir de este taller, pueda seguir profundizando en la música latina. En este periodo nos adentraremos en el estudio de los diversos patrones rítmicos que contienen los principales instrumentos de la percusión latina.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092035/Universidad_de_Alicante_-_Percusi%C3%B3n_latina_lcreft.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/percusion-latina.html"
+  },
+  {
+    "nameEvent": "Taller de comunicación oral",
+    "free": false,
+    "price": 80,
+    "site": "Paraninfo de la Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "16:00",
+    "hoursClose": "20:00",
+    "dateStart": "2022/03/04",
+    "dateFinal": "2022/05/27",
+    "category": [
+      "Play"
+    ],
+    "comments": "El taller va dirigido a todas aquellas personas que necesitan en el ejercicio de su oficio o profesión dirigirse a una audiencia y  requieren el aprendizaje  de técnicas de comunicación y expresión oral para enfrentarse a un público.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092036/Universidad_de_Alicante_-_Taller_de_Comunicaci%C3%B3n_Oral_lohenp.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/taller-de-comunicacion-oral.html"
+  },
+  {
+    "nameEvent": "Taller de creación escénica contemporánea",
+    "free": false,
+    "price": 65,
+    "site": "Paraninfo de la Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2022/04/02",
+    "dateFinal": "2022/04/10",
+    "category": [
+      "Play",
+      "Theatre"
+    ],
+    "comments": "El taller tiene como objetivo ofrecer los recursos que crean de forma consciente un trozo de realidad. Nos ofrece la comprensión que lo que hay fuera de nosotros es un hecho objetivo y lo que percibimos proviene de nuestra subjetividad. Para descubrir este mecanismo nos centraremos en la creación de metáforas de la realidad, ahondando en su campo semántico, es decir, en los significados que como creadores podemos aportar, y asumiendo la responsabilidad de la creación y nuestra capacidad para transformarla a través de códigos artísticos.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092035/Universidad_de_Alicante_-_Taller_de_creaci%C3%B3n_esc%C3%A9nica_contempor%C3%A1nea_kuxo2f.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/taller-de-creacion-escenica-contemporanea-la-realidad-como-metafora.html"
+  },
+  {
+    "nameEvent": "Descubriendo nuestro clown",
+    "free": false,
+    "price": 35,
+    "site": "Paraninfo de la Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "20:00",
+    "dateStart": "2022/05/07",
+    "dateFinal": "2022/05/08",
+    "category": [
+      "Play",
+      "Theatre"
+    ],
+    "comments": "El trabajo principal del curso será dejar salir nuestro payaso/a interior, comunicarnos con los otros usando nuestra propia forma de ser, aprender a reírnos de nosotros, con nosotros y con los otros, mirarnos y mirar desde otra perspectiva para así conocernos un poco más. De esta manera, descubrir nuestro clown se convierte en una apasionante aventura, divertida y liberadora, adecuada para cualquier persona, profesional del teatro o no.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092401/Universidad_de_Alicante_-_Descubriendo_nuestro_clown_a4dpcw.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/descubriendo-nuestro-clown.html"
+  },
+  {
+    "nameEvent": "Desmontando narrativas y miradas aprendidas",
+    "free": false,
+    "price": 60,
+    "site": "Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "14:00",
+    "dateStart": "2022/03/16",
+    "dateFinal": "2022/04/13",
+    "category": [
+      "Play"
+    ],
+    "comments": "A través de las narrativas culturales se construyen relatos que representan realidades ficticias de cómo ha sido naturalizado y perpetuado desde el arte y los medios, entre otras manifestaciones de la producción cultural, un discurso que reproduce la violencia de género. Es por este motivo que urge analizar las narrativas en la que se naturaliza la violencia, la desigualdad y la dominación masculina contra las mujeres. ¿En qué medida podemos desaprender las violencias que aparecen en las narrativas culturales? para responder a esta cuestión, se construirá un mapa visual colectivo que cartografíe la proyección de las distintas producciones que exaltan la violencia contra las mujeres y que se analizarán durante el curso.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092034/Universidad_de_Alicante_-_Desmontando_narrativas_y_miradas_aprendidas_ktvzqu.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/desmontando-narrativas-y-miradas-aprendidas.html"
+  },
+  {
+    "nameEvent": "Curso de introducción al podcasting",
+    "free": false,
+    "price": 40,
+    "site": "Universidad de Alicante, 03690 San Vicente del Raspeig.",
+    "cityLocation": "San Vicente del Raspeig",
+    "village": true,
+    "hoursOpen": "10:00",
+    "hoursClose": "14:00",
+    "dateStart": "2022/03/08",
+    "dateFinal": "2022/04/07",
+    "category": [
+      "Play"
+    ],
+    "comments": "En este curso vamos a exponer las oportunidades que ofrece el podcasting como herramienta de comunicación. Veremos de forma práctica cómo elaborar un podcast desde cero, con los requerimientos de equipo técnico básico para comenzar a grabar un podcast con una inversión económica mínima. Además, expondremos estrategias de marketing online para promocionar el podcast. Finalmente, veremos cómo podemos hacer crecer la audiencia de nuestro podcast para ganar mayor visibilidad, así como las estrategias de monetización existentes para conseguir ingresos con nuestro contenido.",
+    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1644092035/Universidad_de_Alicante_-_Curso_de_introducci%C3%B3n_al_podcasting_mimlrz.jpg",
+    "linkTickets": "https://cultura.ua.es/es/talleres/2021-22/2/curso-de-introduccion-al-podcasting.html"
   }
 ]
