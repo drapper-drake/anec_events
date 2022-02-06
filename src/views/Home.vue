@@ -5,7 +5,8 @@ import { listSrcCategories } from "@/listSrcTitlesCategories";
 import AppFilterBar from "@/components/AppFilterBar.vue";
 import AppPagination from "@/components/AppPagination.vue";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
-import AppFilterDate from "../components/AppFilterDate.vue";
+import AppFilterDate from "@/components/AppFilterDate.vue";
+import AppFilterFree from '@/components/AppFilterFree.vue';
 // import PruebaPagination from "../components/PruebaPagination.vue";
 
 export default {
@@ -21,6 +22,7 @@ export default {
     AppPagination,
     LoadingSpinner,
     AppFilterDate,
+    AppFilterFree
     // PruebaPagination
   },
 
@@ -69,6 +71,7 @@ export default {
   <div id="home">
     <AppFilterBar />
     <AppFilterDate />
+    <AppFilterFree />
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div
         v-if="this.$store.state.currentListEvents.length"
