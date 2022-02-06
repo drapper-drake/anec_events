@@ -56,7 +56,7 @@ const store = createStore({
         .then((data) => {
           let fetchedEvents = [];
           // data es un array de eventos
-          for (let event of data) {
+          data.forEach(event => {
             //Es un generador de Id basados en el nombre del evento
             let idEvent = event.nameEvent;
             idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
@@ -76,7 +76,7 @@ const store = createStore({
               // ! Hay que quitarlo para producción
               // console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
             }
-          }
+          })
           fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
           // console.warn("Todos los console.error de eventos son intencionados, hay que recordar quitarlos para producción")
           commit("FETCH_EVENTS", fetchedEvents);
