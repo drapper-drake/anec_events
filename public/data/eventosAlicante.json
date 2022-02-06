@@ -3015,7 +3015,8 @@
   {
     "nameEvent": "Jornadas de El Plat de Calent",
     "free": false,
-    "site": "Camí l'Institut & Carrer a Llargues, 03590 Altea, Alicante",
+    "price": 25,
+    "site": "El Cantó del Palasiet. Camí l'Institut y Carrer a Llargues, 03590 Altea",
     "cityLocation": "Altea",
     "village": true,
     "dateStart": "2022/02/18",
@@ -3023,7 +3024,7 @@
     "category": [
       "Food"
     ],
-    "comments": "Los amantes de la buena gastronomía están de enhorabuena. Del 18 al 27 de Febrero podrán disfrutar de unos menús de comida mediterránea con productos de la zona.Un año más estás jornadas consolidan que la gastronomía de Altea sigue de moda, en este caso son 10 restaurantes de los mejores fogones de la localidad: La clau, Casa Vital, La Maja, Ca Pere, Melitón jardín, Mallol, Asambra, Mister X, El cantó de Palasiet y Bon Vent.Además de degustar los menús de la Jornada también podrás participar valorando y accediendo así al sorteo de numerosos premios.Por supuesto toda la información acerca de menús y restaurantes participantes la tendrás muy pronto disponible en la App gratuita de Gastroeventos.",
+    "comments": "Los amantes de la buena gastronomía están de enhorabuena. Del 18 al 27 de Febrero podrán disfrutar de unos menús de comida mediterránea con productos de la zona.Un año más estás jornadas consolidan que la gastronomía de Altea sigue de moda, en este caso son 10 restaurantes de los mejores fogones de la localidad: La clau, Casa Vital, La Maja, Ca Pere, Melitón jardín, Mallol, Asambra, Mister X, El cantó de Palasiet y Bon Vent.Además de degustar los menús de la Jornada también podrás participar valorando y accediendo así al sorteo de numerosos premios. Por supuesto toda la información acerca de menús y restaurantes participantes la tendrás muy pronto disponible en la App gratuita de Gastroeventos.",
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/c_scale,h_350/v1644096949/anac-event/hunte5n2gfjun7ilqnqf.jpg",
     "linkTickets": "http://www.gastroeventos.com/noticia_Detalle.php?id=560"
   },
