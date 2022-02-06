@@ -56,7 +56,7 @@
   }
 
   .container-card {
-    @apply  rounded-2xl text-base cursor-pointer font-sans;
+    @apply  rounded-2xl text-base cursor-pointer font-sans flex flex-col-reverse;
     box-shadow: 0px 10px 12px 4px #00000050;
   }
   .photoEvent {
@@ -110,27 +110,6 @@
   }
 
   /* New page styles*/
-  .container-info-page {
-    @apply md:shadow-2xl mb-8 text-lg  py-3.5;
-  }
-  .info-container {
-    @apply md:border-solid;
-  }
-  .top-info {
-    @apply flex flex-col  justify-around items-center md:flex-row;
-  }
-  .img-container {
-    @apply p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-screen-sm relative;
-  }
-  .img-container img {
-    @apply w-full rounded-2xl;
-  }
-  .info-event {
-    @apply flex flex-col  gap-2 relative md:max-w-sm lg:max-w-sm;
-  }
-  .title-ev {
-    @apply text-center font-serif text-3xl font-bold p-5;
-  }
   .category {
     @apply flex justify-start gap-2 py-1 px-2;
   }
@@ -139,26 +118,12 @@
     @apply -ml-1 w-[22px] h-[22px];
   }
 
-  .city-location {
-    @apply flex justify-start items-center gap-2 py-1 px-2 rounded;
-  }
-  .date {
-    @apply flex justify-start items-center gap-2 py-1 px-2 rounded;
-  }
-  .hours {
-    @apply flex justify-start items-center gap-2 py-1 px-2 rounded;
+  .info-icon-event {
+    @apply flex flex-row justify-start items-center gap-2 py-1 px-2 rounded;
   }
   .btn-calendar {
     @apply mt-3.5 font-sans bg-dark self-center text-light rounded-md cursor-pointer transition-all delay-150 hover:bg-contrast-bg-light px-6 py-1;
   }
-  .price {
-    @apply flex justify-start items-center self-start py-2 rounded;
-  }
-
-  .price img {
-    @apply relative top-1;
-  }
-
   .share-bar {
     @apply flex flex-col content-center justify-around h-36 mt-5 md:flex-row md:border-y md:border-neutral-300 border-opacity-5;
   }
@@ -168,41 +133,8 @@
   .share-icon {
     @apply h-10  flex flex-row justify-center items-center mb-5 md:self-center md:mb-0 ;
   }
-  .share-text {
-    @apply text-bg-light text-base pl-4 font-bold ;
-  }
   .container-social {
     @apply flex flex-row justify-evenly md:self-center md:w-1/5;
-  }
-  .bottom-info {
-    @apply flex flex-col p-5 text-justify;
-  }
-  .icon-social{
-    @apply cursor-pointer;
-  }
-  .contText {
-    @apply pb-9;
-  }
-  .map {
-    @apply self-center;
-  }
-  .iframe-map {
-    @apply pb-4;
-  }
-  .more-events-container {
-    @apply w-11/12 self-center pt-5;
-  }
-  .arrows-container {
-    @apply flex flex-row justify-between;
-  }
-  .titleOtherEv {
-    @apply md:text-xl;
-  }
-  .arrows {
-    @apply flex;
-  }
-  .more-events {
-    @apply p-5 md:w-full md:flex;
   }
 }
 
