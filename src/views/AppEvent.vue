@@ -214,7 +214,7 @@ export default {
       const urlDinamic = window.location.href
       const ShareURL = {
         Twitter: `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic}&hashtags=${event.category[0]},${event.cityLocation}`,
-        Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`,
+        Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=https://testing.anecevents.com/`,
         Email: `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic}`
       }
       window.open(ShareURL[social], "_blank");
