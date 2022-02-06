@@ -1,35 +1,20 @@
 <template>
   <div class="w-full flex flex-row justify-center items-center my-4">
-    <input id="check" type="checkbox" class="w-3 h-3" v-model="free" />
-    <label
-      for="check"
-      class="m-1 w-44 font-sans font-bold text-sm text-bg-light"
-    >Solo eventos GRATUITOS</label>
+    <button
+      class="m-1 w-52 font-sans font-bold cursor-pointer rounded text-dark bg-links-cta border-2 border-solid border-links-cta shadow-md hover:bg-light hover:border-dark"
+      @click="filterFree"
+    >Solo eventos GRATUITOS</button>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      free: false
-    }
-  },
   methods: {
     filterFree() {
-      let listFilterFree = [];
-      if (this.free) {
-        listFilterFree = this.$store.state.currentListEvents.filter(event => event.free);
-        this.$store.dispatch('showFilteredEvents', listFilterFree);
-        this.$store.dispatch('divideList', 1);
-      }
-    }
-  },
-  watch: {
-    free() {
-      this.filterFree();
+      const listFilterFree = this.$store.state.currentListEvents.filter(event => event.free);
+      this.$store.dispatch('showFilteredEvents', listFilterFree);
+      this.$store.dispatch('divideList', 1);
     }
   }
 }
-// ! Intentar que se deseleccione al cambiar de categoría
 </script>
