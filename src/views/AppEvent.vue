@@ -229,26 +229,17 @@ export default {
     <meta property="og:url" */
       let metaTags = document.querySelectorAll('meta')
       console.log("🚀 ~ file: AppEvent.vue ~ line 231 ~ updateMetaEvent ~ metaTags", metaTags)
-      let metaUrl = metaTags[10]
-      let metaImg = metaTags[7]
-      let metaDescription = metaTags[6]
-      let metaTitle = metaTags[5]
-      metaUrl.content = window.location
-      metaTitle.content = this.eventID.nameEvent
+      let metaImg = metaTags[6]
       if(this.eventID.photoEvent){
         metaImg.content = this.eventID.photoEvent
       }else {
         metaImg.content = 'https://res.cloudinary.com/ddn278n2q/image/upload/v1639930066/anac-event/wmeglyi4jawokzyptoql.jpg'
       }
-      if(this.eventID.comments){
-      metaDescription.content = this.eventID.comments
-      }else {
-      metaDescription.content = ''
-      }
 
 
 
-      console.log(metaUrl, metaImg,metaDescription,metaTitle)
+
+      console.log(metaImg)
     }
   },
   mounted() {
