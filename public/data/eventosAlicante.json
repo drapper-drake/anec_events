@@ -3015,7 +3015,8 @@
   {
     "nameEvent": "Jornadas de El Plat de Calent",
     "free": false,
-    "site": "Camí l'Institut & Carrer a Llargues, 03590 Altea, Alicante",
+    "price": 25,
+    "site": "El Cantó del Palasiet. Camí l'Institut y Carrer a Llargues, 03590 Altea",
     "cityLocation": "Altea",
     "village": true,
     "dateStart": "2022/02/18",
