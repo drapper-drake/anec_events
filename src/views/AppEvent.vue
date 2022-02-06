@@ -211,6 +211,8 @@ export default {
       return price;
     },
     socialRed(event, social) {
+      this.updateMetaEvent();
+
       const urlDinamic = window.location.href
       const ShareURL = {
         Twitter: `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic}&hashtags=${event.category[0]},${event.cityLocation}`,
@@ -254,7 +256,6 @@ export default {
       }
       this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
       this.eventID = this.eventID[0];
-        this.updateMetaEvent()
       return this.eventID
     }
   },
