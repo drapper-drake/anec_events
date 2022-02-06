@@ -37,7 +37,7 @@
     <div class="flex flex-wrap justify-center items-center mb-2 gap-2">
       <img class="w-4 h-4" src="/img/Favicon.svg" alt="Logo" />
       <p>Ànec Events.</p>
-      <p>Desarrollado por Dapper Drake</p>
+      <router-link to="/dapperdrake">Desarrollado por Dapper Drake</router-link>
     </div>
   </footer>
 </template>
