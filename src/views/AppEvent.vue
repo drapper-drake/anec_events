@@ -226,10 +226,41 @@ export default {
         Email: `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic}`
       }
       window.open(ShareURL[social], "_blank");
+    },
+    updateMetaEvent(){
+      /**
+        <meta property="og:locale" content="es_ES" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Diseño web Valladolid. Páginas web, posicionamiento SEO y SEM" />
+    <meta property="og:description" content="Diseño web Valladolid: desarrollos a medida, páginas web en WordPress, tiendas online Prestashop o WooCommerce" />
+    <meta property="og:image" content="https://www.tictacsoluciones.com/uploads/mi-imagen.jpg">
+    <meta property="og:url" */
+      let metaTags = document.querySelectorAll('meta')
+      let metaUrl = metaTags[8]
+      let metaImg = metaTags[7]
+      let metaDescription = metaTags[6]
+      let metaTitle = metaTags[5]
+      metaUrl.content = window.location
+      metaTitle.content = this.eventID.nameEvent
+      if(this.eventID.photoEvent){
+        metaImg.content = this.eventID.photoEvent
+      }else {
+        metaImg.content = 'https://res.cloudinary.com/ddn278n2q/image/upload/v1639930066/anac-event/wmeglyi4jawokzyptoql.jpg'
+      }
+      if(this.eventID.comments){
+      metaDescription.content = this.eventID.comments
+      }else {
+      metaDescription.content = ''
+      }
+
+
+
+      console.log(metaUrl, metaImg,metaDescription,metaTitle)
     }
   },
   mounted() {
     window.scrollTo(0, 0)
+
   },
 
   computed: {
@@ -239,6 +270,7 @@ export default {
       }
       this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
       this.eventID = this.eventID[0];
+        this.updateMetaEvent()
       return this.eventID
     }
   },
