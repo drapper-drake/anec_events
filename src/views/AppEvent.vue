@@ -228,7 +228,8 @@ export default {
     <meta property="og:image" content="https://www.tictacsoluciones.com/uploads/mi-imagen.jpg">
     <meta property="og:url" */
       let metaTags = document.querySelectorAll('meta')
-      let metaUrl = metaTags[8]
+      console.log("🚀 ~ file: AppEvent.vue ~ line 231 ~ updateMetaEvent ~ metaTags", metaTags)
+      let metaUrl = metaTags[10]
       let metaImg = metaTags[7]
       let metaDescription = metaTags[6]
       let metaTitle = metaTags[5]
