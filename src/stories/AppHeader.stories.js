@@ -6,7 +6,8 @@ export default {
   component: AppHeader,
   argTypes: {
     onRestartFilter: {action: "restartFilter"},
-    
+    backgroundColor: {control: 'color'},
+    color: {control: 'color'}
   }
 };
 
