@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;1,400;1,500&family=Lobster&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap%27");
+/* @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;1,400;1,500&family=Lobster&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap%27"); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,7 +10,36 @@
 .page-404{
   min-height: calc(100vh - 310px);
 }
-
+@layer base {
+  @font-face {
+    font-family: 'Be Vietnam Pro';
+    font-weight: 400;
+    src:
+      url('/fonts/BeVietnamPro/BeVietnam-400.woff') format('woff'),
+      url('/fonts/BeVietnamPro/BeVietnam-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Merriweather';
+    font-weight: 700;
+    src:
+      url('/fonts/Merriweather/Merriweather-700.woff') format('woff'),
+      url('/fonts/Merriweather/Merriweather-700.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Merriweather';
+    font-weight: 500;
+    src:
+      url('/fonts/Merriweather/Merriweather-500.woff') format('woff'),
+      url('/fonts/Merriweather/Merriweather-500.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Lobster';
+    font-weight: 400;
+    src:
+      url('/fonts/Lobster.woff') format('woff'),
+      url('/fonts/Lobster.ttf') format('truetype');
+  }
+}
 @layer components {
   .filter-selected{
     @apply flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded;
