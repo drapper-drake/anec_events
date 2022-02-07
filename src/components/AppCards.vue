@@ -72,11 +72,14 @@ export default {
       <div class="icons-bar">
         <p class="sr-only">Categorias del evento:</p>
         <div v-if="event.charity">
-          <img src="/img/icons/Charity.svg" alt=" " />
+          <img src="/img/icons/Charity.svg" alt="Icono de Benéfico" />
           <p>Benéfico</p>
         </div>
         <div v-for="category in event.category">
-          <img :src="listSrcCategories[category].iconEvent" alt=" " />
+          <img
+            :src="listSrcCategories[category].iconEvent"
+            :alt="'Icono de' + listSrcCategories[category].iconEvent"
+          />
           <p>{{ listSrcCategories[category].nameIconEvent }}</p>
         </div>
       </div>
@@ -100,6 +103,7 @@ export default {
       </div>
     </div>
   </div>
+
 </template>
 
 <style scoped>

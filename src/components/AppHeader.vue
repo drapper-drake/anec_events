@@ -1,19 +1,19 @@
 <script>
 export default {
-  data(){
-    return{
-       filterCategory: this.$store.state.filterCategory
+  data() {
+    return {
+      filterCategory: this.$store.state.filterCategory
     }
   },
   methods: {
-    restartFilter(){
+    restartFilter() {
       let list = [...this.$store.state.allEvents];
-          this.$store.dispatch('showAll', list);
-          this.$store.dispatch('divideList', 1);
+      this.$store.dispatch('showAll', list);
+      this.$store.dispatch('divideList', 1);
 
       for (let property in this.filterCategory) {
         this.filterCategory[property] = false;
-      this.filterCategory['all'] = true;
+        this.filterCategory['all'] = true;
       }
     },
   },
@@ -28,7 +28,7 @@ export default {
   >
     <router-link @click="restartFilter" to="/" class="flex items-center">
       <div class="ml-2.5 flex justify-center items-center gap-4 md:ml-0 cursor-pointer">
-        <img class="w-12 h-12 md:w-16 md:h-16" src="/img/Favicon.svg" alt=" " />
+        <img class="w-12 h-12 md:w-16 md:h-16" src="/img/Favicon.svg" alt="Logo Ànec Events" />
         <h1 class="name-web font-cursive text-4xl text-links-cta md:text-6xl">Ànec events</h1>
       </div>
     </router-link>
