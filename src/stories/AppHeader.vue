@@ -5,7 +5,7 @@
   >
     <a  class="flex items-center">
       <div class="ml-2.5 flex justify-center items-center gap-4 md:ml-0 cursor-pointer">
-        <img class="w-12 h-12 md:w-16 md:h-16" src="/img/Favicon.svg" alt=" " />
+        <img class="w-12 h-12 md:w-16 md:h-16" src="/img/Favicon.svg" alt="Loco Anec Events" />
         <h1
           :style="style"
           class="name-web font-cursive text-4xl text-links-cta md:text-6xl"

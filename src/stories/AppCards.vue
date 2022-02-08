@@ -12,7 +12,7 @@
         <div class="icons-bar">
           <p class="sr-only">Categorias del evento:</p>
           <div v-for="index in category">
-            <img :src="listCategory[index].iconEvent" alt=" " />
+            <img :src="listCategory[index].iconEvent" alt="Icono de categoría" />
             <p>{{ listCategory[index].nameIconEvent }}</p>
           </div>
         </div>
@@ -27,7 +27,7 @@
             <span class="tooltip-text">Añadir a favoritos</span>
           </button>
         </div>
-        <img :src="photoEvent" class="w-full h-[160px]" />
+        <img :src="photoEvent" alt="Foto del evento" class="w-full h-[160px]" />
         <div class="tooltip">
           <img v-if="free" src="/img/icons/gratis.svg" alt="Evento GRATUITO" />
           <img v-else src="/img/icons/Pago-euro.svg" alt="Evento de PAGO" />

@@ -29,8 +29,8 @@
         <a href="mailto:eoidapperdrake@gmail.com">eoidapperdrake@gmail.com</a>
       </div>
       <div class="flex flex-col gap-4">
-        <router-link to="/privacy">Aviso Legal</router-link>
-        <router-link to="/cookies">Política de Cookies</router-link>
+        <a to="/privacy">Aviso Legal</a>
+        <a to="/cookies">Política de Cookies</a>
       </div>
     </div>
     <div class="flex flex-wrap justify-center items-center mb-2 gap-2">

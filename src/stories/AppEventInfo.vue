@@ -6,36 +6,36 @@
           <div class="flex flex-col gap-2 relative md:max-w-sm lg:max-w-sm">
             <h2 class="text-center font-serif text-3xl font-bold p-5" tabindex="0">{{ nameEvent }}</h2>
             <div class="info-icon-event" tabindex="0">
-              <img src="/img/icons/euro.svg" alt=" " />
+              <img src="/img/icons/euro.svg" alt="Icono de pago" />
               <p class="sr-only">Evento</p>
               <p>{{ price }}</p>
             </div>
             <div class="flex" tabindex="0">
               <p class="sr-only">Categorías del evento:</p>
               <div v-for="index in category" class="category">
-                <img :src="listCategory[index].iconEventDark" class="labelsSvg" alt=" " />
+                <img :src="listCategory[index].iconEventDark" class="labelsSvg" alt="Icono de categoría" />
                 <p>{{ listCategory[index].nameIconEvent }}</p>
               </div>
             </div>
 
             <div class="info-icon-event" tabindex="0">
-              <img src="/img/icons/location.svg" alt="Ubicación:    " class="labelsSvg" />
+              <img src="/img/icons/location.svg" alt="Ubicación" class="labelsSvg" />
               <p>{{ site }}</p>
             </div>
             <div class="info-icon-event" tabindex="0">
-              <img src="/img/icons/date.svg" alt=" " class="labelsSvg" />
+              <img src="/img/icons/date.svg" alt="Icono de fecha " class="labelsSvg" />
               <p v-if="dateFinal">{{ dateFinal }}</p>
               <p v-else>{{ dateEvent }}</p>
             </div>
             <div class="info-icon-event" tabindex="0">
-              <img src="/img/icons/Schedule.svg" alt=" " class="labelsSvg" />
+              <img src="/img/icons/Schedule.svg" alt="Icono de hora" class="labelsSvg" />
               <p>{{ hours }}</p>
             </div>
 
             <Calendar :textFilter="textButton" />
           </div>
           <div class="p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-screen-sm relative">
-            <img :src="photoEvent" class="w-full rounded-2xl" />
+            <img :src="photoEvent" class="w-full rounded-2xl" alt="Foto del evento" />
             <Bookmark :textFilter="textButton" />
           </div>
         </div>

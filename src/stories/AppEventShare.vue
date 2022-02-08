@@ -3,7 +3,7 @@
     <a v-if="linkTickets" class="btn-more-info">{{ btnInfo }}</a>
 
     <div class="share-icon gap-3">
-      <img src="/img/icons/Share.svg" alt=" " />
+      <img src="/img/icons/Share.svg" alt="Icono de compartir" />
       <p class="text-base font-bold" tabindex="0">Comparte con tus amigos</p>
     </div>
     <div class="container-social">
