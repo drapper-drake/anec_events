@@ -9,10 +9,10 @@ import IconTheatre from "./icons/IconTheatre.vue";
 import IconMusic from "./icons/IconMusic.vue";
 import IconBookmark from "./icons/IconBookmark.vue";
 import IconFood from "./icons/IconFood.vue";
-
 export default {
   components: {
     BaseIcon,
+    IconBookmark,
     IconSports,
     IconFood,
     IconKids,
@@ -24,7 +24,8 @@ export default {
   },
   data() {
     return {
-      filterCategory: this.$store.state.filterCategory
+      filterCategory: this.$store.state.filterCategory,
+      categorySelected: "all"
     };
   },
   methods: {
@@ -48,10 +49,7 @@ export default {
       }
     },
     changeStyleAndFilter(category) {
-      for (let property in this.filterCategory) {
-        this.filterCategory[property] = false;
-      }
-      this.filterCategory[category] = true;
+      this.categorySelected = category
       this.filterByCategory(category);
     }
   },
@@ -65,115 +63,115 @@ export default {
     >
       <button
         @click="changeStyleAndFilter('all')"
-        :class="[filterCategory.all ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.all ? 'page' : 'false']"
+        :class="[categorySelected === 'all' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'all' ? 'page' : 'false']"
       >Todos</button>
 
       <button
         @click="changeStyleAndFilter('bookmark')"
-        :class="[filterCategory.bookmark ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.bookmark ? 'page' : 'false']"
+        :class="[categorySelected === 'bookmark' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'bookmark' ? 'page' : 'false']"
       >
-        <BaseIcon>
+        <BaseIcon width="19" height="19" iconName="bookmark">
           <IconBookmark
-            :class="[filterCategory.bookmark ? 'fill-dark' : 'fill-light']"
-            :aria-current="[filterCategory.bookmark ? 'page' : 'false']"
+            :class="[categorySelected === 'bookmark' ? 'fill-dark' : 'fill-light']"
+            :aria-current="[categorySelected === 'bookmark' ? 'page' : 'false']"
           ></IconBookmark>
         </BaseIcon>Favoritos
       </button>
       <button
         @click="changeStyleAndFilter('Sports')"
-        :class="[filterCategory.Sports ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.Sports ? 'page' : 'false']"
+        :class="[categorySelected === 'Sports' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'Sports' ? 'page' : 'false']"
       >
-        <BaseIcon>
+        <BaseIcon iconName="sports">
           <IconSports
-            :class="[filterCategory.Sports ? 'fill-dark' : 'fill-light']"
-            :aria-current="[filterCategory.Sports ? 'page' : 'false']"
+            :class="[categorySelected === 'Sports' ? 'fill-dark' : 'fill-light']"
+            :aria-current="[categorySelected === 'Sports' ? 'page' : 'false']"
           ></IconSports>
         </BaseIcon>Deporte
       </button>
       <button
         @click="changeStyleAndFilter('Kids')"
-        :class="[filterCategory.Kids ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.Kids ? 'page' : 'false']"
+        :class="[categorySelected === 'Kids' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'Kids' ? 'page' : 'false']"
       >
-        <BaseIcon>
+        <BaseIcon icon-name="kids">
           <IconKids
-            :class="[filterCategory.Kids ? 'fill-dark' : 'fill-light']"
-            :aria-current="[filterCategory.Kids ? 'page' : 'false']"
+            :class="[categorySelected === 'Kids' ? 'fill-dark' : 'fill-light']"
+            :aria-current="[categorySelected === 'Kids' ? 'page' : 'false']"
           ></IconKids>
         </BaseIcon>Infantil
       </button>
       <button
         @click="changeStyleAndFilter('Food')"
-        :class="[filterCategory.Food ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.Food ? 'page' : 'false']"
+        :class="[categorySelected === 'Food' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'Food' ? 'page' : 'false']"
       >
-        <BaseIcon>
+        <BaseIcon iconName="food">
           <IconFood
-            :class="[filterCategory.Food ? 'fill-dark' : 'fill-light']"
-            :aria-current="[filterCategory.Food ? 'page' : 'false']"
+            :class="[categorySelected === 'Food' ? 'fill-dark' : 'fill-light']"
+            :aria-current="[categorySelected === 'Food' ? 'page' : 'false']"
           ></IconFood>
         </BaseIcon>Gastrónomico
       </button>
       <button
         @click="changeStyleAndFilter('Music')"
-        :class="[filterCategory.Music ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.Music ? 'page' : 'false']"
+        :class="[categorySelected === 'Music' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'Music' ? 'page' : 'false']"
       >
-        <BaseIcon>
+        <BaseIcon iconName="music">
           <IconMusic
-            :class="[filterCategory.Music ? 'fill-dark' : 'fill-light']"
-            :aria-current="[filterCategory.Music ? 'page' : 'false']"
+            :class="[categorySelected === 'Music' ? 'fill-dark' : 'fill-light']"
+            :aria-current="[categorySelected === 'Music' ? 'page' : 'false']"
           ></IconMusic>
         </BaseIcon>Música
       </button>
       <button
         @click="changeStyleAndFilter('Theatre')"
-        :class="[filterCategory.Theatre ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.Theatre ? 'page' : 'false']"
+        :class="[categorySelected === 'Theatre' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'Theatre' ? 'page' : 'false']"
       >
-        <BaseIcon>
+        <BaseIcon iconName="theatre">
           <IconTheatre
-            :class="[filterCategory.TheIconTheatre ? 'fill-dark' : 'fill-light']"
-            :aria-current="[filterCategory.TheIconTheatre ? 'page' : 'false']"
+            :class="[categorySelected === 'Theatre' ? 'fill-dark' : 'fill-light']"
+            :aria-current="[categorySelected === 'Theatre' ? 'page' : 'false']"
           ></IconTheatre>
         </BaseIcon>Teatro
       </button>
       <button
         @click="changeStyleAndFilter('Museum')"
-        :class="[filterCategory.Museum ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.Museum ? 'page' : 'false']"
+        :class="[categorySelected === 'Museum' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'Museum' ? 'page' : 'false']"
       >
-        <BaseIcon>
+        <BaseIcon iconName="museum">
           <IconMuseum
-            :class="[filterCategory.Museum ? 'fill-dark' : 'fill-light']"
-            :aria-current="[filterCategory.Museum ? 'page' : 'false']"
+            :class="[categorySelected === 'Museum' ? 'fill-dark' : 'fill-light']"
+            :aria-current="[categorySelected === 'Museum' ? 'page' : 'false']"
           ></IconMuseum>
         </BaseIcon>Museos
       </button>
       <button
         @click="changeStyleAndFilter('Party')"
-        :class="[filterCategory.Party ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.Party ? 'page' : 'false']"
+        :class="[categorySelected === 'Party' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'Party' ? 'page' : 'false']"
       >
-        <BaseIcon>
+        <BaseIcon iconName="party">
           <IconParty
-            :class="[filterCategory.Party ? 'fill-dark' : 'fill-light']"
-            :aria-current="[filterCategory.Party ? 'page' : 'false']"
+            :class="[categorySelected === 'Party' ? 'fill-dark' : 'fill-light']"
+            :aria-current="[categorySelected === 'Party' ? 'page' : 'false']"
           ></IconParty>
         </BaseIcon>Fiestas
       </button>
       <button
         @click="changeStyleAndFilter('Play')"
-        :class="[filterCategory.Play ? 'filter-selected' : 'filter-unselected']"
-        :aria-current="[filterCategory.Play ? 'page' : 'false']"
+        :class="[categorySelected === 'Play' ? 'filter-selected' : 'filter-unselected']"
+        :aria-current="[categorySelected === 'Play' ? 'page' : 'false']"
       >
-        <BaseIcon>
+        <BaseIcon iconName="play">
           <IconPlay
-            :class="[filterCategory.Play ? 'fill-dark' : 'fill-light']"
-            :aria-current="[filterCategory.Play ? 'page' : 'false']"
+            :class="[categorySelected === 'Play' ? 'fill-dark' : 'fill-light']"
+            :aria-current="[categorySelected === 'Play' ? 'page' : 'false']"
           ></IconPlay>
         </BaseIcon>Lúdico
       </button>
