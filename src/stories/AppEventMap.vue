@@ -1,7 +1,4 @@
 <template>
-  <main class="text-bg-light mb-8 flex flex-col items-center">
-    <div class="container md:shadow-2xl text-lg py-3.5">
-      <div class="md:border-solid">
         <div :style="style" class="flex flex-col p-5 text-justify items-center">
           <div v-if="comments" class="py-4 w-3/4 text -justify self-center" tabindex="0">
             <p>{{ comments }}</p>
@@ -18,9 +15,6 @@
             ></iframe>
           </div>
         </div>
-      </div>
-    </div>
-  </main>
 </template>
 
 <script>

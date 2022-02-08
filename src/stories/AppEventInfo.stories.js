@@ -6,7 +6,7 @@ export default {
   argTypes: {
     backgroundColor: {control: 'color'},
     color: {control: 'color'},
-    onClick: {action: 'click'},
+    textBookmark: {control: 'text'}
   }
 };
 const Template = (args) =>({
@@ -22,9 +22,9 @@ export const EventInfo = Template.bind({});
 EventInfo.args = {
   nameEvent: 'UNA NOCHE CON LUIS COBOS',
   photoEvent: 'https://res.cloudinary.com/ddn278n2q/image/upload/w_500/v1642598144/anac-event/f3pkkwykhttwglpgfcvh.png',
-  cityLocation: 'Alicante',
   dateEvent: 'Solo el 8 FEB 2022',
   category: ['Music'],
+  textBookmark: 'Añadir a Favoritos',
   free: false,
   price: '20',
   site: 'Teatro Principal Alicante',

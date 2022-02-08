@@ -5,6 +5,7 @@ export default {
   component: Bookmark,
   argTypes: {
     onClick: {action: 'click'},
+    textBookmark: {control: 'text'}
   }
 };
 const Template = (args) =>({
@@ -18,6 +19,6 @@ const Template = (args) =>({
 
 export const btnBookmark = Template.bind({});
 btnBookmark.args = {
-  textFilter: 'Añadir al calendario'
+  textBookmark: 'Añadir a favoritos'
 };
 btnBookmark.parameters = {};

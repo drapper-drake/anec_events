@@ -5,7 +5,7 @@
         :src="[bookmarkBoolean ? '/img/icons/bookmark-selected.svg' : '/img/icons/bookmark.svg']"
         alt="Añadir a favoritos"
       />
-      <span class="tooltip-text">{{ textFilter }}</span>
+      <span class="tooltip-text">{{ textBookmark }}</span>
     </button>
   </div>
 </template>
@@ -20,7 +20,7 @@ export default {
   },
 
   props: {
-    textFilter: {
+    textBookmark: {
       type: String,
       required: true,
     },

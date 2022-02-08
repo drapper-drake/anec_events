@@ -1,8 +1,5 @@
 <template>
-  <main class="text-bg-light mb-8 flex flex-col items-center">
-    <div :style="style" class="container md:shadow-2xl text-lg py-3.5">
-      <div class="md:border-solid">
-        <div class="flex flex-col-reverse justify-around items-center md:flex-row-reverse">
+        <div :style="style" class="flex flex-col-reverse justify-around items-center md:flex-row-reverse">
           <div class="flex flex-col gap-2 relative md:max-w-sm lg:max-w-sm">
             <h2 class="text-center font-serif text-3xl font-bold p-5" tabindex="0">{{ nameEvent }}</h2>
             <div class="info-icon-event" tabindex="0">
@@ -34,14 +31,11 @@
 
             <Calendar :textFilter="textButton" />
           </div>
-          <div class="p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-screen-sm relative">
+          <div  class="p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-screen-sm relative">
             <img :src="photoEvent" class="w-full rounded-2xl" alt="Foto del evento" />
-            <Bookmark :textFilter="textButton" />
+            <Bookmark :textBookmark="textBookmark" />
           </div>
         </div>
-      </div>
-    </div>
-  </main>
 </template>
 
 <script>
@@ -78,10 +72,6 @@ export default {
       type: String,
       required: true
     },
-    cityLocation: {
-      type: String,
-      required: true,
-    },
     dateEvent: {
       type: String,
       required: true,
@@ -109,11 +99,9 @@ export default {
       type: String,
       default: 'Añadir al Calendario'
     },
-    backgroundColor: {
+    textBookmark: {
       type: String,
-    },
-    color: {
-      type: String,
+      default: 'Añadir a Favoritos'
     },
   },
 
