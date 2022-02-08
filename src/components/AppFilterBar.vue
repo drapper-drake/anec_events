@@ -73,10 +73,7 @@ export default {
         :aria-current="[categorySelected === 'bookmark' ? 'page' : 'false']"
       >
         <BaseIcon width="19" height="19" iconName="bookmark">
-          <IconBookmark
-            :class="[categorySelected === 'bookmark' ? 'fill-dark' : 'fill-light']"
-            :aria-current="[categorySelected === 'bookmark' ? 'page' : 'false']"
-          ></IconBookmark>
+          <IconBookmark></IconBookmark>
         </BaseIcon>Favoritos
       </button>
       <button
@@ -85,10 +82,7 @@ export default {
         :aria-current="[categorySelected === 'Sports' ? 'page' : 'false']"
       >
         <BaseIcon iconName="sports">
-          <IconSports
-            :class="[categorySelected === 'Sports' ? 'fill-dark' : 'fill-light']"
-            :aria-current="[categorySelected === 'Sports' ? 'page' : 'false']"
-          ></IconSports>
+          <IconSports></IconSports>
         </BaseIcon>Deporte
       </button>
       <button
@@ -97,10 +91,7 @@ export default {
         :aria-current="[categorySelected === 'Kids' ? 'page' : 'false']"
       >
         <BaseIcon icon-name="kids">
-          <IconKids
-            :class="[categorySelected === 'Kids' ? 'fill-dark' : 'fill-light']"
-            :aria-current="[categorySelected === 'Kids' ? 'page' : 'false']"
-          ></IconKids>
+          <IconKids></IconKids>
         </BaseIcon>Infantil
       </button>
       <button
@@ -109,10 +100,7 @@ export default {
         :aria-current="[categorySelected === 'Food' ? 'page' : 'false']"
       >
         <BaseIcon iconName="food">
-          <IconFood
-            :class="[categorySelected === 'Food' ? 'fill-dark' : 'fill-light']"
-            :aria-current="[categorySelected === 'Food' ? 'page' : 'false']"
-          ></IconFood>
+          <IconFood></IconFood>
         </BaseIcon>Gastrónomico
       </button>
       <button
@@ -121,10 +109,7 @@ export default {
         :aria-current="[categorySelected === 'Music' ? 'page' : 'false']"
       >
         <BaseIcon iconName="music">
-          <IconMusic
-            :class="[categorySelected === 'Music' ? 'fill-dark' : 'fill-light']"
-            :aria-current="[categorySelected === 'Music' ? 'page' : 'false']"
-          ></IconMusic>
+          <IconMusic></IconMusic>
         </BaseIcon>Música
       </button>
       <button
@@ -133,10 +118,7 @@ export default {
         :aria-current="[categorySelected === 'Theatre' ? 'page' : 'false']"
       >
         <BaseIcon iconName="theatre">
-          <IconTheatre
-            :class="[categorySelected === 'Theatre' ? 'fill-dark' : 'fill-light']"
-            :aria-current="[categorySelected === 'Theatre' ? 'page' : 'false']"
-          ></IconTheatre>
+          <IconTheatre></IconTheatre>
         </BaseIcon>Teatro
       </button>
       <button
@@ -145,10 +127,7 @@ export default {
         :aria-current="[categorySelected === 'Museum' ? 'page' : 'false']"
       >
         <BaseIcon iconName="museum">
-          <IconMuseum
-            :class="[categorySelected === 'Museum' ? 'fill-dark' : 'fill-light']"
-            :aria-current="[categorySelected === 'Museum' ? 'page' : 'false']"
-          ></IconMuseum>
+          <IconMuseum></IconMuseum>
         </BaseIcon>Museos
       </button>
       <button
@@ -157,10 +136,7 @@ export default {
         :aria-current="[categorySelected === 'Party' ? 'page' : 'false']"
       >
         <BaseIcon iconName="party">
-          <IconParty
-            :class="[categorySelected === 'Party' ? 'fill-dark' : 'fill-light']"
-            :aria-current="[categorySelected === 'Party' ? 'page' : 'false']"
-          ></IconParty>
+          <IconParty></IconParty>
         </BaseIcon>Fiestas
       </button>
       <button
@@ -169,14 +145,21 @@ export default {
         :aria-current="[categorySelected === 'Play' ? 'page' : 'false']"
       >
         <BaseIcon iconName="play">
-          <IconPlay
-            :class="[categorySelected === 'Play' ? 'fill-dark' : 'fill-light']"
-            :aria-current="[categorySelected === 'Play' ? 'page' : 'false']"
-          ></IconPlay>
+          <IconPlay></IconPlay>
         </BaseIcon>Lúdico
       </button>
     </nav>
   </div>
 </template>
 
-<style></style>
+<style scoped>
+/* button.filter-selected svg path {
+  @apply fill-dark;
+} */
+button.filter-selected svg path {
+  @apply fill-dark;
+}
+button.filter-unselected svg path {
+  @apply fill-light;
+}
+</style>

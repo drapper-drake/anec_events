@@ -29,7 +29,7 @@ export default {
     },
     iconColor: {
       type: [String, Array],
-      default: 'fill-white'
+      default: 'fill-light'
     }
   },
   data() {
