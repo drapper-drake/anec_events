@@ -11,7 +11,8 @@
     "watch": "jest --watchAll",
     "coverage": "jest --collectCoverage",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "chromatic": "npx chromatic --project-token=7bd7aa285788"
   },
   "dependencies": {
     "axios": "^0.24.0",
@@ -32,6 +33,7 @@
     "@vitejs/plugin-vue": "^2.1.0",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
+    "chromatic": "^6.4.3",
     "jest": "^27.4.7",
     "postcss": "^8.4.5",
     "storybook-builder-vite": "^0.1.15",
