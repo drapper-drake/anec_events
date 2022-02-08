@@ -41,6 +41,12 @@
   }
 }
 @layer components {
+  button.filter-selected svg path {
+    @apply fill-dark;
+  }
+  button.filter-unselected svg path {
+    @apply fill-light;
+  }
   .filter-selected{
     @apply flex justify-center items-center py-1 px-2 gap-1 cursor-pointer text-dark font-bold bg-links-cta rounded;
   }

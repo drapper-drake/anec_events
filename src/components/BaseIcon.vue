@@ -46,7 +46,7 @@ export default {
         viewBox = "0 0 60 50"
       }
       if (this.iconName === "bookmark") {
-        viewBox = `0 0 ${this.width} ${this.height} `
+        viewBox = `0 0 ${this.width} ${this.height - 1.1} `
       }
       return viewBox;
 

@@ -72,7 +72,7 @@ export default {
         :class="[categorySelected === 'bookmark' ? 'filter-selected' : 'filter-unselected']"
         :aria-current="[categorySelected === 'bookmark' ? 'page' : 'false']"
       >
-        <BaseIcon width="19" height="19" iconName="bookmark">
+        <BaseIcon height="23" iconName="bookmark">
           <IconBookmark></IconBookmark>
         </BaseIcon>Favoritos
       </button>
@@ -152,14 +152,5 @@ export default {
   </div>
 </template>
 
-<style scoped>
-/* button.filter-selected svg path {
-  @apply fill-dark;
-} */
-button.filter-selected svg path {
-  @apply fill-dark;
-}
-button.filter-unselected svg path {
-  @apply fill-light;
-}
+<style>
 </style>
