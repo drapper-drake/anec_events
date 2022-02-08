@@ -51,7 +51,7 @@
     @apply flex justify-center items-center py-1 px-2 gap-1 cursor-pointer text-dark font-bold bg-links-cta rounded;
   }
   .filter-unselected{
-    @apply flex justify-center items-center py-1 px-2 gap-1 cursor-pointer bg-dark rounded font-bold;
+    @apply flex justify-center items-center py-1 px-2 text-light gap-1 cursor-pointer bg-dark rounded font-bold;
   }
   .page-selected{
     @apply px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded;
