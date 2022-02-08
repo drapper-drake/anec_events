@@ -1,5 +1,5 @@
 //import AppCards from "../components/AppCards.vue";
-import AppCards from "./Cards.vue"
+import AppCards from "./AppCards.vue"
 
 export default {
   title: 'AnecEvents/Cards',
@@ -25,7 +25,7 @@ Cards.args = {
   dateEvent: 'Del 22 DIC al 31 DIC 2022',
   category: ['Museum'],
   free: true,
-  
+
 };
 
 export const CardsPay = Template.bind({});
