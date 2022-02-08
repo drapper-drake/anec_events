@@ -7,7 +7,6 @@
     :aria-labelledby="iconName"
     role="presentation"
   >
-    <title :id="iconName" lang="en">{{ iconName }} icon</title>
     <g :class="iconColor">
       <slot />
     </g>
@@ -30,7 +29,7 @@ export default {
     },
     iconColor: {
       type: [String, Array],
-      default: 'fill-white'
+      default: 'fill-light'
     }
   },
   data() {
@@ -40,14 +39,14 @@ export default {
   },
   methods: {
     whichViewBox() {
-      const rectangleCasesViewBox = ["Kids", "Play"]
-      // let viewBox = "0 0 50 50"
-      let viewBox = `0 0 ${this.width * 2} ${this.height * 2} `
+      const rectangleCasesViewBox = ["kids", "play"]
+      let viewBox = "0 0 50 50"
+      // let viewBox = `0 0 ${this.width * 2} ${this.height * 2} `
       if (rectangleCasesViewBox.includes(this.iconName)) {
         viewBox = "0 0 60 50"
       }
-      if (this.iconName === "Bookmark") {
-        viewBox = `0 0 ${this.width} ${this.height} `
+      if (this.iconName === "bookmark") {
+        viewBox = `0 0 ${this.width} ${this.height - 1.1} `
       }
       return viewBox;
 
