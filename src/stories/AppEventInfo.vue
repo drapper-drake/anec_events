@@ -36,7 +36,7 @@
           </div>
           <div class="p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-screen-sm relative">
             <img :src="photoEvent" class="w-full rounded-2xl" />
-            <Bookmark />
+            <Bookmark :textFilter="textButton" />
           </div>
         </div>
       </div>
