@@ -20,7 +20,7 @@ const Template = (args) =>({
 export const Cards = Template.bind({});
 Cards.args = {
   nameEvent: 'Del informalismo a la abstracción mediterránea',
-  photoEvent: 'https://res.cloudinary.com/dlwvv3xmg/image/upload/w_500/v1641060841/MUBAG_-_Del_informalismo_a_la_abstracci%C3%B3n_mediterr%C3%A1nea_a7ztsm.png',
+  photoEvent: 'https://res.cloudinary.com/ddn278n2q/image/upload/w_500/v1644406658/anac-event/jkzr75mshmcrwcmowicq.webp',
   cityLocation: 'Alicante',
   dateEvent: 'Del 22 DIC al 31 DIC 2022',
   category: ['Museum'],
@@ -30,10 +30,10 @@ Cards.args = {
 
 export const CardsPay = Template.bind({});
 CardsPay.args = {
-  nameEvent: 'UNA NOCHE CON LUIS COBOS',
-  photoEvent: 'https://res.cloudinary.com/ddn278n2q/image/upload/w_500/v1642598144/anac-event/f3pkkwykhttwglpgfcvh.png',
+  nameEvent: 'Concierto FSO - Ara Malikian',
+  photoEvent: 'https://res.cloudinary.com/ddn278n2q/image/upload/w_500/v1643624853/anac-event/orwyv2s8ctlqaongygzm.png',
   cityLocation: 'Alicante',
-  dateEvent: 'Solo el 8 FEB 2022',
+  dateEvent: 'Solo el 2 ABR 2022',
   category: ['Music'],
   free: false,
 
