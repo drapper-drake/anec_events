@@ -470,23 +470,6 @@
     "linkTickets": "http://www.mubag.es/mujeres-entre-renoir-y-sorolla/"
   },
   {
-    "nameEvent": "Alicante. Paraje exótico. La mirada de Didier Petit de Meurville",
-    "free": true,
-    "site": "MUBAG. C/ Gravina 13-15, 03002 Alicante.",
-    "cityLocation": "Alicante",
-    "village": false,
-    "hoursOpen": "10:00",
-    "hoursClose": "20:00",
-    "dateStart": "2021/08/10",
-    "dateFinal": "2022/01/09",
-    "category": [
-      "Museum"
-    ],
-    "comments": "La muestra está compuesta por veinticinco obras inéditas de Didier Petit de Meurville (Fond des Nègres, Haití 1793-Biarritz, Francia 1873), vicecónsul francés en Alicante de 1848 a 1857. De su labor como diplomático destaca la creación de una línea de barcos de vapor que favoreció la emigración y el comercio españoles con Argelia e impulsó el negocio del bacalao que había sido, hasta el momento, monopolio de los ingleses. Su cariño e implicación con Alicante lo demuestra brindando ayuda a los enfermos en la epidemia de cólera de 1854.",
-    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1641060101/MUBAG_-_Alicante._Paraje_ex%C3%B3tico._La_mirada_de_Didier_Petit_de_Meurville_wz3xos.jpg",
-    "linkTickets": "http://www.mubag.es/alicante-paraje-exotico-la-mirada-de-didier-petit-de-meurville-1793-1873/"
-  },
-  {
     "nameEvent": "En consonancia. Emilio Varela y sus contemporáneos",
     "free": true,
     "site": "MUBAG. C/ Gravina 13-15, 03002 Alicante.",
@@ -1602,20 +1585,6 @@
     "linkTickets": "https://ocioalicante.net/evento/alicante/el-corte-ingl%C3%A9s-de-alicante/exposiciones_fiestas/exposici%C3%B3n-fotograf%C3%ADa-festera-_-fiestas-de-moros-y-cristianos-_-san-blas-/?id=62461"
   },
   {
-    "nameEvent": "IV Festival de cortos Torrerifico",
-    "free": true,
-    "site": "Centro Cultural Virgen del Carmen. C/ del Mar, 28, 03182 Torrevieja.",
-    "cityLocation": "Torrevieja",
-    "village": true,
-    "dateStart": "2022/01/30",
-    "category": [
-      "Play",
-      "Party"
-    ],
-    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642633389/Torrerifico_-_Torrevieja_-_Modificado_lrvmj2.png",
-    "linkTickets": "https://todoculturavegabaja.es/eventos/torrevieja-evento-cultural-aplazado-al-domingo-30-de-enero-iv-festival-de-cortos-de-terror-torrerifico-realizados-con-el-movil-organizado-por-el-ciaj-de-la-concejalia-de-juventud/"
-  },
-  {
     "nameEvent": "Paüra",
     "free": false,
     "price": 10.0,
@@ -1630,21 +1599,6 @@
       "Kids"
     ],
     "photoEvent": "https://res.cloudinary.com/ddn278n2q/image/upload/v1642595389/anac-event/wfrak2aswvbrev0shazy.png",
-    "linkTickets": "https://todoculturavegabaja.es/eventos/torrevieja-evento-cultural-concierto-de-la-orquesta-nacional-de-espana-dentro-de-la-programacion-cultural-de-invierno-2021-22-del-instituto-municipal-de-cultura-joaquin-chapaprieta/?occurrence=2022-01-15"
-  },
-  {
-    "nameEvent": "Recital de música española y contemporánea clásica del trío Georgia",
-    "free": false,
-    "price": 10.0,
-    "site": "Auditorio Internacional. Partida de la Loma s/n, 03183 Torrevieja",
-    "cityLocation": "Torrevieja",
-    "village": true,
-    "hoursOpen": "19:00",
-    "dateStart": "2022/01/23",
-    "category": [
-      "Music"
-    ],
-    "photoEvent": "https://res.cloudinary.com/dlwvv3xmg/image/upload/v1642633389/Recital_de_m%C3%BAsica_-_Torrevieja_-_Modificado_z9iz2t.png",
     "linkTickets": "https://todoculturavegabaja.es/eventos/torrevieja-evento-cultural-concierto-de-la-orquesta-nacional-de-espana-dentro-de-la-programacion-cultural-de-invierno-2021-22-del-instituto-municipal-de-cultura-joaquin-chapaprieta/?occurrence=2022-01-15"
   },
   {

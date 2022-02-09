@@ -211,12 +211,10 @@ export default {
       return price;
     },
     socialRed(event, social) {
-      this.updateMetaEvent();
-
       const urlDinamic = window.location.href
       const ShareURL = {
         Twitter: `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic}&hashtags=${event.category[0]},${event.cityLocation}`,
-        Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=https://testing.anecevents.com/`,
+        Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}`,
         Email: `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic}`
       }
       window.open(ShareURL[social], "_blank");
@@ -237,10 +235,6 @@ export default {
       }else {
         metaImg.content = 'https://res.cloudinary.com/ddn278n2q/image/upload/v1639930066/anac-event/wmeglyi4jawokzyptoql.jpg'
       }
-
-
-
-
       console.log(metaImg)
     }
   },
