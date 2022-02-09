@@ -1,12 +1,7 @@
 <template>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    :width="width"
-    :height="height"
-    :viewBox="vista"
-    :aria-labelledby="iconName"
-    role="presentation"
-  >
+  <svg xmlns="http://www.w3.org/2000/svg" :width="width" :height="height" :viewBox="vista">
+    <!-- :aria-labelledby="iconName" -->
+    <!-- role="presentation" -->
     <g :class="iconColor">
       <slot />
     </g>

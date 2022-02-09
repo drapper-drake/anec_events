@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
+import checkURL  from "@/checkURL.js";
 import {
-  getBookMarkLocalStorage, isCurrentEventActive, hasAllPropsValidFormat
+  getBookMarkLocalStorage, isCurrentEventActive, hasAllPropsValidFormat, IMG_DEFAULT
 } from "./validation.js"
 const store = createStore({
   state() {
@@ -22,7 +23,7 @@ const store = createStore({
         Museum: false,
         Party: false,
         Play: false
-      }
+      },
     }
   },
   mutations: {
@@ -64,6 +65,11 @@ const store = createStore({
             event.id = idEvent;
             //Reajusta el tamaño de las imágenes de las tarjetas desde la URL
             event.photoEvent = event.photoEvent.replace("upload", "upload/w_500").replace("jpg", "webp");
+            console.log('¿que devuelve?', checkURL(event.photoEvent))
+            if(checkURL(event.photoEvent)) {
+              event.photoEvent = event.category[0]
+            }
+
             //hace directamente la función changeFormatData
             event.dateStart = new Date(event.dateStart);
             if (event.hasOwnProperty("dateFinal")) {
@@ -106,7 +112,8 @@ const store = createStore({
       list = store.state.currentListEvents.slice(min, max + 1);
       commit("DIVIDE_LIST", list);
       commit("SET_PAGE_ID", pageNumber);
-    }
+    },
+
   }
 });
 

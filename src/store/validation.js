@@ -1,3 +1,15 @@
+export const IMG_DEFAULT = {
+  "Christmas": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702830/anac-event/n09ohrh26ibjrdkcl0hn.jpg",
+  "Kids": "./img/fallback-categories-img/kids.jpg",
+  "Play": "./img/fallback-categories-img/play.jpg",
+  "Music": "./img/fallback-categories-img/music.jpg",
+  "Sports": "./img/fallback-categories-img/sports.jpg",
+  "Theatre": "./img/fallback-categories-img/theatre.jpg",
+  "Party": "./img/fallback-categories-img/party.jpg",
+  "Food": "./img/fallback-categories-img/food.jpg",
+  "Museum": "./img/fallback-categories-img/museum.jpg"
+}
+
 const FORMAT_EVENT_JSON =
 {
   //Nombre del evento

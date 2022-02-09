@@ -1,57 +1,3 @@
-<script>
-export default {
-  emits: ['selectedBookmark'],
-  props: {
-    arrayBookMark: {
-      type: Array,
-      required: true,
-    },
-    listSrcCategories: {
-      type: Object,
-      required: true
-    }
-  },
-  methods: {
-    dateFormat(month, dateShort = false) {
-      const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-      let monthFormat = monthNames[month.getMonth()];
-      let year = month.getFullYear();
-      if (dateShort) {
-        monthFormat = monthFormat.toUpperCase().substring(0, 3);
-      }
-      return `${month.getDate()} ${monthFormat} ${year} `;
-    },
-    dateText(event) {
-      let dateStart = this.dateFormat(event.dateStart, true);
-      let dateF = this.dateFormat(event.dateFinal, true);
-      let resultado = this.allYear(dateStart, dateF);
-      if (!resultado) {
-        return `Del ${dateStart} al ${dateF}`;
-      } else {
-        return 'Todo el año';
-      }
-    },
-    allYear(dateFrom, dateTo) {
-      let dateFromNoYear = dateFrom.substr(0, 5)
-      let dateToNoYear = dateTo.substr(0, 6)
-      return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
-    }
-  },
-
-  mounted() {
-    window.scrollTo(0, 0)
-  },
-
-
-  computed: {
-    arrayEvents() {
-      return this.allEvents;
-    }
-  }
-
-}
-
-</script>
 <template>
   <div
     @click="this.$router.push({ name: 'event', params: { id: event.id } })"
@@ -103,8 +49,63 @@ export default {
       </div>
     </div>
   </div>
-
 </template>
+
+<script>
+export default {
+  emits: ['selectedBookmark'],
+  props: {
+    arrayBookMark: {
+      type: Array,
+      required: true,
+    },
+    listSrcCategories: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    dateFormat(month, dateShort = false) {
+      const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+      let monthFormat = monthNames[month.getMonth()];
+      let year = month.getFullYear();
+      if (dateShort) {
+        monthFormat = monthFormat.toUpperCase().substring(0, 3);
+      }
+      return `${month.getDate()} ${monthFormat} ${year} `;
+    },
+    dateText(event) {
+      let dateStart = this.dateFormat(event.dateStart, true);
+      let dateF = this.dateFormat(event.dateFinal, true);
+      let resultado = this.allYear(dateStart, dateF);
+      if (!resultado) {
+        return `Del ${dateStart} al ${dateF}`;
+      } else {
+        return 'Todo el año';
+      }
+    },
+    allYear(dateFrom, dateTo) {
+      let dateFromNoYear = dateFrom.substr(0, 5)
+      let dateToNoYear = dateTo.substr(0, 6)
+      return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
+    },
+  },
+
+  mounted() {
+    window.scrollTo(0, 0)
+  },
+
+
+  computed: {
+    arrayEvents() {
+      return this.allEvents;
+    }
+  }
+
+}
+
+</script>
+
 
 <style scoped>
 </style>
