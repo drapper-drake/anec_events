@@ -1,4 +1,4 @@
-const { parseFetch, hasAllPropsValidFormat, isCurrentEventActive, checkAndCorrectData: checkFormatData } = require('./fetchEvent');
+const { parseFetch, hasAllPropsValidFormat, isCurrentEventActive, checkFormatData } = require('./fetchEvent');
 const { event, eventWrong, eventWrongDate, eventInRangeDate, eventOutDate } = require('./event-data-test');
 const { listEvent } = require('./mocks/fake-list-events')
 const { responseCorrect } = require('./mocks/response-correct')
