@@ -5,6 +5,7 @@
           </div>
           <div class="self-center py-2">
             <p class="sr-only">Mapa de Google Maps con la dirección del evento</p>
+
             <iframe
               :title="site"
               :src="`https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&q=${site}`"
