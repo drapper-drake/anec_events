@@ -39,7 +39,7 @@
           </div>
           <div class="p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-screen-sm relative">
             <img :src="eventID.photoEvent" class="w-full rounded-2xl" />
-            <div class="bookmark tooltip" @click.stop="this.$emit('selectedBookmark', eventID.id)">
+            <div class="bookmark tooltip" @click.stop="selectedBookmark(eventID.id)">
               <button>
                 <img
                   :src="[eventID.bookmark ? '/img/icons/bookmark-selected.svg' : '/img/icons/bookmark.svg']"
@@ -214,29 +214,11 @@ export default {
       const urlDinamic = window.location.href
       const ShareURL = {
         Twitter: `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic}&hashtags=${event.category[0]},${event.cityLocation}`,
-        Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}`,
+        Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}/event/${event.id}`,
         Email: `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic}`
       }
       window.open(ShareURL[social], "_blank");
     },
-    updateMetaEvent(){
-      /**
-        <meta property="og:locale" content="es_ES" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Diseño web Valladolid. Páginas web, posicionamiento SEO y SEM" />
-    <meta property="og:description" content="Diseño web Valladolid: desarrollos a medida, páginas web en WordPress, tiendas online Prestashop o WooCommerce" />
-    <meta property="og:image" content="https://www.tictacsoluciones.com/uploads/mi-imagen.jpg">
-    <meta property="og:url" */
-      let metaTags = document.querySelectorAll('meta')
-      console.log("🚀 ~ file: AppEvent.vue ~ line 231 ~ updateMetaEvent ~ metaTags", metaTags)
-      let metaImg = metaTags[6]
-      if(this.eventID.photoEvent){
-        metaImg.content = this.eventID.photoEvent
-      }else {
-        metaImg.content = 'https://res.cloudinary.com/ddn278n2q/image/upload/v1639930066/anac-event/wmeglyi4jawokzyptoql.jpg'
-      }
-      console.log(metaImg)
-    }
   },
   mounted() {
     window.scrollTo(0, 0)

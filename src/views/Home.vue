@@ -7,7 +7,6 @@ import AppPagination from "@/components/AppPagination.vue";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
 import AppFilterDate from "@/components/AppFilterDate.vue";
 import AppFilterFree from '@/components/AppFilterFree.vue';
-// import PruebaPagination from "../components/PruebaPagination.vue";
 
 export default {
   data() {
