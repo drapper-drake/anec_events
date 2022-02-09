@@ -59,7 +59,7 @@ export default {
 </script>
 
 <template>
-    <div v-if="this.$store.state.showPagination" class="flex flex-row justify-center gap-2 p-6">
+    <div v-if="this.$store.state.showPagination" class="w-full flex flex-row justify-center gap-2 p-6">
         <ChevronLeft class="page-unselected h-[42px]" @click="changePage(1)" />
         <div class="container-pagination w-1/4 md:w-5/12 flex overflow-x-scroll gap-1">
             <button
