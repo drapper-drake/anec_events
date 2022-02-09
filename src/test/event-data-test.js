@@ -13,7 +13,9 @@ const event = {
   ],
   "comments": "Pasa una tarde memorable explorando Alicante y disfruta de un aperitivo comentando lo aprendido. Visitarás el Museo de Hogueras, el MACA y el MARQ.",
   "photoEvent": "https://cdn.atrapalo.com/common/photo/event/4/8/4/9816/1139472/vertic_372_270.jpg",
-  "linkTickets": "https://www.atrapalo.com/actividades/alicante-a-traves-de-sus-museos-con-un-aperitivo-_e4849816/"
+  "linkTickets": "https://www.atrapalo.com/actividades/alicante-a-traves-de-sus-museos-con-un-aperitivo-_e4849816/",
+  "id": "evento-correcto",
+  "bookmark": false
 }
 const eventWrong = {
   "nameEvent": 2,

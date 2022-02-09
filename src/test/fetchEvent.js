@@ -1,3 +1,5 @@
+const { eventOutDate } = require("./event-data-test")
+
 const FORMAT_EVENT_JSON =
 {
   //Nombre del evento
@@ -85,24 +87,32 @@ const FORMAT_EVENT_JSON =
 }
 // Si lo ha podido hacer con exito devuelve el evento? o un true
 function checkFormatData(event, property) {
-  let Type_Category_Event = ''
+  if (event[property] === undefined) {
+    return false;
+  }
+  const correctType = FORMAT_EVENT_JSON[property]['type'].name;
+  let typeCategoryEvent = event[property].constructor.name
+  // typeCategoryEvent = typeof event[property] // ? No se pone typeof porque en arrays devolvería un objeto
   if (property === 'dateStart' || property === 'dateFinal') {
     const dateEvent = new Date(event[property])
-    Type_Category_Event = dateEvent.constructor.name
-  } else {
-    Type_Category_Event = event[property].constructor.name
+    typeCategoryEvent = (dateEvent == "Invalid Date") ? false : dateEvent.constructor.name;
   }
-  const Correct_Type = FORMAT_EVENT_JSON[property]['type'].name;
-  return (Type_Category_Event === Correct_Type);
+  return (typeCategoryEvent === correctType);
 }
 function hasAllPropsValidFormat(event) {
   let listForCheckProps = [];
   for (let property in FORMAT_EVENT_JSON) {
     if (event[property]) {
       const isValid = checkFormatData(event, property)
-      listForCheckProps.push(isValid) // ? Para hacer un array si todas las propìedades tienen el formato necesario
-    } else if (event[property] === undefined && property.required) {
-      console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
+      listForCheckProps.push(isValid)
+      // ? Para hacer un array si todas las propìedades tienen el formato necesario
+      console.log(property)
+      if (property === "price") {
+        console.log(isValid, "isValid", event.nameEvent)
+        console.log(listForCheckProps, "listForCheckProps")
+      }
+    } else if (event[property] === undefined && FORMAT_EVENT_JSON[property].required) {
+      // console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
       return false;
     }
   }
@@ -110,20 +120,18 @@ function hasAllPropsValidFormat(event) {
 }
 
 function isCurrentEventActive(eventCurrent) {
-  if (hasAllPropsValidFormat(eventCurrent)) {
-    const TODAY = new Date().getTime();
-    //Funcion de cambiar el formato hay que darle una vuelta
-    eventCurrent.dateStart = new Date(eventCurrent.dateStart);
-    const startEvent = eventCurrent.dateStart.getTime()
-    if (TODAY < startEvent) {
+  const TODAY = new Date().getTime();
+  //Funcion de cambiar el formato hay que darle una vuelta
+  eventCurrent.dateStart = new Date(eventCurrent.dateStart);
+  const startEvent = eventCurrent.dateStart.getTime()
+  if (TODAY < startEvent) {
+    return true;
+  }
+  if (eventCurrent.hasOwnProperty("dateFinal")) {
+    eventCurrent.dateFinal = new Date(eventCurrent.dateFinal);
+    const finishEvent = eventCurrent.dateFinal.getTime()
+    if (TODAY >= startEvent && TODAY <= finishEvent) {
       return true;
-    }
-    if (eventCurrent.hasOwnProperty("dateFinal")) {
-      eventCurrent.dateFinal = new Date(eventCurrent.dateFinal);
-      const finishEvent = eventCurrent.dateFinal.getTime()
-      if (TODAY >= startEvent && TODAY <= finishEvent) {
-        return true;
-      }
     }
   }
   return false;
@@ -144,9 +152,8 @@ function parseFetch(list) {
     }
     if (hasAllPropsValidFormat(event) === true && isCurrentEventActive(event) === true) {
       fetchedEvents.push(event);
-    }
-    else {
-      console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
+    } else {
+      // console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
     }
   }
   fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
