@@ -24,7 +24,7 @@ export default {
         <p class="info-notFound text-center">{{ this.randomNumber() }}</p>
         <img
           class
-          src="/img/404NotFound/404-notFound.svg"
+          src="/img/404NotFound/no_found.svg"
           alt="404 No hemos encontrado la página que buscabas"
         />
         <img
