@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;1,400;1,500&family=Lobster&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap%27");
+/* @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;1,400;1,500&family=Lobster&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&display=swap%27"); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,19 +10,54 @@
 .page-404{
   min-height: calc(100vh - 310px);
 }
-
+@layer base {
+  @font-face {
+    font-family: 'Be Vietnam Pro';
+    font-weight: 400;
+    src:
+      url('/fonts/BeVietnamPro/BeVietnam-400.woff') format('woff'),
+      url('/fonts/BeVietnamPro/BeVietnam-400.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Merriweather';
+    font-weight: 700;
+    src:
+      url('/fonts/Merriweather/Merriweather-700.woff') format('woff'),
+      url('/fonts/Merriweather/Merriweather-700.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Merriweather';
+    font-weight: 500;
+    src:
+      url('/fonts/Merriweather/Merriweather-500.woff') format('woff'),
+      url('/fonts/Merriweather/Merriweather-500.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Lobster';
+    font-weight: 400;
+    src:
+      url('/fonts/Lobster.woff') format('woff'),
+      url('/fonts/Lobster.ttf') format('truetype');
+  }
+}
 @layer components {
+  button.filter-selected svg path {
+    @apply fill-dark;
+  }
+  button.filter-unselected svg path {
+    @apply fill-light;
+  }
   .filter-selected{
-    @apply flex justify-center items-center py-1 px-2 cursor-pointer text-dark font-bold bg-links-cta rounded;
+    @apply flex justify-center items-center py-1 px-2 gap-1 cursor-pointer text-dark font-bold bg-links-cta rounded;
   }
   .filter-unselected{
-    @apply flex justify-center items-center py-1 px-2 cursor-pointer bg-dark rounded font-bold;
+    @apply flex justify-center items-center py-1 px-2 text-light gap-1 cursor-pointer bg-dark rounded font-bold;
   }
   .page-selected{
-    @apply px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded;
+    @apply px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark ;
   }
   .page-unselected{
-    @apply px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light;
+    @apply px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark hover:bg-dark hover:text-light;
   }
   .info-notFound{
     @apply text-2xl font-bold text-dark mb-3;
@@ -30,34 +65,14 @@
   input {
     @apply m-1 w-40 cursor-pointer text-neutral-600 text-sm rounded border-2 border-solid border-dark;
   }
-  .modal-container {
-    @apply w-full h-screen bg-neutral-900 bg-opacity-70 flex justify-center items-center fixed top-0 left-0 z-[3];
-  }
-  .modal {
-    @apply w-full h-screen bg-light overflow-y-scroll flex flex-col justify-around items-center font-sans text-bg-light text-center md:w-3/4 md:h-3/4 md:overflow-y-hidden md:rounded-3xl md:flex-row md:justify-around md:relative;
-  }
-  .modal-image {
-    @apply w-1/2 h-1/2 flex justify-center items-center order-2 md:h-96 md:p-4 md:order-none;
-  }
-  .modal-image img {
-    @apply w-full h-full object-scale-down;
-  }
-  .landscape {
-    @apply sm:w-full;
-  }
-  .modal-text {
-    @apply w-4/5 h-2/4 flex flex-col justify-around order-3 md:w-2/4 md:h-4/5 md:order-none;
-  }
-  .modal-text > p:first-of-type {
-    @apply font-serif text-2xl font-bold leading-10 md:text-2xl;
-  }
-  .close {
-    @apply w-12 h-12 relative self-center order-1 cursor-pointer md:self-start md:order-none md:p-2.5;
-  }
 
   .container-card {
-    @apply  rounded-2xl text-base cursor-pointer font-sans;
+    @apply  rounded-2xl text-base cursor-pointer font-sans flex flex-col-reverse;
     box-shadow: 0px 10px 12px 4px #00000050;
+    transition: transform 500ms;
+  }
+  .container-card:hover{
+    transform: scale(1.05);
   }
   .photoEvent {
     @apply w-full h-40 relative;
@@ -110,27 +125,6 @@
   }
 
   /* New page styles*/
-  .container-info-page {
-    @apply md:shadow-2xl mb-8 text-lg  py-3.5;
-  }
-  .info-container {
-    @apply md:border-solid;
-  }
-  .top-info {
-    @apply flex flex-col  justify-around items-center md:flex-row;
-  }
-  .img-container {
-    @apply p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-screen-sm relative;
-  }
-  .img-container img {
-    @apply w-full rounded-2xl;
-  }
-  .info-event {
-    @apply flex flex-col  gap-2 relative md:max-w-sm lg:max-w-sm;
-  }
-  .title-ev {
-    @apply text-center font-serif text-3xl font-bold p-5;
-  }
   .category {
     @apply flex justify-start gap-2 py-1 px-2;
   }
@@ -139,26 +133,12 @@
     @apply -ml-1 w-[22px] h-[22px];
   }
 
-  .city-location {
-    @apply flex justify-start items-center gap-2 py-1 px-2 rounded;
-  }
-  .date {
-    @apply flex justify-start items-center gap-2 py-1 px-2 rounded;
-  }
-  .hours {
-    @apply flex justify-start items-center gap-2 py-1 px-2 rounded;
+  .info-icon-event {
+    @apply flex flex-row justify-start items-center gap-2 py-1 px-2 rounded;
   }
   .btn-calendar {
     @apply mt-3.5 font-sans bg-dark self-center text-light rounded-md cursor-pointer transition-all delay-150 hover:bg-contrast-bg-light px-6 py-1;
   }
-  .price {
-    @apply flex justify-start items-center self-start py-2 rounded;
-  }
-
-  .price img {
-    @apply relative top-1;
-  }
-
   .share-bar {
     @apply flex flex-col content-center justify-around h-36 mt-5 md:flex-row md:border-y md:border-neutral-300 border-opacity-5;
   }
@@ -168,41 +148,8 @@
   .share-icon {
     @apply h-10  flex flex-row justify-center items-center mb-5 md:self-center md:mb-0 ;
   }
-  .share-text {
-    @apply text-bg-light text-base pl-4 font-bold ;
-  }
   .container-social {
     @apply flex flex-row justify-evenly md:self-center md:w-1/5;
-  }
-  .bottom-info {
-    @apply flex flex-col p-5 text-justify;
-  }
-  .icon-social{
-    @apply cursor-pointer;
-  }
-  .contText {
-    @apply pb-9;
-  }
-  .map {
-    @apply self-center;
-  }
-  .iframe-map {
-    @apply pb-4;
-  }
-  .more-events-container {
-    @apply w-11/12 self-center pt-5;
-  }
-  .arrows-container {
-    @apply flex flex-row justify-between;
-  }
-  .titleOtherEv {
-    @apply md:text-xl;
-  }
-  .arrows {
-    @apply flex;
-  }
-  .more-events {
-    @apply p-5 md:w-full md:flex;
   }
 }
 

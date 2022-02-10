@@ -1,107 +1,99 @@
 <template>
-  <div v-if="checkLengthState !== undefined">
-    <main class="mb-5 flex flex-col items-center md:mb-0">
-      <div class="container container-info-page">
-        <div class="info-container">
-          <div class="top-info">
-            <div class="img-container">
-              <img :src="eventID.photoEvent" />
-              <div
-                @click="selectedBookmark(this.eventID.id)"
-                class="bookmarkEvent"
-                alt="Añadir a favoritos"
-              >
+  <main v-if="checkLengthState !== undefined" class="text-bg-light mb-8 flex flex-col items-center">
+    <div class="container md:shadow-2xl text-lg py-3.5">
+      <div class="md:border-solid">
+        <div class="flex flex-col-reverse justify-around items-center md:flex-row-reverse">
+          <div class="flex flex-col gap-2 relative md:max-w-sm lg:max-w-sm">
+            <h2
+              class="text-center font-serif text-3xl font-bold p-5"
+              tabindex="0"
+            >{{ eventID.nameEvent }}</h2>
+            <div class="info-icon-event" tabindex="0">
+              <img src="/img/icons/euro.svg" alt=" " />
+              <p class="sr-only">Evento</p>
+              <p>{{ this.checkPrice(eventID) }}</p>
+            </div>
+            <div class="flex" tabindex="0">
+              <p class="sr-only">Categorías del evento:</p>
+              <div v-for="category in eventID.category" class="category">
+                <img :src="listSrcCategories[category].iconEventDark" class="labelsSvg" alt=" " />
+                <p>{{ listSrcCategories[category].nameIconEvent }}</p>
+              </div>
+            </div>
+
+            <div class="info-icon-event" tabindex="0">
+              <img src="/img/icons/location.svg" alt="Ubicación:    " class="labelsSvg" />
+              <p>{{ eventID.site }}</p>
+            </div>
+            <div class="info-icon-event" tabindex="0">
+              <img src="/img/icons/date.svg" alt=" " class="labelsSvg" />
+              <p v-if="eventID.dateFinal">{{ this.dateText(this.eventID) }}</p>
+              <p v-else>Solo el {{ this.dateFormat(eventID.dateStart, true) }}</p>
+            </div>
+            <div class="info-icon-event" tabindex="0">
+              <img src="/img/icons/Schedule.svg" alt=" " class="labelsSvg" />
+              <p>{{ this.checkHours(eventID) }}</p>
+            </div>
+
+            <button @click="requestCalendar(eventID)" class="btn-calendar">Añadir al calendario</button>
+          </div>
+          <div class="p-5 md:max-w-md lg:p-0 lg:max-w-lg xl:max-w-screen-sm relative">
+            <img :src="eventID.photoEvent" class="w-full rounded-2xl" />
+            <div class="bookmark tooltip" @click.stop="selectedBookmark(eventID.id)">
+              <button>
                 <img
-                  v-if="eventID.bookmark"
-                  src="/img/icons/bookmark-selected.svg"
+                  :src="[eventID.bookmark ? '/img/icons/bookmark-selected.svg' : '/img/icons/bookmark.svg']"
                   alt="Añadir a favoritos"
                 />
-                <img v-else src="/img/icons/bookmark.svg" />
-              </div>
-            </div>
-            <div class="info-event">
-              <h2 class="title-ev">{{ eventID.nameEvent }}</h2>
-              <div class="flex">
-                <div v-for="category in eventID.category" class="category">
-                  <img
-                    :src="listSrcCategories[category].iconEventDark"
-                    class="labelsSvg"
-                    :alt="listSrcCategories[category].nameIconEvent"
-                  />
-                  <p>{{ listSrcCategories[category].nameIconEvent }}</p>
-                </div>
-              </div>
-              <div class="city-location">
-                <img src="/img/icons/location.svg" class="labelsSvg" />
-                <p>{{ eventID.site }}</p>
-              </div>
-              <div class="date">
-                <img src="/img/icons/date.svg" class="labelsSvg" />
-                <p v-if="eventID.dateFinal">{{ this.dateText(this.eventID) }}</p>
-                <p v-else>Solo el {{ this.dateFormat(eventID.dateStart, true) }}</p>
-              </div>
-              <div class="hours">
-                <img src="/img/icons/Schedule.svg" class="labelsSvg" />
-                <p>{{ this.checkHours(eventID) }}</p>
-              </div>
-              <button @click="requestCalendar(eventID)" class="btn-calendar">Añadir al calendario</button>
-              <div class="price">
-                <img src="/img/icons/euro.svg" class="priceSvg" />
-                <p>{{ this.checkPrice(eventID) }}</p>
-              </div>
-            </div>
-          </div>
-          <div class="share-bar">
-            <a
-              v-if="eventID.hasOwnProperty('linkTickets')"
-              class="btn-more-info"
-              :href="eventID.linkTickets"
-              target="_blank"
-            >Más información</a>
-
-            <div class="share-icon">
-              <img src="/img/icons/Share.svg" />
-              <p class="share-text">Comparte con tus amigos</p>
-            </div>
-            <div class="container-social">
-              <img
-                @click="socialRed(eventID, 'Twitter')"
-                src="/img/icons/twitterBlack.svg"
-                class="icon-social"
-                alt="Compartir en Twitter"
-              />
-              <img
-                @click="socialRed(eventID, 'Facebook')"
-                src="/img/icons/fb-icon.svg"
-                class="icon-social"
-                alt="Compartir en Facebook"
-              />
-              <img
-                @click="socialRed(eventID, 'Email')"
-                src="/img/icons/Email-icon.svg"
-                class="icon-social"
-                alt="Enviar por correo"
-              />
-            </div>
-          </div>
-          <div class="bottom-info">
-            <p class="contText"></p>
-            <div class="map">
-              <iframe
-                :title="eventID.site"
-                class="iframe-map"
-                :src="`https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&q=${eventID.site}`"
-                :width="widthIframe"
-                :height="heighIframe"
-                loading="lazy"
-                style="border: 0px;"
-              ></iframe>
+                <span class="tooltip-text">Añadir a favoritos</span>
+              </button>
             </div>
           </div>
         </div>
+        <div class="share-bar">
+          <a
+            v-if="eventID.hasOwnProperty('linkTickets')"
+            class="btn-more-info"
+            :href="eventID.linkTickets"
+            target="_blank"
+          >Más información</a>
+
+          <div class="share-icon gap-3">
+            <img src="/img/icons/Share.svg" alt=" " />
+            <p class="text-base font-bold" tabindex="0">Comparte con tus amigos</p>
+          </div>
+          <div class="container-social">
+            <button @click="socialRed(eventID, 'Twitter')">
+              <img src="/img/icons/twitterBlack.svg" class="cursor-pointer" alt="Twitter" />
+            </button>
+            <button @click="socialRed(eventID, 'Facebook')">
+              <img src="/img/icons/fb-icon.svg" class="cursor-pointer" alt="Facebook" />
+            </button>
+            <button @click="socialRed(eventID, 'Email')">
+              <img src="/img/icons/Email-icon.svg" class="cursor-pointer" alt="Enviar por correo" />
+            </button>
+          </div>
+        </div>
+        <div class="flex flex-col p-5 text-justify items-center">
+          <div v-if="eventID.comments" class="py-4 w-3/4 text -justify self-center" tabindex="0">
+            <p>{{ eventID.comments }}</p>
+          </div>
+          <div class="self-center py-2">
+            <p class="sr-only">Mapa de Google Maps con la dirección del evento</p>
+            <iframe
+              :title="eventID.site"
+              :src="`https://www.google.com/maps/embed/v1/place?key=AIzaSyB5T7NpM9XqxGDqKWalpsW_KHskmldO2oY&q=${eventID.site}`"
+              :width="widthIframe"
+              :height="heighIframe"
+              loading="lazy"
+              style="border: 0px;"
+            ></iframe>
+          </div>
+        </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
+
   <LoadingSpinner v-else />
 </template>
 
@@ -129,8 +121,9 @@ export default {
     getEventByID() {
       this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
       this.eventID = this.eventID[0];
-      console.log(this.eventID)
-      console.log(this.$store.state)
+      if(this.eventID === undefined){
+        this.$router.push({name:"page404"})
+      }
     },
 
     saveLocalStorage() {
@@ -222,14 +215,19 @@ export default {
       const urlDinamic = window.location.href
       const ShareURL = {
         Twitter: `http://twitter.com/share?text=Descubre+el+evento+${event.nameEvent}&url=${urlDinamic}&hashtags=${event.category[0]},${event.cityLocation}`,
-        Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}&p[images]=${event.photoEvent}&p[title]=${event.nameEvent}&p[summary]=${event.comments}`,
+        Facebook: `http://www.facebook.com/sharer.php?s=100&p[url]=${urlDinamic}/event/${event.id}`,
         Email: `mailto:?subject=¡Echa%20un%20vistazo%20a%20este%20evento!&body=Me ha gustado el evento ${event.nameEvent} de esta web ${urlDinamic}`
       }
       window.open(ShareURL[social], "_blank");
-    }
+    },
   },
   mounted() {
     window.scrollTo(0, 0)
+
+  },
+  created(){
+    this.getEventByID()
+
   },
 
   computed: {

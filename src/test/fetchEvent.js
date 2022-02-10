@@ -1,14 +1,5 @@
-const IMG_DEFAULT = {
-  "Christmas": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702830/anac-event/n09ohrh26ibjrdkcl0hn.jpg",
-  "Kids": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702188/anac-event/sc9em1zyhi9eb7vxstww.jpg",
-  "Play": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702830/anac-event/n09ohrh26ibjrdkcl0hn.jpg",
-  "Music": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702565/anac-event/vs0qyxhhmddcmohbjcey.jpg",
-  "Sports": "https://res.cloudinary.com/ddn278n2q/image/upload/v1641986533/anac-event/krtwgwvgh8yb099xuenn.jpg",
-  "Theatre": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702467/anac-event/ywwnxmyxfcz4zherp5uc.jpg",
-  "Party": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702188/anac-event/zgzbobpjjys002ppjp2z.jpg",
-  "Food": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702346/anac-event/ygitsiwf0idmvvcvo28a.jpg",
-  "Museum": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643703039/anac-event/qkktbvgyyjcm2l4clwiz.jpg"
-}
+const { eventOutDate } = require("./event-data-test")
+
 const FORMAT_EVENT_JSON =
 {
   //Nombre del evento
@@ -76,55 +67,46 @@ const FORMAT_EVENT_JSON =
   //URL de la imagen del evento -
   "photoEvent": {
     type: String,
-    required: true,// Pero si no viene que se ponga una Default dependiendo de la primera posición del array
-    //! default: IMG_DEFAULT[this.category[0]] Rompe el Test
+    required: true,
   },
   //URL de la información del evento
   "linkEvent": {
     type: String,
     required: false
-  }
+  },
   // //* DATOS QUE TIENE QUE GENERAR EL JAVASCRIPT
-  // "id": {
-  //   type: String,
-  //   required: true,
-  //   //! default: this.nameEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, ""),
-  // },
-  // "bookmark": {
-  //   type: Boolean,
-  //   required: true,
-  //   //! default: BookMarkLocalStorage().includes(this.id)
-  // }
-}
-function BookMarkLocalStorage(ID_Item = "bookmark") {
-  const EVENTS_BOOKMARKED = [];
-  if (localStorage.getItem(ID_Item) != null) {
-    A
-    EVENTS_BOOKMARKED = JSON.parse(localStorage.getItem("bookmark"));
+  "id": {
+    type: String,
+    required: true,
+  },
+  "bookmark": {
+    type: Boolean,
+    required: true,
+    default: false
   }
-  return EVENTS_BOOKMARKED;
 }
-
 // Si lo ha podido hacer con exito devuelve el evento? o un true
 function checkFormatData(event, property) {
-  let Type_Category_Event = ''
+  if (event[property] === undefined) {
+    return false;
+  }
+  const correctType = FORMAT_EVENT_JSON[property]['type'].name;
+  let typeCategoryEvent = event[property].constructor.name
+  // typeCategoryEvent = typeof event[property] // ? No se pone typeof porque en arrays devolvería un objeto
   if (property === 'dateStart' || property === 'dateFinal') {
     const dateEvent = new Date(event[property])
-    Type_Category_Event = dateEvent.constructor.name
-  } else {
-    Type_Category_Event = event[property].constructor.name
+    typeCategoryEvent = (dateEvent == "Invalid Date") ? false : dateEvent.constructor.name;
   }
-  const Correct_Type = FORMAT_EVENT_JSON[property]['type'].name;
-  return (Type_Category_Event === Correct_Type);
+  return (typeCategoryEvent === correctType);
 }
 function hasAllPropsValidFormat(event) {
   let listForCheckProps = [];
   for (let property in FORMAT_EVENT_JSON) {
     if (event[property]) {
       const isValid = checkFormatData(event, property)
-      listForCheckProps.push(isValid) // ? Para hacer un array si todas las propìedades tienen el formato necesario
-    } else if (event[property] === undefined && property.required) {
-      console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
+      listForCheckProps.push(isValid)// ? Para hacer un array si todas las propìedades tienen el formato necesario
+    } else if (event[property] === undefined && FORMAT_EVENT_JSON[property].required) {
+      // console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
       return false;
     }
   }
@@ -132,20 +114,18 @@ function hasAllPropsValidFormat(event) {
 }
 
 function isCurrentEventActive(eventCurrent) {
-  if (hasAllPropsValidFormat(eventCurrent)) {
-    const TODAY = new Date().getTime();
-    //Funcion de cambiar el formato hay que darle una vuelta
-    eventCurrent.dateStart = new Date(eventCurrent.dateStart);
-    const startEvent = eventCurrent.dateStart.getTime()
-    if (TODAY < startEvent) {
+  const TODAY = new Date().getTime();
+  //Funcion de cambiar el formato hay que darle una vuelta
+  eventCurrent.dateStart = new Date(eventCurrent.dateStart);
+  const startEvent = eventCurrent.dateStart.getTime()
+  if (TODAY < startEvent) {
+    return true;
+  }
+  if (eventCurrent.hasOwnProperty("dateFinal")) {
+    eventCurrent.dateFinal = new Date(eventCurrent.dateFinal);
+    const finishEvent = eventCurrent.dateFinal.getTime()
+    if (TODAY >= startEvent && TODAY <= finishEvent) {
       return true;
-    }
-    if (eventCurrent.hasOwnProperty("dateFinal")) {
-      eventCurrent.dateFinal = new Date(eventCurrent.dateFinal);
-      const finishEvent = eventCurrent.dateFinal.getTime()
-      if (TODAY >= startEvent && TODAY <= finishEvent) {
-        return true;
-      }
     }
   }
   return false;
@@ -157,10 +137,6 @@ function parseFetch(list) {
     //Es un generador de Id basados en el nombre del evento
     let idEvent = event.nameEvent;
     idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-    // if (localStorage.getItem("bookmark") != null) {
-    //   let uploadEvents = JSON.parse(localStorage.getItem("bookmark"));
-    //   this.arrayBookMark = uploadEvents;
-    // }
     event.bookmark = arrayBookMark.includes(idEvent);
     event.id = idEvent;
     //hace directamente la función changeformadData
@@ -170,46 +146,14 @@ function parseFetch(list) {
     }
     if (hasAllPropsValidFormat(event) === true && isCurrentEventActive(event) === true) {
       fetchedEvents.push(event);
-    }
-    else {
-      console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
+    } else {
+      // console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
     }
   }
   fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
-  console.info(fetchedEvents)
   return fetchedEvents;
 }
-function fetchEvents(url) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      let fetchedEvents = [];
-      // data es un array de eventos
-      for (let event of data) {
-        //Es un generador de Id basados en el nombre del evento
-        let idEvent = event.nameEvent;
-        idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
-        event.id = idEvent;
-        // event.bookmark = getBookMarkLocalStorage().includes(idEvent);
-        event.bookmark = arrayBookMark.includes(idEvent);
-        //hace directamente la función changeformadData
-        event.dateStart = new Date(event.dateStart);
-        if (event.hasOwnProperty("dateFinal")) {
-          event.dateFinal = new Date(event.dateFinal);
-        }
-        if (hasAllPropsValidFormat(event) === true && isCurrentEventActive(event) === true) {
-          fetchedEvents.push(event);
-        }
-        else {
-          console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
-        }
-      }
-      fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
-      return fetchedEvents;
-    })
-}
-
 
 module.exports = {
-  fetchEvents, parseFetch, checkAndCorrectData: checkFormatData, IMG_DEFAULT, isCurrentEventActive, hasAllPropsValidFormat
+  parseFetch, checkFormatData, isCurrentEventActive, hasAllPropsValidFormat
 }

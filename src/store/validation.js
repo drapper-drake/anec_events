@@ -1,3 +1,15 @@
+export const IMG_DEFAULT = {
+  "Christmas": "https://res.cloudinary.com/ddn278n2q/image/upload/v1643702830/anac-event/n09ohrh26ibjrdkcl0hn.jpg",
+  "Kids": "./img/fallback-categories-img/kids.jpg",
+  "Play": "./img/fallback-categories-img/play.jpg",
+  "Music": "./img/fallback-categories-img/music.jpg",
+  "Sports": "./img/fallback-categories-img/sports.jpg",
+  "Theatre": "./img/fallback-categories-img/theatre.jpg",
+  "Party": "./img/fallback-categories-img/party.jpg",
+  "Food": "./img/fallback-categories-img/food.jpg",
+  "Museum": "./img/fallback-categories-img/museum.jpg"
+}
+
 const FORMAT_EVENT_JSON =
 {
   //Nombre del evento
@@ -92,24 +104,25 @@ export function getBookMarkLocalStorage(ID_Item = "bookmark") {
 
 // Si lo ha podido hacer con exito devuelve el evento? o un true
 export function checkFormatData(event, property) {
-  let Type_Category_Event = ''
+  if (event[property] === undefined) {
+    return false;
+  }
+  const correctType = FORMAT_EVENT_JSON[property]['type'].name;
+  let typeCategoryEvent = event[property].constructor.name
   if (property === 'dateStart' || property === 'dateFinal') {
     const dateEvent = new Date(event[property])
-    Type_Category_Event = dateEvent.constructor.name
-  } else {
-    Type_Category_Event = event[property].constructor.name
+    typeCategoryEvent = (dateEvent == "Invalid Date") ? false : dateEvent.constructor.name;
   }
-  const Correct_Type = FORMAT_EVENT_JSON[property]['type'].name;
-  return (Type_Category_Event === Correct_Type);
+  return (typeCategoryEvent === correctType);
 }
 export function hasAllPropsValidFormat(event) {
   let listForCheckProps = [];
   for (let property in FORMAT_EVENT_JSON) {
     if (event[property]) {
       const isValid = checkFormatData(event, property)
-      listForCheckProps.push(isValid) // ? Para hacer un array si todas las propìedades tienen el formato necesario
-    } else if (event[property] === undefined && property.required) {
-      console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
+      listForCheckProps.push(isValid)// ? Para hacer un array si todas las propìedades tienen el formato necesario
+    } else if (event[property] === undefined && FORMAT_EVENT_JSON[property].required) {
+      // ? console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
       return false;
     }
   }

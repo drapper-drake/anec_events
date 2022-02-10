@@ -1,6 +1,7 @@
 import { createStore } from "vuex";
+import checkURL  from "@/checkURL.js";
 import {
-  getBookMarkLocalStorage, isCurrentEventActive, hasAllPropsValidFormat
+  getBookMarkLocalStorage, isCurrentEventActive, hasAllPropsValidFormat, IMG_DEFAULT
 } from "./validation.js"
 const store = createStore({
   state() {
@@ -10,7 +11,19 @@ const store = createStore({
       activeLoading: true,
       showPagination: false,
       pagedList: [],
-      pageId: 0
+      pageId: 0,
+      filterCategory: {
+        all: true,
+        bookmark: false,
+        Sports: false,
+        Kids: false,
+        Food: false,
+        Music: false,
+        Theatre: false,
+        Museum: false,
+        Party: false,
+        Play: false
+      },
     }
   },
   mutations: {
@@ -44,7 +57,7 @@ const store = createStore({
         .then((data) => {
           let fetchedEvents = [];
           // data es un array de eventos
-          for (let event of data) {
+          data.forEach(event => {
             //Es un generador de Id basados en el nombre del evento
             let idEvent = event.nameEvent;
             idEvent = idEvent.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "");
@@ -52,6 +65,7 @@ const store = createStore({
             event.id = idEvent;
             //Reajusta el tamaño de las imágenes de las tarjetas desde la URL
             event.photoEvent = event.photoEvent.replace("upload", "upload/w_500").replace("jpg", "webp");
+    
             //hace directamente la función changeFormatData
             event.dateStart = new Date(event.dateStart);
             if (event.hasOwnProperty("dateFinal")) {
@@ -64,7 +78,7 @@ const store = createStore({
               // ! Hay que quitarlo para producción
               // console.error(`El evento : ${event.nameEvent} tiene algún formato mal o le faltan datos necesarios.`)
             }
-          }
+          })
           fetchedEvents.sort((a, b) => (a.dateStart).getTime() - (b.dateStart).getTime());
           // console.warn("Todos los console.error de eventos son intencionados, hay que recordar quitarlos para producción")
           commit("FETCH_EVENTS", fetchedEvents);
@@ -94,7 +108,8 @@ const store = createStore({
       list = store.state.currentListEvents.slice(min, max + 1);
       commit("DIVIDE_LIST", list);
       commit("SET_PAGE_ID", pageNumber);
-    }
+    },
+
   }
 });
 

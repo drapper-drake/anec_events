@@ -1,3 +1,61 @@
+<template>
+  <div
+    @click="this.$router.push({ name: 'event', params: { id: event.id } })"
+    @keyup.enter="this.$router.push({ name: 'event', params: { id: event.id } })"
+    v-for=" event in this.$store.state.pagedList"
+    :key="event"
+    class="container-card"
+  >
+    <div class="info-card" role="button" aria-pressed="false">
+      <h2 tabindex="0">
+        {{ event.nameEvent }}
+        <span v-if="event.free" class="sr-only">Evento gratuito</span>
+        <span v-else class="sr-only">Evento de pago</span>
+      </h2>
+
+      <p tabindex="0">
+        <span class="sr-only">En</span>
+        {{ event.cityLocation }}
+      </p>
+      <p tabindex="0" v-if="event.dateFinal">{{ this.dateText(event) }}</p>
+      <p tabindex="0" v-else>Solo el {{ this.dateFormat(event.dateStart, true) }}</p>
+
+      <div tabindex="0" class="icons-bar">
+        <span class="sr-only">Categorias del evento:</span>
+        <div v-if="event.charity">
+          <img src="/img/icons/Charity.svg" alt="Icono de Benéfico" />
+          <p>Benéfico</p>
+        </div>
+        <div v-for="category in event.category">
+          <img
+            :src="listSrcCategories[category].iconEvent"
+            :alt="altIcons(listSrcCategories[category].nameEvent)"
+          />
+          <p>{{ listSrcCategories[category].nameIconEvent }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="photoEvent">
+      <div class="bookmark tooltip" @click.stop="this.$emit('selectedBookmark', event.id)">
+        <button>
+          <img
+            :src="[event.bookmark ? '/img/icons/bookmark-selected.svg' : '/img/icons/bookmark.svg']"
+            alt="Añadir a favoritos"
+          />
+          <span class="tooltip-text">Añadir a favoritos</span>
+        </button>
+      </div>
+      <img :src="event.photoEvent" :alt="event.nameEvent" class="w-full h-[160px]" />
+      <div class="tooltip">
+        <img v-if="event.free" src="/img/icons/gratis.svg" alt="Evento GRATUITO" />
+        <img v-else src="/img/icons/Pago-euro.svg" alt="Evento de PAGO" />
+        <span v-if="event.free" class="tooltip-text">Evento GRATUITO</span>
+        <span v-else class="tooltip-text">Evento de PAGO</span>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script>
 export default {
   emits: ['selectedBookmark'],
@@ -35,6 +93,9 @@ export default {
       let dateFromNoYear = dateFrom.substr(0, 5)
       let dateToNoYear = dateTo.substr(0, 6)
       return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
+    },
+    altIcons(name) {
+      return `Icono de ${name}`
     }
   },
 
@@ -52,47 +113,6 @@ export default {
 }
 
 </script>
-<template>
-  <div
-    @click="this.$router.push({ name: 'event', params: { id: event.id } })"
-    v-for=" event in this.$store.state.pagedList"
-    :key="event"
-    class="container-card"
-  >
-    <div class="photoEvent">
-      <div class="bookmark" @click.stop="this.$emit('selectedBookmark', event.id)">
-        <img v-if="event.bookmark" src="/img/icons/bookmark-selected.svg" alt="Añadir a favoritos" />
-        <img v-else src="/img/icons/bookmark.svg" alt="Añadir a favoritos" />
-      </div>
-      <img :src="event.photoEvent" :alt="event.nameEvent" class="w-[316px] h-[160px]" />
-      <div class="tooltip">
-        <img v-if="event.free" src="/img/icons/gratis.svg" alt="Evento GRATUITO" />
-        <img v-else src="/img/icons/Pago-euro.svg" alt="Evento de PAGO" />
-        <span v-if="event.free" class="tooltip-text">Evento GRATUITO</span>
-        <span v-else class="tooltip-text">Evento de PAGO</span>
-      </div>
-    </div>
-    <div class="info-card">
-      <h2>{{ event.nameEvent }}</h2>
-      <p>{{ event.cityLocation }}</p>
-      <p v-if="event.dateFinal">{{ this.dateText(event) }}</p>
-      <p v-else>Solo el {{ this.dateFormat(event.dateStart, true) }}</p>
-      <div class="icons-bar">
-        <div v-if="event.charity">
-          <img src="/img/icons/Charity.svg" />
-          <p>Benéfico</p>
-        </div>
-        <div v-for="category in event.category">
-          <img
-            :src="listSrcCategories[category].iconEvent"
-            :alt="listSrcCategories[category].nameIconEvent"
-          />
-          <p>{{ listSrcCategories[category].nameIconEvent }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 </style>

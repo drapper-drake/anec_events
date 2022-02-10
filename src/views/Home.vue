@@ -5,8 +5,8 @@ import { listSrcCategories } from "@/listSrcTitlesCategories";
 import AppFilterBar from "@/components/AppFilterBar.vue";
 import AppPagination from "@/components/AppPagination.vue";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
-import AppFilterDate from "../components/AppFilterDate.vue";
-// import PruebaPagination from "../components/PruebaPagination.vue";
+import AppFilterDate from "@/components/AppFilterDate.vue";
+import AppFilterFree from '@/components/AppFilterFree.vue';
 
 export default {
   data() {
@@ -21,7 +21,7 @@ export default {
     AppPagination,
     LoadingSpinner,
     AppFilterDate,
-    // PruebaPagination
+    AppFilterFree
   },
 
   methods: {
@@ -57,11 +57,20 @@ export default {
         }
       }
     },
+    getEventByID() {
+
+      let eventID = this.$store.state.allEvents.filter(e => e.id === this.$route.params.id)
+      eventID = this.eventID[0];
+
+      if (this.eventID === undefined) {
+        this.$router.push({ name: "page404" })
+      }
+    },
+    created() {
+      this.getEventByID();
+    }
   },
 
-  mounted() {
-    // this.checkLocalStorage(); //* Estoy probando porque es mejor que esto ya lo haga cuando se haga el fetch y deje todo listo
-  }
 }
 </script>
 
@@ -69,6 +78,7 @@ export default {
   <div id="home">
     <AppFilterBar />
     <AppFilterDate />
+    <AppFilterFree />
     <main class="mb-5 flex flex-col items-center md:mb-0">
       <div
         v-if="this.$store.state.currentListEvents.length"

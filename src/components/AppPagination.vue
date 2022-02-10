@@ -1,6 +1,8 @@
 <script>
 import ChevronLeft from "@/components/ChevronLeft.vue"
 import ChevronRight from "@/components/ChevronRight.vue"
+import ChevronLeftAll from "@/components/ChevronLeftAll.vue"
+import ChevronRightAll from "@/components/ChevronRightAll.vue"
 export default {
     data() {
         return {
@@ -10,7 +12,9 @@ export default {
     },
     components: {
         ChevronLeft,
-        ChevronRight
+        ChevronRight,
+        ChevronLeftAll,
+        ChevronRightAll
     },
     methods: {
         initialPage() {
@@ -41,6 +45,26 @@ export default {
             this.$store.dispatch('divideList', pageNumber);
             window.scrollTo(0, 0);
             this.$router.push({ name: 'home', query: { p: pageNumber } })
+        },
+        actualPage() {
+            const urlParams = new URLSearchParams(window.location.search)
+            const currentPage = Number(urlParams.get('p'))
+            return currentPage;
+
+        },
+        nextPage() {
+            const nextPagination = this.actualPage() + 1;
+            if (nextPagination > this.pagination()) {
+                return;
+            }
+            this.changePage(nextPagination)
+        },
+        previousPage() {
+            const previousPagination = this.actualPage() - 1;
+            if (previousPagination === 0) {
+                return;
+            }
+            this.changePage(previousPagination)
         }
     },
     watch: {
@@ -61,20 +85,49 @@ export default {
 <template>
     <div
         v-if="this.$store.state.showPagination"
-        class="flex flex-row flex-wrap justify-center gap-2 p-6"
+        class="xl:max-w-4xl flex flex-row justify-center p-6"
     >
-        <ChevronLeft class="page-unselected h-[42px]" @click="changePage(1)" />
-        <div class="container-pagination w-[100px] md:w-[200px] flex overflow-x-scroll">
-            <div v-for="number in pagination()">
-                <button :class="pageSelection[number - 1]" @click="changePage(number)">{{ number }}</button>
-            </div>
+        <ChevronLeftAll
+            class="page-unselected first-item-pagination h-[42px]"
+            @click="changePage(1)"
+            aria-label="Ir a la primera página"
+        >
+            <span class="sr-only">Ir a la primera página</span>
+        </ChevronLeftAll>
+        <ChevronLeft
+            class="page-unselected h-[42px]"
+            @click="previousPage()"
+            aria-label="Ir a la primera página"
+        >
+            <span class="sr-only">Ir a la página anterior</span>
+        </ChevronLeft>
+        <div class="container-pagination w-14 md:w-72 lg:w-5/12 flex overflow-x-scroll">
+            <button
+                v-for="number in pagination()"
+                :class="pageSelection[number - 1]"
+                @click="changePage(number)"
+            >{{ number }}</button>
         </div>
-        <ChevronRight class="page-unselected h-[42px]" @click="changePage(this.pagination())" />
+
+        <ChevronRight
+            class="page-unselected h-[42px]"
+            @click="nextPage()"
+            aria-label="Ir a la última página"
+        >
+            <span class="sr-only">Ir a la siguiente página</span>
+        </ChevronRight>
+        <ChevronRightAll
+            class="page-unselected last-item-pagination h-[42px]"
+            @click="changePage(this.pagination())"
+            aria-label="Ir a la última página"
+        >
+            <span class="sr-only">Ir a la última página</span>
+        </ChevronRightAll>
     </div>
 </template>
 
 <style scoped>
-.container-pagination::-webkit-scrollbar-track {
+.container-pag .container-pagination::-webkit-scrollbar-track {
     height: 5px;
     background-color: #f2f2f2;
 }
@@ -84,5 +137,11 @@ export default {
 .container-pagination::-webkit-scrollbar-thumb {
     background-color: #ffa438; /* color of the scroll thumb */
     border-radius: 20px; /* roundness of the scroll thumb */
+}
+.first-item-pagination {
+    border-radius: 50% 0 0 50%;
+}
+.last-item-pagination {
+    border-radius: 0 50% 50% 0;
 }
 </style>
