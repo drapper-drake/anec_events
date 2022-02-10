@@ -6,17 +6,22 @@
     :key="event"
     class="container-card"
   >
-    <div class="info-card" role="button" tabindex="0" aria-pressed="false">
-      <h2>{{ event.nameEvent }}</h2>
-      <p class="sr-only">En</p>
-      <p>{{ event.cityLocation }}</p>
-      <p v-if="event.dateFinal">{{ this.dateText(event) }}</p>
-      <p v-else>Solo el {{ this.dateFormat(event.dateStart, true) }}</p>
-      <p v-if="event.free" class="sr-only">Evento gratuito</p>
-      <p v-else class="sr-only">Evento de pago</p>
+    <div class="info-card" role="button" aria-pressed="false">
+      <h2 tabindex="0">
+        {{ event.nameEvent }}
+        <span v-if="event.free" class="sr-only">Evento gratuito</span>
+        <span v-else class="sr-only">Evento de pago</span>
+      </h2>
 
-      <div class="icons-bar">
-        <p class="sr-only">Categorias del evento:</p>
+      <p tabindex="0">
+        <span class="sr-only">En</span>
+        {{ event.cityLocation }}
+      </p>
+      <p tabindex="0" v-if="event.dateFinal">{{ this.dateText(event) }}</p>
+      <p tabindex="0" v-else>Solo el {{ this.dateFormat(event.dateStart, true) }}</p>
+
+      <div tabindex="0" class="icons-bar">
+        <span class="sr-only">Categorias del evento:</span>
         <div v-if="event.charity">
           <img src="/img/icons/Charity.svg" alt="Icono de Benéfico" />
           <p>Benéfico</p>
@@ -24,7 +29,7 @@
         <div v-for="category in event.category">
           <img
             :src="listSrcCategories[category].iconEvent"
-            :alt="'Icono de' + listSrcCategories[category].iconEvent"
+            :alt="altIcons(listSrcCategories[category].nameEvent)"
           />
           <p>{{ listSrcCategories[category].nameIconEvent }}</p>
         </div>
@@ -89,6 +94,9 @@ export default {
       let dateToNoYear = dateTo.substr(0, 6)
       return (dateFromNoYear === "1 ENE" && dateToNoYear === "31 DIC");
     },
+    altIcons(name) {
+      return `Icono de ${name}`
+    }
   },
 
   mounted() {
@@ -103,6 +111,7 @@ export default {
   }
 
 }
+
 </script>
 
 <style scoped>
