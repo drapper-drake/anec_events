@@ -1,6 +1,6 @@
 <template>
   <button>
-    <span class="sr-only">Ir a la primera página</span>
+    <slot></slot>
     <svg width="20" height="24" viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M14.828 2.547 2.172 14.5l12.656 11.953"

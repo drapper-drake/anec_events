@@ -85,10 +85,10 @@ export default {
 <template>
     <div
         v-if="this.$store.state.showPagination"
-        class="xl:max-w-4xl flex flex-row justify-center gap-2 p-6"
+        class="xl:max-w-4xl flex flex-row justify-center p-6"
     >
         <ChevronLeftAll
-            class="page-unselected h-[42px]"
+            class="page-unselected first-item-pagination h-[42px]"
             @click="changePage(1)"
             aria-label="Ir a la primera página"
         >
@@ -101,9 +101,7 @@ export default {
         >
             <span class="sr-only">Ir a la primera página</span>
         </ChevronLeft>
-        <div
-            class="container-pagination w-2/12 md:w-[300px] lg:w-5/12 flex overflow-x-scroll gap-1"
-        >
+        <div class="container-pagination w-2/12 md:w-[300px] lg:w-5/12 flex overflow-x-scroll">
             <button
                 v-for="number in pagination()"
                 :class="pageSelection[number - 1]"
@@ -119,7 +117,7 @@ export default {
             <span class="sr-only">Ir a la última página</span>
         </ChevronRight>
         <ChevronRightAll
-            class="page-unselected h-[42px]"
+            class="page-unselected last-item-pagination h-[42px]"
             @click="changePage(this.pagination())"
             aria-label="Ir a la última página"
         >
@@ -139,5 +137,11 @@ export default {
 .container-pagination::-webkit-scrollbar-thumb {
     background-color: #ffa438; /* color of the scroll thumb */
     border-radius: 20px; /* roundness of the scroll thumb */
+}
+.first-item-pagination {
+    border-radius: 50% 0 0 50%;
+}
+.last-item-pagination {
+    border-radius: 0 50% 50% 0;
 }
 </style>
