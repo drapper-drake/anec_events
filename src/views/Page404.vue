@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       text: [
-        `Has patinado`, `No damos a basto pa tó`, `Estamos patidifusos`, `Parece que hoy no hay eventos pa' todos`, `No encontramos eventos. Somos un poco pato sos`, `Oooops, qué mala pata`, `Pa' todos los eventos que hay y no has elegido ninguno`]
+        `Has patinado`, `No damos a basto pa tó`, `Estamos patidifusos`, `Parece que hoy no hay eventos pa' todos`, `No encontramos eventos. Somos un poco pato sos`, `Oooops, qué mala pata`] 
     }
   },
   methods: {
