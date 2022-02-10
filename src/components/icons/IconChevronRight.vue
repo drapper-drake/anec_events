@@ -1,9 +1,0 @@
-<template>
-  <path
-    d="M2.17188 26.4531L14.8281 14.5L2.17188 2.54688"
-    stroke="#023E73"
-    stroke-width="4.21875"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
-</template>
