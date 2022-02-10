@@ -99,7 +99,7 @@ export default {
             @click="previousPage()"
             aria-label="Ir a la primera página"
         >
-            <span class="sr-only">Ir a la primera página</span>
+            <span class="sr-only">Ir a la página anterior</span>
         </ChevronLeft>
         <div class="container-pagination w-2/12 md:w-[300px] lg:w-5/12 flex overflow-x-scroll">
             <button
@@ -114,7 +114,7 @@ export default {
             @click="nextPage()"
             aria-label="Ir a la última página"
         >
-            <span class="sr-only">Ir a la última página</span>
+            <span class="sr-only">Ir a la siguiente página</span>
         </ChevronRight>
         <ChevronRightAll
             class="page-unselected last-item-pagination h-[42px]"
