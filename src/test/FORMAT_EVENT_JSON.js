@@ -24,7 +24,7 @@ export const FORMAT_EVENT_JSON =
   },
   //Precio del evento
   "price": {
-    type: Boolean,
+    type: Number,
     required: false, //Creo que no todos los eventos quede pago lo tienen.
   },
   //Ubicación donde acontece el evento
@@ -94,7 +94,7 @@ export const FORMAT_EVENT_JSON =
   "bookmark": {
     type: Boolean,
     required: true,
-    default: BookMarkLocalStorage().includes(this.id)
+    default: false
   }
 }
 export function BookMarkLocalStorage(ID_Item = "bookmark") {
