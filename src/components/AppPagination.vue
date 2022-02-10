@@ -101,7 +101,7 @@ export default {
         >
             <span class="sr-only">Ir a la página anterior</span>
         </ChevronLeft>
-        <div class="container-pagination w-2/12 md:w-[300px] lg:w-5/12 flex overflow-x-scroll">
+        <div class="container-pagination w-14 md:w-72 lg:w-5/12 flex overflow-x-scroll">
             <button
                 v-for="number in pagination()"
                 :class="pageSelection[number - 1]"
