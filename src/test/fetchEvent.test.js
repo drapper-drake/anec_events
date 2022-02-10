@@ -42,12 +42,6 @@ describe('Comprobación si tienen mal el formato', () => {
     eventInvalidFormat.free = 20;
     expect(checkFormatData(eventInvalidFormat, 'free')).toBeFalsy();
   })
-  test('price', () => {
-    let eventInvalidFormat = { ...event }
-    eventInvalidFormat.nameEvent = 'Evento con formato invalido';
-    eventInvalidFormat.price = false;
-    expect(checkFormatData(eventInvalidFormat, 'price')).toBeFalsy();
-  })
   test('cityLocation', () => {
     let eventInvalidFormat = { ...event }
     eventInvalidFormat.nameEvent = 'Evento con formato invalido';
@@ -93,11 +87,6 @@ describe('Comprobación si la propiedad esta undefined', () => {
     eventUndefinedData.free = undefined;
     expect(checkFormatData(eventUndefinedData, 'free')).toBeFalsy();
   })
-  test('price', () => {
-    let eventUndefinedData = { ...event }
-    eventUndefinedData.price = undefined;
-    expect(checkFormatData(eventUndefinedData, 'price')).toBeFalsy();
-  })
   test('site', () => {
     let eventUndefinedData = { ...event }
     eventUndefinedData.site = undefined;
@@ -130,11 +119,6 @@ describe('Comprobación si no existe la propiedad', () => {
     delete eventMissingData.free;
     expect(checkFormatData(eventMissingData, 'free')).toBeFalsy();
   })
-  test('price', () => {
-    let eventMissingData = { ...event }
-    delete eventMissingData.price;
-    expect(checkFormatData(eventMissingData, 'price')).toBeFalsy();
-  })
   test('site', () => {
     let eventMissingData = { ...event }
     delete eventMissingData.site;
@@ -157,17 +141,17 @@ describe('Comprobación si no existe la propiedad', () => {
   })
 })
 
-// describe('Comprobación de que todos hayan salido bien', () => {
-//   test('Si todos los datos están bien', () => {
-//     expect(hasAllPropsValidFormat(event)).toBeTruthy();
-//   })
-//   test('Si uno de los datos esta mal', () => {
-//     expect(hasAllPropsValidFormat(eventWrong)).toBeFalsy();
-//   })
-//   test('Si uno de los datos esta mal', () => {
-//     expect(hasAllPropsValidFormat(eventWrongDate)).toBeFalsy();
-//   })
-// })
+describe('Comprobación de que todos hayan salido bien', () => {
+  test('Si todos los datos están bien', () => {
+    expect(hasAllPropsValidFormat(event)).toBeTruthy();
+  })
+  test('Si uno de los datos esta mal', () => {
+    expect(hasAllPropsValidFormat(eventWrong)).toBeFalsy();
+  })
+  test('Si uno de los datos esta mal', () => {
+    expect(hasAllPropsValidFormat(eventWrongDate)).toBeFalsy();
+  })
+})
 
 describe('Comprobación si algún dato esta sin definir en la comprobación global', () => {
   test('nameEvent', () => {
@@ -179,12 +163,6 @@ describe('Comprobación si algún dato esta sin definir en la comprobación glob
     let eventUndefinedData = { ...event }
     eventUndefinedData.nameEvent = "Evento-con-datos-faltantes";
     eventUndefinedData.free = undefined;
-    expect(hasAllPropsValidFormat(eventUndefinedData)).toBeFalsy();
-  })
-  test('price', () => {
-    let eventUndefinedData = { ...event }
-    eventUndefinedData.nameEvent = "Evento-con-datos-faltantes";
-    eventUndefinedData.price = undefined;
     expect(hasAllPropsValidFormat(eventUndefinedData)).toBeFalsy();
   })
   test('site', () => {
@@ -224,12 +202,6 @@ describe('Comprobación si falta algún dato en la comprobación global', () => 
     let eventMissingData = { ...event }
     eventMissingData.nameEvent = "Evento-con-datos-faltantes-free";
     delete eventMissingData.free;
-    expect(hasAllPropsValidFormat(eventMissingData)).toBeFalsy();
-  })
-  test('price', () => {
-    let eventMissingData = { ...event }
-    eventMissingData.nameEvent = "Evento-con-datos-faltantes-price";
-    delete eventMissingData.price;
     expect(hasAllPropsValidFormat(eventMissingData)).toBeFalsy();
   })
   test('site', () => {

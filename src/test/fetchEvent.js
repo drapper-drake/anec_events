@@ -104,13 +104,7 @@ function hasAllPropsValidFormat(event) {
   for (let property in FORMAT_EVENT_JSON) {
     if (event[property]) {
       const isValid = checkFormatData(event, property)
-      listForCheckProps.push(isValid)
-      // ? Para hacer un array si todas las propìedades tienen el formato necesario
-      console.log(property)
-      if (property === "price") {
-        console.log(isValid, "isValid", event.nameEvent)
-        console.log(listForCheckProps, "listForCheckProps")
-      }
+      listForCheckProps.push(isValid)// ? Para hacer un array si todas las propìedades tienen el formato necesario
     } else if (event[property] === undefined && FORMAT_EVENT_JSON[property].required) {
       // console.error(`El evento : ${event.nameEvent} no tiene la propiedad,${property}, y es necesaria.`)
       return false;
