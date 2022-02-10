@@ -2,7 +2,7 @@
   <main class="mb-5 flex flex-col items-center md:mb-0">
     <div class="not-found relative w-11/12 md:w-9/12 mx-auto pb-6 lg:m-0 lg:px-14 xl:w-2/5">
       <div>
-        <p class="info-notFound text-center">{{ this.randomNumber() }}</p>
+        <p class="info-notFound text-center" tabindex="0">{{ this.randomNumber() }}</p>
         <img
           class
           src="/img/404NotFound/404-notFound.svg"
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       text: [
-        `Has patinado`, `No damos a basto pa tó`, `Estamos patidifusos`, `Parece que hoy no hay eventos pa' todos`, `No encontramos eventos. Somos un poco pato sos`, `Oooops, qué mala pata`] 
+        `Has patinado`, `No damos a basto pa tó`, `Estamos patidifusos`, `Parece que hoy no hay eventos pa' todos`, `No encontramos eventos. Somos un poco pato sos`, `Oooops, qué mala pata`]
     }
   },
   methods: {

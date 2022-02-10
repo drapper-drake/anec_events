@@ -121,8 +121,9 @@ export default {
     getEventByID() {
       this.eventID = this.$store.state.allEvents.filter(e => e.id === this.id);
       this.eventID = this.eventID[0];
-      console.log(this.eventID)
-      console.log(this.$store.state)
+      if(this.eventID === undefined){
+        this.$router.push({name:"page404"})
+      }
     },
 
     saveLocalStorage() {
@@ -222,6 +223,10 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0)
+
+  },
+  created(){
+    this.getEventByID()
 
   },
 

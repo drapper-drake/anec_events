@@ -21,7 +21,7 @@ export default {
     </div>
     <div v-else class="not-found relative w-11/12 md:w-9/12 mx-auto pb-6 lg:m-0 lg:px-14 xl:w-2/5">
       <div>
-        <p class="info-notFound text-center">{{ this.randomNumber() }}</p>
+        <p class="info-notFound text-center" tabindex="0">{{ this.randomNumber() }}</p>
         <img
           class
           src="/img/404NotFound/no_found.svg"

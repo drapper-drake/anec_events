@@ -22,7 +22,6 @@ export default {
     LoadingSpinner,
     AppFilterDate,
     AppFilterFree
-    // PruebaPagination
   },
 
   methods: {
@@ -58,11 +57,20 @@ export default {
         }
       }
     },
+    getEventByID() {
+
+      const eventID = this.$store.state.allEvents.filter(e => e.id === this.$route.params.id)
+      eventID = this.eventID[0];
+
+      if(this.eventID === undefined){
+        this.$router.push({name:"page404"})
+      }
+    },
+    created(){
+      this.getEventByID();
+    }
   },
 
-  mounted() {
-    // this.checkLocalStorage(); //* Estoy probando porque es mejor que esto ya lo haga cuando se haga el fetch y deje todo listo
-  }
 }
 </script>
 
