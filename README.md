@@ -13,6 +13,7 @@ Este proyecto nace como una práctica grupal de los alumnos del grupo Dapper Dra
 - [Desarrollo](#desarrollo)
   - [Tecnologías](#tecnologías)
   - [Reproducir en local](#reproducir-en-local)
+  - [Storybook](#storybook)
 - [Documentación](#documentación)
 - [Autores](#autores)
 ## Vista General
@@ -24,8 +25,15 @@ https://www.app.anecevents.com/
 https://www.anecevents.com/
 
 ### Capturas en ordenador
+![Captura de pantalla en ordenador](./public/img/web-anecevents.com-desktop.png)
 
+Y captura en ordenador de eventos en favoritos:
+![Captura de pantalla en ordenador de favoritos](./public/img/bookmark-anecevents.com-desktop.png)
 ### Capturas en móvil
+![Captura de pantalla en móvil](./public/img/web-anecevents-mobile.png)
+
+Y captura en móvil de favoritos:
+![Captura de pantalla en móvil de favoritos](./public/img/bookmark-mobile.png)
 ## Desarrollo
 ### Tecnologías
 - Maquetación: HTML5
@@ -55,6 +63,16 @@ Inicia el proyecto en local
 ```
   npm run dev
 ```
+
+### Storybook
+Con el objetivo de poder probar variaciones en los diseños de componentes, se ha realizado un storybook recopilandolos.
+Ahora mismo tenemos el storybook público en Chromatic, por lo que se puede consultar fácilmente entrando [aquí](https://62025d49ccb1b0003a97a2b8-ytyfysbihy.chromatic.com/?path=/story/anecevents).
+
+También se puede acceder al Storybook de forma local, para ello sólo hace falta seguir las indicaciones de [reproducir en local](#reproducir-en-local) y escribir en una terminal del proyecto:
+```
+npm run storybook
+```
+
 
 ## Documentación
 Ànec Events ha desarrollado una documentación extensa para facilitar el entendimiento de la web. Desde [aquí](https://github.com/drapper-drake/anec_events/tree/develop/docs) puedes acceder a ella.
