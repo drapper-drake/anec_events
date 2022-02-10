@@ -1,6 +1,6 @@
 <template>
-  <!-- <a href="#"><img src="/img/icons/chevron-right.svg" alt="Página siguiente"></a> -->
-  <button aria-label="Ir a la última página">
+  <button>
+    <slot></slot>
     <svg width="20" height="24" viewBox="0 0 7 7" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M14.828 2.547 2.172 14.5l12.656 11.953"
@@ -31,4 +31,4 @@ button:hover path {
   stroke: #f2f2f2;
 }
 </style>
---
+

@@ -8,7 +8,7 @@
         stroke-width="4.419"
         stroke-linecap="round"
         stroke-linejoin="round"
-        transform="matrix(.26458 0 0 .26458 -.017 -.116)"
+        transform="matrix(-.26458 0 0 -.26458 7.264 7.557)"
         style="fill:none"
       />
       <path
@@ -17,7 +17,7 @@
         stroke-width="4.419"
         stroke-linecap="round"
         stroke-linejoin="round"
-        transform="matrix(.26458 0 0 .26458 2.766 -.116)"
+        transform="matrix(-.26458 0 0 -.26458 4.481 7.557)"
         style="fill:none"
       />
     </svg>
@@ -31,3 +31,4 @@ button:hover path {
   stroke: #f2f2f2;
 }
 </style>
+--

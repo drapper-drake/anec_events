@@ -21,8 +21,8 @@
 
 <script>
 import { reactive, computed } from 'vue';
-import ChevronLeft from "../components/ChevronLeft.vue";
-import ChevronRight from "../components/ChevronRight.vue";
+import ChevronLeftAll from "../components/ChevronLeftAll.vue";
+import ChevronRightAll from "../components/ChevronRightAll.vue";
 
 export default {
   data() {

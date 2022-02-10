@@ -1,6 +1,8 @@
 <script>
 import ChevronLeft from "@/components/ChevronLeft.vue"
 import ChevronRight from "@/components/ChevronRight.vue"
+import ChevronLeftAll from "@/components/ChevronLeftAll.vue"
+import ChevronRightAll from "@/components/ChevronRightAll.vue"
 export default {
     data() {
         return {
@@ -10,7 +12,9 @@ export default {
     },
     components: {
         ChevronLeft,
-        ChevronRight
+        ChevronRight,
+        ChevronLeftAll,
+        ChevronRightAll
     },
     methods: {
         initialPage() {
@@ -41,6 +45,26 @@ export default {
             this.$store.dispatch('divideList', pageNumber);
             window.scrollTo(0, 0);
             this.$router.push({ name: 'home', query: { p: pageNumber } })
+        },
+        actualPage() {
+            const urlParams = new URLSearchParams(window.location.search)
+            const currentPage = Number(urlParams.get('p'))
+            return currentPage;
+
+        },
+        nextPage() {
+            const nextPagination = this.actualPage() + 1;
+            if (nextPagination > this.pagination()) {
+                return;
+            }
+            this.changePage(nextPagination)
+        },
+        previousPage() {
+            const previousPagination = this.actualPage() - 1;
+            if (previousPagination === 0) {
+                return;
+            }
+            this.changePage(previousPagination)
         }
     },
     watch: {
@@ -63,9 +87,22 @@ export default {
         v-if="this.$store.state.showPagination"
         class="xl:max-w-4xl flex flex-row justify-center gap-2 p-6"
     >
-        <ChevronLeft class="page-unselected h-[42px]" @click="changePage(1)" />
+        <ChevronLeftAll
+            class="page-unselected h-[42px]"
+            @click="changePage(1)"
+            aria-label="Ir a la primera página"
+        >
+            <span class="sr-only">Ir a la primera página</span>
+        </ChevronLeftAll>
+        <ChevronLeft
+            class="page-unselected h-[42px]"
+            @click="previousPage()"
+            aria-label="Ir a la primera página"
+        >
+            <span class="sr-only">Ir a la primera página</span>
+        </ChevronLeft>
         <div
-            class="container-pagination w-[100px] md:w-[300px] lg:w-5/12 flex overflow-x-scroll gap-1"
+            class="container-pagination w-2/12 md:w-[300px] lg:w-5/12 flex overflow-x-scroll gap-1"
         >
             <button
                 v-for="number in pagination()"
@@ -74,12 +111,25 @@ export default {
             >{{ number }}</button>
         </div>
 
-        <ChevronRight class="page-unselected h-[42px]" @click="changePage(this.pagination())" />
+        <ChevronRight
+            class="page-unselected h-[42px]"
+            @click="nextPage()"
+            aria-label="Ir a la última página"
+        >
+            <span class="sr-only">Ir a la última página</span>
+        </ChevronRight>
+        <ChevronRightAll
+            class="page-unselected h-[42px]"
+            @click="changePage(this.pagination())"
+            aria-label="Ir a la última página"
+        >
+            <span class="sr-only">Ir a la última página</span>
+        </ChevronRightAll>
     </div>
 </template>
 
 <style scoped>
-.container-pagination::-webkit-scrollbar-track {
+.container-pag .container-pagination::-webkit-scrollbar-track {
     height: 5px;
     background-color: #f2f2f2;
 }
