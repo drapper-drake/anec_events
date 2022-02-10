@@ -54,10 +54,10 @@
     @apply flex justify-center items-center py-1 px-2 text-light gap-1 cursor-pointer bg-dark rounded font-bold;
   }
   .page-selected{
-    @apply px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark rounded;
+    @apply px-4 py-2 bg-dark text-light font-bold cursor-pointer border border-dark ;
   }
   .page-unselected{
-    @apply px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark rounded hover:bg-dark hover:text-light;
+    @apply px-4 py-2 bg-light text-dark font-bold cursor-pointer border border-dark hover:bg-dark hover:text-light;
   }
   .info-notFound{
     @apply text-2xl font-bold text-dark mb-3;

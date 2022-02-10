@@ -1,26 +1,53 @@
 
 <template>
-  <div class="flex flex-row justify-center gap-2 p-6">
-    <ChevronLeft :style="styleChevron" class="page-unselected h-[42px]" @click="setPage(1)" />
-    <div class="container-pagination w-[100px] md:w-[200px] flex overflow-x-scroll">
-      <div v-for="index in pagination()">
-        <button
-          :style="style"
-          :class="pageSelection[index - 1]"
-          @click="changePage(index)"
-        >{{ index }}</button>
-      </div>
+  <div class="xl:max-w-4xl flex flex-row justify-center p-6">
+    <ChevronLeftAll
+      :style="styleChevron"
+      class="page-unselected first-item-pagination h-[42px]"
+      @click="changePage(1)"
+      aria-label="Ir a la primera página"
+    >
+      <span class="sr-only">Ir a la primera página</span>
+    </ChevronLeftAll>
+    <ChevronLeft
+      :style="styleChevron"
+      class="page-unselected h-[42px]"
+      @click="previousPage()"
+      aria-label="Ir a la primera página"
+    >
+      <span class="sr-only">Ir a la página anterior</span>
+    </ChevronLeft>
+    <div class="container-pagination w-2/12 flex overflow-x-scroll">
+      <button
+        :style="style"
+        :class="pageSelection[index - 1]"
+        v-for="index in pagination()"
+        @click="changePage(index)"
+      >{{ index }}</button>
     </div>
     <ChevronRight
       :style="styleChevron"
       class="page-unselected h-[42px]"
+      @click="nextPage()"
+      aria-label="Ir a la última página"
+    >
+      <span class="sr-only">Ir a la siguiente página</span>
+    </ChevronRight>
+    <ChevronRightAll
+      :style="styleChevron"
+      class="page-unselected last-item-pagination h-[42px]"
       @click="changePage(this.pagination())"
-    />
+      aria-label="Ir a la última página"
+    >
+      <span class="sr-only">Ir a la última página</span>
+    </ChevronRightAll>
   </div>
 </template>
 
 <script>
 import { reactive, computed } from 'vue';
+import ChevronLeftAll from "../components/ChevronLeftAll.vue";
+import ChevronRightAll from "../components/ChevronRightAll.vue";
 import ChevronLeft from "../components/ChevronLeft.vue";
 import ChevronRight from "../components/ChevronRight.vue";
 
@@ -48,7 +75,9 @@ export default {
   },
   components: {
     ChevronLeft,
-    ChevronRight
+    ChevronRight,
+    ChevronLeftAll,
+    ChevronRightAll
   },
   methods: {
 
@@ -75,6 +104,26 @@ export default {
     },
     changePage(pageNumber) {
       this.setPage(pageNumber);
+    },
+    actualPage() {
+      const urlParams = new URLSearchParams(window.location.search)
+      const currentPage = Number(urlParams.get('p'))
+      return currentPage;
+
+    },
+    nextPage() {
+      const nextPagination = this.actualPage() + 1;
+      if (nextPagination > this.pagination()) {
+        return;
+      }
+      this.changePage(nextPagination)
+    },
+    previousPage() {
+      const previousPagination = this.actualPage() - 1;
+      if (previousPagination === 0) {
+        return;
+      }
+      this.changePage(previousPagination)
     }
   },
   created() {
@@ -108,5 +157,11 @@ export default {
 .container-pagination::-webkit-scrollbar-thumb {
   background-color: #ffa438; /* color of the scroll thumb */
   border-radius: 20px; /* roundness of the scroll thumb */
+}
+.first-item-pagination {
+  border-radius: 50% 0 0 50%;
+}
+.last-item-pagination {
+  border-radius: 0 50% 50% 0;
 }
 </style>
