@@ -59,14 +59,14 @@ export default {
     },
     getEventByID() {
 
-      const eventID = this.$store.state.allEvents.filter(e => e.id === this.$route.params.id)
+      let eventID = this.$store.state.allEvents.filter(e => e.id === this.$route.params.id)
       eventID = this.eventID[0];
 
-      if(this.eventID === undefined){
-        this.$router.push({name:"page404"})
+      if (this.eventID === undefined) {
+        this.$router.push({ name: "page404" })
       }
     },
-    created(){
+    created() {
       this.getEventByID();
     }
   },
