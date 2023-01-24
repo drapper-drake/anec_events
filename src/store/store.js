@@ -65,13 +65,13 @@ const store = createStore({
             event.id = idEvent;
             //Reajusta el tamaño de las imágenes de las tarjetas desde la URL
             event.photoEvent = event.photoEvent.replace("upload", "upload/w_500").replace("jpg", "webp");
-    
+
             //hace directamente la función changeFormatData
             event.dateStart = new Date(event.dateStart);
             if (event.hasOwnProperty("dateFinal")) {
               event.dateFinal = new Date(event.dateFinal);
             }
-            if (hasAllPropsValidFormat(event) === true && isCurrentEventActive(event) === true) {
+            if (hasAllPropsValidFormat(event) === true /*&& isCurrentEventActive(event) === true*/) {
               fetchedEvents.push(event);
             }
             else {
